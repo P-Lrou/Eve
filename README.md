@@ -1,4 +1,5 @@
 <div align="center">
+  
 ![GitHub contributors](https://img.shields.io/github/contributors/P-Lrou/Projet-Jeu-2D) 
 ![GitHub forks](https://img.shields.io/github/forks/p-Lrou/Projet-Jeu-2D)
 ![GitHub Repo stars](https://img.shields.io/github/stars/P-Lrou/Projet-Jeu-2D)
