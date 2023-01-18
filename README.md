@@ -4,6 +4,9 @@
 This is a web game made p5.js who's currently in developpment.
  </br> </br>
 
+
+![GitHub all releases](https://img.shields.io/github/downloads/P-Lrou/Projet-Jeu-2D/total)
+
 ## Table of Content    
 - Installation
 - Features
