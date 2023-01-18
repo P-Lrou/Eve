@@ -1,15 +1,10 @@
-<div display="flex">
+<div align="center" display="flex">
 
 ![GitHub contributors](https://img.shields.io/github/contributors/P-Lrou/Projet-Jeu-2D) 
-
 ![GitHub forks](https://img.shields.io/github/forks/p-Lrou/Projet-Jeu-2D)
-
 ![GitHub Repo stars](https://img.shields.io/github/stars/P-Lrou/Projet-Jeu-2D)
-
 ![GitHub issues](https://img.shields.io/github/issues/P-Lrou/Projet-Jeu-2D)
-
 ![GitHub all releases](https://img.shields.io/github/downloads/P-Lrou/Projet-Jeu-2D/total?logo=github)
-
 </div>
 
 
