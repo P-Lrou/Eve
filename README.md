@@ -62,7 +62,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Open Terminal
 2. Clone the repo
-   ```bash
+   ```sh
    git clone https://github.com/P-Lrou/Projet-Jeu-2D.git
    ```
 
