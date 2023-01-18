@@ -4,7 +4,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/p-Lrou/Projet-Jeu-2D)
 ![GitHub Repo stars](https://img.shields.io/github/stars/P-Lrou/Projet-Jeu-2D)
 ![GitHub issues](https://img.shields.io/github/issues/P-Lrou/Projet-Jeu-2D)
-[![GitHub all releases](https://img.shields.io/github/downloads/P-Lrou/Projet-Jeu-2D/total?logo=github)](https://github.com/P-Lrou/Projet-Jeu-2D/archive/refs/heads/main.zip)
+[![GitHub all releases](https://img.shields.io/github/downloads/P-Lrou/Projet-Jeu-2D/total?logo=github)](https://github.com/P-Lrou/Projet-Jeu-2D/releases/latest/download/Projet-Jeu-2D-0.0.1.zip)
 </div>
 
 
