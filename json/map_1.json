@@ -1,0 +1,25 @@
+{
+    "mapColumn": 12,
+    "mapRow": 12,
+    "mapWidth": 560,
+    "mapHeight": 560,
+    "tileWidth": 16,
+    "tileHeight": 16,
+    "mapRatio" : 2.92,
+    "layers": [
+      [
+        ["wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1"]
+      ]
+    ]
+}
