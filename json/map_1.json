@@ -9,14 +9,14 @@
     "layers": [
       [
         ["wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1"],
-        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
-        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "wall_1"],
-        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "wall_1"],
-        ["wall_1", "floor_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "floor_1", "floor_1", "wall_1"],
-        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
-        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
-        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
-        ["wall_1", "floor_1", "floor_1", "floor_1", "wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "wall_1", "empty", "empty", "empty", "empty", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "wall_1", "empty", "empty", "empty", "empty", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "wall_1", "empty", "empty", "empty", "empty", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "wall_1", "empty", "empty", "empty", "empty", "wall_1", "floor_1", "floor_1", "wall_1"],
+        ["wall_1", "floor_1", "floor_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "floor_1", "floor_1", "wall_1"],
         ["wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
         ["wall_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "floor_1", "wall_1"],
         ["wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1"]

@@ -1,5 +1,5 @@
 const engineOneStart = () => {
-    background(50);
+    background(galaxy);
 
     drawMap();
     playerInputs();

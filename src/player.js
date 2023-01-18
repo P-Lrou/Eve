@@ -25,12 +25,27 @@ const playerInputs = () => {
 }
 
 const drawPlayer = () => {
-    ellipse(playerPosX, playerPosY, 30);
+    switch (lastDirection) {
+        case "left":
+            image(playerMoveLeft1, playerPosX, playerPosY, 50, 50);
+            break;
+        case "right":
+            image(playerMoveRigth1, playerPosX, playerPosY, 50, 50);
+            break;
+        case "up":
+            image(playerMoveUp1, playerPosX, playerPosY, 50, 50);
+            break;
+        case "down":
+            image(playerMoveDown1, playerPosX, playerPosY, 50, 50);
+            break;
+        default:
+            image(playerMoveDown1, playerPosX, playerPosY, 50, 50);
+    }
 }
 
 const getPlayerTileName = () => {
-    let playerTilePosX = Math.trunc((playerPosX + mapX) / tileWidth / mapRatio);
-    let playerTilePosY = Math.trunc((playerPosY + mapY) / tileHeight / mapRatio);
+    let playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
+    let playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight / mapRatio);
     return map.layers[0][playerTilePosY][playerTilePosX]
 }
 
