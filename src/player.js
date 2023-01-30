@@ -43,14 +43,35 @@ const drawPlayer = () => {
     }
 }
 
-const getPlayerTileName = () => {
-    let playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
-    let playerTilePosY = Math.trunc((playerPosY + 10 + mapY) / tileHeight / mapRatio);
+const getPlayerTileName = (lastDirection) => {
+    let playerTilePosX ;
+    let playerTilePosY ;
+    switch (lastDirection) {
+        case "left":
+            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
+            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight / mapRatio);
+            break;
+        case "right":
+            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth / mapRatio);
+            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight / mapRatio);
+            break;
+        case "up":
+            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
+            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight / mapRatio);
+            break;
+        case "down":
+            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
+            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight / mapRatio);
+            break;
+        default:
+            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
+            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight / mapRatio);
+    }
     return map.layers[0][playerTilePosY][playerTilePosX]
 }
 
-const checkIfIsCollision = () => {
-    switch (getPlayerTileName()) {
+const checkIfIsCollision = (lastDirection) => {
+    switch (getPlayerTileName(lastDirection)) {
         case "wall_1":
             return true;
         default:
@@ -59,7 +80,7 @@ const checkIfIsCollision = () => {
 }
 
 const madeCollision = (lastDirection) => {
-    if (checkIfIsCollision()) {
+    if (checkIfIsCollision(lastDirection)) {
         switch (lastDirection) {
             case "left":
                 playerPosX += playerMoveSize;
