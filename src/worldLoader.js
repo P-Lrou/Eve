@@ -24,7 +24,6 @@ const runMap = (mapName) => {
     mapHeight = map.mapHeight;
     tileWidth = map.tileWidth;
     tileHeight = map.tileHeight;
-    mapRatio = map.mapRatio;
 
     layersVerification();
     initAssets();

@@ -17,12 +17,10 @@ const initAssets = () => {
     floor_1 = floorImage.get(0, 0, tileWidth, tileHeight);
     wall_1 = wallImage.get(0, 0, tileWidth, tileHeight);
     wall_Top_1 = wallTopImage.get(0, 0, tileWidth, tileHeight);
-    playerMoveDown1 = playerSpriteDown.get(0, 0, 30, 30);
-    playerMoveDown2 = playerSpriteDown.get(30, 0, 30, 30);
-    playerMoveDown3 = playerSpriteDown.get(60, 0, 30, 30);
-    playerMoveUp1 = playerSpriteUp.get(0, 0, 30, 30);
-    playerMoveLeft1 = playerSpriteLeft.get(0, 0, 29, 30);
-    playerMoveRigth1 = playerSpriteRigth.get(0, 0, 30, 30);
+    playerMoveDown1 = playerSpriteDown.get(0, 0,tileWidth, tileHeight);
+    playerMoveUp1 = playerSpriteUp.get(0, 0,tileWidth, tileHeight);
+    playerMoveLeft1 = playerSpriteLeft.get(0, 0,tileWidth, tileHeight);
+    playerMoveRigth1 = playerSpriteRigth.get(0, 0,tileWidth, tileHeight);
 }
 
 const findActualAsset = (layer, row, column) => {
@@ -34,7 +32,7 @@ const findActualAsset = (layer, row, column) => {
             return floor_1;
         case "wall_1":
             return wall_1;
-        case "wall_Top":
+        case "wall_Top_1":
             return wall_Top_1;
         default:
             throw new Error(

@@ -27,19 +27,19 @@ const playerInputs = () => {
 const drawPlayer = () => {
     switch (lastDirection) {
         case "left":
-            image(playerMoveLeft1, playerPosX, playerPosY, 50*ratioPerso, 50*ratioPerso);
+            image(playerMoveLeft1, playerPosX, playerPosY, 70, 70);
             break;
         case "right":
-            image(playerMoveRigth1, playerPosX, playerPosY, 50*ratioPerso, 50*ratioPerso);
+            image(playerMoveRigth1, playerPosX, playerPosY, 70, 70);
             break;
         case "up":
-            image(playerMoveUp1, playerPosX, playerPosY, 50*ratioPerso, 50*ratioPerso);
+            image(playerMoveUp1, playerPosX, playerPosY, 70, 70);
             break;
         case "down":
-            image(playerMoveDown1, playerPosX, playerPosY, 50*ratioPerso, 50*ratioPerso);
+            image(playerMoveDown1, playerPosX, playerPosY, 70, 70);
             break;
         default:
-            image(playerMoveDown1, playerPosX, playerPosY, 50*ratioPerso, 50*ratioPerso);
+            image(playerMoveDown1, playerPosX, playerPosY, 70, 70);
     }
 }
 
@@ -48,20 +48,20 @@ const getPlayerTileName = (lastDirection) => {
     let playerTilePosY ;
     switch (lastDirection) {
         case "left":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight / mapRatio);
+            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
+            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
             break;
         case "right":
-            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth / mapRatio);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight / mapRatio);
+            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth);
+            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
             break;
         case "up":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
-            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight / mapRatio);
+            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
+            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight);
             break;
         case "down":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight / mapRatio);
+            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
+            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
             break;
         default:
             playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
@@ -99,3 +99,25 @@ const madeCollision = (lastDirection) => {
         }
     }
 }
+
+const playerCamera = () => {
+    if (playerPosX > screenWidth - screenWidth / 4) {
+      playerPosX = screenWidth - screenWidth / 4;
+      mapX += playerMoveSize;
+    }
+  
+    if (playerPosX < screenWidth / 4) {
+      playerPosX = screenWidth / 4;
+      mapX -= playerMoveSize;
+    }
+  
+    if (playerPosY > screenHeight - screenHeight / 4) {
+      playerPosY = screenHeight - screenHeight / 4;
+      mapY += playerMoveSize;
+    }
+  
+    if (playerPosY < screenHeight / 4) {
+      playerPosY = screenHeight / 4;
+      mapY -= playerMoveSize;
+    }
+  }

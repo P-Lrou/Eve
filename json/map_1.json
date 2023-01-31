@@ -3,9 +3,8 @@
     "mapRow": 12,
     "mapWidth": 560,
     "mapHeight": 560,
-    "tileWidth": 16,
-    "tileHeight": 16,
-    "mapRatio" : 2.92,
+    "tileWidth": 64,
+    "tileHeight": 64,
     "layers": [
       [
         ["wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1", "wall_1"],

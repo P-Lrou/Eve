@@ -16,5 +16,3 @@ let playerPosY = 100;
 let playerMoveSize = 2;
 
 let lastDirection;
-
-let ratioPerso = 2;
