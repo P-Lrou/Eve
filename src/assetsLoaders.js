@@ -4,6 +4,7 @@ const loadAssets = () => {
     galaxy = loadImage("assets/galaxy.jpg");
     floorImage = loadImage("assets/floor.png");
     wallImage = loadImage("assets/wall.png");
+    wallTopImage = loadImage("assets/wallTop.png");
 
     playerSpriteDown = loadImage("assets/walk_down.png")
     playerSpriteUp = loadImage("assets/walk_up.png")
@@ -15,6 +16,7 @@ const initAssets = () => {
     empty = createImage(tileWidth, tileHeight);
     floor_1 = floorImage.get(0, 0, tileWidth, tileHeight);
     wall_1 = wallImage.get(0, 0, tileWidth, tileHeight);
+    wall_Top_1 = wallTopImage.get(0, 0, tileWidth, tileHeight);
     playerMoveDown1 = playerSpriteDown.get(0, 0, 30, 30);
     playerMoveDown2 = playerSpriteDown.get(30, 0, 30, 30);
     playerMoveDown3 = playerSpriteDown.get(60, 0, 30, 30);
@@ -32,6 +34,8 @@ const findActualAsset = (layer, row, column) => {
             return floor_1;
         case "wall_1":
             return wall_1;
+        case "wall_Top":
+            return wall_Top_1;
         default:
             throw new Error(
                 "Can't find the asset named : " + assetName +
