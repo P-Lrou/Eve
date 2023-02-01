@@ -60,8 +60,8 @@ const getPlayerTileName = (lastDirection) => {
             playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight);
             break;
         case "down":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
+            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth);
+            playerTilePosY = Math.trunc((playerPosY + 65 + mapY) / tileHeight);
             break;
         default:
             playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);

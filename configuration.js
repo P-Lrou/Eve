@@ -1,5 +1,5 @@
 let screenWidth = 560;
-let screenHeight = 650;
+let screenHeight = 560;
 
 let mapX = 0;
 let mapY = 0;
@@ -13,6 +13,6 @@ let currentEngine = ENGINE_ONE;
 
 let playerPosX = 100;
 let playerPosY = 100;
-let playerMoveSize = 2;
+let playerMoveSize = 2.5;
 
 let lastDirection;

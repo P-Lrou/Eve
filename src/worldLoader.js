@@ -15,9 +15,6 @@ const runMap = (mapName) => {
         default:
             throw new Error(`Map named : ${mapName} not found !`);
     }
-
-    mapX = 0;
-    mapY = 0;
     mapColumn = map.mapColumn;
     mapRow = map.mapRow;
     mapWidth = map.mapWidth;
