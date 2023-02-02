@@ -1,5 +1,5 @@
 <div align="center">
-  
+
 ![GitHub contributors](https://img.shields.io/github/contributors/P-Lrou/Projet-Jeu-2D) 
 ![GitHub forks](https://img.shields.io/github/forks/p-Lrou/Projet-Jeu-2D)
 ![GitHub Repo stars](https://img.shields.io/github/stars/P-Lrou/Projet-Jeu-2D)
@@ -12,14 +12,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Projet-Jeu-2D</h3>
 
   <p align="center">
-    This is a web game made p5.js who's currently in developpment. 
+    This is a web game made with p5.js who's currently in developpment. 
     <br />
     <a href="https://github.com/P-Lrou/Projet-Jeu-2D"><strong>Explore the docs »</strong></a>
     <br />
@@ -41,8 +38,8 @@
 
 ### Built With
 
-* ![p5js](https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5.js&logoColor=FFFFFF)
-* ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+* [![p5js](https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5.js&logoColor=FFFFFF)](https://p5js.org/)
+* [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 
 
 <!-- GETTING STARTED -->
@@ -69,10 +66,9 @@ This is an example of how to list things you need to use the software and how to
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [x] Moves
+- [x] Colision
+- [ ] Can take item and stock it in inventory
 
 See the [open issues](https://github.com/P-Lrou/Projet-Jeu-2D/issues) for a full list of proposed features (and known issues).
 
