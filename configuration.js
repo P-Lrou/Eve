@@ -1,5 +1,5 @@
-let screenWidth = 560;
-let screenHeight = 560;
+let screenWidth = 810;
+let screenHeight = 910;
 
 let mapX = 0;
 let mapY = 0;
@@ -15,4 +15,4 @@ let playerPosX = 100;
 let playerPosY = 100;
 let playerMoveSize = 2.5;
 
-let lastDirection;
+let Direction;

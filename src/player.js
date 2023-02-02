@@ -1,31 +1,31 @@
 const playerInputs = () => {
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
         playerPosX -= playerMoveSize;
-        lastDirection = "left"
-        madeCollision(lastDirection)
+        Direction = "left"
+        madeCollision(Direction)
     }
 
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
         playerPosX += playerMoveSize;
-        lastDirection = "right"
-        madeCollision(lastDirection)
+        Direction = "right"
+        madeCollision(Direction)
     }
 
     if (keyIsDown(UP_ARROW) || keyIsDown(90)) {
         playerPosY -= playerMoveSize;
-        lastDirection = "up"
-        madeCollision(lastDirection)
+        Direction = "up"
+        madeCollision(Direction)
     }
 
     if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
         playerPosY += playerMoveSize;
-        lastDirection = "down"
-        madeCollision(lastDirection)
+        Direction = "down"
+        madeCollision(Direction)
     }
 }
 
 const drawPlayer = () => {
-    switch (lastDirection) {
+    switch (Direction) {
         case "left":
             image(playerMoveLeft1, playerPosX, playerPosY, 70, 70);
             break;
@@ -43,10 +43,10 @@ const drawPlayer = () => {
     }
 }
 
-const getPlayerTileName = (lastDirection) => {
+const getPlayerTileName = () => {
     let playerTilePosX ;
     let playerTilePosY ;
-    switch (lastDirection) {
+    switch (Direction) {
         case "left":
             playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
             playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
@@ -70,8 +70,8 @@ const getPlayerTileName = (lastDirection) => {
     return map.layers[0][playerTilePosY][playerTilePosX]
 }
 
-const checkIfIsCollision = (lastDirection) => {
-    switch (getPlayerTileName(lastDirection)) {
+const checkIfIsCollision = () => {
+    switch (getPlayerTileName()) {
         case "wall_1":
             return true;
         default:
@@ -79,9 +79,9 @@ const checkIfIsCollision = (lastDirection) => {
     }
 }
 
-const madeCollision = (lastDirection) => {
-    if (checkIfIsCollision(lastDirection)) {
-        switch (lastDirection) {
+const madeCollision = () => {
+    if (checkIfIsCollision()) {
+        switch (Direction) {
             case "left":
                 playerPosX += playerMoveSize;
                 break;
