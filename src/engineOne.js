@@ -1,9 +1,10 @@
 const engineOneStart = () => {
-    background(50);
+    background(galaxy);
 
     drawMap();
     playerInputs();
-    drawPlayer()
+    drawPlayer();
+    playerCamera();
 }
 
 const drawMap = () => {
@@ -18,8 +19,8 @@ const drawTilesForOneLayer = (actualLayer) => {
             let actualAsset = findActualAsset(actualLayer, v, k);
             image(
                 actualAsset,
-                (k * tileWidth - mapX) * mapRatio,
-                (v * tileHeight - mapY) * mapRatio,
+                (k * tileWidth - mapX),
+                (v * tileHeight - mapY),
                 tileWidth * mapRatio,
                 tileHeight * mapRatio
             );
