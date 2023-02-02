@@ -12,14 +12,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Projet-Jeu-2D</h3>
 
   <p align="center">
-    This is a web game made p5.js who's currently in developpment. 
+    This is a web game made with p5.js who's currently in developpment. 
     <br />
     <a href="https://github.com/P-Lrou/Projet-Jeu-2D"><strong>Explore the docs »</strong></a>
     <br />
@@ -69,8 +66,8 @@ This is an example of how to list things you need to use the software and how to
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Moves
-- [ ] Colision
+- [x] Moves
+- [x] Colision
 - [ ] Can take item and stock it in inventory
 
 See the [open issues](https://github.com/P-Lrou/Projet-Jeu-2D/issues) for a full list of proposed features (and known issues).
