@@ -76,7 +76,7 @@ function getPlayerTileName() {
 // Check if the tile where the player is, is a collision block
 function checkIfIsCollision() {
     switch (getPlayerTileName()) {
-        case "wall_1":
+        case "wallTopDown":
             return true;
         default:
             return false;
