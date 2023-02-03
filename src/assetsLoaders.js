@@ -1,39 +1,35 @@
-const loadAssets = () => {
-    map_1 = loadJSON("json/map_1.json");
+// Load all Assets Images
+function loadAssets() {
+    map1 = loadJSON("json/map1.json");
 
-    galaxy = loadImage("assets/galaxy.jpg");
-    floorImage = loadImage("assets/floor.png");
-    wallImage = loadImage("assets/wall.png");
-    wallTopImage = loadImage("assets/wallTop.png");
+    tempBackground = loadImage("assets/tempBackground.jpg");
+    floorTopDown = loadImage("assets/floorTopDown.png");
+    wallTopDown = loadImage("assets/wallTopDown.png");
 
-    playerSpriteDown = loadImage("assets/walk_down.png")
-    playerSpriteUp = loadImage("assets/walk_up.png")
-    playerSpriteLeft = loadImage("assets/walk_left.png")
-    playerSpriteRigth = loadImage("assets/walk_rigth.png")
+    mainCaracterSprites = loadImage("assets/mainCaracterSprites.png")
 }
 
-const initAssets = () => {
+// Recover all assets
+function initAssets() {
     empty = createImage(tileWidth, tileHeight);
-    floor_1 = floorImage.get(0, 0, tileWidth, tileHeight);
-    wall_1 = wallImage.get(0, 0, tileWidth, tileHeight);
-    wall_Top_1 = wallTopImage.get(0, 0, tileWidth, tileHeight);
-    playerMoveDown1 = playerSpriteDown.get(0, 0,tileWidth, tileHeight);
-    playerMoveUp1 = playerSpriteUp.get(0, 0,tileWidth, tileHeight);
-    playerMoveLeft1 = playerSpriteLeft.get(0, 0,tileWidth, tileHeight);
-    playerMoveRigth1 = playerSpriteRigth.get(0, 0,tileWidth, tileHeight);
+    floorTopDown = floorTopDown.get(0, 0, tileWidth, tileHeight);
+    wallTopDown = wallTopDown.get(0, 0, tileWidth, tileHeight);
+    playerMoveDown = mainCaracterSprites.get(0, 0, tileWidth, tileHeight);
+    playerMoveUp = mainCaracterSprites.get(64, 0, tileWidth, tileHeight);
+    playerMoveRight = mainCaracterSprites.get(128, 0, tileWidth, tileHeight);
+    playerMoveLeft = mainCaracterSprites.get(192, 0, tileWidth, tileHeight);
 }
 
-const findActualAsset = (layer, row, column) => {
+// Find the good assets for map creation
+function findActualAsset(layer, row, column) {
     let assetName = layer[row][column];
     switch (assetName) {
         case "empty":
             return empty;
-        case "floor_1":
-            return floor_1;
-        case "wall_1":
-            return wall_1;
-        case "wall_Top_1":
-            return wall_Top_1;
+        case "floorTopDown":
+            return floorTopDown;
+        case "wallTopDown":
+            return wallTopDown;
         default:
             throw new Error(
                 "Can't find the asset named : " + assetName +

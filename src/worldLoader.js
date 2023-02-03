@@ -1,16 +1,8 @@
-let map;
-let mapColumn;
-let mapRow;
-let mapWidth;
-let mapHeight;
-let tileWidth;
-let tileHeight;
-let mapRatio;
-
-const runMap = (mapName) => {
+// Recover actual map values
+function runMap(mapName) {
     switch (mapName) {
-        case "map_1":
-            map = map_1;
+        case "map1":
+            map = map1;
             break;
         default:
             throw new Error(`Map named : ${mapName} not found !`);
@@ -26,14 +18,15 @@ const runMap = (mapName) => {
     initAssets();
 }
 
-
-const layersVerification = () => {
+// Check if the layer number is good
+function layersVerification() {
     for (let i = 0; i < map.layers.lenght; i++) {
         layerVerification(map.layers[i]);
     }
 }
 
-const layerVerification = (layer) => {
+// Check if the layer number is good
+function layerVerification(layer) {
 
     if (mapRow != layer.length) {
         throw new Error(

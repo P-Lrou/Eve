@@ -5,7 +5,7 @@ function preload() {
 function setup() {
     createCanvas(screenWidth, screenHeight);
     noSmooth()
-    runMap("map_1");
+    runMap("map1");
 }
 
 function draw() {

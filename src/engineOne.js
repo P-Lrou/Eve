@@ -1,5 +1,6 @@
-const engineOneStart = () => {
-    background(galaxy);
+// Start creation of all engine one settings
+function engineOneStart() {
+    background(tempBackground);
 
     drawMap();
     playerInputs();
@@ -7,20 +8,22 @@ const engineOneStart = () => {
     playerCamera();
 }
 
-const drawMap = () => {
+// Draw the map for the engine one
+function drawMap() {
     for (let i = 0; i < map.layers.length; i++) {
         drawTilesForOneLayer(map.layers[i])
     }
 }
 
-const drawTilesForOneLayer = (actualLayer) => {
-    for (let v = 0; v < map.mapRow; v++) {
-        for (let k = 0; k < map.mapColumn; k++) {
-            let actualAsset = findActualAsset(actualLayer, v, k);
+// Draw the tiles for the map creation
+function drawTilesForOneLayer(actualLayer) {
+    for (let y = 0; y < map.mapRow; y++) {
+        for (let x = 0; x < map.mapColumn; x++) {
+            let actualAsset = findActualAsset(actualLayer, y, x);
             image(
                 actualAsset,
-                (k * tileWidth - mapX),
-                (v * tileHeight - mapY),
+                (x * tileWidth - mapX),
+                (y * tileHeight - mapY),
                 tileWidth * mapRatio,
                 tileHeight * mapRatio
             );

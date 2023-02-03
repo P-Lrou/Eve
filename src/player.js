@@ -1,4 +1,5 @@
-const playerInputs = () => {
+// Assign all player inputs
+function playerInputs() {
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
         playerPosX -= playerMoveSize;
         Direction = "left"
@@ -24,28 +25,30 @@ const playerInputs = () => {
     }
 }
 
-const drawPlayer = () => {
+// Draw Player with the good asset
+function drawPlayer() {
     switch (Direction) {
         case "left":
-            image(playerMoveLeft1, playerPosX, playerPosY, 70, 70);
+            image(playerMoveLeft, playerPosX, playerPosY, playerTileSize, playerTileSize);
             break;
         case "right":
-            image(playerMoveRigth1, playerPosX, playerPosY, 70, 70);
+            image(playerMoveRight, playerPosX, playerPosY, playerTileSize, playerTileSize);
             break;
         case "up":
-            image(playerMoveUp1, playerPosX, playerPosY, 70, 70);
+            image(playerMoveUp, playerPosX, playerPosY, playerTileSize, playerTileSize);
             break;
         case "down":
-            image(playerMoveDown1, playerPosX, playerPosY, 70, 70);
+            image(playerMoveDown, playerPosX, playerPosY, playerTileSize, playerTileSize);
             break;
         default:
-            image(playerMoveDown1, playerPosX, playerPosY, 70, 70);
+            image(playerMoveDown, playerPosX, playerPosY, playerTileSize, playerTileSize);
     }
 }
 
-const getPlayerTileName = () => {
-    let playerTilePosX ;
-    let playerTilePosY ;
+// Get the tile where the player is
+function getPlayerTileName() {
+    let playerTilePosX;
+    let playerTilePosY;
     switch (Direction) {
         case "left":
             playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
@@ -70,7 +73,8 @@ const getPlayerTileName = () => {
     return map.layers[0][playerTilePosY][playerTilePosX]
 }
 
-const checkIfIsCollision = () => {
+// Check if the tile where the player is, is a collision block
+function checkIfIsCollision() {
     switch (getPlayerTileName()) {
         case "wall_1":
             return true;
@@ -79,7 +83,8 @@ const checkIfIsCollision = () => {
     }
 }
 
-const madeCollision = () => {
+// Made the collision between the player and the collision tile
+function madeCollision() {
     if (checkIfIsCollision()) {
         switch (Direction) {
             case "left":
@@ -100,24 +105,25 @@ const madeCollision = () => {
     }
 }
 
-const playerCamera = () => {
+// Do the camera who follow the player
+function playerCamera() {
     if (playerPosX > screenWidth - screenWidth / 4) {
-      playerPosX = screenWidth - screenWidth / 4;
-      mapX += playerMoveSize;
+        playerPosX = screenWidth - screenWidth / 4;
+        mapX += playerMoveSize;
     }
-  
+
     if (playerPosX < screenWidth / 4) {
-      playerPosX = screenWidth / 4;
-      mapX -= playerMoveSize;
+        playerPosX = screenWidth / 4;
+        mapX -= playerMoveSize;
     }
-  
+
     if (playerPosY > screenHeight - screenHeight / 4) {
-      playerPosY = screenHeight - screenHeight / 4;
-      mapY += playerMoveSize;
+        playerPosY = screenHeight - screenHeight / 4;
+        mapY += playerMoveSize;
     }
-  
+
     if (playerPosY < screenHeight / 4) {
-      playerPosY = screenHeight / 4;
-      mapY -= playerMoveSize;
+        playerPosY = screenHeight / 4;
+        mapY -= playerMoveSize;
     }
-  }
+}
