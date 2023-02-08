@@ -1,3 +1,4 @@
+sprite = protoSprite1;
 // Assign all player inputs
 function playerInputs() {
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
@@ -29,19 +30,35 @@ function playerInputs() {
 function drawPlayer() {
     switch (Direction) {
         case "left":
-            image(playerMoveLeft, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
+                image(protoSprite.get(tileWidth*rep,tileHeight*6 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            } else {
+                image(protoSprite.get(tileWidth,tileHeight*6 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            }
             break;
         case "right":
-            image(playerMoveRight, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            if (keyIsDown(RIGHT_ARROW) || keyIsDown(81)) {
+                image(protoSprite.get(tileWidth*rep,tileHeight*2 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            } else {
+                image(protoSprite.get(tileWidth,tileHeight*2 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            }
             break;
         case "up":
-            image(playerMoveUp, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            if (keyIsDown(UP_ARROW) || keyIsDown(81)) {
+                image(protoSprite.get(tileWidth*rep,tileHeight*4 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            } else {
+                image(protoSprite.get(tileWidth,tileHeight*4 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            }
             break;
         case "down":
-            image(playerMoveDown, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            if (keyIsDown(DOWN_ARROW) || keyIsDown(81)) {
+                image(protoSprite.get(tileWidth*rep,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            } else {
+                image(protoSprite.get(tileWidth,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            }
             break;
         default:
-            image(playerMoveDown, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            image(protoSprite.get(tileWidth,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
     }
 }
 
@@ -76,7 +93,7 @@ function getPlayerTileName() {
 // Check if the tile where the player is, is a collision block
 function checkIfIsCollision() {
     switch (getPlayerTileName()) {
-        case "wall_1":
+        case "wallTopDown":
             return true;
         default:
             return false;

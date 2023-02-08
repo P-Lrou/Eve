@@ -19,8 +19,19 @@ let currentEngine = ENGINE_ONE;
 // Set player start point/ tile size / speed
 let playerPosX = 100;
 let playerPosY = 100;
-let playerTileSize = 64;
+let playerTileSize = 100;
 let playerMoveSize = 2.5;
+
+// Set sprite and animate repetition
+let sprite;
+let rep = 0;
+setInterval(() =>{
+    if (rep < 15){
+        rep += 1
+    } else {
+        rep = 0
+    }
+}, 60)
 
 // Set the variable to check the player direction
 let Direction;

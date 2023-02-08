@@ -7,6 +7,8 @@ function loadAssets() {
     wallTopDown = loadImage("assets/wallTopDown.png");
 
     mainCaracterSprites = loadImage("assets/mainCaracterSprites.png")
+
+    protoSprite = loadImage("assets/walker1.png")
 }
 
 // Recover all assets
