@@ -13,13 +13,15 @@ let ratio = 1;
 const ENGINE_ONE = "engine_one";
 const ENGINE_TWO = "engine_two";
 
+// ! Engine One Configuration
+
 // Set the start engine
 let currentEngine = ENGINE_ONE;
 
 // Set player start point/ tile size / speed
 let playerPosX = 100;
 let playerPosY = 100;
-let playerTileSize = 60;
+let spritePlayerSize = 100;
 let playerMoveSize = 2.5;
 
 // Set sprite and animate repetition
@@ -36,12 +38,13 @@ setInterval(() =>{
 // Set the variable to check the player direction
 let Direction;
 
+// ! Engine One Configuration
+
 // Set all map variables initialisation
 let map;
 let mapColumn;
 let mapRow;
 let mapWidth;
 let mapHeight;
-let tileWidth;
-let tileHeight;
-let mapRatio;
+let tileSize;
+
