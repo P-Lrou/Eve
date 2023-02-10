@@ -1,4 +1,4 @@
-sprite = protoSprite1;
+
 // Assign all player inputs
 function playerInputs() {
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {

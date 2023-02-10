@@ -28,12 +28,12 @@ let playerMoveSize = 2.5;
 let sprite;
 let rep = 0;
 setInterval(() =>{
-    if (rep < 15){
+    if (rep < 6){
         rep += 1
     } else {
-        rep = 0
+        rep = 1
     }
-}, 60)
+}, 110)
 
 // Set the variable to check the player direction
 let Direction;
