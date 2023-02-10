@@ -11,8 +11,7 @@ function runMap(mapName) {
     mapRow = map.mapRow;
     mapWidth = map.mapWidth;
     mapHeight = map.mapHeight;
-    tileWidth = map.tileWidth;
-    tileHeight = map.tileHeight;
+    tileSize = map.tileSize;
 
     layersVerification();
     initAssets();
@@ -45,11 +44,11 @@ function layerVerification(layer) {
         }
     }
 
-    if (mapWidth != mapColumn * tileWidth) {
+    if (mapWidth != mapColumn * tileSize) {
         throw new Error("Wrong width of the world");
     }
 
-    if (mapHeight != mapRow * tileHeight) {
+    if (mapHeight != mapRow * tileSize) {
         throw new Error("Wrong hieght of the world");
     }
 }
