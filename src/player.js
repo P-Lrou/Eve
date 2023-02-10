@@ -1,4 +1,4 @@
-sprite = protoSprite1;
+
 // Assign all player inputs
 function playerInputs() {
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
@@ -31,34 +31,34 @@ function drawPlayer() {
     switch (Direction) {
         case "left":
             if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*6 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(protoSprite.get(20*rep,20 ,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             } else {
-                image(protoSprite.get(tileWidth,tileHeight*6 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(protoSprite.get(0,20,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             }
             break;
         case "right":
             if (keyIsDown(RIGHT_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*2 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(rightMoveCaractere.get(20*rep,tileHeight*0 ,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             } else {
-                image(protoSprite.get(tileWidth,tileHeight*2 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(rightMoveCaractere.get(0,tileHeight*0 ,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             }
             break;
         case "up":
             if (keyIsDown(UP_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*4 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(protoSprite.get(20*rep,40 ,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             } else {
-                image(protoSprite.get(tileWidth,tileHeight*4 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(protoSprite.get(0,40 ,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             }
             break;
         case "down":
             if (keyIsDown(DOWN_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(protoSprite.get(20*rep,60 ,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             } else {
-                image(protoSprite.get(tileWidth,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+                image(protoSprite.get(0,60,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
             }
             break;
         default:
-            image(protoSprite.get(tileWidth,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, playerTileSize, playerTileSize);
+            image(rightMoveCaractere.get(0,tileHeight*0 ,20,20), playerPosX, playerPosY, playerTileSize, playerTileSize);
     }
 }
 
