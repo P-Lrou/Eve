@@ -24,10 +24,11 @@ let playerStartY = 100;
 let mapX = -(window.innerWidth/2) + playerStartX;
 let mapY = -(window.innerHeight/2) + playerStartY;
 
-
-let playerPosX = window.innerWidth/2;
-let playerPosY = window.innerHeight/2 - 50;
 let spritePlayerSize = 100;
+
+let playerPosX = window.innerWidth/2 - spritePlayerSize/2;
+let playerPosY = window.innerHeight/2 - spritePlayerSize/2;
+
 let playerSpeed = 5;
 let playerState = "idle";
 
