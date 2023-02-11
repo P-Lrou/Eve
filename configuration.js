@@ -22,7 +22,7 @@ let currentEngine = ENGINE_ONE;
 let playerPosX = 100;
 let playerPosY = 100;
 let spritePlayerSize = 100;
-let playerMoveSize = 2.5;
+let playerSpeed = 5;
 let playerState = "idle";
 
 // Set sprite and animate repetition
