@@ -5,7 +5,6 @@ function engineOneStart() {
     drawMap();
     playerInputs();
     drawPlayer();
-    playerCamera();
 }
 
 // Draw the map for the engine one

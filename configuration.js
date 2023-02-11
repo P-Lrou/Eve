@@ -1,10 +1,6 @@
 // Set the global screen size
-let screenWidth = 810;
-let screenHeight = 910;
-
-// Set the map creation start point
-let mapX = 0;
-let mapY = 0;
+let screenWidth = window.innerWidth;
+let screenHeight = window.innerHeight;
 
 // Set the ratio if need zoom on map
 let ratio = 1;
@@ -19,20 +15,30 @@ const ENGINE_TWO = "engine_two";
 let currentEngine = ENGINE_ONE;
 
 // Set player start point/ tile size / speed
-let playerPosX = 100;
-let playerPosY = 100;
+
+//let playerStart = createVector(100, 100); // Create a new vector with X on first parameter and Y on second
+let playerStartX = 100;
+let playerStartY = 100;
+
+// Set the map creation start point
+let mapX = -(window.innerWidth/2) + playerStartX;
+let mapY = -(window.innerHeight/2) + playerStartY;
+
+
+let playerPosX = window.innerWidth/2;
+let playerPosY = window.innerHeight/2 - 50;
 let spritePlayerSize = 100;
 let playerSpeed = 5;
 let playerState = "idle";
 
 // Set sprite and animate repetition
 let sprite;
-let rep = 0;
+let indexOfAnimation = 0;
 setInterval(() =>{
-    if (rep < 6){
-        rep += 1
+    if (indexOfAnimation < 6){
+        indexOfAnimation += 1
     } else {
-        rep = 1
+        indexOfAnimation = 1
     }
 }, 110)
 
