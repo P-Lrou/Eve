@@ -1,93 +1,93 @@
 
 // Assign all player inputs
 function playerInputs() {
+    playerState = "idle"
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
         playerPosX -= playerMoveSize;
         Direction = "left"
+        playerState = "mooving"
         madeCollision()
     }
 
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
         playerPosX += playerMoveSize;
         Direction = "right"
+        playerState = "mooving"
         madeCollision()
     }
 
     if (keyIsDown(UP_ARROW) || keyIsDown(90)) {
         playerPosY -= playerMoveSize;
         Direction = "up"
+        playerState = "mooving"
         madeCollision()
     }
 
     if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
         playerPosY += playerMoveSize;
         Direction = "down"
+        playerState = "mooving"
         madeCollision()
     }
 }
 
 // Draw Player with the good asset
 function drawPlayer() {
+    switch(playerState){
+        case "idle":
+            drawIdlePlayer()
+            break;
+        case "mooving":
+            drawMovePlayer()
+            break;
+        default :
+            throw new Error ("Player State isn't defined or isn't the good value")
+    }
+}
+
+function drawIdlePlayer(){
     switch (Direction) {
         case "left":
-            if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*6 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            } else {
-                image(protoSprite.get(tileWidth,tileHeight*6 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            }
+            image(protoSprite.get(20,20*1 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "right":
-            if (keyIsDown(RIGHT_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*2 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            } else {
-                image(protoSprite.get(tileWidth,tileHeight*2 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            }
+            image(protoSprite.get(20,20*0 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "up":
-            if (keyIsDown(UP_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*4 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            } else {
-                image(protoSprite.get(tileWidth,tileHeight*4 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            }
+            image(protoSprite.get(20,20*2 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "down":
-            if (keyIsDown(DOWN_ARROW) || keyIsDown(81)) {
-                image(protoSprite.get(tileWidth*rep,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            } else {
-                image(protoSprite.get(tileWidth,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            }
+            image(protoSprite.get(20,20*3 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         default:
-            image(protoSprite.get(tileWidth,tileHeight*0 ,tileWidth,tileHeight), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(20,20*3 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+    }
+}
+
+function drawMovePlayer(){
+    switch (Direction) {
+        case "left":
+            image(protoSprite.get(20*rep,20*1 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        case "right":
+            image(protoSprite.get(20*rep,20*0 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        case "up":
+            image(protoSprite.get(20*rep,20*2 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        case "down":
+            image(protoSprite.get(20*rep,20*3 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        default:
+            image(protoSprite.get(20,20*3 ,20,20), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
     }
 }
 
 // Get the tile where the player is
 function getPlayerTileName() {
     let playerTilePos = createVector();
-    /*switch (Direction) {
-        case "left":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
-            break;
-        case "right":
-            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
-            break;
-        case "up":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight);
-            break;
-        case "down":
-            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 65 + mapY) / tileHeight);
-            break;
-        default:
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
-            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight / mapRatio);
-    }*/
-    playerTilePos.x = Math.trunc((playerPosX + spritePlayerSize / 2 + mapX) / tileWidth);
-    playerTilePos.y = Math.trunc((playerPosY + spritePlayerSize /1.25 + mapY) / tileHeight);
+    playerTilePos.x = Math.trunc((playerPosX + spritePlayerSize / 2 + mapX) / tileSize);
+    playerTilePos.y = Math.trunc((playerPosY + spritePlayerSize /1.25 + mapY) / tileSize);
     // En attendant d'avoir une fonction plus poussé pour les collisions, juste faire un point de collision au lieu de se perdre dans 40 km de codes avec des nombres rdm
     return map.layers[0][playerTilePos.y][playerTilePos.x]
 }

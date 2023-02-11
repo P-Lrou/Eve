@@ -23,6 +23,7 @@ let playerPosX = 100;
 let playerPosY = 100;
 let spritePlayerSize = 100;
 let playerMoveSize = 2.5;
+let playerState = "idle";
 
 // Set sprite and animate repetition
 let sprite;
@@ -42,8 +43,10 @@ let Direction;
 
 // Set all map variables initialisation
 let map;
+// actually useless -- just take array.length
 let mapColumn;
 let mapRow;
+// actually useless -- just take array.length
 let mapWidth;
 let mapHeight;
 let tileSize;
