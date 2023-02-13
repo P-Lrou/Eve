@@ -25,6 +25,7 @@ let mapX = -(window.innerWidth/2) + playerStartX;
 let mapY = -(window.innerHeight/2) + playerStartY;
 
 let spritePlayerSize = 80;
+let spriteCutSize = 20;
 
 let playerPosX = window.innerWidth/2 - spritePlayerSize/2;
 let playerPosY = window.innerHeight/2 - spritePlayerSize/2;

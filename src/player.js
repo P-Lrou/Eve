@@ -31,7 +31,6 @@ function playerInputs() {
     }
 }
 
-let spriteCutSize = 20; // temporary here
 // Draw Player with the good asset
 function drawPlayer() {
     switch(playerState){
