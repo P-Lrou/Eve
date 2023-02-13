@@ -16,7 +16,7 @@ let currentEngine = ENGINE_ONE;
 
 // Set player start point/ tile size / speed
 
-//let playerStart = createVector(100, 100); // Create a new vector with X on first parameter and Y on second
+//let playerStart = createVector(400, 400); // Create a new vector with X on first parameter and Y on second
 let playerStartX = 400;
 let playerStartY = 400;
 
