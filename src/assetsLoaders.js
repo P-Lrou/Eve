@@ -7,17 +7,19 @@ function loadAssets() {
     wallTopDown = loadImage("assets/wallTopDown.png");
 
     mainCaracterSprites = loadImage("assets/mainCaracterSprites.png")
+    rightMoveCaractere = loadImage("assets/sprite_sheet_droite.png")
+    protoSprite = loadImage("assets/SpriteSheetAllDirection.png")
 }
 
 // Recover all assets
 function initAssets() {
-    empty = createImage(tileWidth, tileHeight);
-    floorTopDown = floorTopDown.get(0, 0, tileWidth, tileHeight);
-    wallTopDown = wallTopDown.get(0, 0, tileWidth, tileHeight);
-    playerMoveDown = mainCaracterSprites.get(0, 0, tileWidth, tileHeight);
-    playerMoveUp = mainCaracterSprites.get(64, 0, tileWidth, tileHeight);
-    playerMoveRight = mainCaracterSprites.get(128, 0, tileWidth, tileHeight);
-    playerMoveLeft = mainCaracterSprites.get(192, 0, tileWidth, tileHeight);
+    empty = createImage(tileSize, tileSize);
+    floorTopDown = floorTopDown.get(0, 0, tileSize, tileSize);
+    wallTopDown = wallTopDown.get(0, 0, tileSize, tileSize);
+    playerMoveDown = mainCaracterSprites.get(0, 0, tileSize, tileSize);
+    playerMoveUp = mainCaracterSprites.get(64, 0, tileSize, tileSize);
+    playerMoveRight = mainCaracterSprites.get(128, 0, tileSize, tileSize);
+    playerMoveLeft = mainCaracterSprites.get(192, 0, tileSize, tileSize);
 }
 
 // Find the good assets for map creation

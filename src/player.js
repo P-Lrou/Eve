@@ -1,76 +1,96 @@
+
 // Assign all player inputs
 function playerInputs() {
+    playerState = "idle"
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
-        playerPosX -= playerMoveSize;
+        mapX -= playerSpeed;
         Direction = "left"
-        madeCollision(Direction)
+        playerState = "mooving"
+        madeCollision()
     }
 
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
-        playerPosX += playerMoveSize;
+        mapX += playerSpeed;
         Direction = "right"
-        madeCollision(Direction)
+        playerState = "mooving"
+        madeCollision()
     }
 
     if (keyIsDown(UP_ARROW) || keyIsDown(90)) {
-        playerPosY -= playerMoveSize;
+        mapY -= playerSpeed;
         Direction = "up"
-        madeCollision(Direction)
+        playerState = "mooving"
+        madeCollision()
     }
 
     if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
-        playerPosY += playerMoveSize;
+        mapY += playerSpeed;
         Direction = "down"
-        madeCollision(Direction)
+        playerState = "mooving"
+        madeCollision()
     }
 }
 
+let spriteCutSize = 20; // temporary here
 // Draw Player with the good asset
 function drawPlayer() {
+    switch(playerState){
+        case "idle":
+            drawIdlePlayer()
+            break;
+        case "mooving":
+            drawMovePlayer()
+            break;
+        default :
+            throw new Error ("Player State isn't defined or isn't the good value")
+    }
+}
+
+function drawIdlePlayer(){
     switch (Direction) {
         case "left":
-            image(playerMoveLeft, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            image(protoSprite.get(0,spriteCutSize*1 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "right":
-            image(playerMoveRight, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            image(protoSprite.get(0,spriteCutSize*0 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "up":
-            image(playerMoveUp, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            image(protoSprite.get(0,spriteCutSize*2 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "down":
-            image(playerMoveDown, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            image(protoSprite.get(0,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         default:
-            image(playerMoveDown, playerPosX, playerPosY, playerTileSize, playerTileSize);
+            image(protoSprite.get(0,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+    }
+}
+
+function drawMovePlayer(){
+    switch (Direction) {
+        case "left":
+            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*1 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        case "right":
+            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*0 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        case "up":
+            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*2 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        case "down":
+            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            break;
+        default:
+            image(protoSprite.get(spriteCutSize,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
     }
 }
 
 // Get the tile where the player is
 function getPlayerTileName() {
-    let playerTilePosX;
-    let playerTilePosY;
-    switch (Direction) {
-        case "left":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
-            break;
-        case "right":
-            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 55 + mapY) / tileHeight);
-            break;
-        case "up":
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight);
-            break;
-        case "down":
-            playerTilePosX = Math.trunc((playerPosX + 35 + mapX) / tileWidth);
-            playerTilePosY = Math.trunc((playerPosY + 65 + mapY) / tileHeight);
-            break;
-        default:
-            playerTilePosX = Math.trunc((playerPosX + 15 + mapX) / tileWidth / mapRatio);
-            playerTilePosY = Math.trunc((playerPosY + 15 + mapY) / tileHeight / mapRatio);
-    }
-    return map.layers[0][playerTilePosY][playerTilePosX]
+    let playerTilePos = createVector();
+    playerTilePos.x = Math.trunc((playerPosX + spritePlayerSize / 2 + mapX) / tileSize);
+    playerTilePos.y = Math.trunc((playerPosY + spritePlayerSize + mapY) / tileSize);
+    // En attendant d'avoir une fonction plus poussé pour les collisions, juste faire un point de collision au lieu de se perdre dans 40 km de codes avec des nombres rdm
+    return map.layers[0][playerTilePos.y][playerTilePos.x]
 }
 
 // Check if the tile where the player is, is a collision block
@@ -88,16 +108,16 @@ function madeCollision() {
     if (checkIfIsCollision()) {
         switch (Direction) {
             case "left":
-                playerPosX += playerMoveSize;
+                mapX += playerSpeed;
                 break;
             case "right":
-                playerPosX -= playerMoveSize;
+                mapX -= playerSpeed;
                 break;
             case "up":
-                playerPosY += playerMoveSize;
+                mapY += playerSpeed;
                 break;
             case "down":
-                playerPosY -= playerMoveSize;
+                mapY -= playerSpeed;
                 break;
             default:
                 throw new Error("Collision bug");
@@ -107,23 +127,6 @@ function madeCollision() {
 
 // Do the camera who follow the player
 function playerCamera() {
-    if (playerPosX > screenWidth - screenWidth / 4) {
-        playerPosX = screenWidth - screenWidth / 4;
-        mapX += playerMoveSize;
-    }
-
-    if (playerPosX < screenWidth / 4) {
-        playerPosX = screenWidth / 4;
-        mapX -= playerMoveSize;
-    }
-
-    if (playerPosY > screenHeight - screenHeight / 4) {
-        playerPosY = screenHeight - screenHeight / 4;
-        mapY += playerMoveSize;
-    }
-
-    if (playerPosY < screenHeight / 4) {
-        playerPosY = screenHeight / 4;
-        mapY -= playerMoveSize;
-    }
+    mapY = playerPosY
+    mapX = playerPosX
 }

@@ -5,7 +5,6 @@ function engineOneStart() {
     drawMap();
     playerInputs();
     drawPlayer();
-    playerCamera();
 }
 
 // Draw the map for the engine one
@@ -22,10 +21,10 @@ function drawTilesForOneLayer(actualLayer) {
             let actualAsset = findActualAsset(actualLayer, y, x);
             image(
                 actualAsset,
-                (x * tileWidth - mapX),
-                (y * tileHeight - mapY),
-                tileWidth * mapRatio,
-                tileHeight * mapRatio
+                (x * tileSize - mapX),
+                (y * tileSize - mapY),
+                tileSize,
+                tileSize
             );
         }
     }

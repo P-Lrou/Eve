@@ -3,8 +3,7 @@
     "mapRow": 17,
     "mapWidth": 560,
     "mapHeight": 560,
-    "tileWidth": 64,
-    "tileHeight": 64,
+    "tileSize": 64,
     "layers": [
       [
         ["wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown","wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown"],
