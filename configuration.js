@@ -29,7 +29,7 @@ let spritePlayerSize = 80;
 let playerPosX = window.innerWidth/2 - spritePlayerSize/2;
 let playerPosY = window.innerHeight/2 - spritePlayerSize/2;
 
-let playerSpeed = 5;
+let playerSpeed = 4;
 let playerState = "idle";
 
 // Set sprite and animate repetition
