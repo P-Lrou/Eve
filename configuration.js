@@ -17,14 +17,14 @@ let currentEngine = ENGINE_ONE;
 // Set player start point/ tile size / speed
 
 //let playerStart = createVector(100, 100); // Create a new vector with X on first parameter and Y on second
-let playerStartX = 100;
-let playerStartY = 100;
+let playerStartX = 400;
+let playerStartY = 400;
 
 // Set the map creation start point
 let mapX = -(window.innerWidth/2) + playerStartX;
 let mapY = -(window.innerHeight/2) + playerStartY;
 
-let spritePlayerSize = 100;
+let spritePlayerSize = 80;
 
 let playerPosX = window.innerWidth/2 - spritePlayerSize/2;
 let playerPosY = window.innerHeight/2 - spritePlayerSize/2;
