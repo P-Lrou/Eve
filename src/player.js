@@ -33,68 +33,59 @@ function playerInputs() {
 
 // Draw Player with the good asset
 function drawPlayer() {
-    switch(playerState){
+    switch (playerState) {
         case "idle":
             drawIdlePlayer()
             break;
         case "mooving":
             drawMovePlayer()
             break;
-        default :
-            throw new Error ("Player State isn't defined or isn't the good value")
+        default:
+            throw new Error("Player State isn't defined or isn't the good value")
     }
 }
 
-function drawIdlePlayer(){
+function drawIdlePlayer() {
     switch (Direction) {
         case "left":
-            image(protoSprite.get(0,spriteCutSize*1 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "right":
-            image(protoSprite.get(0,spriteCutSize*0 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "up":
-            image(protoSprite.get(0,spriteCutSize*2 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(0, spriteCutSize * 2, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "down":
-            image(protoSprite.get(0,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         default:
-            image(protoSprite.get(0,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
     }
 }
 
-function drawMovePlayer(){
+function drawMovePlayer() {
     switch (Direction) {
         case "left":
-            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*1 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "right":
-            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*0 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "up":
-            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*2 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         case "down":
-            image(protoSprite.get(spriteCutSize*indexOfAnimation,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
             break;
         default:
-            image(protoSprite.get(spriteCutSize,spriteCutSize*3 ,spriteCutSize,spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+            image(protoSprite.get(spriteCutSize, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
     }
-}
-
-// Get the tile where the player is
-function getPlayerTileName() {
-    let playerTilePos = createVector();
-    playerTilePos.x = Math.trunc((playerPosX + spritePlayerSize / 2 + mapX) / tileSize);
-    playerTilePos.y = Math.trunc((playerPosY + spritePlayerSize + mapY) / tileSize);
-    // En attendant d'avoir une fonction plus poussé pour les collisions, juste faire un point de collision au lieu de se perdre dans 40 km de codes avec des nombres rdm
-    return map.layers[0][playerTilePos.y][playerTilePos.x]
 }
 
 // Check if the tile where the player is, is a collision block
-function checkIfIsCollision() {
-    switch (getPlayerTileName()) {
+function checkIfIsCollisionWall(actualTile) {
+    switch (actualTile) {
         case "wallTopDown":
             return true;
         default:
@@ -102,25 +93,60 @@ function checkIfIsCollision() {
     }
 }
 
+function getTileName(point) {
+    return map.layers[0][Math.trunc((point[0] + mapX) / tileSize)][Math.trunc((point[1] + mapY) / tileSize)]
+}
+
 // Made the collision between the player and the collision tile
 function madeCollision() {
-    if (checkIfIsCollision()) {
-        switch (Direction) {
-            case "left":
-                mapX += playerSpeed;
-                break;
-            case "right":
-                mapX -= playerSpeed;
-                break;
-            case "up":
-                mapY += playerSpeed;
-                break;
-            case "down":
-                mapY -= playerSpeed;
-                break;
-            default:
-                throw new Error("Collision bug");
+    let rectPlayer = [playerPosX, playerPosY, spritePlayerSize, spritePlayerSize]
+    let TopCornerLeft = getTopCornerLeft(shrinkRect(rectPlayer, 10))
+    let TopCornerRight = getTopCornerRight(shrinkRect(rectPlayer, 20))
+    let BottomCornerLeft = getBottomCornerLeft(shrinkRect(rectPlayer, 10))
+    let BottomCornerRight = getBottomCornerRight(shrinkRect(rectPlayer, 20))
+    // fill("red")
+    // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
+    // fill("blue")
+    // ellipse(TopCornerRight[0], TopCornerRight[1], 15)
+    // fill("green")
+    // ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
+    // fill("yellow")
+    // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
+    if (checkIfIsCollisionWall(getTileName(TopCornerLeft))) {
+        if (Direction === "up") {
+            mapY += playerSpeed;
         }
+        if (Direction === "left") {
+            mapX += playerSpeed;
+        }
+        console.log("TopCornerLeft")
+    }
+    if (checkIfIsCollisionWall(getTileName(TopCornerRight))) {
+        if (Direction === "up") {
+            mapY += playerSpeed;
+        }
+        if (Direction === "right") {
+            mapX -= playerSpeed;
+        }
+        console.log("TopCornerRight")
+    }
+    if (checkIfIsCollisionWall(getTileName(BottomCornerLeft))) {
+        if (Direction === "down") {
+            mapY -= playerSpeed;
+        }
+        if (Direction === "left") {
+            mapX += playerSpeed;
+        }
+        console.log("BottomCornerLeft")
+    }
+    if (checkIfIsCollisionWall(getTileName(BottomCornerRight))) {
+        if (Direction === "down") {
+            mapY -= playerSpeed;
+        }
+        if (Direction === "right") {
+            mapX -= playerSpeed;
+        }
+        console.log("BottomCornerRight")
     }
 }
 

@@ -1,17 +1,17 @@
-function getTopCornerLeft(x, y, width, height) {
-    return [x, y]
+function getTopCornerLeft(rect) {
+    return [rect[0], rect[1]]
 }
 
-function getTopCornerRight(x, y, width, height) {
-    return [x + width, y]
+function getTopCornerRight(rect) {
+    return [rect[0] + rect[2], rect[1]]
 }
 
-function getBottomCornerLeft(x, y, width, height) {
-    return [x, y + height]
+function getBottomCornerLeft(rect) {
+    return [rect[0], rect[1] + rect[3]]
 }
 
-function getBottomCornerRight(x, y, width, height) {
-    return [x + width, y + height]
+function getBottomCornerRight(rect) {
+    return [rect[0] + rect[2], rect[1] + rect[3]]
 }
 
 function pointIsInRect(point, rect) {
@@ -22,19 +22,20 @@ function pointIsInRect(point, rect) {
 }
 
 function rectIsInRect(rect1, rect2) {
+    let tabOfCorner = [];
     if (pointIsInRect(getTopCornerLeft(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
-        return true
+        tabOfCorner.push("TopCornerLeft")
     }
     if (pointIsInRect(getTopCornerRight(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
-        return true
+        tabOfCorner.push("TopCornerRight")
     }
     if (pointIsInRect(getBottomCornerLeft(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
-        return true
+        tabOfCorner.push("BottomCornerLeft")
     }
     if (pointIsInRect(getBottomCornerRight(rect1[0], rect1[1], rect1[2], rect1[3]), rect2)) {
-        return true
+        tabOfCorner.push("BottomCornerRight")
     }
-    return false
+    return tabOfCorner
 }
 
 function expandRect(rect, expandSize) {
@@ -42,5 +43,5 @@ function expandRect(rect, expandSize) {
 }
 
 function shrinkRect(rect, skrinkSize) {
-    return [rect[0] + skrinkSize, rect[1] + skrinkSize, rect[2] - skrinkSize, rect[3] - skrinkSize]
+    return [rect[0] + skrinkSize, rect[1] + skrinkSize, rect[2] - (skrinkSize*2), rect[3] - skrinkSize]
 }

@@ -6,7 +6,7 @@ function loadAssets() {
     floorTopDown = loadImage("assets/floorTopDown.png");
     wallTopDown = loadImage("assets/wallTopDown.png");
 
-    protoSprite = loadImage("assets/SpriteSheetAllDirection.png")
+    protoSprite = loadImage("assets/spriteTemp.png")
 }
 
 // Recover all assets
