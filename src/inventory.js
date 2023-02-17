@@ -1,6 +1,7 @@
 function drawInventory() {
     switch (currentEngine) {
         case ENGINE_ONE:
+            inventoryHeigthStart = 810;
             fill("rgba(255,255,255,0.3)")
             stroke("white")
             if (actualInventoryChoose === 1) {

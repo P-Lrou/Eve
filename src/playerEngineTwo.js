@@ -93,7 +93,7 @@ function tempCollisionEngineTwo () {
 }
 
 function changeMapEngineTwo() {
-    if (playerPosX > 588 && playerPosX < 730){
+    if (playerPosX > 588 && playerPosX < 780){
         textSize(32);
         text('Press E to change room', 10, 30);
         if (keyIsDown(69)) {
