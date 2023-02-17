@@ -32,7 +32,6 @@ switch (currentEngine) {
     case ENGINE_ONE:
         spritePlayerSize = 120;
 
-        let playerSpeed = 4;
         playerPosX = screenWidth / 2 - spritePlayerSize / 2;
         playerPosY = screenHeight / 2 - spritePlayerSize / 2;
         break;
@@ -78,14 +77,12 @@ let tileSize;
 function detectEngine() {
     if (currentEngine != tempCurrentEngine) {
         if (currentEngine == "engine_one") {
-            console.log('EngineOne')
 
             spritePlayerSize = 120;
 
             playerPosX = screenWidth / 2 - spritePlayerSize / 2;
             playerPosY = screenHeight / 2 - spritePlayerSize / 2;
         } else {
-            console.log('EngineTwo')
 
             spritePlayerSize = 280;
 

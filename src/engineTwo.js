@@ -1,6 +1,8 @@
 function engineTwoStart() {
-    background(tempBackground);
+    background(backgroundEngineTwo);
     playerInputsEngineTwo();
     drawPlayerEngineTwo();
     drawInventory();
+    changeMapEngineTwo();
+    tempCollisionEngineTwo();
 }

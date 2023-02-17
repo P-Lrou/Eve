@@ -83,42 +83,21 @@ function drawMovePlayerEngineTwo(){
     }
 }
 
-// // Get the tile where the player is
-// function getPlayerTileNameEngineTwo() {
-//     let playerTilePos = createVector();
-//     playerTilePos.x = Math.trunc((playerPosX + spritePlayerSize / 2 + mapX) / tileSize);
-//     playerTilePos.y = Math.trunc((playerPosY + spritePlayerSize + mapY) / tileSize);
-//     // En attendant d'avoir une fonction plus poussé pour les collisions, juste faire un point de collision au lieu de se perdre dans 40 km de codes avec des nombres rdm
-//     return map.layers[0][playerTilePos.y][playerTilePos.x]
-// }
+function tempCollisionEngineTwo () {
+    if (playerPosX < -60){
+        playerPosX = -60
+    }
+    if (playerPosX > 780){
+        playerPosX = 780
+    }
+}
 
-// // Check if the tile where the player is, is a collision block
-// function checkIfIsCollisionEngineTwo() {
-//     switch (getPlayerTileNameEngineTwo()) {
-//         case "wallTopDown":
-//             return true;
-//         default:
-//             return false;
-//     }
-// }
-
-
-// // Made the collision between the player and the collision tile
-// function madeCollisionEngineTwo() {
-//     if (checkIfIsCollisionEngineTwo()) {
-//         switch (Direction) {
-//             case "left":
-//                 mapX += playerSpeed;
-//                 break;
-//             case "right":
-//                 mapX -= playerSpeed;
-//                 break;
-//             default:
-//                 throw new Error("Collision bug");
-//         }
-//     }
-// }
-// // Do the camera who follow the player
-// function playerCameraEngineTwo() {
-//     mapX = playerPosX
-// }
+function changeMapEngineTwo() {
+    if (playerPosX > 588 && playerPosX < 730){
+        textSize(32);
+        text('Press E to change room', 10, 30);
+        if (keyIsDown(69)) {
+            currentEngine = ENGINE_ONE
+        }
+    }
+}
