@@ -25,8 +25,9 @@ let playerStartY = 400;
 let mapX = -(screenWidth / 2) + playerStartX;
 let mapY = -(screenHeight / 2) + playerStartY;
 
-let spritePlayerSize = 80;
+let spritePlayerSize = 120;
 let spriteCutSize = 20;
+let tileSizeCut = 16;
 
 switch (currentEngine) {
     case ENGINE_ONE:
@@ -45,7 +46,7 @@ switch (currentEngine) {
         break;
 }
 
-let playerSpeed = 5;
+let playerSpeed = 6;
 let playerState = "idle";
 
 // Set sprite and animate repetition
@@ -95,3 +96,10 @@ function detectEngine() {
         tempCurrentEngine = currentEngine
     }
 }
+let inventorySquareSize = 80;
+let inventoryWidthStart = 240;
+let inventoryHeigthStart = 810;
+let inventoryTab = [];
+let inventoryTabNumber = 0;
+let actualInventoryChoose = 1;
+inventoryTab.length = 5;

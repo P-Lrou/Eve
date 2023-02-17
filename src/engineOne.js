@@ -4,6 +4,7 @@ function engineOneStart() {
     drawMap();
     playerInputs();
     drawPlayer();
+    drawInventory();
 }
 
 // Draw the map for the engine one
