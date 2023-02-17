@@ -1,6 +1,6 @@
 // Set the global screen size
-let screenWidth = window.innerWidth;
-let screenHeight = window.innerHeight;
+let screenWidth = 1000;
+let screenHeight = 900;
 
 // Set the ratio if need zoom on map
 let ratio = 1;
@@ -13,6 +13,7 @@ const ENGINE_TWO = "engine_two";
 
 // Set the start engine
 let currentEngine = ENGINE_ONE;
+let tempCurrentEngine = ENGINE_ONE;
 
 // Set player start point/ tile size / speed
 
@@ -21,23 +22,37 @@ let playerStartX = 400;
 let playerStartY = 400;
 
 // Set the map creation start point
-let mapX = -(window.innerWidth/2) + playerStartX;
-let mapY = -(window.innerHeight/2) + playerStartY;
+let mapX = -(screenWidth / 2) + playerStartX;
+let mapY = -(screenHeight / 2) + playerStartY;
 
 let spritePlayerSize = 80;
 let spriteCutSize = 20;
 
-let playerPosX = window.innerWidth/2 - spritePlayerSize/2;
-let playerPosY = window.innerHeight/2 - spritePlayerSize/2;
+switch (currentEngine) {
+    case ENGINE_ONE:
+        spritePlayerSize = 60;
 
-let playerSpeed = 4;
+        let playerSpeed = 4;
+        playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+        playerPosY = screenHeight / 2 - spritePlayerSize / 2;
+        break;
+
+    case ENGINE_TWO:
+        spritePlayerSize = 280;
+
+        playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+        playerPosY = screenHeight - spritePlayerSize;
+        break;
+}
+
+let playerSpeed = 5;
 let playerState = "idle";
 
 // Set sprite and animate repetition
 let sprite;
 let indexOfAnimation = 0;
-setInterval(() =>{
-    if (indexOfAnimation < 6){
+setInterval(() => {
+    if (indexOfAnimation < 6) {
         indexOfAnimation += 1
     } else {
         indexOfAnimation = 1
@@ -59,3 +74,24 @@ let mapWidth;
 let mapHeight;
 let tileSize;
 
+// Change value when changing engine
+function detectEngine() {
+    if (currentEngine != tempCurrentEngine) {
+        if (currentEngine == "engine_one") {
+            console.log('EngineOne')
+
+            spritePlayerSize = 60;
+
+            playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+            playerPosY = screenHeight / 2 - spritePlayerSize / 2;
+        } else {
+            console.log('EngineTwo')
+
+            spritePlayerSize = 280;
+
+            playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+            playerPosY = screenHeight - spritePlayerSize;
+        }
+        tempCurrentEngine = currentEngine
+    }
+}

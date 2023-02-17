@@ -1,7 +1,6 @@
 // Start creation of all engine one settings
 function engineOneStart() {
     background(tempBackground);
-
     drawMap();
     playerInputs();
     drawPlayer();
