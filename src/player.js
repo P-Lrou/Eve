@@ -254,7 +254,7 @@ function changeMap() {
     textSize(32);
     text('Press E to change room', 10, 30);
     if (keyIsDown(69)) {
-        console.log('Change Room')
+        currentEngine = ENGINE_TWO
     }
 }
 

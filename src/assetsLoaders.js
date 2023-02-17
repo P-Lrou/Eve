@@ -3,8 +3,6 @@ function loadAssets() {
     map1 = loadJSON("json/map1.json");
 
     tempBackground = loadImage("assets/tempBackground.jpg");
-    // floorTopDown = loadImage("assets/floorTopDown.png");
-    // wallTopDown = loadImage("assets/wallTopDown.png");
     doorTopDown = loadImage("assets/doorTopDown.png");
     coinYellow = loadImage("assets/coinYellow.png")
     coinGreen = loadImage("assets/coinGreen.png")

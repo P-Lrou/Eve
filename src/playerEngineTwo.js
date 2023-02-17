@@ -17,6 +17,30 @@ function playerInputsEngineTwo() {
         playerState = "mooving"
         // madeCollisionEngineTwo()
     }
+
+    if (keyIsDown(49)){
+        actualInventoryChoose = 1
+    }
+
+    if (keyIsDown(50)){
+        actualInventoryChoose = 2
+    }
+
+    if (keyIsDown(51)){
+        actualInventoryChoose = 3
+    }
+
+    if (keyIsDown(52)){
+        actualInventoryChoose = 4
+    }
+
+    if (keyIsDown(53)){
+        actualInventoryChoose = 5
+    }
+
+    if (keyIsDown(54)){
+        actualInventoryChoose = 6
+    }
 }
 
 // Draw Player with the good asset

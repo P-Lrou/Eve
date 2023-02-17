@@ -25,13 +25,12 @@ let playerStartY = 400;
 let mapX = -(screenWidth / 2) + playerStartX;
 let mapY = -(screenHeight / 2) + playerStartY;
 
-let spritePlayerSize = 120;
 let spriteCutSize = 20;
 let tileSizeCut = 16;
 
 switch (currentEngine) {
     case ENGINE_ONE:
-        spritePlayerSize = 60;
+        spritePlayerSize = 120;
 
         let playerSpeed = 4;
         playerPosX = screenWidth / 2 - spritePlayerSize / 2;
@@ -81,7 +80,7 @@ function detectEngine() {
         if (currentEngine == "engine_one") {
             console.log('EngineOne')
 
-            spritePlayerSize = 60;
+            spritePlayerSize = 120;
 
             playerPosX = screenWidth / 2 - spritePlayerSize / 2;
             playerPosY = screenHeight / 2 - spritePlayerSize / 2;
