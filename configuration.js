@@ -59,7 +59,7 @@ setInterval(() => {
 }, 110)
 
 // Set the variable to check the player direction
-let Direction;
+let Direction = [0, 0];
 
 // ! Engine One Configuration
 
