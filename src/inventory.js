@@ -1,3 +1,4 @@
+// Draw the inventory for each engine
 function drawInventory() {
     switch (currentEngine) {
         case ENGINE_ONE:

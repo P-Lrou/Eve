@@ -1,4 +1,3 @@
-
 // Assign all player inputs
 function playerInputs() {
     Direction =  [0, 0]

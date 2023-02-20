@@ -7,7 +7,6 @@ function playerInputsEngineTwo() {
         console.log(playerPosX)
         Direction = "left"
         playerState = "mooving"
-        // madeCollisionEngineTwo()
     }
 
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
@@ -15,7 +14,6 @@ function playerInputsEngineTwo() {
         console.log(playerPosX)
         Direction = "right"
         playerState = "mooving"
-        // madeCollisionEngineTwo()
     }
 
     if (keyIsDown(49)){
