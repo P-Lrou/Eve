@@ -211,14 +211,14 @@ function madeCollision() {
     let TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 60, spritePlayerSize - 28, spritePlayerSize])
     let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize - 2])
     let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize - 2])
-    fill("red")
-    ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
-    fill("blue")
-    ellipse(TopCornerRight[0], TopCornerRight[1], 15)
-    fill("green")
-    ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
-    fill("yellow")
-    ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
+    // fill("red")
+    // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
+    // fill("blue")
+    // ellipse(TopCornerRight[0], TopCornerRight[1], 15)
+    // fill("green")
+    // ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
+    // fill("yellow")
+    // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
     if (checkIfIsCollisionWall(getTileName(TopCornerLeft))) {
         if (Direction[0] === -1) {
             mapX += playerSpeed;
