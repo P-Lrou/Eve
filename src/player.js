@@ -1,31 +1,32 @@
 
 // Assign all player inputs
 function playerInputs() {
+    Direction =  [0, 0]
     playerState = "idle"
     if (keyIsDown(UP_ARROW) || keyIsDown(90)) {
         mapY -= playerSpeed;
-        Direction = "up"
+        Direction[1] -= 1;
         playerState = "mooving"
         madeCollision()
     }
 
     if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
         mapY += playerSpeed;
-        Direction = "down"
+        Direction[1] += 1;
         playerState = "mooving"
         madeCollision()
     }
 
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
         mapX -= playerSpeed;
-        Direction = "left"
+        Direction[0] -= 1;
         playerState = "mooving"
         madeCollision()
     }
 
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
         mapX += playerSpeed;
-        Direction = "right"
+        Direction[0] += 1;
         playerState = "mooving"
         madeCollision()
     }
@@ -61,6 +62,8 @@ function drawPlayer() {
     let TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 60, spritePlayerSize - 28, spritePlayerSize])
     let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize - 2])
     let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize - 2])
+
+
     switch (playerState) {
         case "idle":
             drawIdlePlayer()
@@ -71,6 +74,8 @@ function drawPlayer() {
         default:
             throw new Error("Player State isn't defined or isn't the good value")
     }
+
+
     if (checkIfIsObject(getTileNameForObject(TopCornerLeft))) {
         takeObject(TopCornerLeft)
     }
@@ -105,22 +110,30 @@ function drawIdlePlayer() {
 }
 
 function drawMovePlayer() {
-    switch (Direction) {
-        case "left":
-            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+    let animationMoovePlayer = protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+
+    switch(Direction[0]){
+        case 0 :
             break;
-        case "right":
-            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        case 1 :
+            animationMoovePlayer = protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
             break;
-        case "up":
-            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        case -1:
+            animationMoovePlayer = protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
             break;
-        case "down":
-            image(protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            break;
-        default:
-            image(protoSprite.get(spriteCutSize, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
     }
+    switch(Direction[1]){
+        case 0 :
+            break;
+        case 1 :
+            animationMoovePlayer = protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+            break;
+        case -1:
+            animationMoovePlayer = protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
+            break;
+    }
+
+    image(animationMoovePlayer, playerPosX, playerPosY, spritePlayerSize, spritePlayerSize)
 }
 
 // Check if the tile where the player is, is a collision block
@@ -198,43 +211,43 @@ function madeCollision() {
     let TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 60, spritePlayerSize - 28, spritePlayerSize])
     let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize - 2])
     let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize - 2])
-    // fill("red")
-    // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
-    // fill("blue")
-    // ellipse(TopCornerRight[0], TopCornerRight[1], 15)
-    // fill("green")
-    // ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
-    // fill("yellow")
-    // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
+    fill("red")
+    ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
+    fill("blue")
+    ellipse(TopCornerRight[0], TopCornerRight[1], 15)
+    fill("green")
+    ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
+    fill("yellow")
+    ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
     if (checkIfIsCollisionWall(getTileName(TopCornerLeft))) {
-        if (Direction === "up") {
-            mapY += playerSpeed;
-        }
-        if (Direction === "left") {
+        if (Direction[0] === -1) {
             mapX += playerSpeed;
+        }
+        else if (Direction[1] === -1) {
+            mapY += playerSpeed;
         }
     }
     if (checkIfIsCollisionWall(getTileName(TopCornerRight))) {
-        if (Direction === "up") {
-            mapY += playerSpeed;
-        }
-        if (Direction === "right") {
+        if (Direction[0] === 1) {
             mapX -= playerSpeed;
+        }
+        else if (Direction[1] === -1) {
+            mapY += playerSpeed;
         }
     }
     if (checkIfIsCollisionWall(getTileName(BottomCornerLeft))) {
-        if (Direction === "down") {
+        if (Direction[1] === 1) {
             mapY -= playerSpeed;
         }
-        if (Direction === "left") {
+        else if (Direction[0] === -1) {
             mapX += playerSpeed;
         }
     }
     if (checkIfIsCollisionWall(getTileName(BottomCornerRight))) {
-        if (Direction === "down") {
+        if (Direction[1] === 1) {
             mapY -= playerSpeed;
         }
-        if (Direction === "right") {
+        else if (Direction[0] === 1) {
             mapX -= playerSpeed;
         }
     }
