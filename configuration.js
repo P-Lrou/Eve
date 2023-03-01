@@ -25,7 +25,7 @@ let playerStartY = 400;
 let mapX = -(screenWidth / 2) + playerStartX;
 let mapY = -(screenHeight / 2) + playerStartY;
 
-let EngineTwoMapX = -2000
+let EngineTwoMapX = -3840
 let EngineTwoMapY = 0
 
 
@@ -41,7 +41,7 @@ switch (currentEngine) {
         break;
 
     case ENGINE_TWO:
-        spritePlayerSize = 280;
+        spritePlayerSize = 360;
 
         playerPosX = screenWidth / 2 - spritePlayerSize / 2;
         playerPosY = screenHeight - spritePlayerSize;
@@ -88,7 +88,7 @@ function detectEngine() {
             playerPosY = screenHeight / 2 - spritePlayerSize / 2;
         } else {
 
-            spritePlayerSize = 280;
+            spritePlayerSize = 360;
 
             playerPosX = screenWidth / 2 - spritePlayerSize / 2;
             playerPosY = screenHeight - spritePlayerSize - 30;
