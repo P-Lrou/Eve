@@ -4,6 +4,10 @@ function playerInputsEngineTwo() {
     playerState = "idle"
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
         playerPosX -= playerSpeed;
+        if (playerPosX < 100){
+            EngineTwoMapX += playerSpeed
+            playerPosX += playerSpeed;
+        }
         console.log(playerPosX)
         Direction = "left"
         playerState = "mooving"
@@ -11,6 +15,10 @@ function playerInputsEngineTwo() {
 
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
         playerPosX += playerSpeed;
+        if (playerPosX + spritePlayerSize > 900) {
+            EngineTwoMapX -= playerSpeed
+            playerPosX -= playerSpeed;
+        }
         console.log(playerPosX)
         Direction = "right"
         playerState = "mooving"

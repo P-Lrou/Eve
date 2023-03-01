@@ -25,6 +25,10 @@ let playerStartY = 400;
 let mapX = -(screenWidth / 2) + playerStartX;
 let mapY = -(screenHeight / 2) + playerStartY;
 
+let EngineTwoMapX = -2000
+let EngineTwoMapY = 0
+
+
 let spriteCutSize = 20;
 let tileSizeCut = 16;
 
@@ -87,7 +91,7 @@ function detectEngine() {
             spritePlayerSize = 280;
 
             playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-            playerPosY = screenHeight - spritePlayerSize;
+            playerPosY = screenHeight - spritePlayerSize - 30;
         }
         tempCurrentEngine = currentEngine
     }
