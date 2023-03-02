@@ -5,13 +5,10 @@ function loadAssets() {
 
   tempBackground = loadImage("assets/tempBackground.jpg");
   backgroundCloneMap = loadImage("assets/backgroundCloneMap.png");
-<<<<<<< HEAD
   doorTopDown = loadImage("assets/doorTopDown.png");
-=======
   backgroundBotanicMap = loadImage("assets/backgroundBotanicMap.png");
   doorTopDown = loadImage("assets/doorTopDown.png");
   doorTopDown2 = loadImage("assets/doorTopDown.png");
->>>>>>> devs
   coinYellow = loadImage("assets/coinYellow.png");
   coinGreen = loadImage("assets/coinGreen.png");
   coinBlue = loadImage("assets/coinBlue.png");
@@ -28,10 +25,7 @@ function initAssets() {
   wallTopDown = assets.get(0 + tileSizeCut, 0 + tileSizeCut, tileSizeCut, tileSizeCut);
   floorTopDown = assets.get(0 + tileSizeCut * 3, 0, tileSizeCut, tileSizeCut);
   floorTopDownDoor = assets.get(0 + tileSizeCut * 4, 0, tileSizeCut, tileSizeCut);
-<<<<<<< HEAD
-=======
   floorTopDownDoor2 = assets.get(0 + tileSizeCut * 4, 0, tileSizeCut, tileSizeCut);
->>>>>>> devs
   wallTopDownLeftCorner = assets.get(0 + tileSizeCut * 6, 0 + tileSizeCut * 2, tileSizeCut, tileSizeCut);
   wallTopDownFull = assets.get(0 + tileSizeCut, 0 + tileSizeCut * 2, tileSizeCut, tileSizeCut);
   wallTopDownRightCorner = assets.get(0 + tileSizeCut * 6, 0 + tileSizeCut * 3, tileSizeCut, tileSizeCut);
@@ -66,22 +60,16 @@ function findActualAsset(layer, row, column) {
       return empty;
     case "floorTopDownDoor":
       return floorTopDownDoor;
-<<<<<<< HEAD
-=======
     case "floorTopDownDoor2":
       return floorTopDownDoor2;
->>>>>>> devs
     case "floorTopDown":
       return floorTopDown;
     case "wallTopDown":
       return wallTopDown;
     case "doorTopDown":
       return doorTopDown;
-<<<<<<< HEAD
-=======
     case "doorTopDown2":
       return doorTopDown2;
->>>>>>> devs
     case "coinYellow":
       return coinYellow;
     case "coinGreen":
