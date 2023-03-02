@@ -1,67 +1,71 @@
 // Assign all player inputs
 function playerInputs() {
-    Direction =  [0, 0]
+    Direction = [0, 0]
     playerState = "idle"
     if (keyIsDown(UP_ARROW) || keyIsDown(90)) {
         mapY -= playerSpeed;
         Direction[1] -= 1;
         playerState = "mooving"
-        madeCollision()
     }
 
     if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
         mapY += playerSpeed;
         Direction[1] += 1;
         playerState = "mooving"
-        madeCollision()
     }
 
     if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
         mapX -= playerSpeed;
         Direction[0] -= 1;
         playerState = "mooving"
-        madeCollision()
     }
 
     if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
         mapX += playerSpeed;
         Direction[0] += 1;
         playerState = "mooving"
-        madeCollision()
     }
-    
-    if (keyIsDown(49)){
+
+    if (keyIsDown(49)) {
         actualInventoryChoose = 1
     }
 
-    if (keyIsDown(50)){
+    if (keyIsDown(50)) {
         actualInventoryChoose = 2
     }
 
-    if (keyIsDown(51)){
+    if (keyIsDown(51)) {
         actualInventoryChoose = 3
     }
 
-    if (keyIsDown(52)){
+    if (keyIsDown(52)) {
         actualInventoryChoose = 4
     }
 
-    if (keyIsDown(53)){
+    if (keyIsDown(53)) {
         actualInventoryChoose = 5
     }
 
-    if (keyIsDown(54)){
+    if (keyIsDown(54)) {
         actualInventoryChoose = 6
     }
+    madeCollision()
 }
 
 // Draw Player with the good asset
 function drawPlayer() {
-    let TopCornerLeft = getTopCornerLeft([playerPosX + 28, playerPosY + 60, spritePlayerSize, spritePlayerSize])
-    let TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 60, spritePlayerSize - 28, spritePlayerSize])
+    let TopCornerLeft = getTopCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize, spritePlayerSize])
+    let TopCornerRight = getTopCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize])
     let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize - 2])
     let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize - 2])
-
+    // fill("red")
+    // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
+    // fill("blue")
+    // ellipse(TopCornerRight[0], TopCornerRight[1], 15)
+    // fill("green")
+    // ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
+    // fill("yellow")
+    // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
 
     switch (playerState) {
         case "idle":
@@ -90,41 +94,26 @@ function drawPlayer() {
 }
 
 function drawIdlePlayer() {
-    switch (Direction) {
-        case "left":
-            image(protoSprite.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            break;
-        case "right":
-            image(protoSprite.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            break;
-        case "up":
-            image(protoSprite.get(0, spriteCutSize * 2, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            break;
-        case "down":
-            image(protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-            break;
-        default:
-            image(protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-    }
+    image(protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
 }
 
 function drawMovePlayer() {
     let animationMoovePlayer = protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
 
-    switch(Direction[0]){
-        case 0 :
+    switch (Direction[0]) {
+        case 0:
             break;
-        case 1 :
+        case 1:
             animationMoovePlayer = protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
             break;
         case -1:
             animationMoovePlayer = protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
             break;
     }
-    switch(Direction[1]){
-        case 0 :
+    switch (Direction[1]) {
+        case 0:
             break;
-        case 1 :
+        case 1:
             animationMoovePlayer = protoSprite.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
             break;
         case -1:
@@ -141,17 +130,16 @@ function checkIfIsCollisionWall(actualTile) {
         case "wallTopDown":
             return true;
         case "doorTopDown":
-            changeMap();
+            changeMap()
             return true;
+        case "floorTopDownDoor":
+            changeMap()
+            return false;
         case "wallTopDownLeftCorner":
             return true;
         case "wallTopDownFull":
             return true;
         case "wallTopDownRightCorner":
-            return true;
-        case "wallTopDownLeft":
-            return true;
-        case "wallTopDownRigth":
             return true;
         case "wallTopDownFullLeft":
             return true;
@@ -177,6 +165,12 @@ function checkIfIsCollisionWall(actualTile) {
             return true;
         case "wallTopDownCornerFullRight":
             return true;
+        case "chest":
+            return true
+        case "toilet":
+            return true
+        case "chestOfDrawers":
+            return true
         default:
             return false;
     }
@@ -194,7 +188,6 @@ function checkIfIsObject(actualTile) {
             return false;
     }
 }
-
 
 function getTileName(point) {
     return map.layers[0][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)]
@@ -218,7 +211,7 @@ function madeCollision() {
     // ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
     // fill("yellow")
     // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
-    if (checkIfIsCollisionWall(getTileName(TopCornerLeft))) {
+    if (checkIfIsCollisionWall(getTileName(TopCornerLeft)) || checkIfIsCollisionWall(getTileNameForObject(TopCornerLeft))) {
         if (Direction[0] === -1) {
             mapX += playerSpeed;
         }
@@ -226,7 +219,7 @@ function madeCollision() {
             mapY += playerSpeed;
         }
     }
-    if (checkIfIsCollisionWall(getTileName(TopCornerRight))) {
+    if (checkIfIsCollisionWall(getTileName(TopCornerRight)) || checkIfIsCollisionWall(getTileNameForObject(TopCornerRight))) {
         if (Direction[0] === 1) {
             mapX -= playerSpeed;
         }
@@ -234,7 +227,7 @@ function madeCollision() {
             mapY += playerSpeed;
         }
     }
-    if (checkIfIsCollisionWall(getTileName(BottomCornerLeft))) {
+    if (checkIfIsCollisionWall(getTileName(BottomCornerLeft)) || checkIfIsCollisionWall(getTileNameForObject(BottomCornerLeft))) {
         if (Direction[1] === 1) {
             mapY -= playerSpeed;
         }
@@ -242,7 +235,7 @@ function madeCollision() {
             mapX += playerSpeed;
         }
     }
-    if (checkIfIsCollisionWall(getTileName(BottomCornerRight))) {
+    if (checkIfIsCollisionWall(getTileName(BottomCornerRight)) || checkIfIsCollisionWall(getTileNameForObject(BottomCornerRight))) {
         if (Direction[1] === 1) {
             mapY -= playerSpeed;
         }
@@ -265,9 +258,11 @@ function takeObject(point) {
 function changeMap() {
     textSize(32);
     text('Press E to change room', 10, 30);
-    if (keyIsDown(69)) {
-        currentEngine = ENGINE_TWO
-    }
+    setTimeout(() => {
+        if (keyIsDown(69)) {
+            currentEngine = ENGINE_TWO
+        }
+    }, 500);
 }
 
 // Do the camera who follow the player

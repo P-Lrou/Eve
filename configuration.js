@@ -25,42 +25,50 @@ let playerStartY = 400;
 let mapX = -(screenWidth / 2) + playerStartX;
 let mapY = -(screenHeight / 2) + playerStartY;
 
-let EngineTwoMapX = -3840
-let EngineTwoMapY = 0
-
+let EngineTwoMapX = -3840;
+let EngineTwoMapY = 0;
 
 let spriteCutSize = 20;
 let tileSizeCut = 16;
 
 switch (currentEngine) {
-    case ENGINE_ONE:
-        spritePlayerSize = 120;
+  case ENGINE_ONE:
+    spritePlayerSize = 120;
 
-        playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-        playerPosY = screenHeight / 2 - spritePlayerSize / 2;
-        break;
+    playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+    playerPosY = screenHeight / 2 - spritePlayerSize / 2;
+    break;
 
-    case ENGINE_TWO:
-        spritePlayerSize = 360;
+  case ENGINE_TWO:
+    spritePlayerSize = 360;
 
-        playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-        playerPosY = screenHeight - spritePlayerSize;
-        break;
+    playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+    playerPosY = screenHeight - spritePlayerSize;
+    break;
 }
 
 let playerSpeed = 6;
+let pnjSpeed = 3;
 let playerState = "idle";
 
 // Set sprite and animate repetition
-let sprite;
 let indexOfAnimation = 0;
 setInterval(() => {
-    if (indexOfAnimation < 6) {
-        indexOfAnimation += 1
-    } else {
-        indexOfAnimation = 1
-    }
-}, 110)
+  if (indexOfAnimation < 6) {
+    indexOfAnimation += 1;
+  } else {
+    indexOfAnimation = 1;
+  }
+}, 110);
+
+let indexOfPnjAnim = 0;
+setInterval(() => {
+  if (indexOfPnjAnim < 6) {   
+      indexOfPnjAnim += 1;
+  } else {
+      indexOfPnjAnim = 1;
+  }
+}, 110);
 
 // Set the variable to check the player direction
 let Direction = [0, 0];
@@ -79,22 +87,20 @@ let tileSize;
 
 // Change value when changing engine
 function detectEngine() {
-    if (currentEngine != tempCurrentEngine) {
-        if (currentEngine == "engine_one") {
+  if (currentEngine != tempCurrentEngine) {
+    if (currentEngine == "engine_one") {
+      spritePlayerSize = 120;
 
-            spritePlayerSize = 120;
+      playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+      playerPosY = screenHeight / 2 - spritePlayerSize / 2;
+    } else {
+      spritePlayerSize = 360;
 
-            playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-            playerPosY = screenHeight / 2 - spritePlayerSize / 2;
-        } else {
-
-            spritePlayerSize = 360;
-
-            playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-            playerPosY = screenHeight - spritePlayerSize - 30;
-        }
-        tempCurrentEngine = currentEngine
+      playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+      playerPosY = screenHeight - spritePlayerSize - 30;
     }
+    tempCurrentEngine = currentEngine;
+  }
 }
 let inventorySquareSize = 80;
 let inventoryWidthStart = 240;
