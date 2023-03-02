@@ -148,12 +148,13 @@ function drawMovePlayerEngineTwo() {
 }
 
 function changeMapEngineTwo() {
-  console.log(playerPosX + EngineTwoMapX)
   if ((playerPosX + EngineTwoMapX) > -3604 && (playerPosX + EngineTwoMapX) < -3166) {
     textSize(32);
     text("Press E to change room", 10, 30);
-    if (keyIsDown(69)) {
-      currentEngine = ENGINE_ONE;
-    }
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        currentEngine = ENGINE_ONE;
+      }
+    }, 500);
   }
 }
