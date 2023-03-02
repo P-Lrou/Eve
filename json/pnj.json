@@ -10,12 +10,22 @@
       "maxX": 600,
       "minX": 200,
       "canMove":true
+    },{
+      "name": "pnjJulliette",
+      "startx": 600,
+      "xdist": 700,
+      "ydist": 300,
+      "starty": 200,
+      "pnjDirection": [1, 0],
+      "maxX": 1300,
+      "minX": 600,
+      "canMove":true
     }
   ],
 
   "pnjEngineTwo": [
     {
-      "name": "protoSprite",
+      "name": "pnjJulliette",
       "startx": 200,
       "xdist": 4000,
       "ydist": 1000,

@@ -12,6 +12,7 @@ function loadAssets() {
 
   protoSprite = loadImage("assets/spriteTemp.png");
   pnjRose = loadImage("assets/pnjRose.png");
+  pnjJulliette = loadImage("assets/pnjJulliette.png");
   assets = loadImage("assets/assets.png");
 }
 
@@ -142,8 +143,8 @@ function findActualPnj(pnjName) {
   switch (pnjName) {
     case "pnjRose":
       return pnjRose;
-    case "protoSprite":
-      return protoSprite;
+    case "pnjJulliette":
+      return pnjJulliette;
     default:
       throw new Error("Can't find the asset named : " + pnjName);
   }

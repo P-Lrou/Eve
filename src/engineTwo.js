@@ -3,7 +3,7 @@ function engineTwoStart() {
     erase()
     playerInputsEngineTwo();
     image(backgroundCloneMap,EngineTwoMapX,EngineTwoMapY,4860,900);
-    drawPNJEngineTwo("protoSprite");
+    drawPNJEngineTwo("pnjJulliette");
     drawPlayerEngineTwo();
     drawInventory();
     changeMapEngineTwo();

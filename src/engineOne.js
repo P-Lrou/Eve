@@ -4,6 +4,7 @@ function engineOneStart() {
     drawMap();
     playerInputs();
     drawPNJEngineOne("pnjRose");
+    drawPNJEngineOne("pnjJulliette");
     drawPlayer();
     drawInventory();
 }
