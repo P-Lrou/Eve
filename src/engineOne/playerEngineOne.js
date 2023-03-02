@@ -130,10 +130,16 @@ function checkIfIsCollisionWall(actualTile) {
         case "wallTopDown":
             return true;
         case "doorTopDown":
-            changeMap()
+            changeMap("clone")
             return true;
         case "floorTopDownDoor":
-            changeMap()
+            changeMap("clone")
+            return false;
+        case "doorTopDown2":
+            changeMap("botanic")
+            return true;
+        case "floorTopDownDoor2":
+            changeMap("botanic")
             return false;
         case "wallTopDownLeftCorner":
             return true;
@@ -255,14 +261,27 @@ function takeObject(point) {
     }
 }
 
-function changeMap() {
-    textSize(32);
-    text('Press E to change room', 10, 30);
-    setTimeout(() => {
-        if (keyIsDown(69)) {
-            currentEngine = ENGINE_TWO
-        }
-    }, 500);
+function changeMap(map) {
+    if (map === "clone") {
+        textSize(32);
+        text('Press E to change room', 10, 30);
+        setTimeout(() => {
+            if (keyIsDown(69)) {
+                currentBackgroundEngineTwo = backgroundCloneMap
+                currentEngine = ENGINE_TWO
+            }
+        }, 500);
+    }
+    if (map === "botanic") {
+        textSize(32);
+        text('Press E to change room', 10, 30);
+        setTimeout(() => {
+            if (keyIsDown(69)) {
+                currentBackgroundEngineTwo = backgroundBotanicMap
+                currentEngine = ENGINE_TWO
+            }
+        }, 500);
+    }
 }
 
 // Do the camera who follow the player

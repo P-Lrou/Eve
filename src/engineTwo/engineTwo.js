@@ -2,7 +2,7 @@
 function engineTwoStart() {
     erase()
     playerInputsEngineTwo();
-    image(backgroundCloneMap,EngineTwoMapX,EngineTwoMapY,4860,900);
+    image(currentBackgroundEngineTwo,EngineTwoMapX,EngineTwoMapY,4860,900);
     drawPNJEngineTwo("pnjJulliette");
     drawPlayerEngineTwo();
     drawInventory();

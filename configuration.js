@@ -27,6 +27,7 @@ let mapY = -(screenHeight / 2) + playerStartY;
 
 let EngineTwoMapX = -3840;
 let EngineTwoMapY = 0;
+let currentBackgroundEngineTwo;
 
 let spriteCutSize = 20;
 let tileSizeCut = 16;
