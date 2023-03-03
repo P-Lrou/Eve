@@ -64,10 +64,10 @@ setInterval(() => {
 
 let indexOfPnjAnim = 0;
 setInterval(() => {
-  if (indexOfPnjAnim < 6) {   
-      indexOfPnjAnim += 1;
+  if (indexOfPnjAnim < 6) {
+    indexOfPnjAnim += 1;
   } else {
-      indexOfPnjAnim = 1;
+    indexOfPnjAnim = 1;
   }
 }, 110);
 
@@ -77,14 +77,14 @@ let Direction = [0, 0];
 // ! Engine One Configuration
 
 // Set all map variables initialisation
-let map;
+let map = undefined;
 // actually useless -- just take array.length
-let mapColumn;
-let mapRow;
+let mapColumn = undefined;
+let mapRow = undefined;
 // actually useless -- just take array.length
-let mapWidth;
-let mapHeight;
-let tileSize;
+let mapWidth = undefined;
+let mapHeight = undefined;
+let tileSize = undefined;
 
 // Change value when changing engine
 function detectEngine() {

@@ -49,7 +49,7 @@ function drawPNJEngineTwo(PNJ) {
     if (!actualPNJ.canMove) {
         animationMoovePlayer = pnjTile.get(0, spriteCutSize, spriteCutSize, spriteCutSize)
     }
-    
+
     image(animationMoovePlayer, actualPNJ.startx, actualPNJ.starty, spritePlayerSize, spritePlayerSize)
 }
 

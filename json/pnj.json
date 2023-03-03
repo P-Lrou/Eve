@@ -9,8 +9,9 @@
       "pnjDirection": [1, 0],
       "maxX": 600,
       "minX": 200,
-      "canMove":true
-    },{
+      "canMove": true
+    },
+    {
       "name": "pnjJulliette",
       "startx": 600,
       "xdist": 700,
@@ -19,7 +20,7 @@
       "pnjDirection": [1, 0],
       "maxX": 1300,
       "minX": 600,
-      "canMove":true
+      "canMove": true
     }
   ],
 
@@ -33,7 +34,7 @@
       "pnjDirection": [1, 0],
       "maxX": 3300,
       "minX": 4400,
-      "canMove":true
+      "canMove": true
     }
   ]
 }
