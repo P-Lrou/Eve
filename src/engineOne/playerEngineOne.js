@@ -127,55 +127,55 @@ function drawMovePlayer() {
 // Check if the tile where the player is, is a collision block
 function checkIfIsCollisionWall(actualTile) {
     switch (actualTile) {
-        case "wallTopDown":
+        case 1:
+            return true;
+        case 2:
             return true;
         case "doorTopDown":
             changeMap("clone")
             return true;
-        case "floorTopDownDoor":
+        case 99:
             changeMap("clone")
             return false;
         case "doorTopDown2":
             changeMap("botanic")
             return true;
-        case "floorTopDownDoor2":
+        case 98:
             changeMap("botanic")
             return false;
-        case "wallTopDownLeftCorner":
+        case 7:
             return true;
-        case "wallTopDownFull":
+        case 8:
             return true;
-        case "wallTopDownRightCorner":
+        case 9:
             return true;
-        case "wallTopDownFullLeft":
+        case 14:
             return true;
-        case "wallTopDownFullRigth":
+        case 15:
             return true;
-        case "wallTopDownPointLeftDown":
+        case 16:
             return true;
-        case "wallTopDownPointRigthDown":
+        case 20:
             return true;
-        case "wallTopDownPointLeftTop":
+        case 21:
             return true;
-        case "wallTopDownPointRigthTop":
+        case 22:
             return true;
-        case "wallTopDownTopLeft":
+        case 23:
             return true;
-        case "wallTopDownTopRigth":
+        case 24:
             return true;
-        case "wallTopDownTopDown":
+        case 25:
             return true;
-        case "wallTopDownTopFullFloorWall":
+        case 26:
             return true;
-        case "wallTopDownCornerFullLeft":
+        case 27:
             return true;
-        case "wallTopDownCornerFullRight":
-            return true;
-        case "chest":
+        case 29:
             return true
-        case "toilet":
+        case 30:
             return true
-        case "chestOfDrawers":
+        case 33:
             return true
         default:
             return false;
@@ -257,7 +257,7 @@ function takeObject(point) {
     if (keyIsDown(69)) {
         inventoryTab[inventoryTabNumber] = (getTileNameForObject(point))
         inventoryTabNumber++
-        map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)] = "empty"
+        map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)] = 0
     }
 }
 
