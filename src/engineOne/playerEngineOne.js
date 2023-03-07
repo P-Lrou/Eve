@@ -284,8 +284,3 @@ function changeMap(map) {
     }
 }
 
-// Do the camera who follow the player
-function playerCamera() {
-    mapY = playerPosY
-    mapX = playerPosX
-}
