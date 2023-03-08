@@ -188,13 +188,11 @@ function checkIfIsCollisionWall(actualTile) {
     case 2:
       return true;
     case "doorTopDown":
-      changeMap("clone");
       return true;
     case 99:
       changeMap("clone");
       return false;
     case "doorTopDown2":
-      changeMap("botanic");
       return true;
     case 98:
       changeMap("botanic");
@@ -352,11 +350,11 @@ function takeObject(point) {
 function changeMap(map) {
   if (map === "clone") {
     textSize(32);
-    text("Press E to change room", 10, 30);
+    text("Press E to change room", playerPosX - 100, playerPosY - 10);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "cloneMap";
-        actualDirectionEngineTwo = "left"
+        actualDirectionEngineTwo = "left";
         EngineTwoMapX = -3840;
         currentEngine = ENGINE_TWO;
       }
@@ -364,11 +362,11 @@ function changeMap(map) {
   }
   if (map === "botanic") {
     textSize(32);
-    text("Press E to change room", 10, 30);
+    text("Press E to change room", playerPosX - 100, playerPosY - 10);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "botanicMap";
-        actualDirectionEngineTwo = "rigth"
+        actualDirectionEngineTwo = "rigth";
         EngineTwoMapX = 0;
         currentEngine = ENGINE_TWO;
       }

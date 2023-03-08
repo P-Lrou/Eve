@@ -56,9 +56,16 @@ let tileSize = undefined;
 
 // Change value when changing engine
 let inventorySquareSize = 80;
-let inventoryWidthStart = screenWidth / 3;
-let inventoryHeigthStart = screenHeight - 100;
+let inventoryWidthStart = screenWidth / 1.5;
+let inventoryHeigthStart = 10;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
 let actualInventoryChoose = 1;
 inventoryTab.length = 5;
+
+let canInteract = false;
+let tempText = "";
+let i = 0;
+let index = 0;
+let bool = false;
+let actualDialog = [];

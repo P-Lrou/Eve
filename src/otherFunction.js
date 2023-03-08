@@ -58,4 +58,43 @@ function detectEngine() {
   }
 }
 
+function writeText(tab) {
+  if (bool) {
+    rect(20, 10, 715, 100, 10);
+    text(tempText, 200, 20, 490, 80);
+  }
+}
 
+function letter(tab) {
+  if (i == tab[index].length) {
+    return;
+  } else {
+    tempText = tempText + tab[index][i];
+    i++;
+  }
+}
+
+function write(tab) {
+  if (bool) {
+    intervalId = setInterval(letter, 50, tab);
+  }
+}
+
+function keyReleased(event) {
+  if (event.keyCode == 69 && canInteract) {
+    tempText = "";
+    i = 0;
+    if (bool) {
+      if (index < actualDialog.length - 1) {
+        index++;
+      } else {
+        bool = false;
+        index = 0;
+        clearInterval(intervalId);
+      }
+    } else {
+      bool = true;
+      write(actualDialog);
+    }
+  }
+}

@@ -154,7 +154,7 @@ function changeMapEngineTwo() {
       EngineTwoMapX - playerPosX > -5173
     ) {
       textSize(32);
-      text("Press E to change room", 10, 30);
+      text("Press E to change room", playerPosX, playerPosY - 20);
       setTimeout(() => {
         if (keyIsDown(69)) {
           currentEngine = ENGINE_ONE;
@@ -168,7 +168,7 @@ function changeMapEngineTwo() {
       EngineTwoMapX - playerPosX > -800
     ) {
       textSize(32);
-      text("Press E to change room", 10, 30);
+      text("Press E to change room", playerPosX, playerPosY - 20);
       setTimeout(() => {
         if (keyIsDown(69)) {
           currentEngine = ENGINE_ONE;

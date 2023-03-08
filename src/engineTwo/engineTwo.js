@@ -16,7 +16,7 @@ function engineTwoStart() {
         EngineTwoMapX,
         EngineTwoMapY,
         5780,
-        900
+        screenHeight
       );
       image(lightCloneMap, EngineTwoMapX, EngineTwoMapY, 5780, screenHeight);
       drawPNJEngineTwo("pnjJulliette");
@@ -35,4 +35,7 @@ function engineTwoStart() {
   drawPlayerEngineTwo();
   drawInventory();
   changeMapEngineTwo();
+  if (canInteract) {
+    writeText(actualDialog);
+  }
 }

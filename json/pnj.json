@@ -1,7 +1,5 @@
 {
-  "pnjEngineOne": [
-    
-  ],
+  "pnjEngineOne": [],
 
   "pnjEngineTwo": [
     {
@@ -12,8 +10,10 @@
       "starty": 510,
       "pnjDirection": [1, 0],
       "maxX": 3300,
-      "minX": 4400,
-      "canMove": true
+      "minX": 4200,
+      "canMove": true,
+      "canTalk": true,
+      "dialog": ["Bonjour", "Mon Dialogue fonctionne"]
     },
     {
       "name": "pnjRose",
@@ -24,7 +24,8 @@
       "pnjDirection": [1, 0],
       "maxX": 3300,
       "minX": 4400,
-      "canMove": true
+      "canMove": true,
+      "canTalk": false
     }
   ]
 }
