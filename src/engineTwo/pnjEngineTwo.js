@@ -12,7 +12,6 @@ function drawPNJEngineTwo(PNJ) {
     spriteCutSize,
     spriteCutSize
   );
-
   actualPNJ.startx = actualPNJ.xdist + EngineTwoMapX;
 
   if (actualPNJ.xdist > actualPNJ.minX) {

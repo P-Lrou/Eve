@@ -5,12 +5,12 @@
     {
       "name": "pnjJulliette",
       "startx": 200,
-      "xdist": 4000,
+      "xdist": 3500,
       "ydist": 1000,
       "starty": 510,
       "pnjDirection": [1, 0],
-      "maxX": 3300,
-      "minX": 4200,
+      "maxX": 2500,
+      "minX": 3500,
       "canMove": true,
       "canTalk": true,
       "dialog": ["Bonjour", "Mon Dialogue fonctionne"]
@@ -18,12 +18,12 @@
     {
       "name": "pnjRose",
       "startx": 200,
-      "xdist": 4000,
+      "xdist": 3500,
       "ydist": 1000,
       "starty": 510,
       "pnjDirection": [1, 0],
-      "maxX": 3300,
-      "minX": 4400,
+      "maxX": 2500,
+      "minX": 350,
       "canMove": true,
       "canTalk": false
     }
