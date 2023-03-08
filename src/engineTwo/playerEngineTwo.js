@@ -1,7 +1,7 @@
 // Assign all player inputs
 function playerInputsEngineTwo() {
   playerState = "idle";
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
+  if (keyIsDown(LEFT_ARROW) || (keyIsDown(81) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX -= playerSpeed;
     if (playerPosX < 3) {
@@ -16,7 +16,7 @@ function playerInputsEngineTwo() {
     Direction = "left";
   }
 
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  if (keyIsDown(RIGHT_ARROW) || (keyIsDown(68) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX += playerSpeed;
     if (playerPosX + spritePlayerSize > screenWidth + 17) {
@@ -151,13 +151,15 @@ function drawMovePlayerEngineTwo() {
 }
 
 function changeMapEngineTwo() {
+  console.log(-3900);
+  console.log(EngineTwoMapX - playerPosX)
   if (actualDirectionEngineTwo == "left") {
-    console.log(EngineTwoMapX - playerPosX)
     if (
       EngineTwoMapX - playerPosX < -3900 &&
       EngineTwoMapX - playerPosX > -4493
     ) {
       textSize(20);
+      fill("white");
       text("Press E to change room", playerPosX - 40, playerPosY - 20);
       setTimeout(() => {
         if (keyIsDown(69)) {
@@ -172,6 +174,7 @@ function changeMapEngineTwo() {
       EngineTwoMapX - playerPosX > -800
     ) {
       textSize(20);
+      fill("white");
       text("Press E to change room", playerPosX - 40, playerPosY - 20);
       setTimeout(() => {
         if (keyIsDown(69)) {
@@ -180,4 +183,32 @@ function changeMapEngineTwo() {
       }, 500);
     }
   }
+}
+
+function canDoInteraction() {
+  if (
+    EngineTwoMapX - playerPosX < -1727 &&
+    EngineTwoMapX - playerPosX > -2028
+  ) {
+    textSize(20);
+    fill("white");
+    text("Press E to interact", playerPosX - 40, playerPosY - 20);
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        canDrawEngineTow2ndMap = true;
+        canMoveEngineTwo = false;
+      }
+    }, 500);
+  }
+}
+
+function drawEngineTow2ndMap() {
+  fill("red");
+  rect(400, 50, 1100, 800);
+  setTimeout(() => {
+    if (keyIsDown(69)) {
+      canDrawEngineTow2ndMap = false;
+      canMoveEngineTwo = true;
+    }
+  }, 500);
 }

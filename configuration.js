@@ -72,3 +72,6 @@ let i = 0;
 let index = 0;
 let bool = false;
 let actualDialog = [];
+
+let canDrawEngineTow2ndMap = false;
+let canMoveEngineTwo = true;

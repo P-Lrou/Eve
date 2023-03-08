@@ -161,13 +161,14 @@ function isCollisionWithPlayer(point) {
 function canTalkToPnj(actualPNJ) {
   if (actualPNJ.canTalk) {
     textSize(20);
+    fill("white");
     text(
       `Press E to talk to ${actualPNJ.name.slice(3)}.`,
       playerPosX - 50,
       playerPosY - 20
     );
     setTimeout(() => {
-      if (keyIsDown(69)) {
+      if (keyIsDown(69) && canMoveEngineTwo) {
         canInteract = true;
         actualDialog = actualPNJ.dialog;
       }

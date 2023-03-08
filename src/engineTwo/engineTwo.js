@@ -26,6 +26,7 @@ function engineTwoStart() {
         screenHeight
       );
       drawPNJEngineTwo("pnjJulliette");
+      canDoInteraction();
       break;
     case "botanicMap":
       image(
@@ -43,5 +44,8 @@ function engineTwoStart() {
   changeMapEngineTwo();
   if (canInteract) {
     writeText(actualDialog);
+  }
+  if (canDrawEngineTow2ndMap) {
+    drawEngineTow2ndMap();
   }
 }
