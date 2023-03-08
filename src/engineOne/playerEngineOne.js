@@ -207,8 +207,6 @@ function checkIfIsCollisionWall(actualTile) {
       return true;
     case 14:
       return true;
-    case 15:
-      return true;
     case 16:
       return true;
     case 20:
@@ -225,7 +223,7 @@ function checkIfIsCollisionWall(actualTile) {
       return true;
     case 26:
       return true;
-    case 27:
+    case 90:
       return true;
     case 29:
       return true;
