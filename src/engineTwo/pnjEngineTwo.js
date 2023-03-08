@@ -82,7 +82,7 @@ function drawPNJEngineTwo(PNJ) {
   image(
     animationMoovePlayer,
     actualPNJ.startx,
-    actualPNJ.starty,
+    screenHeight - spritePlayerSize - 59,
     spritePlayerSize,
     spritePlayerSize
   );
@@ -91,25 +91,25 @@ function drawPNJEngineTwo(PNJ) {
 function collisionPNJEngineTwo(actualPNJ) {
   let TopCornerLeft = getTopCornerLeft([
     actualPNJ.startx + 30,
-    actualPNJ.starty,
+    screenHeight - spritePlayerSize - 59,
     spritePlayerSize,
     spritePlayerSize,
   ]);
   let TopCornerRight = getTopCornerRight([
     actualPNJ.startx,
-    actualPNJ.starty,
+    screenHeight - spritePlayerSize - 59,
     spritePlayerSize - 25,
     spritePlayerSize,
   ]);
   let BottomCornerLeft = getBottomCornerLeft([
     actualPNJ.startx + 30,
-    actualPNJ.starty,
+    screenHeight - spritePlayerSize - 59,
     spritePlayerSize,
     spritePlayerSize,
   ]);
   let BottomCornerRight = getBottomCornerRight([
     actualPNJ.startx,
-    actualPNJ.starty,
+    screenHeight - spritePlayerSize - 59,
     spritePlayerSize - 25,
     spritePlayerSize,
   ]);
