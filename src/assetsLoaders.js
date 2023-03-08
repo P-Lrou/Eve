@@ -11,6 +11,8 @@ function loadAssets() {
   coinYellow = loadImage("assets/coinYellow.png");
   coinGreen = loadImage("assets/coinGreen.png");
   coinBlue = loadImage("assets/coinBlue.png");
+  lumiere = loadImage("assets/Lumiere.png")
+  animationBocal = loadImage("assets/animationBocal.png")
 
   protoSprite = loadImage("assets/spriteTemp.png");
   pnjRose = loadImage("assets/pnjRose.png");

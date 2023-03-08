@@ -97,3 +97,12 @@ function isCollisionWithPlayer(point) {
     }
     return false
 }
+
+let indexOfPnjAnim = 0;
+setInterval(() => {
+  if (indexOfPnjAnim < 6) {   
+      indexOfPnjAnim += 1;
+  } else {
+      indexOfPnjAnim = 1;
+  }
+}, 110);

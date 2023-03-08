@@ -2,7 +2,7 @@
 function drawInventory() {
     switch (currentEngine) {
         case ENGINE_ONE:
-            inventoryHeigthStart = 810;
+            inventoryHeigthStart = screenHeight - 100;
             fill("rgba(255,255,255,0.3)")
             stroke("white")
             if (actualInventoryChoose === 1) {
@@ -66,8 +66,8 @@ function drawInventory() {
             break;
         case ENGINE_TWO:
             inventoryHeigthStart = 10;
-            fill("rgba(0,0,0,0.3)")
-            stroke("black")
+            fill("rgba(255,255,255,0.3)")
+            stroke("white")
             if (actualInventoryChoose === 1) {
                 fill("rgba(255,215,0,0.3)")
                 stroke("gold")
@@ -76,8 +76,8 @@ function drawInventory() {
             if (inventoryTab[0] != undefined) {
                 image(findActualObject(inventoryTab[0]), inventoryWidthStart, inventoryHeigthStart, inventorySquareSize, inventorySquareSize)
             }
-            fill("rgba(0,0,0,0.3)")
-            stroke("black")
+            fill("rgba(255,255,255,0.3)")
+            stroke("white")
             if (actualInventoryChoose === 2) {
                 fill("rgba(255,215,0,0.3)")
                 stroke("gold")
@@ -86,8 +86,8 @@ function drawInventory() {
             if (inventoryTab[1] != undefined) {
                 image(findActualObject(inventoryTab[1]), inventoryWidthStart + inventorySquareSize + 10, inventoryHeigthStart, inventorySquareSize, inventorySquareSize)
             }
-            fill("rgba(0,0,0,0.3)")
-            stroke("black")
+            fill("rgba(255,255,255,0.3)")
+            stroke("white")
             if (actualInventoryChoose === 3) {
                 fill("rgba(255,215,0,0.3)")
                 stroke("gold")
@@ -96,8 +96,8 @@ function drawInventory() {
             if (inventoryTab[2] != undefined) {
                 image(findActualObject(inventoryTab[2]), inventoryWidthStart + inventorySquareSize * 2 + 20, inventoryHeigthStart, inventorySquareSize, inventorySquareSize)
             }
-            fill("rgba(0,0,0,0.3)")
-            stroke("black")
+            fill("rgba(255,255,255,0.3)")
+            stroke("white")
             if (actualInventoryChoose === 4) {
                 fill("rgba(255,215,0,0.3)")
                 stroke("gold")
@@ -106,8 +106,8 @@ function drawInventory() {
             if (inventoryTab[3] != undefined) {
                 image(findActualObject(inventoryTab[3]), inventoryWidthStart + inventorySquareSize * 3 + 30, inventoryHeigthStart, inventorySquareSize, inventorySquareSize)
             }
-            fill("rgba(0,0,0,0.3)")
-            stroke("black")
+            fill("rgba(255,255,255,0.3)")
+            stroke("white")
             if (actualInventoryChoose === 5) {
                 fill("rgba(255,215,0,0.3)")
                 stroke("gold")
@@ -116,8 +116,8 @@ function drawInventory() {
             if (inventoryTab[4] != undefined) {
                 image(findActualObject(inventoryTab[4]), inventoryWidthStart + inventorySquareSize * 4 + 40, inventoryHeigthStart, inventorySquareSize, inventorySquareSize)
             }
-            fill("rgba(0,0,0,0.3)")
-            stroke("black")
+            fill("rgba(255,255,255,0.3)")
+            stroke("white")
             if (actualInventoryChoose === 6) {
                 fill("rgba(255,215,0,0.3)")
                 stroke("gold")

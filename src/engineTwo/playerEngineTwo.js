@@ -19,8 +19,8 @@ function playerInputsEngineTwo() {
   if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
     playerState = "mooving";
     playerPosX += playerSpeed;
-    if (playerPosX + spritePlayerSize > 970) {
-      if (1000 - EngineTwoMapX > backgroundCloneMap.width * 15) {
+    if (playerPosX + spritePlayerSize > (screenWidth-30)) {
+      if (screenWidth-900  - EngineTwoMapX > backgroundCloneMap.width * 15) {
         playerPosX -= playerSpeed;
         playerState = "idle";
       } else {
@@ -148,7 +148,7 @@ function drawMovePlayerEngineTwo() {
 }
 
 function changeMapEngineTwo() {
-  if ((playerPosX + EngineTwoMapX) > -3604 && (playerPosX + EngineTwoMapX) < -3166) {
+  if ((EngineTwoMapX - playerPosX) < -4579 && (EngineTwoMapX - playerPosX) > -5173) {
     textSize(32);
     text("Press E to change room", 10, 30);
     setTimeout(() => {

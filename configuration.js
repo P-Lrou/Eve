@@ -1,6 +1,6 @@
 // Set the global screen size
-let screenWidth = 1000;
-let screenHeight = 900;
+let screenWidth = innerWidth;
+let screenHeight = innerHeight;
 
 // Set the ratio if need zoom on map
 let ratio = 1;
@@ -62,15 +62,6 @@ setInterval(() => {
   }
 }, 110);
 
-let indexOfPnjAnim = 0;
-setInterval(() => {
-  if (indexOfPnjAnim < 6) {
-    indexOfPnjAnim += 1;
-  } else {
-    indexOfPnjAnim = 1;
-  }
-}, 110);
-
 // Set the variable to check the player direction
 let Direction = [0, 0];
 
@@ -98,14 +89,14 @@ function detectEngine() {
       spritePlayerSize = 360;
 
       playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-      playerPosY = screenHeight - spritePlayerSize - 30;
+      playerPosY = screenHeight - spritePlayerSize - 58;
     }
     tempCurrentEngine = currentEngine;
   }
 }
 let inventorySquareSize = 80;
-let inventoryWidthStart = 240;
-let inventoryHeigthStart = 810;
+let inventoryWidthStart = screenWidth / 3;
+let inventoryHeigthStart = screenHeight - 100;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
 let actualInventoryChoose = 1;
