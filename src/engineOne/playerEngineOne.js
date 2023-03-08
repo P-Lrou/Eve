@@ -336,8 +336,8 @@ function madeCollision() {
 }
 
 function takeObject(point) {
-  textSize(32);
-  text("Press E to take the object", 10, 30);
+  textSize(18);
+  text("Press E to take the object", playerPosX - 100, playerPosY - 10);
   if (keyIsDown(69)) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
@@ -349,7 +349,7 @@ function takeObject(point) {
 
 function changeMap(map) {
   if (map === "clone") {
-    textSize(32);
+    textSize(18);
     text("Press E to change room", playerPosX - 100, playerPosY - 10);
     setTimeout(() => {
       if (keyIsDown(69)) {
@@ -361,7 +361,7 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "botanic") {
-    textSize(32);
+    textSize(18);
     text("Press E to change room", playerPosX - 100, playerPosY - 10);
     setTimeout(() => {
       if (keyIsDown(69)) {

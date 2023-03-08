@@ -2,11 +2,9 @@
 function loadAssets() {
   map1 = loadJSON("json/map1.json");
   pnj = loadJSON("json/pnj.json");
+  mainFont = loadFont("fonts/mainFont.ttf");
 
   tempBackground = loadImage("assets/tempBackground.jpg");
-  backgroundBotanicMap = loadImage(
-    "assets/botanicMap/backgroundBotanicMap.png"
-  );
   doorTopDown = loadImage("assets/doorTopDown.png");
   doorTopDown2 = loadImage("assets/doorTopDown.png");
   coinYellow = loadImage("assets/coinYellow.png");
@@ -21,6 +19,10 @@ function loadAssets() {
   backgroundCloneMap = loadImage("assets/cloneMap/backgroundCloneMap.png");
   lightCloneMap = loadImage("assets/cloneMap/lightCloneMap.png");
   jarAnimationCloneMap = loadImage("assets/cloneMap/jarAnimationCloneMap.png");
+
+  backgroundBotanicMap = loadImage(
+    "assets/botanicMap/backgroundBotanicMap.png"
+  );
 }
 
 // Recover all assets

@@ -2,10 +2,10 @@
 function engineOneStart() {
   background(tempBackground);
   drawMap();
-  playerInputs();
   drawPlayer();
   drawMap2();
   drawInventory();
+  playerInputs();
 }
 
 // Draw the map for the engine one

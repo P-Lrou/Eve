@@ -161,10 +161,10 @@ function isCollisionWithPlayer(point) {
 
 function canTalkToPnj(actualPNJ) {
   if (actualPNJ.canTalk) {
-    textSize(32);
+    textSize(20);
     text(
       `Press E to talk to ${actualPNJ.name.slice(3)}.`,
-      playerPosX,
+      playerPosX - 50,
       playerPosY - 20
     );
     setTimeout(() => {

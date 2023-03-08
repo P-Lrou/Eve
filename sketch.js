@@ -9,6 +9,7 @@ function setup() {
 }
 
 function draw() {
+    textFont(mainFont);
     detectEngine()
     switch (currentEngine) {
         case ENGINE_ONE:

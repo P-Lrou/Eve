@@ -61,7 +61,7 @@ function detectEngine() {
 function writeText(tab) {
   if (bool) {
     rect(20, 10, 715, 100, 10);
-    text(tempText, 200, 20, 490, 80);
+    text(tempText, 200, 50, 490, 80);
   }
 }
 
