@@ -3,8 +3,6 @@ function engineOneStart() {
     background(tempBackground);
     drawMap();
     playerInputs();
-    drawPNJEngineOne("pnjRose");
-    drawPNJEngineOne("pnjJulliette");
     drawPlayer();
     drawInventory();
 }

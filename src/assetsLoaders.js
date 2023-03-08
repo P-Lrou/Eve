@@ -4,20 +4,22 @@ function loadAssets() {
   pnj = loadJSON("json/pnj.json");
 
   tempBackground = loadImage("assets/tempBackground.jpg");
-  backgroundCloneMap = loadImage("assets/backgroundCloneMap.png");
-  backgroundBotanicMap = loadImage("assets/backgroundBotanicMap.png");
+  backgroundBotanicMap = loadImage("assets/botanicMap/backgroundBotanicMap.png");
   doorTopDown = loadImage("assets/doorTopDown.png");
   doorTopDown2 = loadImage("assets/doorTopDown.png");
   coinYellow = loadImage("assets/coinYellow.png");
   coinGreen = loadImage("assets/coinGreen.png");
   coinBlue = loadImage("assets/coinBlue.png");
-  lumiere = loadImage("assets/Lumiere.png")
-  animationBocal = loadImage("assets/animationBocal.png")
 
-  protoSprite = loadImage("assets/spriteTemp.png");
+  mainCaracter = loadImage("assets/mainCaracter.png");
   pnjRose = loadImage("assets/pnjRose.png");
   pnjJulliette = loadImage("assets/pnjJulliette.png");
   assets = loadImage("assets/assets.png");
+
+  
+  backgroundCloneMap = loadImage("assets/cloneMap/backgroundCloneMap.png");
+  lightCloneMap = loadImage("assets/cloneMap/lightCloneMap.png")
+  jarAnimationCloneMap = loadImage("assets/cloneMap/jarAnimationCloneMap.png")
 }
 
 // Recover all assets

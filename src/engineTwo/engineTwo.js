@@ -1,25 +1,38 @@
 // Start creation of all engine two settings
 function engineTwoStart() {
-    erase()
-    playerInputsEngineTwo();
-    image(currentBackgroundEngineTwo,EngineTwoMapX,EngineTwoMapY,5780,screenHeight);
-    image(animationBocal.get(324 * indexOfAnimation2,0,324,60), EngineTwoMapX, EngineTwoMapY, 5780, 900)
-    drawPNJEngineTwo("pnjJulliette");
-    drawPlayerEngineTwo();
-    
-    drawInventory();
-    changeMapEngineTwo();
-    // tint(255, 50);
-    image(lumiere, EngineTwoMapX, EngineTwoMapY, 5780, screenHeight)
-    noTint();
-    console.log(EngineTwoMapX - playerPosX)
-}
-
-let indexOfAnimation2 = 0;
-setInterval(() => {
-  if (indexOfAnimation2 < 20) {
-    indexOfAnimation2 += 1;
-  } else {
-    indexOfAnimation2 = 0;
+  erase();
+  playerInputsEngineTwo();
+  switch (actualMapEngineTwo) {
+    case "cloneMap":
+      image(
+        backgroundCloneMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        5780,
+        screenHeight
+      );
+      image(
+        jarAnimationCloneMap.get(324 * indexOfAnimation2, 0, 324, 60),
+        EngineTwoMapX,
+        EngineTwoMapY,
+        5780,
+        900
+      );
+      image(lightCloneMap, EngineTwoMapX, EngineTwoMapY, 5780, screenHeight);
+      drawPNJEngineTwo("pnjJulliette");
+      break;
+    case "botanicMap":
+      image(
+        backgroundBotanicMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        5780,
+        screenHeight
+      );
+      drawPNJEngineTwo("pnjRose");
+      break;
   }
-}, 110);
+  drawPlayerEngineTwo();
+  drawInventory();
+  changeMapEngineTwo();
+}
