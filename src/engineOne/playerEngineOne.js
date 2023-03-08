@@ -355,7 +355,8 @@ function changeMap(map) {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "cloneMap";
         actualDirectionEngineTwo = "left";
-        EngineTwoMapX = -3840;
+        EngineTwoMapX =
+          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         currentEngine = ENGINE_TWO;
       }
     }, 500);

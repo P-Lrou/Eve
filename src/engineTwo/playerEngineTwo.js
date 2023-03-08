@@ -20,7 +20,10 @@ function playerInputsEngineTwo() {
     playerState = "mooving";
     playerPosX += playerSpeed;
     if (playerPosX + spritePlayerSize > screenWidth + 17) {
-      if (screenWidth - 900 - EngineTwoMapX > backgroundCloneMap.width * 15) {
+      if (
+        screenWidth - EngineTwoMapX >
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)
+      ) {
         playerPosX -= playerSpeed;
         playerState = "idle";
       } else {
@@ -149,9 +152,10 @@ function drawMovePlayerEngineTwo() {
 
 function changeMapEngineTwo() {
   if (actualDirectionEngineTwo == "left") {
+    console.log(EngineTwoMapX - playerPosX)
     if (
-      EngineTwoMapX - playerPosX < -4579 &&
-      EngineTwoMapX - playerPosX > -5173
+      EngineTwoMapX - playerPosX < -3900 &&
+      EngineTwoMapX - playerPosX > -4493
     ) {
       textSize(20);
       text("Press E to change room", playerPosX - 40, playerPosY - 20);

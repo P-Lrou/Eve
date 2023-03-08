@@ -29,11 +29,14 @@ let EngineTwoMapX = 0;
 let EngineTwoMapY = 0;
 let actualMapEngineTwo = "";
 let actualDirectionEngineTwo = "";
+let engineTwoMapSizeW = 324;
+let engineTwoMapSizeH = 60;
 
 let spriteCutSize = 20;
 let tileSizeCut = 16;
 
-let playerSpeed = 6;
+let playerSpeedEngineTwo = 7;
+let playerSpeed = 7;
 let pnjSpeed = 3;
 let playerState = "idle";
 

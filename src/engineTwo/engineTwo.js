@@ -8,17 +8,23 @@ function engineTwoStart() {
         backgroundCloneMap,
         EngineTwoMapX,
         EngineTwoMapY,
-        5780,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
       );
       image(
         jarAnimationCloneMap.get(324 * indexOfAnimation2, 0, 324, 60),
         EngineTwoMapX,
         EngineTwoMapY,
-        5780,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
       );
-      image(lightCloneMap, EngineTwoMapX, EngineTwoMapY, 5780, screenHeight);
+      image(
+        lightCloneMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
       drawPNJEngineTwo("pnjJulliette");
       break;
     case "botanicMap":
@@ -26,7 +32,7 @@ function engineTwoStart() {
         backgroundBotanicMap,
         EngineTwoMapX,
         EngineTwoMapY,
-        5780,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
       );
       drawPNJEngineTwo("pnjRose");
