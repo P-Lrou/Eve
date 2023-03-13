@@ -75,3 +75,6 @@ let actualDialog = [];
 
 let canDrawEngineTow2ndMap = false;
 let canMoveEngineTwo = true;
+
+
+let engineTwoDividePart = -((engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)) / 20)

@@ -151,12 +151,14 @@ function drawMovePlayerEngineTwo() {
 }
 
 function changeMapEngineTwo() {
-  console.log(-3900);
+  console.log(engineTwoDividePart*16)
+  // console.log ((engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)) / 16)
+  // console.log(EngineTwoMapX - EngineTwoMapX / 16)
   console.log(EngineTwoMapX - playerPosX)
   if (actualDirectionEngineTwo == "left") {
     if (
-      EngineTwoMapX - playerPosX < -3900 &&
-      EngineTwoMapX - playerPosX > -4493
+      EngineTwoMapX - playerPosX < engineTwoDividePart*16 &&
+      EngineTwoMapX - playerPosX > engineTwoDividePart*18
     ) {
       textSize(20);
       fill("white");
@@ -170,8 +172,8 @@ function changeMapEngineTwo() {
   }
   if (actualDirectionEngineTwo == "rigth") {
     if (
-      EngineTwoMapX - playerPosX < -163 &&
-      EngineTwoMapX - playerPosX > -800
+      EngineTwoMapX - playerPosX < engineTwoDividePart*1 &&
+      EngineTwoMapX - playerPosX > engineTwoDividePart*3
     ) {
       textSize(20);
       fill("white");
