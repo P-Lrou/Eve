@@ -49,14 +49,6 @@ function playerInputsEngineTwo() {
   if (keyIsDown(52)) {
     actualInventoryChoose = 4;
   }
-
-  if (keyIsDown(53)) {
-    actualInventoryChoose = 5;
-  }
-
-  if (keyIsDown(54)) {
-    actualInventoryChoose = 6;
-  }
 }
 
 // Draw Player with the good asset
@@ -172,7 +164,8 @@ function changeMapEngineTwo() {
       EngineTwoMapX - playerPosX > engineTwoDividePartW * 3
     ) {
       textSize(20);
-      fill("white");
+      fill("rgb(255,255,255)");
+      noStroke();
       text("Press E to change room", playerPosX - 40, playerPosY - 20);
       setTimeout(() => {
         if (keyIsDown(69)) {
@@ -189,7 +182,8 @@ function canDoInteraction() {
     EngineTwoMapX - playerPosX > -2028
   ) {
     textSize(20);
-    fill("white");
+    fill("rgb(255,255,255)");
+    noStroke();
     text("Press E to interact", playerPosX - 40, playerPosY - 20);
     setTimeout(() => {
       if (keyIsDown(69)) {
@@ -201,7 +195,8 @@ function canDoInteraction() {
 }
 
 function drawEngineTow2ndMap() {
-  fill("red");
+  fill("rgba(31, 31, 31, 0.68)");
+  stroke("rgba(213, 213, 213, 0.24)");
   rect(400, 50, 1100, 800);
   setTimeout(() => {
     if (keyIsDown(69)) {

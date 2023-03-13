@@ -69,7 +69,12 @@ function detectEngine() {
 
 function writeText(tab) {
   if (bool) {
+    fill("rgba(31, 31, 31, 0.68)");
+    strokeWeight(4);
+    stroke("rgba(213, 213, 213, 0.24)");
     rect(20, 10, 715, 100, 10);
+    fill("rgb(255,255,255)");
+    noStroke();
     text(tempText, 200, 50, 490, 80);
   }
 }

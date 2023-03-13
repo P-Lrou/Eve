@@ -41,14 +41,6 @@ function playerInputs() {
   if (keyIsDown(52)) {
     actualInventoryChoose = 4;
   }
-
-  if (keyIsDown(53)) {
-    actualInventoryChoose = 5;
-  }
-
-  if (keyIsDown(54)) {
-    actualInventoryChoose = 6;
-  }
   madeCollision();
 }
 
@@ -337,7 +329,8 @@ function madeCollision() {
 
 function takeObject(point) {
   textSize(18);
-  fill('white')
+  fill("rgb(255,255,255)");
+  noStroke();
   text("Press E to take the object", playerPosX - 100, playerPosY - 10);
   if (keyIsDown(69)) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
@@ -351,7 +344,8 @@ function takeObject(point) {
 function changeMap(map) {
   if (map === "clone") {
     textSize(18);
-    fill('white')
+    fill("rgb(255,255,255)");
+    noStroke();
     text("Press E to change room", playerPosX - 100, playerPosY - 10);
     setTimeout(() => {
       if (keyIsDown(69)) {
@@ -365,7 +359,8 @@ function changeMap(map) {
   }
   if (map === "botanic") {
     textSize(18);
-    fill('white')
+    fill("rgb(255,255,255)");
+    noStroke();
     text("Press E to change room", playerPosX - 100, playerPosY - 10);
     setTimeout(() => {
       if (keyIsDown(69)) {

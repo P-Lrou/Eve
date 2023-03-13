@@ -57,13 +57,13 @@ let mapHeight = undefined;
 let tileSize = undefined;
 
 // Change value when changing engine
-let inventorySquareSize = 80;
-let inventoryWidthStart = screenWidth / 1.5;
+let inventorySquareSize = 100;
+let inventoryWidthStart = screenWidth / 1.35;
 let inventoryHeigthStart = 10;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
 let actualInventoryChoose = 1;
-inventoryTab.length = 5;
+inventoryTab.length = 4;
 
 let canInteract = false;
 let tempText = "";
