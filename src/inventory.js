@@ -4,8 +4,8 @@ function drawInventory() {
   strokeWeight(4);
   stroke("rgba(213, 213, 213, 0.24)");
   if (actualInventoryChoose === 1) {
-    fill("rgba(255,215,0,0.3)");
-    stroke("gold");
+    fill("rgba(116, 168, 151,0.68)");
+    stroke("rgba(213, 213, 213, 0.24)");
   }
   rect(inventoryWidthStart, inventoryHeigthStart,
     inventorySquareSize, inventorySquareSize, 20);
@@ -21,8 +21,8 @@ function drawInventory() {
   fill("rgba(31, 31, 31, 0.68)");
   stroke("rgba(213, 213, 213, 0.24)");
   if (actualInventoryChoose === 2) {
-    fill("rgba(255,215,0,0.3)");
-    stroke("gold");
+    fill("rgba(116, 168, 151,0.68)");
+    stroke("rgba(213, 213, 213, 0.24)");
   }
   rect(
     inventoryWidthStart + inventorySquareSize + 10,
@@ -41,8 +41,8 @@ function drawInventory() {
   fill("rgba(31, 31, 31, 0.68)");
   stroke("rgba(213, 213, 213, 0.24)");
   if (actualInventoryChoose === 3) {
-    fill("rgba(255,215,0,0.3)");
-    stroke("gold");
+    fill("rgba(116, 168, 151,0.68)");
+    stroke("rgba(213, 213, 213, 0.24)");
   }
   rect(
     inventoryWidthStart + inventorySquareSize * 2 + 20,
@@ -61,8 +61,8 @@ function drawInventory() {
   fill("rgba(31, 31, 31, 0.68)");
   stroke("rgba(213, 213, 213, 0.24)");
   if (actualInventoryChoose === 4) {
-    fill("rgba(255,215,0,0.3)");
-    stroke("gold");
+    fill("rgba(116, 168, 151,0.68)");
+    stroke("rgba(213, 213, 213, 0.24)");
   }
   rect(
     inventoryWidthStart + inventorySquareSize * 3 + 30,
