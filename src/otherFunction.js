@@ -7,7 +7,7 @@ switch (currentEngine) {
     break;
 
   case ENGINE_TWO:
-    spritePlayerSize = 360;
+    spritePlayerSize = screenHeight / 2.58;
 
     playerPosX = screenWidth / 2 - spritePlayerSize / 2;
     playerPosY = screenHeight - spritePlayerSize;
@@ -58,7 +58,7 @@ function detectEngine() {
       playerPosX = screenWidth / 2 - spritePlayerSize / 2;
       playerPosY = screenHeight / 2 - spritePlayerSize / 2;
     } else {
-      spritePlayerSize = 360;
+      spritePlayerSize = screenHeight / 2.58;
 
       playerPosX = screenWidth / 2 - spritePlayerSize / 2;
       playerPosY = screenHeight - spritePlayerSize - 58;

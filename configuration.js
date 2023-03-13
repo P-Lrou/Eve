@@ -1,7 +1,6 @@
 // Set the global screen size
 let screenWidth = innerWidth;
 let screenHeight = innerHeight;
-console.log(screenHeight)
 // Set the ratio if need zoom on map
 let ratio = 1;
 
@@ -77,4 +76,4 @@ let canDrawEngineTow2ndMap = false;
 let canMoveEngineTwo = true;
 
 
-let engineTwoDividePart = -((engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)) / 20)
+let engineTwoDividePartW = -((engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)) / 20)
