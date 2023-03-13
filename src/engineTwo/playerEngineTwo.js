@@ -151,10 +151,6 @@ function drawMovePlayerEngineTwo() {
 }
 
 function changeMapEngineTwo() {
-  console.log(engineTwoDividePart*16)
-  // console.log ((engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)) / 16)
-  // console.log(EngineTwoMapX - EngineTwoMapX / 16)
-  console.log(EngineTwoMapX - playerPosX)
   if (actualDirectionEngineTwo == "left") {
     if (
       EngineTwoMapX - playerPosX < engineTwoDividePart*16 &&

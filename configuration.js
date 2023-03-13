@@ -1,7 +1,7 @@
 // Set the global screen size
 let screenWidth = innerWidth;
 let screenHeight = innerHeight;
-
+console.log(screenHeight)
 // Set the ratio if need zoom on map
 let ratio = 1;
 

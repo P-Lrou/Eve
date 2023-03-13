@@ -14,10 +14,10 @@ function drawPNJEngineTwo(PNJ) {
   );
   actualPNJ.startx = actualPNJ.xdist + EngineTwoMapX;
 
-  if (actualPNJ.xdist > actualPNJ.minX) {
+  if (actualPNJ.xdist > Math.abs(engineTwoDividePart * actualPNJ.minX)) {
     actualPNJ.pnjDirection = [-1, 0];
   }
-  if (actualPNJ.xdist < actualPNJ.maxX) {
+  if (actualPNJ.xdist < Math.abs(engineTwoDividePart * actualPNJ.maxX)) {
     actualPNJ.pnjDirection = [1, 0];
   }
   switch (actualPNJ.pnjDirection[0]) {
