@@ -1,7 +1,7 @@
 // Assign all player inputs
 function playerInputsEngineTwo() {
   playerState = "idle";
-  if (keyIsDown(LEFT_ARROW) || (keyIsDown(81) && canMoveEngineTwo)) {
+  if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo || (keyIsDown(81) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX -= playerSpeed;
     if (playerPosX < 3) {
@@ -16,7 +16,7 @@ function playerInputsEngineTwo() {
     Direction = "left";
   }
 
-  if (keyIsDown(RIGHT_ARROW) || (keyIsDown(68) && canMoveEngineTwo)) {
+  if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo || (keyIsDown(68) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX += playerSpeed;
     if (playerPosX + spritePlayerSize > screenWidth + 17) {
