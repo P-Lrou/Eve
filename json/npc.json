@@ -1,0 +1,31 @@
+{
+  "npcEngineOne": [],
+
+  "npcEngineTwo": [
+    {
+      "name": "npcJulliette",
+      "startx": 200,
+      "xdist": 3500,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": true,
+      "canTalk": true,
+      "dialog": ["Bonjour", "Mon Dialogue fonctionne"]
+    },
+    {
+      "name": "npcRose",
+      "startx": 200,
+      "xdist": 3500,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": true,
+      "canTalk": false
+    }
+  ]
+}

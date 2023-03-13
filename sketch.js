@@ -9,13 +9,14 @@ function setup() {
 }
 
 function draw() {
+    textFont(mainFont);
     detectEngine()
     switch (currentEngine) {
         case ENGINE_ONE:
             engineOneStart();
             break;
         case ENGINE_TWO:
-            engineTwoStart();    
+            engineTwoStart();
             break;
         default:
             throw new Error(`Engine named : ${currentEngine} not found !`);

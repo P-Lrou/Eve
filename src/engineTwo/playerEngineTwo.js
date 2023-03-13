@@ -1,10 +1,10 @@
 // Assign all player inputs
 function playerInputsEngineTwo() {
   playerState = "idle";
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
+  if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo || (keyIsDown(81) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX -= playerSpeed;
-    if (playerPosX < 30) {
+    if (playerPosX < 3) {
       if (-EngineTwoMapX < 0) {
         playerPosX += playerSpeed;
         playerState = "idle";
@@ -16,11 +16,14 @@ function playerInputsEngineTwo() {
     Direction = "left";
   }
 
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo || (keyIsDown(68) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX += playerSpeed;
-    if (playerPosX + spritePlayerSize > 970) {
-      if (1000 - EngineTwoMapX > backgroundCloneMap.width * 15) {
+    if (playerPosX + spritePlayerSize > screenWidth + 17) {
+      if (
+        screenWidth - EngineTwoMapX >
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)
+      ) {
         playerPosX -= playerSpeed;
         playerState = "idle";
       } else {
@@ -46,14 +49,6 @@ function playerInputsEngineTwo() {
   if (keyIsDown(52)) {
     actualInventoryChoose = 4;
   }
-
-  if (keyIsDown(53)) {
-    actualInventoryChoose = 5;
-  }
-
-  if (keyIsDown(54)) {
-    actualInventoryChoose = 6;
-  }
 }
 
 // Draw Player with the good asset
@@ -74,7 +69,7 @@ function drawIdlePlayerEngineTwo() {
   switch (Direction) {
     case "left":
       image(
-        protoSprite.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize),
+        mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize),
         playerPosX,
         playerPosY,
         spritePlayerSize,
@@ -83,7 +78,7 @@ function drawIdlePlayerEngineTwo() {
       break;
     case "right":
       image(
-        protoSprite.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize),
+        mainCaracter.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize),
         playerPosX,
         playerPosY,
         spritePlayerSize,
@@ -92,7 +87,7 @@ function drawIdlePlayerEngineTwo() {
       break;
     default:
       image(
-        protoSprite.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize),
+        mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize),
         playerPosX,
         playerPosY,
         spritePlayerSize,
@@ -105,7 +100,7 @@ function drawMovePlayerEngineTwo() {
   switch (Direction) {
     case "left":
       image(
-        protoSprite.get(
+        mainCaracter.get(
           spriteCutSize * indexOfAnimation,
           spriteCutSize * 1,
           spriteCutSize,
@@ -119,7 +114,7 @@ function drawMovePlayerEngineTwo() {
       break;
     case "right":
       image(
-        protoSprite.get(
+        mainCaracter.get(
           spriteCutSize * indexOfAnimation,
           spriteCutSize * 0,
           spriteCutSize,
@@ -133,7 +128,7 @@ function drawMovePlayerEngineTwo() {
       break;
     default:
       image(
-        protoSprite.get(
+        mainCaracter.get(
           spriteCutSize,
           spriteCutSize * 3,
           spriteCutSize,
@@ -148,13 +143,67 @@ function drawMovePlayerEngineTwo() {
 }
 
 function changeMapEngineTwo() {
-  if ((playerPosX + EngineTwoMapX) > -3604 && (playerPosX + EngineTwoMapX) < -3166) {
-    textSize(32);
-    text("Press E to change room", 10, 30);
+  if (actualDirectionEngineTwo == "left") {
+    if (
+      EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 &&
+      EngineTwoMapX - playerPosX > engineTwoDividePartW * 18
+    ) {
+      textSize(20);
+      fill("white");
+      text("Press E to change room", playerPosX - 40, playerPosY - 20);
+      setTimeout(() => {
+        if (keyIsDown(69)) {
+          currentEngine = ENGINE_ONE;
+        }
+      }, 500);
+    }
+  }
+  if (actualDirectionEngineTwo == "rigth") {
+    if (
+      EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 &&
+      EngineTwoMapX - playerPosX > engineTwoDividePartW * 3
+    ) {
+      textSize(20);
+      fill("rgb(255,255,255)");
+      noStroke();
+      text("Press E to change room", playerPosX - 40, playerPosY - 20);
+      setTimeout(() => {
+        if (keyIsDown(69)) {
+          currentEngine = ENGINE_ONE;
+        }
+      }, 500);
+    }
+  }
+}
+
+function canDoInteraction() {
+  if (
+    EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 &&
+    EngineTwoMapX - playerPosX > engineTwoDividePartW * 9
+  ) {
+    textSize(20);
+    fill("rgb(255,255,255)");
+    noStroke();
+    text("Press E to interact", playerPosX - 40, playerPosY - 20);
     setTimeout(() => {
       if (keyIsDown(69)) {
-        currentEngine = ENGINE_ONE;
+        canDrawEngineTow2ndMap = true;
+        canMoveEngineTwo = false;
+        canMoveAllNPC = false;
       }
     }, 500);
   }
+}
+
+function drawEngineTow2ndMap() {
+  fill("rgba(31, 31, 31, 0.68)");
+  stroke("rgba(213, 213, 213, 0.24)");
+  rect(400, 50, 1100, 800);
+  setTimeout(() => {
+    if (keyIsDown(69)) {
+      canDrawEngineTow2ndMap = false;
+      canMoveAllNPC = true;
+      canMoveEngineTwo = true;
+    }
+  }, 500);
 }

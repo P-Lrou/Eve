@@ -1,75 +1,416 @@
 {
-    "mapColumn": 31,
-    "mapRow": 31,
-    "mapWidth": 800,
-    "mapHeight": 900,
-    "tileSize": 96,
-    "layers": [
+  "mapColumn": 31,
+  "mapRow": 31,
+  "mapWidth": 800,
+  "mapHeight": 900,
+  "tileSize": 96,
+  "layers": [
+    [
       [
-        ["wallTopDownPointRigthDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown","wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown","wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownTopDown", "wallTopDownPointLeftDown"],
-        ["wallTopDownTopRigth", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown","wallTopDown", "wallTopDown", "wallTopDown", "doorTopDown", "wallTopDown", "wallTopDown", "doorTopDown2", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown","wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDownDoor", "floorTopDown", "floorTopDown", "floorTopDownDoor2", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownLeftCorner", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull","wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownRightCorner", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownCornerFullLeft", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall","wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownCornerFullRight", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wallTopDownTopRigth", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull","wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownTopRigth", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown","floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "floorTopDown", "wallTopDownTopLeft"],
-        ["wallTopDownFullRigth", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull","wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull","wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFull", "wallTopDownFullLeft"],
-        ["wallTopDownPointRigthTop", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall","wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall","wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownTopFullFloorWall", "wallTopDownPointLeftTop"]
+        26, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 2
+      ],
+      [
+        7,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        "doorTopDown",
+        8,
+        8,
+        "doorTopDown2",
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        9
+      ],
+      [
+        7, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 99, 4, 4, 98, 4, 4, 4, 4,
+        4, 4, 4, 4, 4, 4, 5, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+        11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+        11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+        11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+        11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 24, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
+        22, 22, 22, 22, 22, 25, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 10, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 7, 10, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90,
+        90, 90, 90, 90, 90, 90, 10, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+        11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+        11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11,
+        11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 9
+      ],
+      [
+        7, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18,
+        18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 19, 9
+      ],
+      [
+        14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16
+      ],
+      [
+        21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
+        22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23
+      ]
     ],
     [
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "cable1", "empty", "empty", "cable3", "empty", "empty", "cable2", "leftLocker", "rigthLocker", "empty", "empty","cable3", "empty", "cable1", "empty", "empty", "empty", "empty", "cable1", "cable3", "empty", "empty", "cable1", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "chest", "empty", "empty", "chestOfDrawers", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "chest", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "coinBlue", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "toilet", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "chest", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "chest", "empty", "empty"],
-      ["empty", "empty", "chest", "empty", "coinYellow", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "cable2", "empty", "empty", "empty","empty", "empty", "cable2", "empty", "empty", "cable3", "empty", "empty", "empty", "empty", "cable2", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "chestOfDrawers", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "chestOfDrawers", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "chest", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "coinGreen","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "chest", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"],
-      ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty","empty", "empty", "empty", "empty", "empty", "empty"]
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 28, 35, 0, 0, 32, 0, 0, 0, 0, 34, 0, 0, 34, 0, 0, 0, 0, 0, 32, 0,
+        28, 35, 0, 34, 0, 0, 0, 31, 0
+      ],
+      [
+        0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 29, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        29, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 33, 0
+      ],
+      [
+        0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ]
+    ],
+    [
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 20, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
+        15, 15, 15, 15, 15, 27, 0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ],
+      [
+        14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
+        15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16
+      ],
+      [
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0
+      ]
     ]
   ]
 }

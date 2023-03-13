@@ -1,7 +1,6 @@
 // Set the global screen size
-let screenWidth = 1000;
-let screenHeight = 900;
-
+let screenWidth = innerWidth;
+let screenHeight = innerHeight;
 // Set the ratio if need zoom on map
 let ratio = 1;
 
@@ -25,51 +24,22 @@ let playerStartY = 400;
 let mapX = -(screenWidth / 2) + playerStartX;
 let mapY = -(screenHeight / 2) + playerStartY;
 
-let EngineTwoMapX = -3840;
+let EngineTwoMapX = 0;
 let EngineTwoMapY = 0;
-let currentBackgroundEngineTwo;
+let actualMapEngineTwo = "";
+let actualDirectionEngineTwo = "";
+let engineTwoMapSizeW = 324;
+let engineTwoMapSizeH = 60;
 
 let spriteCutSize = 20;
 let tileSizeCut = 16;
 
-switch (currentEngine) {
-  case ENGINE_ONE:
-    spritePlayerSize = 120;
-
-    playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-    playerPosY = screenHeight / 2 - spritePlayerSize / 2;
-    break;
-
-  case ENGINE_TWO:
-    spritePlayerSize = 360;
-
-    playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-    playerPosY = screenHeight - spritePlayerSize;
-    break;
-}
-
-let playerSpeed = 6;
-let pnjSpeed = 3;
+let playerSpeedEngineTwo = 7;
+let playerSpeed = 7;
+let npcSpeed = 3;
 let playerState = "idle";
 
 // Set sprite and animate repetition
-let indexOfAnimation = 0;
-setInterval(() => {
-  if (indexOfAnimation < 6) {
-    indexOfAnimation += 1;
-  } else {
-    indexOfAnimation = 1;
-  }
-}, 110);
-
-let indexOfPnjAnim = 0;
-setInterval(() => {
-  if (indexOfPnjAnim < 6) {   
-      indexOfPnjAnim += 1;
-  } else {
-      indexOfPnjAnim = 1;
-  }
-}, 110);
 
 // Set the variable to check the player direction
 let Direction = [0, 0];
@@ -77,36 +47,34 @@ let Direction = [0, 0];
 // ! Engine One Configuration
 
 // Set all map variables initialisation
-let map;
+let map = undefined;
 // actually useless -- just take array.length
-let mapColumn;
-let mapRow;
+let mapColumn = undefined;
+let mapRow = undefined;
 // actually useless -- just take array.length
-let mapWidth;
-let mapHeight;
-let tileSize;
+let mapWidth = undefined;
+let mapHeight = undefined;
+let tileSize = undefined;
 
 // Change value when changing engine
-function detectEngine() {
-  if (currentEngine != tempCurrentEngine) {
-    if (currentEngine == "engine_one") {
-      spritePlayerSize = 120;
-
-      playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-      playerPosY = screenHeight / 2 - spritePlayerSize / 2;
-    } else {
-      spritePlayerSize = 360;
-
-      playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-      playerPosY = screenHeight - spritePlayerSize - 30;
-    }
-    tempCurrentEngine = currentEngine;
-  }
-}
-let inventorySquareSize = 80;
-let inventoryWidthStart = 240;
-let inventoryHeigthStart = 810;
+let inventorySquareSize = 100;
+let inventoryWidthStart = screenWidth / 1.35;
+let inventoryHeigthStart = 10;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
 let actualInventoryChoose = 1;
-inventoryTab.length = 5;
+inventoryTab.length = 4;
+
+let canInteract = false;
+let tempText = "";
+let i = 0;
+let index = 0;
+let bool = false;
+let actualDialog = [];
+
+let canDrawEngineTow2ndMap = false;
+let canMoveEngineTwo = true;
+
+
+let engineTwoDividePartW = -((engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)) / 20)
+let canMoveAllNPC = true;

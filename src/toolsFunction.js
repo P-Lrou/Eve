@@ -15,7 +15,7 @@ function getBottomCornerRight(rect) {
 }
 
 function pointIsInRect(point, rect) {
-    if (point[0] > rect[0] && point[0] < (rect[0] + rect[2]) && point[1] > rect[1] && (rect[1] + rect[3])) {
+    if (point[0] > rect[0] && point[0] < (rect[0] + rect[2]) && point[1] > rect[1] && point[1] < (rect[1] + rect[3])) {
         return true
     }
     return false
