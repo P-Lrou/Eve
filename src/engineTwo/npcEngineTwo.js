@@ -1,77 +1,77 @@
-function drawPNJEngineTwo(PNJ) {
-  let actualPNJ = undefined;
-  pnj.pnjEngineTwo.forEach((element) => {
-    if (element.name === PNJ) {
-      actualPNJ = element;
+function drawNPCEngineTwo(NPC) {
+  let actualNPC = undefined;
+  npc.npcEngineTwo.forEach((element) => {
+    if (element.name === NPC) {
+      actualNPC = element;
     }
   });
-  let pnjTile = findActualPnj(actualPNJ.name);
-  let animationMoovePlayer = pnjTile.get(
+  let npcTile = findActualNpc(actualNPC.name);
+  let animationMoovePlayer = npcTile.get(
     0,
     spriteCutSize * 3,
     spriteCutSize,
     spriteCutSize
   );
-  actualPNJ.startx = actualPNJ.xdist + EngineTwoMapX;
+  actualNPC.startx = actualNPC.xdist + EngineTwoMapX;
 
-  if (actualPNJ.xdist > Math.abs(engineTwoDividePartW * actualPNJ.minX)) {
-    actualPNJ.pnjDirection = [-1, 0];
+  if (actualNPC.xdist > Math.abs(engineTwoDividePartW * actualNPC.minX)) {
+    actualNPC.npcDirection = [-1, 0];
   }
-  if (actualPNJ.xdist < Math.abs(engineTwoDividePartW * actualPNJ.maxX)) {
-    actualPNJ.pnjDirection = [1, 0];
+  if (actualNPC.xdist < Math.abs(engineTwoDividePartW * actualNPC.maxX)) {
+    actualNPC.npcDirection = [1, 0];
   }
-  switch (actualPNJ.pnjDirection[0]) {
+  switch (actualNPC.npcDirection[0]) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = pnjTile.get(
-        spriteCutSize * indexOfPnjAnim,
+      animationMoovePlayer = npcTile.get(
+        spriteCutSize * indexOfNpcAnim,
         spriteCutSize * 0,
         spriteCutSize,
         spriteCutSize
       );
-      if (actualPNJ.canMove) {
-        actualPNJ.xdist += pnjSpeed;
+      if (actualNPC.canMove && canMoveAllNPC) {
+        actualNPC.xdist += npcSpeed;
       }
-      collisionPNJEngineTwo(actualPNJ);
+      collisionNPCEngineTwo(actualNPC);
       break;
     case -1:
-      animationMoovePlayer = pnjTile.get(
-        spriteCutSize * indexOfPnjAnim,
+      animationMoovePlayer = npcTile.get(
+        spriteCutSize * indexOfNpcAnim,
         spriteCutSize * 1,
         spriteCutSize,
         spriteCutSize
       );
-      if (actualPNJ.canMove) {
-        actualPNJ.xdist -= pnjSpeed;
+      if (actualNPC.canMove && canMoveAllNPC) {
+        actualNPC.xdist -= npcSpeed;
       }
-      collisionPNJEngineTwo(actualPNJ);
+      collisionNPCEngineTwo(actualNPC);
       break;
   }
-  switch (actualPNJ.pnjDirection[1]) {
+  switch (actualNPC.npcDirection[1]) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = pnjTile.get(
-        spriteCutSize * indexOfPnjAnim,
+      animationMoovePlayer = npcTile.get(
+        spriteCutSize * indexOfNpcAnim,
         spriteCutSize * 3,
         spriteCutSize,
         spriteCutSize
       );
-      collisionPNJEngineTwo(actualPNJ);
+      collisionNPCEngineTwo(actualNPC);
       break;
     case -1:
-      animationMoovePlayer = pnjTile.get(
-        spriteCutSize * indexOfPnjAnim,
+      animationMoovePlayer = npcTile.get(
+        spriteCutSize * indexOfNpcAnim,
         spriteCutSize * 2,
         spriteCutSize,
         spriteCutSize
       );
-      collisionPNJEngineTwo(actualPNJ);
+      collisionNPCEngineTwo(actualNPC);
       break;
   }
-  if (!actualPNJ.canMove) {
-    animationMoovePlayer = pnjTile.get(
+  if (!actualNPC.canMove || !canMoveAllNPC) {
+    animationMoovePlayer = npcTile.get(
       0,
       spriteCutSize,
       spriteCutSize,
@@ -81,34 +81,34 @@ function drawPNJEngineTwo(PNJ) {
 
   image(
     animationMoovePlayer,
-    actualPNJ.startx,
+    actualNPC.startx,
     screenHeight - spritePlayerSize - 59,
     spritePlayerSize,
     spritePlayerSize
   );
 }
 
-function collisionPNJEngineTwo(actualPNJ) {
+function collisionNPCEngineTwo(actualNPC) {
   let TopCornerLeft = getTopCornerLeft([
-    actualPNJ.startx + 30,
+    actualNPC.startx + 30,
     screenHeight - spritePlayerSize - 59,
     spritePlayerSize,
     spritePlayerSize,
   ]);
   let TopCornerRight = getTopCornerRight([
-    actualPNJ.startx,
+    actualNPC.startx,
     screenHeight - spritePlayerSize - 59,
     spritePlayerSize - 25,
     spritePlayerSize,
   ]);
   let BottomCornerLeft = getBottomCornerLeft([
-    actualPNJ.startx + 30,
+    actualNPC.startx + 30,
     screenHeight - spritePlayerSize - 59,
     spritePlayerSize,
     spritePlayerSize,
   ]);
   let BottomCornerRight = getBottomCornerRight([
-    actualPNJ.startx,
+    actualNPC.startx,
     screenHeight - spritePlayerSize - 59,
     spritePlayerSize - 25,
     spritePlayerSize,
@@ -123,26 +123,26 @@ function collisionPNJEngineTwo(actualPNJ) {
   // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
 
   if (isCollisionWithPlayer(TopCornerLeft)) {
-    actualPNJ.canMove = false;
-    canTalkToPnj(actualPNJ);
+    actualNPC.canMove = false;
+    canTalkToNpc(actualNPC);
     return;
   }
   if (isCollisionWithPlayer(TopCornerRight)) {
-    actualPNJ.canMove = false;
-    canTalkToPnj(actualPNJ);
+    actualNPC.canMove = false;
+    canTalkToNpc(actualNPC);
     return;
   }
   if (isCollisionWithPlayer(BottomCornerLeft)) {
-    actualPNJ.canMove = false;
-    canTalkToPnj(actualPNJ);
+    actualNPC.canMove = false;
+    canTalkToNpc(actualNPC);
     return;
   }
   if (isCollisionWithPlayer(BottomCornerRight)) {
-    actualPNJ.canMove = false;
-    canTalkToPnj(actualPNJ);
+    actualNPC.canMove = false;
+    canTalkToNpc(actualNPC);
     return;
   }
-  actualPNJ.canMove = true;
+  actualNPC.canMove = true;
 }
 
 function isCollisionWithPlayer(point) {
@@ -158,20 +158,20 @@ function isCollisionWithPlayer(point) {
   return false;
 }
 
-function canTalkToPnj(actualPNJ) {
-  if (actualPNJ.canTalk) {
+function canTalkToNpc(actualNPC) {
+  if (actualNPC.canTalk) {
     textSize(20);
     fill("rgb(255,255,255)");
     noStroke();
     text(
-      `Press E to talk to ${actualPNJ.name.slice(3)}.`,
+      `Press E to talk to ${actualNPC.name.slice(3)}.`,
       playerPosX - 50,
       playerPosY - 20
     );
     setTimeout(() => {
       if (keyIsDown(69) && canMoveEngineTwo) {
         canInteract = true;
-        actualDialog = actualPNJ.dialog;
+        actualDialog = actualNPC.dialog;
       }
     }, 500);
   }

@@ -14,12 +14,12 @@ switch (currentEngine) {
     break;
 }
 
-let indexOfPnjAnim = 0;
+let indexOfNpcAnim = 0;
 setInterval(() => {
-  if (indexOfPnjAnim < 6) {
-    indexOfPnjAnim += 1;
+  if (indexOfNpcAnim < 6) {
+    indexOfNpcAnim += 1;
   } else {
-    indexOfPnjAnim = 1;
+    indexOfNpcAnim = 1;
   }
 }, 110);
 

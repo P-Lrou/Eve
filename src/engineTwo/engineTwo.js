@@ -25,7 +25,7 @@ function engineTwoStart() {
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
       );
-      drawPNJEngineTwo("pnjJulliette");
+      drawNPCEngineTwo("npcJulliette");
       canDoInteraction();
       break;
     case "botanicMap":
@@ -43,7 +43,7 @@ function engineTwoStart() {
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
       );
-      drawPNJEngineTwo("pnjRose");
+      drawNPCEngineTwo("npcRose");
       break;
   }
   drawPlayerEngineTwo();

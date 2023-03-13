@@ -178,8 +178,8 @@ function changeMapEngineTwo() {
 
 function canDoInteraction() {
   if (
-    EngineTwoMapX - playerPosX < -1727 &&
-    EngineTwoMapX - playerPosX > -2028
+    EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 &&
+    EngineTwoMapX - playerPosX > engineTwoDividePartW * 9
   ) {
     textSize(20);
     fill("rgb(255,255,255)");
@@ -189,6 +189,7 @@ function canDoInteraction() {
       if (keyIsDown(69)) {
         canDrawEngineTow2ndMap = true;
         canMoveEngineTwo = false;
+        canMoveAllNPC = false;
       }
     }, 500);
   }
@@ -201,6 +202,7 @@ function drawEngineTow2ndMap() {
   setTimeout(() => {
     if (keyIsDown(69)) {
       canDrawEngineTow2ndMap = false;
+      canMoveAllNPC = true;
       canMoveEngineTwo = true;
     }
   }, 500);

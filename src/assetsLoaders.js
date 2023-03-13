@@ -1,7 +1,7 @@
 // Load all Assets Images
 function loadAssets() {
   map1 = loadJSON("json/map1.json");
-  pnj = loadJSON("json/pnj.json");
+  npc = loadJSON("json/npc.json");
   mainFont = loadFont("fonts/mainFont.ttf");
 
   tempBackground = loadImage("assets/tempBackground.jpg");
@@ -12,8 +12,8 @@ function loadAssets() {
   coinBlue = loadImage("assets/coinBlue.png");
 
   mainCaracter = loadImage("assets/mainCaracter.png");
-  pnjRose = loadImage("assets/pnjRose.png");
-  pnjJulliette = loadImage("assets/pnjJulliette.png");
+  npcRose = loadImage("assets/npcRose.png");
+  npcJulliette = loadImage("assets/npcJulliette.png");
   assets = loadImage("assets/assets.png");
 
   backgroundCloneMap = loadImage("assets/cloneMap/backgroundCloneMap.png");
@@ -327,13 +327,13 @@ function findActualObject(objectName) {
   }
 }
 
-function findActualPnj(pnjName) {
-  switch (pnjName) {
-    case "pnjRose":
-      return pnjRose;
-    case "pnjJulliette":
-      return pnjJulliette;
+function findActualNpc(npcName) {
+  switch (npcName) {
+    case "npcRose":
+      return npcRose;
+    case "npcJulliette":
+      return npcJulliette;
     default:
-      throw new Error("Can't find the asset named : " + pnjName);
+      throw new Error("Can't find the asset named : " + npcName);
   }
 }

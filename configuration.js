@@ -36,7 +36,7 @@ let tileSizeCut = 16;
 
 let playerSpeedEngineTwo = 7;
 let playerSpeed = 7;
-let pnjSpeed = 3;
+let npcSpeed = 3;
 let playerState = "idle";
 
 // Set sprite and animate repetition
@@ -77,3 +77,4 @@ let canMoveEngineTwo = true;
 
 
 let engineTwoDividePartW = -((engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)) / 20)
+let canMoveAllNPC = true;
