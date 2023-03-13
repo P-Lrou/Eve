@@ -23,6 +23,7 @@ function loadAssets() {
   backgroundBotanicMap = loadImage(
     "assets/botanicMap/backgroundBotanicMap.png"
   );
+  planteAnimationBotanicMap = loadImage("assets/botanicMap/planteAnimationBotanicMap.png")
 }
 
 // Recover all assets

@@ -32,6 +32,15 @@ setInterval(() => {
   }
 }, 110);
 
+let indexOfAnimation3 = 0;
+setInterval(() => {
+  if (indexOfAnimation3 < 17) {
+    indexOfAnimation3 += 1;
+  } else {
+    indexOfAnimation3 = 0;
+  }
+}, 110);
+
 let indexOfAnimation = 0;
 setInterval(() => {
   if (indexOfAnimation < 6) {
@@ -90,6 +99,7 @@ function keyReleased(event) {
       } else {
         bool = false;
         index = 0;
+        canInteract = false;
         clearInterval(intervalId);
       }
     } else {

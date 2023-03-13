@@ -23,7 +23,7 @@
       "starty": 510,
       "pnjDirection": [1, 0],
       "maxX": 2500,
-      "minX": 350,
+      "minX": 3500,
       "canMove": true,
       "canTalk": false
     }

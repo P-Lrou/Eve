@@ -36,6 +36,13 @@ function engineTwoStart() {
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
       );
+      image(
+        planteAnimationBotanicMap.get(324 * indexOfAnimation3, 0, 324, 60),
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
       drawPNJEngineTwo("pnjRose");
       break;
   }
