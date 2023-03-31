@@ -1,4 +1,8 @@
-// Start creation of all engine one settings
+//& This file managed the Engine One
+
+
+//^ This function actually start and managed the Engine One
+
 function engineOneStart() {
   background(tempBackground);
   drawMap();
@@ -8,14 +12,17 @@ function engineOneStart() {
   playerInputs();
 }
 
-// Draw the map for the engine one
+//^ This function draw the map using the json instruction
+
 function drawMap() {
   for (let i = 0; i < 2; i++) {
     drawTilesForOneLayer(map.layers[i]);
   }
 }
 
-// Draw the tiles for the map creation
+//^ This function is used to draw layer by layer the map using the json instruction
+//+ Take in params the actual layer who's set by drawMap()
+
 function drawTilesForOneLayer(actualLayer) {
   for (let y = 0; y < map.mapRow; y++) {
     for (let x = 0; x < map.mapColumn; x++) {
@@ -31,13 +38,14 @@ function drawTilesForOneLayer(actualLayer) {
   }
 }
 
+//^ This two functions do the same as the other function but in front of the player
+
 function drawMap2() {
   for (let i = 2; i < map.layers.length; i++) {
     drawTilesForOneLayer(map.layers[i]);
   }
 }
 
-// Draw the tiles for the map creation
 function drawTilesForOneLayer2(actualLayer) {
   for (let y = 0; y < map.mapRow; y++) {
     for (let x = 0; x < map.mapColumn; x++) {

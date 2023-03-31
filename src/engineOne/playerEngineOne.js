@@ -179,48 +179,58 @@ function checkIfIsCollisionWall(actualTile) {
       return true;
     case 2:
       return true;
-    case "doorTopDown":
+    case 3:
       return true;
-    case 99:
-      changeMap("clone");
-      return false;
-    case "doorTopDown2":
+    case 4:
       return true;
-    case 98:
-      changeMap("botanic");
-      return false;
+    case 5:
+      return true;
+    case 6:
+      return true;
     case 7:
       return true;
     case 8:
       return true;
     case 9:
       return true;
+    case 10:
+      return true;
+    case 11:
+      return true;
+    case 12:
+      return true;
+    case 13:
+      return true;
     case 14:
+      return true;
+    case 15:
       return true;
     case 16:
       return true;
-    case 20:
+    case 17:
       return true;
-    case 21:
+    case 18:
       return true;
-    case 22:
+    case 19:
       return true;
     case 23:
       return true;
     case 24:
       return true;
-    case 25:
-      return true;
-    case 26:
-      return true;
-    case 90:
+    case 28:
       return true;
     case 29:
       return true;
-    case 30:
-      return true;
     case 33:
       return true;
+
+    case 99:
+      changeMap("clone");
+      return false;
+    case 98:
+      changeMap("botanic");
+      return false;
+
     default:
       return false;
   }

@@ -27,6 +27,9 @@ function engineTwoStart() {
       );
       drawNPCEngineTwo("npcJulliette");
       canDoInteraction();
+      if (canDrawEngineCloneMapQuest) {
+        drawnQuestCloneMap();
+      }
       break;
     case "botanicMap":
       image(
@@ -51,8 +54,5 @@ function engineTwoStart() {
   changeMapEngineTwo();
   if (canInteract) {
     writeText(actualDialog);
-  }
-  if (canDrawEngineTow2ndMap) {
-    drawEngineTow2ndMap();
   }
 }

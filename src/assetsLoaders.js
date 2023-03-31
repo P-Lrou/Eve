@@ -5,8 +5,6 @@ function loadAssets() {
   mainFont = loadFont("fonts/mainFont.ttf");
 
   tempBackground = loadImage("assets/tempBackground.jpg");
-  doorTopDown = loadImage("assets/doorTopDown.png");
-  doorTopDown2 = loadImage("assets/doorTopDown.png");
   coinYellow = loadImage("assets/coinYellow.png");
   coinGreen = loadImage("assets/coinGreen.png");
   coinBlue = loadImage("assets/coinBlue.png");
@@ -19,6 +17,9 @@ function loadAssets() {
   backgroundCloneMap = loadImage("assets/cloneMap/backgroundCloneMap.png");
   lightCloneMap = loadImage("assets/cloneMap/lightCloneMap.png");
   jarAnimationCloneMap = loadImage("assets/cloneMap/jarAnimationCloneMap.png");
+  questAnimationCloneMap = loadImage("assets/cloneMap/questAnimationCloneMap.png");
+  questCloneMap1 = loadImage("assets/cloneMap/questCloneMap1.png");
+  questCloneMap2 = loadImage("assets/cloneMap/questCloneMap2.png");
 
   backgroundBotanicMap = loadImage(
     "assets/botanicMap/backgroundBotanicMap.png"
@@ -29,187 +30,45 @@ function loadAssets() {
 // Recover all assets
 function initAssets() {
   empty = assets.get(0, 0, tileSizeCut, tileSizeCut);
-  wallTopDownTopDown = assets.get(0 + tileSizeCut, 0, tileSizeCut, tileSizeCut);
-  floorTopDown1 = assets.get(0 + tileSizeCut * 3, 0, tileSizeCut, tileSizeCut);
-  floorTopDownDoor = assets.get(
-    0 + tileSizeCut * 4,
-    0,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDownDoor2 = assets.get(
-    0 + tileSizeCut * 4,
-    0,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDown2 = assets.get(0 + tileSizeCut * 4, 0, tileSizeCut, tileSizeCut);
-  floorTopDown3 = assets.get(0 + tileSizeCut * 5, 0, tileSizeCut, tileSizeCut);
-  wallTopDownTopRigth = assets.get(
-    0,
-    0 + tileSizeCut,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDown = assets.get(
-    0 + tileSizeCut,
-    0 + tileSizeCut,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDown4 = assets.get(
-    0 + tileSizeCut * 3,
-    0 + tileSizeCut,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDown5 = assets.get(
-    0 + tileSizeCut * 4,
-    0 + tileSizeCut,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDown6 = assets.get(
-    0 + tileSizeCut * 5,
-    0 + tileSizeCut,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownFullRigth = assets.get(
-    0,
-    0 + tileSizeCut * 2,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownFull = assets.get(
-    0 + tileSizeCut,
-    0 + tileSizeCut * 2,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDown7 = assets.get(
-    0 + tileSizeCut * 3,
-    0 + tileSizeCut * 2,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDown8 = assets.get(
-    0 + tileSizeCut * 4,
-    0 + tileSizeCut * 2,
-    tileSizeCut,
-    tileSizeCut
-  );
-  floorTopDown9 = assets.get(
-    0 + tileSizeCut * 5,
-    0 + tileSizeCut * 2,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownLeftCorner = assets.get(
-    0 + tileSizeCut * 6,
-    0 + tileSizeCut * 2,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownPointRigthTop = assets.get(
-    0,
-    0 + tileSizeCut * 3,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownTopFullFloorWall = assets.get(
-    0 + tileSizeCut,
-    0 + tileSizeCut * 3,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownPointLeftTop = assets.get(
-    0 + tileSizeCut * 2,
-    0 + tileSizeCut * 3,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownCornerFullLeft = assets.get(
-    0 + tileSizeCut * 3,
-    0 + tileSizeCut * 3,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownCornerFullRight = assets.get(
-    0 + tileSizeCut * 4,
-    0 + tileSizeCut * 3,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownPointRigthDown = assets.get(
-    0 + tileSizeCut * 5,
-    0 + tileSizeCut * 3,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownRightCorner = assets.get(
-    0 + tileSizeCut * 6,
-    0 + tileSizeCut * 3,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownFullLeft = assets.get(
-    0 + tileSizeCut * 2,
-    0 + tileSizeCut * 2,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownPointLeftDown = assets.get(
-    0 + tileSizeCut * 2,
-    0,
-    tileSizeCut,
-    tileSizeCut
-  );
-  wallTopDownTopLeft = assets.get(
-    0 + tileSizeCut * 2,
-    0 + tileSizeCut,
-    tileSizeCut,
-    tileSizeCut
-  );
+  topWall = assets.get(0 + tileSizeCut * 1, 0, tileSizeCut, tileSizeCut);
+  topRigthCorner = assets.get(0 + tileSizeCut * 2, 0, tileSizeCut, tileSizeCut);
+  topLeftCornerWall = assets.get(0 + tileSizeCut * 3, 0, tileSizeCut, tileSizeCut);
+  topRigthCornerWall = assets.get(0 + tileSizeCut * 4, 0, tileSizeCut, tileSizeCut);
 
-  leftLocker = assets.get(0, 0 + tileSizeCut * 4, tileSizeCut, tileSizeCut);
-  rigthLocker = assets.get(0, 0 + tileSizeCut * 5, tileSizeCut, tileSizeCut);
-  chest = assets.get(
-    0 + tileSizeCut,
-    0 + tileSizeCut * 4,
-    tileSizeCut,
-    tileSizeCut
-  );
-  chestOfDrawers = assets.get(
-    0 + tileSizeCut * 2,
-    0 + tileSizeCut * 4,
-    tileSizeCut,
-    tileSizeCut
-  );
-  cable1 = assets.get(
-    0 + tileSizeCut * 3,
-    0 + tileSizeCut * 4,
-    tileSizeCut,
-    tileSizeCut
-  );
-  cable2 = assets.get(
-    0 + tileSizeCut * 4,
-    0 + tileSizeCut * 4,
-    tileSizeCut,
-    tileSizeCut
-  );
-  toilet = assets.get(
-    0 + tileSizeCut * 5,
-    0 + tileSizeCut * 4,
-    tileSizeCut,
-    tileSizeCut
-  );
-  cable3 = assets.get(
-    0 + tileSizeCut * 6,
-    0 + tileSizeCut * 4,
-    tileSizeCut,
-    tileSizeCut
-  );
+  leftWall = assets.get(0, 0 + tileSizeCut * 1, tileSizeCut, tileSizeCut);
+  wall = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 1, tileSizeCut, tileSizeCut);
+  rigthWall = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 1, tileSizeCut, tileSizeCut);
+  topLeftCornerDownWall = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 1, tileSizeCut, tileSizeCut);
+  topRigthCornerDownWall = assets.get(0 + tileSizeCut * 4, 0 + tileSizeCut * 1, tileSizeCut, tileSizeCut);
+
+  leftWallFull = assets.get(0, 0 + tileSizeCut * 2, tileSizeCut, tileSizeCut);
+  wallFull = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 2, tileSizeCut, tileSizeCut);
+  rigthWallFull = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 2, tileSizeCut, tileSizeCut);
+  downLeftCornerDownWall = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 2, tileSizeCut, tileSizeCut);
+  downRigthCornerDownWall = assets.get(0 + tileSizeCut * 4, 0 + tileSizeCut * 2, tileSizeCut, tileSizeCut);
+
+  downRigthCorner = assets.get(0, 0 + tileSizeCut * 3, tileSizeCut, tileSizeCut);
+  downWall = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 3, tileSizeCut, tileSizeCut);
+  downLeftCorner = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 3, tileSizeCut, tileSizeCut);
+  wall2 = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 3, tileSizeCut, tileSizeCut);
+  topLeftCorner = assets.get(0 + tileSizeCut * 4, 0 + tileSizeCut * 3, tileSizeCut, tileSizeCut);
+
+  floor1 = assets.get(0, 0 + tileSizeCut * 4, tileSizeCut, tileSizeCut);
+  floor2 = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 4, tileSizeCut, tileSizeCut);
+  floor3 = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 4, tileSizeCut, tileSizeCut);
+  topMiddle = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 4, tileSizeCut, tileSizeCut);
+  door = assets.get(0 + tileSizeCut * 4, 0 + tileSizeCut * 4, tileSizeCut, tileSizeCut);
+
+  floor4 = assets.get(0, 0 + tileSizeCut * 5, tileSizeCut, tileSizeCut);
+  floor5 = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 5, tileSizeCut, tileSizeCut);
+  floor6 = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 5, tileSizeCut, tileSizeCut);
+  leftDoor = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 5, tileSizeCut, tileSizeCut);
+  topDoor = assets.get(0 + tileSizeCut * 4, 0 + tileSizeCut * 5, tileSizeCut, tileSizeCut);
+
+  floor7 = assets.get(0, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
+  floor8 = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
+  floor9 = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
+  rigthDoor = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
 }
 
 // Find the good assets for map creation
@@ -219,83 +78,83 @@ function findActualAsset(layer, row, column) {
     case 0:
       return empty;
     case 1:
-      return wallTopDownTopDown;
+      return topWall;
     case 2:
-      return wallTopDownPointLeftDown;
-    case 99:
-      return floorTopDownDoor;
-    case 98:
-      return floorTopDownDoor2;
+      return topRigthCorner;
     case 3:
-      return floorTopDown1;
+      return topLeftCornerWall;
     case 4:
-      return floorTopDown2;
+      return topRigthCornerWall;
+
     case 5:
-      return floorTopDown3;
+      return leftWall;
+    case 6:
+      return wall;
     case 7:
-      return wallTopDownTopRigth;
+      return rigthWall;
     case 8:
-      return wallTopDown;
+      return topLeftCornerDownWall;
     case 9:
-      return wallTopDownTopLeft;
+      return topRigthCornerDownWall;
+
     case 10:
-      return floorTopDown4;
+      return leftWallFull;
     case 11:
-      return floorTopDown5;
+      return wallFull;
     case 12:
-      return floorTopDown6;
+      return rigthWallFull;
+    case 13:
+      return downLeftCornerDownWall;
     case 14:
-      return wallTopDownFullRigth;
+      return downRigthCornerDownWall;
+
     case 15:
-      return wallTopDownFull;
-    case 90:
-      return wallTopDownFull;
+      return downRigthCorner;
     case 16:
-      return wallTopDownFullLeft;
+      return downWall;
     case 17:
-      return floorTopDown7;
+      return downLeftCorner;
     case 18:
-      return floorTopDown8;
+      return wall2;
     case 19:
-      return floorTopDown9;
+      return topLeftCorner;
+
     case 20:
-      return wallTopDownLeftCorner;
+      return floor1;
     case 21:
-      return wallTopDownPointRigthTop;
+      return floor2;
     case 22:
-      return wallTopDownTopFullFloorWall;
+      return floor3;
     case 23:
-      return wallTopDownPointLeftTop;
+      return topMiddle;
     case 24:
-      return wallTopDownCornerFullLeft;
+      return door;
+
     case 25:
-      return wallTopDownCornerFullRight;
+      return floor4;
     case 26:
-      return wallTopDownPointRigthDown;
+      return floor5;
     case 27:
-      return wallTopDownRightCorner;
-
+      return floor6;
     case 28:
-      return leftLocker;
+      return leftDoor;
     case 29:
-      return chest;
-    case 30:
-      return chestOfDrawers;
-    case 31:
-      return cable1;
-    case 32:
-      return cable2;
-    case 33:
-      return toilet;
-    case 34:
-      return cable3;
-    case 35:
-      return rigthLocker;
+      return topDoor;
 
-    case "doorTopDown":
-      return doorTopDown;
-    case "doorTopDown2":
-      return doorTopDown2;
+    case 30:
+      return floor7;
+    case 31:
+      return floor8;
+    case 32:
+      return floor9;
+    case 33:
+      return rigthDoor;
+
+    case 99:
+      return floor2;
+    case 98:
+      return floor4;
+
     case "coinYellow":
       return coinYellow;
     case "coinGreen":
@@ -305,11 +164,11 @@ function findActualAsset(layer, row, column) {
     default:
       throw new Error(
         "Can't find the asset named : " +
-          assetName +
-          " at " +
-          column +
-          " " +
-          row
+        assetName +
+        " at " +
+        column +
+        " " +
+        row
       );
   }
 }

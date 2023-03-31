@@ -187,7 +187,7 @@ function canDoInteraction() {
     text("Press E to interact", playerPosX - 40, playerPosY - 20);
     setTimeout(() => {
       if (keyIsDown(69)) {
-        canDrawEngineTow2ndMap = true;
+        canDrawEngineCloneMapQuest = true;
         canMoveEngineTwo = false;
         canMoveAllNPC = false;
       }
@@ -195,15 +195,59 @@ function canDoInteraction() {
   }
 }
 
-function drawEngineTow2ndMap() {
-  fill("rgba(31, 31, 31, 0.68)");
-  stroke("rgba(213, 213, 213, 0.24)");
-  rect(400, 50, 1100, 800);
+function drawnQuestCloneMap() {
+  image(
+    questAnimationCloneMap.get(
+      1100 * indexOfAnimationQuestClone,
+      0,
+      1100,
+      800
+    ),
+    400,
+    50,
+    screenWidth / 1.74,
+    screenHeight / 1.16
+  );
+  noStroke();
+  fill('#00E4B0')
+  rect(1086.5, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
+  image(
+    questCloneMap1,
+    400,
+    50,
+    screenWidth / 1.74,
+    screenHeight / 1.16
+  );
+  image(
+    questCloneMap2,
+    400 + (screenWidth / 1.74) - (screenWidth / 29.09),
+    50,
+    screenWidth / 29.09,
+    screenHeight / 12.72
+  );
+
+  if (pointIsInRect([mouseX, mouseY], [1086.5, 192 , 117, yRectMapEngineTwoCloneMap + 50 - 192])) {
+    if (mouseIsPressed) {
+      if (mouseButton == LEFT) {
+        yRectMapEngineTwoCloneMap = mouseY
+        heigthRectMapEngineTwoCloneMap = heigthRectMapEngineTwoCloneMap + (oldY - yRectMapEngineTwoCloneMap)
+        oldY = yRectMapEngineTwoCloneMap
+      }
+    }
+  }
+
   setTimeout(() => {
-    if (keyIsDown(69)) {
-      canDrawEngineTow2ndMap = false;
-      canMoveAllNPC = true;
-      canMoveEngineTwo = true;
+    if (pointIsInRect([mouseX, mouseY], [400 + (screenWidth / 1.74) - (screenWidth / 29.09), 50, screenWidth / 29.09, screenHeight / 12.72])) {
+      cursor('pointer');
+      if (mouseIsPressed === true) {
+        if (mouseButton == LEFT) {
+          canDrawEngineTow2ndMap = false;
+          canMoveAllNPC = true;
+          canMoveEngineTwo = true;
+        }
+      }
+    } else {
+      cursor('auto')
     }
   }, 500);
 }

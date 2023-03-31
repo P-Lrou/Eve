@@ -4,13 +4,14 @@ function preload() {
 
 function setup() {
     createCanvas(screenWidth, screenHeight);
+    frameRate(frameRateNumber)
     noSmooth()
     runMap("map1");
 }
 
 function draw() {
     textFont(mainFont);
-    detectEngine()
+    changeEngine()
     switch (currentEngine) {
         case ENGINE_ONE:
             engineOneStart();

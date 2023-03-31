@@ -13,7 +13,7 @@
       "minX": 15,
       "canMove": true,
       "canTalk": true,
-      "dialog": ["Bonjour", "Mon Dialogue fonctionne"]
+      "dialog": ["Bonjour,", "J'aurais besoin de ton aide.", "Peux-tu aller réguler le niveau d'oxygène dans la cuve d'Eve ?"]
     },
     {
       "name": "npcRose",
