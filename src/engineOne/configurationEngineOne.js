@@ -1,8 +1,8 @@
 //& This file setup all variables for the first Engine
 
 //+ This set the player start position on the map
-let playerStartX = 400;
-let playerStartY = 400;
+let playerStartX = 1500;
+let playerStartY =  2700;
 
 //+ Set the start point of the map
 let mapX = -(screenWidth / 2) + playerStartX;

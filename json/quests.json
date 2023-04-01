@@ -1,0 +1,11 @@
+{
+    "questCloneMap": {
+        "canDrawEngineCloneMapQuest": false,
+        "questCloneMapIsOver": false,
+        "canDrawInteractionClonMapQuest": false,
+        "isGoodForColor": false,
+        "canMoveQuestCloneMap": true
+    },
+    "seedsBagQuest": {
+    }
+}

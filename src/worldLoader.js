@@ -1,4 +1,5 @@
-// Recover actual map values
+//^ This function recover the selected map values
+//- Take in param the actual map name as a string
 function runMap(mapName) {
     switch (mapName) {
         case "map1":
@@ -17,14 +18,15 @@ function runMap(mapName) {
     initAssets();
 }
 
-// Check if the layer number is good
+//^ This function check if layers are good layer by layer
 function layersVerification() {
     for (let i = 0; i < map.layers.lenght; i++) {
         layerVerification(map.layers[i]);
     }
 }
 
-// Check if the layer number is good
+//^ This function check if layers are good layer by layer
+//- Take is param the actual layer as an array
 function layerVerification(layer) {
 
     if (mapRow != layer.length) {

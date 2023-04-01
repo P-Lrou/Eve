@@ -1,7 +1,10 @@
-// Load all Assets Images
+//& This file actually managed all the assets
+
+//^ This function load all assets at the game loading
 function loadAssets() {
   map1 = loadJSON("json/map1.json");
   npc = loadJSON("json/npc.json");
+  quests = loadJSON("json/quests.json");
   mainFont = loadFont("fonts/mainFont.ttf");
 
   tempBackground = loadImage("assets/tempBackground.jpg");
@@ -19,15 +22,16 @@ function loadAssets() {
   jarAnimationCloneMap = loadImage("assets/cloneMap/jarAnimationCloneMap.png");
   questAnimationCloneMap = loadImage("assets/cloneMap/questAnimationCloneMap.png");
   questCloneMap1 = loadImage("assets/cloneMap/questCloneMap1.png");
-  questCloneMap2 = loadImage("assets/cloneMap/questCloneMap2.png");
+  frontOfCloneMap = loadImage("assets/cloneMap/frontOfCloneMap.png");
 
-  backgroundBotanicMap = loadImage(
-    "assets/botanicMap/backgroundBotanicMap.png"
-  );
+  backgroundBotanicMap = loadImage("assets/botanicMap/backgroundBotanicMap.png");
   planteAnimationBotanicMap = loadImage("assets/botanicMap/planteAnimationBotanicMap.png")
+  seedsBagBotanicMap = loadImage("assets/botanicMap/seedsBagBotanicMap.png")
+
+  backgroundCommandMap = loadImage("assets/commandMap/backgroundCommandMap.png")
 }
 
-// Recover all assets
+//^ This function recover all assets
 function initAssets() {
   empty = assets.get(0, 0, tileSizeCut, tileSizeCut);
   topWall = assets.get(0 + tileSizeCut * 1, 0, tileSizeCut, tileSizeCut);
@@ -71,7 +75,8 @@ function initAssets() {
   rigthDoor = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
 }
 
-// Find the good assets for map creation
+//^ This function find the good asset for the map creation
+//- Take in param the acutal layer with, the row and the colum
 function findActualAsset(layer, row, column) {
   let assetName = layer[row][column];
   switch (assetName) {
@@ -153,7 +158,10 @@ function findActualAsset(layer, row, column) {
     case 99:
       return floor2;
     case 98:
-      return floor4;
+      return floor6;
+    case 97:
+      return floor8;
+
 
     case "coinYellow":
       return coinYellow;
@@ -173,6 +181,8 @@ function findActualAsset(layer, row, column) {
   }
 }
 
+//^ This function find the good object
+//- Take in param the object name as a string
 function findActualObject(objectName) {
   switch (objectName) {
     case "coinYellow":
@@ -186,6 +196,8 @@ function findActualObject(objectName) {
   }
 }
 
+//^ This function find the good NPC
+//- Take in param the npc name as a string
 function findActualNpc(npcName) {
   switch (npcName) {
     case "npcRose":

@@ -1,3 +1,7 @@
+//& This file managed all NPC drawing and interaction
+
+//^ This function draw the NPC with information that are stock in a json
+//- Take in params the actualNPC
 function drawNPCEngineTwo(NPC) {
   let actualNPC = undefined;
   npc.npcEngineTwo.forEach((element) => {
@@ -88,6 +92,8 @@ function drawNPCEngineTwo(NPC) {
   );
 }
 
+//^ This function do the collision for the NPC with the same function as the main player
+//- Take in params the actualNPC
 function collisionNPCEngineTwo(actualNPC) {
   let TopCornerLeft = getTopCornerLeft([
     actualNPC.startx + 30,
@@ -145,6 +151,8 @@ function collisionNPCEngineTwo(actualNPC) {
   actualNPC.canMove = true;
 }
 
+//^ This function is actually to check if the npc position is on a collision 
+//- Take in params the acutal player position
 function isCollisionWithPlayer(point) {
   let cornerMyPlayer = [
     playerPosX,
@@ -158,8 +166,10 @@ function isCollisionWithPlayer(point) {
   return false;
 }
 
+// ^ This function check if the Player can talk to NPC
+//- Take in params the actualNPC
 function canTalkToNpc(actualNPC) {
-  if (actualNPC.canTalk) {
+  if (actualNPC.canTalk && canMovePlayer && canTalkGlobalNPC) {
     textSize(20);
     fill("rgb(255,255,255)");
     noStroke();
@@ -168,11 +178,19 @@ function canTalkToNpc(actualNPC) {
       playerPosX - 50,
       playerPosY - 20
     );
-    setTimeout(() => {
-      if (keyIsDown(69) && canMoveEngineTwo) {
-        canInteract = true;
-        actualDialog = actualNPC.dialog;
+    if (keyIsDown(69) && canMoveEngineTwo) {
+      canInteract = true;
+      canMovePlayer = false;
+      canDrawnInventory = false;
+      canTalkGlobalNPC = false;
+      if (actualNPC.name === 'npcJulliette' && !quests.questCloneMap.questCloneMapIsOver) {
+        actualDialog = actualNPC.dialog[0];
+        quests.questCloneMap.canDrawInteractionClonMapQuest = true;
       }
-    }, 500);
+      else if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsOver) {
+        actualDialog = actualNPC.dialog[1];
+      }
+      return;
+    }
   }
 }

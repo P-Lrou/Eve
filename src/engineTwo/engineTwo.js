@@ -1,4 +1,6 @@
-// Start creation of all engine two settings
+//& This file managed the Engine One
+
+//^ This function actually start and managed the Engine One
 function engineTwoStart() {
   erase();
   playerInputsEngineTwo();
@@ -26,8 +28,19 @@ function engineTwoStart() {
         screenHeight
       );
       drawNPCEngineTwo("npcJulliette");
-      canDoInteraction();
-      if (canDrawEngineCloneMapQuest) {
+      canDoInteractionCloneQuest();
+      drawPlayerEngineTwo();
+      image(
+        frontOfCloneMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      if (canDrawnInventory) {
+        drawInventory();
+      }
+      if (quests.questCloneMap.canDrawEngineCloneMapQuest && !quests.questCloneMap.questCloneMapIsOver) {
         drawnQuestCloneMap();
       }
       break;
@@ -47,10 +60,25 @@ function engineTwoStart() {
         screenHeight
       );
       drawNPCEngineTwo("npcRose");
+      drawPlayerEngineTwo();
+      if (canDrawnInventory) {
+        drawInventory();
+      }
+      break;
+    case "commandMap":
+      image(
+        backgroundCommandMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      drawPlayerEngineTwo();
+      if (canDrawnInventory) {
+        drawInventory();
+      }
       break;
   }
-  drawPlayerEngineTwo();
-  drawInventory();
   changeMapEngineTwo();
   if (canInteract) {
     writeText(actualDialog);

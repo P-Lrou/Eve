@@ -1,16 +1,20 @@
-// Assign all player inputs
+//& This file actually managed the player for the Engine Two
+
+//^ This function managed player input
 function playerInputsEngineTwo() {
   playerState = "idle";
   if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo || (keyIsDown(81) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX -= playerSpeed;
-    if (playerPosX < 3) {
-      if (-EngineTwoMapX < 0) {
-        playerPosX += playerSpeed;
-        playerState = "idle";
-      } else {
+    if (playerPosX < 200) {
+      if (-EngineTwoMapX > 0) {
         EngineTwoMapX += playerSpeed;
         playerPosX += playerSpeed;
+      } else {
+        if (playerPosX < 17) {
+          playerPosX += playerSpeed;
+          playerState = "idle";
+        }
       }
     }
     Direction = "left";
@@ -19,16 +23,18 @@ function playerInputsEngineTwo() {
   if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo || (keyIsDown(68) && canMoveEngineTwo)) {
     playerState = "mooving";
     playerPosX += playerSpeed;
-    if (playerPosX + spritePlayerSize > screenWidth + 17) {
+    if (playerPosX + spritePlayerSize > screenWidth - 200) {
       if (
-        screenWidth - EngineTwoMapX >
+        screenWidth - EngineTwoMapX <
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)
       ) {
         playerPosX -= playerSpeed;
-        playerState = "idle";
-      } else {
-        playerPosX -= playerSpeed;
         EngineTwoMapX -= playerSpeed;
+      } else {
+        if (playerPosX + spritePlayerSize > screenWidth - 17) {
+          playerPosX -= playerSpeed;
+          playerState = "idle";
+        }
       }
     }
     Direction = "right";
@@ -51,7 +57,7 @@ function playerInputsEngineTwo() {
   }
 }
 
-// Draw Player with the good asset
+//^ This function call the function to draw the player using the direction
 function drawPlayerEngineTwo() {
   switch (playerState) {
     case "idle":
@@ -65,6 +71,7 @@ function drawPlayerEngineTwo() {
   }
 }
 
+//^ This function draw the player if he dont move
 function drawIdlePlayerEngineTwo() {
   switch (Direction) {
     case "left":
@@ -96,6 +103,7 @@ function drawIdlePlayerEngineTwo() {
   }
 }
 
+//^ This function draw the player if he move
 function drawMovePlayerEngineTwo() {
   switch (Direction) {
     case "left":
@@ -142,11 +150,13 @@ function drawMovePlayerEngineTwo() {
   }
 }
 
+//^ This function is used to change map from the second engine to the first
 function changeMapEngineTwo() {
   if (actualDirectionEngineTwo == "left") {
     if (
       EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 &&
-      EngineTwoMapX - playerPosX > engineTwoDividePartW * 18
+      EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 &&
+      canMovePlayer
     ) {
       textSize(20);
       fill("white");
@@ -161,7 +171,8 @@ function changeMapEngineTwo() {
   if (actualDirectionEngineTwo == "rigth") {
     if (
       EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 &&
-      EngineTwoMapX - playerPosX > engineTwoDividePartW * 3
+      EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 &&
+      canMovePlayer
     ) {
       textSize(20);
       fill("rgb(255,255,255)");
@@ -176,10 +187,12 @@ function changeMapEngineTwo() {
   }
 }
 
-function canDoInteraction() {
+//^ This function is used to set the clone quest interaction
+function canDoInteractionCloneQuest() {
   if (
     EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 &&
-    EngineTwoMapX - playerPosX > engineTwoDividePartW * 9
+    EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 &&
+    canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest
   ) {
     textSize(20);
     fill("rgb(255,255,255)");
@@ -187,67 +200,32 @@ function canDoInteraction() {
     text("Press E to interact", playerPosX - 40, playerPosY - 20);
     setTimeout(() => {
       if (keyIsDown(69)) {
-        canDrawEngineCloneMapQuest = true;
+        quests.questCloneMap.canDrawEngineCloneMapQuest = true;
         canMoveEngineTwo = false;
         canMoveAllNPC = false;
+        canMovePlayer = false;
       }
     }, 500);
   }
 }
 
-function drawnQuestCloneMap() {
-  image(
-    questAnimationCloneMap.get(
-      1100 * indexOfAnimationQuestClone,
-      0,
-      1100,
-      800
-    ),
-    400,
-    50,
-    screenWidth / 1.74,
-    screenHeight / 1.16
-  );
-  noStroke();
-  fill('#00E4B0')
-  rect(1086.5, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
-  image(
-    questCloneMap1,
-    400,
-    50,
-    screenWidth / 1.74,
-    screenHeight / 1.16
-  );
-  image(
-    questCloneMap2,
-    400 + (screenWidth / 1.74) - (screenWidth / 29.09),
-    50,
-    screenWidth / 29.09,
-    screenHeight / 12.72
-  );
-
-  if (pointIsInRect([mouseX, mouseY], [1086.5, 192 , 117, yRectMapEngineTwoCloneMap + 50 - 192])) {
-    if (mouseIsPressed) {
-      if (mouseButton == LEFT) {
-        yRectMapEngineTwoCloneMap = mouseY
-        heigthRectMapEngineTwoCloneMap = heigthRectMapEngineTwoCloneMap + (oldY - yRectMapEngineTwoCloneMap)
-        oldY = yRectMapEngineTwoCloneMap
-      }
+//^ This function is used to set the botanic quest interaction
+function canDoInteractionBotanicQuest() {
+  if (
+    EngineTwoMapX - playerPosX < engineTwoDividePartW * 18 &&
+    EngineTwoMapX - playerPosX > engineTwoDividePartW * 20 &&
+    canMovePlayer && canShowSeedsBagBotanicMap
+  ) {
+    textSize(20);
+    fill("rgb(255,255,255)");
+    noStroke();
+    text("Press E to take the bag", playerPosX - 40, playerPosY - 20);
+    if (keyIsDown(69)) {
+      canShowSeedsBagBotanicMap = false;
+      inventoryTab[inventoryTabNumber] = "coinYellow";
+      inventoryTabNumber++;
+      return;
     }
   }
 
-  setTimeout(() => {
-    if (pointIsInRect([mouseX, mouseY], [400 + (screenWidth / 1.74) - (screenWidth / 29.09), 50, screenWidth / 29.09, screenHeight / 12.72])) {
-      cursor('pointer');
-      if (mouseIsPressed === true) {
-        if (mouseButton == LEFT) {
-          canDrawEngineTow2ndMap = false;
-          canMoveAllNPC = true;
-          canMoveEngineTwo = true;
-        }
-      }
-    } else {
-      cursor('auto')
-    }
-  }, 500);
 }

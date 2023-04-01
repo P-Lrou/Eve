@@ -1,4 +1,5 @@
-// Draw the inventory for each engine
+//& This file countain the function to draw the inventory
+
 function drawInventory() {
   fill("rgba(31, 31, 31, 0.68)");
   strokeWeight(4);

@@ -1,7 +1,7 @@
 //& This file managed all NPC drawing and interaction
 
 //^ This function draw the NPC with information that are stock in a json
-
+//- Take in params the actualNPC
 function drawPNJEngineOne(PNJ) {
     let actualPNJ = undefined;
     pnj.pnjEngineOne.forEach(element => {
@@ -62,7 +62,7 @@ function drawPNJEngineOne(PNJ) {
 }
 
 //^ This function do the collision for the NPC with the same function as the main player
-
+//- Take in params the actualNPC
 function collisionPNJEngineOne(actualPNJ) {
     let TopCornerLeft = getTopCornerLeft([actualPNJ.startx + 30, actualPNJ.starty, spritePlayerSize, spritePlayerSize])
     let TopCornerRight = getTopCornerRight([actualPNJ.startx, actualPNJ.starty, spritePlayerSize - 25, spritePlayerSize])
@@ -97,7 +97,7 @@ function collisionPNJEngineOne(actualPNJ) {
 }
 
 //^ This function is actually to check if the npc position is on a collision 
-
+//- Take in params the acutal player position
 function isCollisionWithPlayer(point) {
     let cornerMyPlayer = [playerPosX, playerPosY, spritePlayerSize, spritePlayerSize]
     if (pointIsInRect(point, cornerMyPlayer)) {

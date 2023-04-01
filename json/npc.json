@@ -13,7 +13,7 @@
       "minX": 15,
       "canMove": true,
       "canTalk": true,
-      "dialog": ["Bonjour,", "J'aurais besoin de ton aide.", "Peux-tu aller réguler le niveau d'oxygène dans la cuve d'Eve ?"]
+      "dialog": [["Bonjour,", "J'aurais besoin de ton aide.", "Peux-tu aller réguler le niveau d'oxygène dans la cuve d'Eve ?", "Pour cela tu aura besoin d'utiliser les flèche directionelle.", "Il te suffit juste de mettre la barre en default au même niveau que les autres.", "Bonne chance !"], ["Merci de ton aide pour la cuve !"]]
     },
     {
       "name": "npcRose",

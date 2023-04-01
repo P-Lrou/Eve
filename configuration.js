@@ -10,8 +10,8 @@ const ENGINE_ONE = "engine_one";
 const ENGINE_TWO = "engine_two";
 
 //+ Set the start engine
-let currentEngine = ENGINE_ONE;
-let tempCurrentEngine = ENGINE_ONE;
+let currentEngine = ENGINE_TWO;
+let tempCurrentEngine = ENGINE_TWO;
 
 //+ Set the player cut size
 let spriteCutSize = 20;
@@ -19,6 +19,7 @@ let spriteCutSize = 20;
 //+ Set player state and direction
 let playerState = "idle";
 let Direction = [0, 0];
+let canMovePlayer = true;
 
 //+ Set global NPC speed
 let npcSpeed = 3;
@@ -45,6 +46,10 @@ let key = false;
 
 //+ Set NPC globals moves
 let canMoveAllNPC = true;
+let canTalkGlobalNPC = true;
+
+//+ Set a boolean if can draw inventory
+let canDrawnInventory = true;
 
 //+ Set switch case to know the first engine
 switch (currentEngine) {
@@ -58,7 +63,7 @@ switch (currentEngine) {
     case ENGINE_TWO:
         spritePlayerSize = screenHeight / 2.58;
 
-        playerPosX = screenWidth / 2 - spritePlayerSize / 2;
+        playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
         playerPosY = screenHeight - spritePlayerSize - 58;
         break;
 }
@@ -122,15 +127,32 @@ function changeEngine() {
             playerPosX = screenWidth / 2 - spritePlayerSize / 2;
             playerPosY = screenHeight / 2 - spritePlayerSize / 2;
         } else {
-            spritePlayerSize = screenHeight / 2.58;
+            switch (actualMapEngineTwo) {
+                case "cloneMap":
+                    spritePlayerSize = screenHeight / 2.58;
 
-            playerPosX = screenWidth / 2 - spritePlayerSize / 2;
-            playerPosY = screenHeight - spritePlayerSize - 58;
+                    playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
+                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    break;
+                case "botanicMap":
+                    spritePlayerSize = screenHeight / 2.58;
+
+                    playerPosX = screenWidth / 3 - spritePlayerSize / 2;
+                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    break;
+                case "commandMap":
+                    spritePlayerSize = screenHeight / 2.58;
+
+                    playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
+                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    break;
+            }
         }
         tempCurrentEngine = currentEngine;
     }
 }
 
+//^ This function is used to show the text of dialogue feature
 function writeText(actualDialog) {
     if (canInteract) {
         fill("rgba(31, 31, 31, 1)");
@@ -140,7 +162,7 @@ function writeText(actualDialog) {
         fill("rgb(255,255,255)");
         if (bool) {
             if (speak) {
-                if (key && keyIsDown(32)) {
+                if (key && keyIsDown(69)) {
                     if (index < actualDialog.length - 1) {
                         index++;
                         i = 0;
@@ -155,6 +177,11 @@ function writeText(actualDialog) {
                         key = false;
                         index = 0;
                         canInteract = false;
+                        canMovePlayer = true;
+                        canDrawnInventory = true;
+                        setTimeout(() => {
+                            canTalkGlobalNPC = true;
+                        }, 1000);
                     }
                 }
             } else {
@@ -175,6 +202,6 @@ function writeText(actualDialog) {
         }
         noStroke();
         textSize(20);
-        text(tempText, 580, screenHeight - 150, 700, 100);
+        text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 100);
     }
 }

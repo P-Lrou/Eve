@@ -1,4 +1,6 @@
-// Assign all player inputs
+//& This file actually managed the player for the Engine One
+
+//^ This function managed player input
 function playerInputs() {
   Direction = [0, 0];
   playerState = "idle";
@@ -44,7 +46,7 @@ function playerInputs() {
   madeCollision();
 }
 
-// Draw Player with the good asset
+//^ This function call the function to draw the player using the direction
 function drawPlayer() {
   let TopCornerLeft = getTopCornerLeft([
     playerPosX + 28,
@@ -104,6 +106,7 @@ function drawPlayer() {
   }
 }
 
+//^ This function draw the player if he dont move
 function drawIdlePlayer() {
   image(
     mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize),
@@ -114,6 +117,7 @@ function drawIdlePlayer() {
   );
 }
 
+//^ This function draw the player if he move
 function drawMovePlayer() {
   let animationMoovePlayer = mainCaracter.get(
     0,
@@ -172,7 +176,8 @@ function drawMovePlayer() {
   );
 }
 
-// Check if the tile where the player is, is a collision block
+//^ This function is used to check if the actual tile of the player is an tile with collision
+//- Take in param the actualtile number
 function checkIfIsCollisionWall(actualTile) {
   switch (actualTile) {
     case 1:
@@ -230,12 +235,17 @@ function checkIfIsCollisionWall(actualTile) {
     case 98:
       changeMap("botanic");
       return false;
+    case 97:
+      changeMap("command");
+      return false;
 
     default:
       return false;
   }
 }
 
+//^ This function is used to check if the actual tile of the player is an tile with an object that can be taked
+//- Take in param the actualtile number
 function checkIfIsObject(actualTile) {
   switch (actualTile) {
     case "coinYellow":
@@ -249,19 +259,23 @@ function checkIfIsObject(actualTile) {
   }
 }
 
+//^ This function is used to get the actual tile name for collision tiles
+//- Take in param the player position point
 function getTileName(point) {
   return map.layers[0][Math.trunc((point[1] + mapY) / tileSize)][
     Math.trunc((point[0] + mapX) / tileSize)
   ];
 }
 
+//^ This function is used to get the actual tile name for objects tiles
+//- Take in param the player position point
 function getTileNameForObject(point) {
   return map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][
     Math.trunc((point[0] + mapX) / tileSize)
   ];
 }
 
-// Made the collision between the player and the collision tile
+//^ This function made the collision for the player
 function madeCollision() {
   let TopCornerLeft = getTopCornerLeft([
     playerPosX + 28,
@@ -337,6 +351,8 @@ function madeCollision() {
   }
 }
 
+//^ This function is used to take an object and set him in the inventory
+//- Take in param the player position point
 function takeObject(point) {
   textSize(18);
   fill("rgb(255,255,255)");
@@ -351,6 +367,8 @@ function takeObject(point) {
   }
 }
 
+//^ This function is used to change map from the first engine to the second
+//- Take in param tha map wanted
 function changeMap(map) {
   if (map === "clone") {
     textSize(18);
@@ -377,6 +395,21 @@ function changeMap(map) {
         actualMapEngineTwo = "botanicMap";
         actualDirectionEngineTwo = "rigth";
         EngineTwoMapX = 0;
+        currentEngine = ENGINE_TWO;
+      }
+    }, 500);
+  }
+  if (map === "command") {
+    textSize(18);
+    fill("rgb(255,255,255)");
+    noStroke();
+    text("Press E to change room", playerPosX - 100, playerPosY - 10);
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        actualMapEngineTwo = "commandMap";
+        actualDirectionEngineTwo = "left";
+        EngineTwoMapX =
+          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         currentEngine = ENGINE_TWO;
       }
     }, 500);
