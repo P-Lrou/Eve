@@ -11,7 +11,7 @@ let engineTwoMapSizeW = 324;
 let engineTwoMapSizeH = 60;
 
 //+ Set the player speed
-let playerSpeedEngineTwo = 12;
+let playerSpeedEngineTwo = 8;
 
 //+ Set size for the rect in cloneMap quest
 let heigthRectMapEngineTwoCloneMap = 527

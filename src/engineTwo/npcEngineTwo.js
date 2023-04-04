@@ -75,12 +75,22 @@ function drawNPCEngineTwo(NPC) {
       break;
   }
   if (!actualNPC.canMove || !canMoveAllNPC) {
-    animationMoovePlayer = npcTile.get(
-      0,
-      spriteCutSize,
-      spriteCutSize,
-      spriteCutSize
-    );
+    if (actualNPCCollision === 'left') {
+      animationMoovePlayer = npcTile.get(
+        0,
+        spriteCutSize,
+        spriteCutSize,
+        spriteCutSize
+      );
+    }
+    if (actualNPCCollision === 'rigth') {
+      animationMoovePlayer = npcTile.get(
+        0,
+        0,
+        spriteCutSize,
+        spriteCutSize
+      );
+    }
   }
 
   image(
@@ -130,25 +140,30 @@ function collisionNPCEngineTwo(actualNPC) {
 
   if (isCollisionWithPlayer(TopCornerLeft)) {
     actualNPC.canMove = false;
+    actualNPCCollision = 'left';
     canTalkToNpc(actualNPC);
     return;
   }
   if (isCollisionWithPlayer(TopCornerRight)) {
     actualNPC.canMove = false;
+    actualNPCCollision = 'rigth';
     canTalkToNpc(actualNPC);
     return;
   }
   if (isCollisionWithPlayer(BottomCornerLeft)) {
     actualNPC.canMove = false;
+    actualNPCCollision = 'left';
     canTalkToNpc(actualNPC);
     return;
   }
   if (isCollisionWithPlayer(BottomCornerRight)) {
     actualNPC.canMove = false;
+    actualNPCCollision = 'rigth';
     canTalkToNpc(actualNPC);
     return;
   }
   actualNPC.canMove = true;
+  canTalkingToNPC = false;
 }
 
 //^ This function is actually to check if the npc position is on a collision 
@@ -170,6 +185,7 @@ function isCollisionWithPlayer(point) {
 //- Take in params the actualNPC
 function canTalkToNpc(actualNPC) {
   if (actualNPC.canTalk && canMovePlayer && canTalkGlobalNPC) {
+    canTalkingToNPC = true;
     textSize(20);
     fill("rgb(255,255,255)");
     noStroke();
@@ -183,13 +199,43 @@ function canTalkToNpc(actualNPC) {
       canMovePlayer = false;
       canDrawnInventory = false;
       canTalkGlobalNPC = false;
-      if (actualNPC.name === 'npcJulliette' && !quests.questCloneMap.questCloneMapIsOver) {
+
+      if (actualNPC.name === "npcJulliette") {
         actualDialog = actualNPC.dialog[0];
+      }
+      if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
+        actualDialog = actualNPC.dialog[1];
         quests.questCloneMap.canDrawInteractionClonMapQuest = true;
       }
-      else if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsOver) {
-        actualDialog = actualNPC.dialog[1];
+      if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
+        actualDialog = actualNPC.dialog[2];
+        actualQuestName = ''
       }
+      if (actualNPC.name === 'npcJulliette' && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.canTakeSeedBag && actualQuestName === "seedsBagQuest") {
+        actualDialog = actualNPC.dialog[3];
+        quests.seedsBagQuest.seedBagHasBeenTaked = true;
+        quests.seedsBagQuest.canTakeSeedBag = false;
+        inventoryTab[inventoryTabNumber] = "coinYellow";
+        inventoryTabNumber++;
+      }
+
+      if (actualNPC.name === "npcRose") {
+        actualDialog = actualNPC.dialog[0];
+      }
+      if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && actualQuestName === "seedsBagQuest") {
+        actualDialog = actualNPC.dialog[1];
+        quests.seedsBagQuest.canTakeSeedBag = true;
+      }
+      if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.seedBagHasBeenTaked && actualQuestName === "seedsBagQuest") {
+        actualDialog = actualNPC.dialog[2];
+        quests.seedsBagQuest.seedBagQuestIsOver = true;
+        actualQuestName = "questCloneMap"
+        quests.questCloneMap.questCloneMapIsStarted = true;
+      }
+
+
+
+
       return;
     }
   }

@@ -13,7 +13,23 @@
       "minX": 15,
       "canMove": true,
       "canTalk": true,
-      "dialog": [["Bonjour,", "J'aurais besoin de ton aide.", "Peux-tu aller réguler le niveau d'oxygène dans la cuve d'Eve ?", "Pour cela tu aura besoin d'utiliser les flèche directionelle.", "Il te suffit juste de mettre la barre en default au même niveau que les autres.", "Bonne chance !"], ["Merci de ton aide pour la cuve !"]]
+      "dialog": [
+        ["Salut", "Moi c'est Juliette"],
+        [
+          "Bonjour,",
+          "J'aurais besoin de ton aide.",
+          "Peux-tu aller réguler le niveau d'oxygène dans la cuve d'Eve ?",
+          "Pour cela tu aura besoin d'utiliser les flèche directionelle.",
+          "Il te suffit juste de mettre la barre en default au même niveau que les autres.",
+          "Bonne chance !"
+        ],
+        ["Merci de ton aide pour la cuve !"],
+        [
+          "Tu viens de la part de Rose pour récupérer le sac de graine.",
+          "Tien, le voici. Quand tu en auras fini avec elle tu pourra venir me voir ?",
+          "J'aurais besoin de ton aide."
+        ]
+      ]
     },
     {
       "name": "npcRose",
@@ -25,7 +41,17 @@
       "maxX": 9,
       "minX": 15,
       "canMove": true,
-      "canTalk": false
+      "canTalk": true,
+      "dialog": [
+        ["Salut", "Moi c'est Rose"],
+        [
+          "Bonjour,",
+          "J'aurais besoin de ton aide.",
+          "Peux-tu aller récupérer un sac de graine à Juliette ?",
+          "Elle doit se trouver dans la salle des clones."
+        ],
+        ["Merci beaucoup de ton aide pour le sac de graine."]
+      ]
     }
   ]
 }

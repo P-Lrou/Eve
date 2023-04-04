@@ -3,16 +3,16 @@
 //^ This function managed player input
 function playerInputsEngineTwo() {
   playerState = "idle";
-  if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo || (keyIsDown(81) && canMoveEngineTwo)) {
+  if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo && canMovePlayer || (keyIsDown(81) && canMoveEngineTwo && canMovePlayer)) {
     playerState = "mooving";
-    playerPosX -= playerSpeed;
+    playerPosX -= playerSpeedEngineTwo;
     if (playerPosX < 200) {
       if (-EngineTwoMapX > 0) {
-        EngineTwoMapX += playerSpeed;
-        playerPosX += playerSpeed;
+        EngineTwoMapX += playerSpeedEngineTwo;
+        playerPosX += playerSpeedEngineTwo;
       } else {
         if (playerPosX < 17) {
-          playerPosX += playerSpeed;
+          playerPosX += playerSpeedEngineTwo;
           playerState = "idle";
         }
       }
@@ -20,19 +20,19 @@ function playerInputsEngineTwo() {
     Direction = "left";
   }
 
-  if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo || (keyIsDown(68) && canMoveEngineTwo)) {
+  if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo && canMovePlayer || (keyIsDown(68) && canMoveEngineTwo && canMovePlayer)) {
     playerState = "mooving";
-    playerPosX += playerSpeed;
+    playerPosX += playerSpeedEngineTwo;
     if (playerPosX + spritePlayerSize > screenWidth - 200) {
       if (
         screenWidth - EngineTwoMapX <
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)
       ) {
-        playerPosX -= playerSpeed;
-        EngineTwoMapX -= playerSpeed;
+        playerPosX -= playerSpeedEngineTwo;
+        EngineTwoMapX -= playerSpeedEngineTwo;
       } else {
         if (playerPosX + spritePlayerSize > screenWidth - 17) {
-          playerPosX -= playerSpeed;
+          playerPosX -= playerSpeedEngineTwo;
           playerState = "idle";
         }
       }
@@ -156,7 +156,7 @@ function changeMapEngineTwo() {
     if (
       EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 &&
       EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 &&
-      canMovePlayer
+      canMovePlayer && !canTalkingToNPC
     ) {
       textSize(20);
       fill("white");
@@ -172,7 +172,7 @@ function changeMapEngineTwo() {
     if (
       EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 &&
       EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 &&
-      canMovePlayer
+      canMovePlayer && !canTalkingToNPC
     ) {
       textSize(20);
       fill("rgb(255,255,255)");
@@ -192,7 +192,7 @@ function canDoInteractionCloneQuest() {
   if (
     EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 &&
     EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 &&
-    canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest
+    canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest && !canTalkingToNPC
   ) {
     textSize(20);
     fill("rgb(255,255,255)");
@@ -207,25 +207,4 @@ function canDoInteractionCloneQuest() {
       }
     }, 500);
   }
-}
-
-//^ This function is used to set the botanic quest interaction
-function canDoInteractionBotanicQuest() {
-  if (
-    EngineTwoMapX - playerPosX < engineTwoDividePartW * 18 &&
-    EngineTwoMapX - playerPosX > engineTwoDividePartW * 20 &&
-    canMovePlayer && canShowSeedsBagBotanicMap
-  ) {
-    textSize(20);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to take the bag", playerPosX - 40, playerPosY - 20);
-    if (keyIsDown(69)) {
-      canShowSeedsBagBotanicMap = false;
-      inventoryTab[inventoryTabNumber] = "coinYellow";
-      inventoryTabNumber++;
-      return;
-    }
-  }
-
 }

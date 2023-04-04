@@ -1,5 +1,7 @@
 //& This file setup all variables for the global game
 
+let actualQuestName = "seedsBagQuest"
+
 //+ This set screen settings
 let screenWidth = innerWidth;
 let screenHeight = innerHeight;
@@ -22,16 +24,16 @@ let Direction = [0, 0];
 let canMovePlayer = true;
 
 //+ Set global NPC speed
-let npcSpeed = 3;
+let npcSpeed = 5;
 
 //+ Set inventory Params
 let inventorySquareSize = 100;
-let inventoryWidthStart = screenWidth / 1.35;
 let inventoryHeigthStart = 10;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
 let actualInventoryChoose = 1;
 inventoryTab.length = 4;
+let inventoryWidthStart = screenWidth - (inventoryTab.length * inventorySquareSize) - 10 * inventoryTab.length - 10;
 
 
 //+ Set NPC interaction params
@@ -43,6 +45,10 @@ let bool = false;
 let actualDialog = [];
 let speak = false;
 let key = false;
+let actualNPCCollision = '';
+
+//+ Set global Variable to see if talk to an NPC
+let canTalkingToNPC = false;
 
 //+ Set NPC globals moves
 let canMoveAllNPC = true;
