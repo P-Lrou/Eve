@@ -20,6 +20,9 @@ function draw() {
         case ENGINE_TWO:
             engineTwoStart();
             break;
+        case MENU:
+            menuStart();
+            break;
         default:
             throw new Error(`Engine named : ${currentEngine} not found !`);
     }

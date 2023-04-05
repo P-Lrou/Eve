@@ -12,9 +12,10 @@ let frameRateNumber = 60;
 //+ Set engines names to variables
 const ENGINE_ONE = "engine_one";
 const ENGINE_TWO = "engine_two";
+const MENU = "menu";
 
 //+ Set the start engine
-let currentEngine = ENGINE_TWO;
+let currentEngine = MENU;
 let tempCurrentEngine = ENGINE_TWO;
 
 //+ Set the player cut size

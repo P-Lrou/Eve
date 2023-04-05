@@ -8,6 +8,10 @@ function loadAssets() {
   moreInteractionJSON = loadJSON("json/moreInteractions.json");
   mainFont = loadFont("fonts/mainFont.ttf");
 
+  homePageBackgroundImage = loadImage("assets/menu/homePageBackgroundImage.png");
+  homePagePlayButton = loadImage("assets/menu/homePagePlayButton.png");
+  homePagePlayButtonHover = loadImage("assets/menu/homePagePlayButtonHover.png");
+
   tempBackground = loadImage("assets/tempBackground.jpg");
   coinYellow = loadImage("assets/coinYellow.png");
   coinGreen = loadImage("assets/coinGreen.png");
