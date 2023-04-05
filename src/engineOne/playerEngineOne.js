@@ -375,7 +375,10 @@ function changeMap(map) {
         actualDirectionEngineTwo = "left";
         EngineTwoMapX =
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
-        currentEngine = ENGINE_TWO;
+        canDoTransition = true;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
       }
     }, 500);
   }
@@ -386,7 +389,10 @@ function changeMap(map) {
         actualMapEngineTwo = "botanicMap";
         actualDirectionEngineTwo = "rigth";
         EngineTwoMapX = 0;
-        currentEngine = ENGINE_TWO;
+        canDoTransition = true;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
       }
     }, 500);
   }
@@ -398,7 +404,10 @@ function changeMap(map) {
         actualDirectionEngineTwo = "left";
         EngineTwoMapX =
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
-        currentEngine = ENGINE_TWO;
+        canDoTransition = true;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
       }
     }, 500);
   }

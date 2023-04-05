@@ -161,7 +161,10 @@ function changeMapEngineTwo() {
       image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
         if (keyIsDown(69)) {
-          currentEngine = ENGINE_ONE;
+          canDoTransition = true;
+          setTimeout(() => {
+            currentEngine = ENGINE_ONE;
+          }, 900);
         }
       }, 500);
     }
@@ -175,7 +178,10 @@ function changeMapEngineTwo() {
       image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
         if (keyIsDown(69)) {
-          currentEngine = ENGINE_ONE;
+          canDoTransition = true;
+          setTimeout(() => {
+            currentEngine = ENGINE_ONE;
+          }, 900);
         }
       }, 500);
     }

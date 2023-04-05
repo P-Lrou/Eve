@@ -1,7 +1,7 @@
 //& This file setup all variables for the global game
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = true;
+let gameIsStarting = true;;
 let startingIsDialogsFinish = false;
 
 //+ This set screen settings
