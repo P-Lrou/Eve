@@ -14,21 +14,24 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Salut", "Moi c'est Juliette"],
+        ["Salut"],
+        [2],
         [
-          "Bonjour,",
-          "J'aurais besoin de ton aide.",
-          "Peux-tu aller réguler le niveau d'oxygène dans la cuve d'Eve ?",
-          "Pour cela tu aura besoin d'utiliser les flèche directionelle.",
-          "Il te suffit juste de mettre la barre en default au même niveau que les autres.",
-          "Bonne chance !"
+          "Ah, te revoilà. J'ai besoin de ton aide pour régler un soucis avec Eve",
+          "Un soucis ?",
+          "Oui, les niveau d'oxygène dans la cuve sont déregler. Pourrais-tu t'en occuper ?",
+          "Oui, je vais m'en occuper, compte sur moi."
         ],
-        ["Merci de ton aide pour la cuve !"],
+        [2, 0, 2, 0],
+        ["Problème régler !", "Parfais, merci beaucoup de ton aide."],
+        [0, 2],
         [
-          "Tu viens de la part de Rose pour récupérer le sac de graine.",
-          "Tien, le voici. Quand tu en auras fini avec elle tu pourra venir me voir ?",
-          "J'aurais besoin de ton aide."
-        ]
+          "Juliette, je crois que tu as quelque chose pour Rose.",
+          "Oh, les graines, j'avais complétement oublié, tient, les voilà.",
+          "Merci. Je lui rapporte.",
+          "Lowen, quand tu aura fini avec Rose, reviens me voir, j'aurai quelque chose à te demander."
+        ],
+        [0, 2, 0, 2]
       ]
     },
     {
@@ -43,15 +46,60 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Salut", "Moi c'est Rose"],
+        ["Salut"],
+        [2],
         [
-          "Bonjour,",
           "J'aurais besoin de ton aide.",
           "Peux-tu aller récupérer un sac de graine à Juliette ?",
-          "Elle doit se trouver dans la salle des clones."
+          "Elle doit se trouver dans la salle des clones.",
+          "D'accord, j'y vais tout de suite."
         ],
-        ["Merci beaucoup de ton aide pour le sac de graine."]
+        [3, 3, 3, 0],
+        [
+          "Tien voici le sac de graines.",
+          "Merci beaucoup. Je vais povoir faire pousser des plantes."
+        ],
+        [0, 3]
       ]
+    }
+  ],
+
+  "npcStartingAnimation": [
+    {
+      "name": "npcJulliette",
+      "startx": 200,
+      "xdist": 1400,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": false,
+      "canTalk": false
+    },
+    {
+      "name": "npcRose",
+      "startx": 200,
+      "xdist": 2600,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": false,
+      "canTalk": false
+    },
+    {
+      "name": "npcFinn",
+      "startx": 200,
+      "xdist": 1750,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": false,
+      "canTalk": false
     }
   ]
 }

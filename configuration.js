@@ -1,6 +1,8 @@
 //& This file setup all variables for the global game
 
 let actualQuestName = "seedsBagQuest"
+let gameIsStarting = true;
+let startingIsDialogsFinish = false;
 
 //+ This set screen settings
 let screenWidth = innerWidth;
@@ -46,6 +48,8 @@ let actualDialog = [];
 let speak = false;
 let key = false;
 let actualNPCCollision = '';
+let actualPlayersOrder = [];
+let actualHead = undefined;
 
 //+ Set global Variable to see if talk to an NPC
 let canTalkingToNPC = false;
@@ -111,6 +115,16 @@ setInterval(() => {
         indexOfAnimation3 += 1;
     } else {
         indexOfAnimation3 = 0;
+    }
+}, 110);
+
+//+ Set animation for Command Map Screen
+let indexOfAnimation4 = 0;
+setInterval(() => {
+    if (indexOfAnimation4 < 1) {
+        indexOfAnimation4 += 1;
+    } else {
+        indexOfAnimation4 = 0;
     }
 }, 110);
 
@@ -183,12 +197,19 @@ function writeText(actualDialog) {
                         key = false;
                         index = 0;
                         canInteract = false;
-                        canMovePlayer = true;
                         canDrawnInventory = true;
+                        startingIsDialogsFinish = true;
+                        if (!gameIsStarting) {
+                            canMovePlayer = true;
+                        }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
                             canMoveAllNPC = true;
                         }, 1000);
+                        setTimeout(() => {
+                            gameIsStarting = false;
+                            canMovePlayer = true;
+                        }, 8000);
                     }
                 }
             } else {
@@ -199,16 +220,21 @@ function writeText(actualDialog) {
                         return;
                     } else {
                         tempText = tempText + actualDialog[index][i];
+                        actualHead = actualPlayersOrder[index]
                         i++;
                     }
-                }, 50);
+                }, 30);
             }
         } else {
 
             bool = true
         }
         noStroke();
-        textSize(20);
+        textSize(16);
         text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 100);
+        image(
+            dialogsHeads.get(16 * actualHead, 0, 16, 16),
+            (screenWidth) / 2 + 100, screenHeight - 345, 384, 384
+        );
     }
 }

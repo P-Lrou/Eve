@@ -94,7 +94,7 @@ function drawIdlePlayerEngineTwo() {
       break;
     default:
       image(
-        mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize),
+        mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize),
         playerPosX,
         playerPosY,
         spritePlayerSize,
@@ -138,7 +138,7 @@ function drawMovePlayerEngineTwo() {
       image(
         mainCaracter.get(
           spriteCutSize,
-          spriteCutSize * 3,
+          spriteCutSize * 1,
           spriteCutSize,
           spriteCutSize
         ),
@@ -158,9 +158,7 @@ function changeMapEngineTwo() {
       EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 &&
       canMovePlayer && !canTalkingToNPC
     ) {
-      textSize(20);
-      fill("white");
-      text("Press E to change room", playerPosX - 40, playerPosY - 20);
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
         if (keyIsDown(69)) {
           currentEngine = ENGINE_ONE;
@@ -174,10 +172,7 @@ function changeMapEngineTwo() {
       EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 &&
       canMovePlayer && !canTalkingToNPC
     ) {
-      textSize(20);
-      fill("rgb(255,255,255)");
-      noStroke();
-      text("Press E to change room", playerPosX - 40, playerPosY - 20);
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
         if (keyIsDown(69)) {
           currentEngine = ENGINE_ONE;
@@ -194,10 +189,7 @@ function canDoInteractionCloneQuest() {
     EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 &&
     canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest && !canTalkingToNPC
   ) {
-    textSize(20);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to interact", playerPosX - 40, playerPosY - 20);
+    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     setTimeout(() => {
       if (keyIsDown(69)) {
         quests.questCloneMap.canDrawEngineCloneMapQuest = true;

@@ -9,6 +9,13 @@ function drawNPCEngineTwo(NPC) {
       actualNPC = element;
     }
   });
+  if (gameIsStarting) {
+    npc.npcStartingAnimation.forEach((element) => {
+      if (element.name === NPC) {
+        actualNPC = element;
+      }
+    });
+  }
   let npcTile = findActualNpc(actualNPC.name);
   let animationMoovePlayer = npcTile.get(
     0,
@@ -18,6 +25,22 @@ function drawNPCEngineTwo(NPC) {
   );
   actualNPC.startx = actualNPC.xdist + EngineTwoMapX;
 
+
+  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcRose") {
+    setTimeout(() => {
+      actualNPC.canMove = true
+    }, 2500);
+  }
+  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcJulliette") {
+    setTimeout(() => {
+      actualNPC.canMove = true
+    }, 1000);
+  }
+  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcFinn") {
+    setTimeout(() => {
+      actualNPC.canMove = true
+    }, 3500);
+  }
   if (actualNPC.xdist > Math.abs(engineTwoDividePartW * actualNPC.minX)) {
     actualNPC.npcDirection = [-1, 0];
   }
@@ -73,6 +96,15 @@ function drawNPCEngineTwo(NPC) {
       );
       collisionNPCEngineTwo(actualNPC);
       break;
+  }
+  if (actualNPC.name === "npcRose" && gameIsStarting) {
+    actualNPCCollision = 'left'
+  }
+  if (actualNPC.name === "npcJulliette" && gameIsStarting) {
+    actualNPCCollision = 'rigth'
+  }
+  if (actualNPC.name === "npcFinn" && gameIsStarting) {
+    actualNPCCollision = 'rigth'
   }
   if (!actualNPC.canMove || !canMoveAllNPC) {
     if (actualNPCCollision === 'left') {
@@ -138,31 +170,33 @@ function collisionNPCEngineTwo(actualNPC) {
   // fill("yellow")
   // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
 
-  if (isCollisionWithPlayer(TopCornerLeft)) {
+  if (isCollisionWithPlayer(TopCornerLeft) && !gameIsStarting) {
     actualNPC.canMove = false;
     actualNPCCollision = 'left';
     canTalkToNpc(actualNPC);
     return;
   }
-  if (isCollisionWithPlayer(TopCornerRight)) {
+  if (isCollisionWithPlayer(TopCornerRight) && !gameIsStarting) {
     actualNPC.canMove = false;
     actualNPCCollision = 'rigth';
     canTalkToNpc(actualNPC);
     return;
   }
-  if (isCollisionWithPlayer(BottomCornerLeft)) {
+  if (isCollisionWithPlayer(BottomCornerLeft) && !gameIsStarting) {
     actualNPC.canMove = false;
     actualNPCCollision = 'left';
     canTalkToNpc(actualNPC);
     return;
   }
-  if (isCollisionWithPlayer(BottomCornerRight)) {
+  if (isCollisionWithPlayer(BottomCornerRight) && !gameIsStarting) {
     actualNPC.canMove = false;
     actualNPCCollision = 'rigth';
     canTalkToNpc(actualNPC);
     return;
   }
-  actualNPC.canMove = true;
+  if (!gameIsStarting) {
+    actualNPC.canMove = true;
+  }
   canTalkingToNPC = false;
 }
 
@@ -186,33 +220,30 @@ function isCollisionWithPlayer(point) {
 function canTalkToNpc(actualNPC) {
   if (actualNPC.canTalk && canMovePlayer && canTalkGlobalNPC) {
     canTalkingToNPC = true;
-    textSize(20);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text(
-      `Press E to talk to ${actualNPC.name.slice(3)}.`,
-      playerPosX - 50,
-      playerPosY - 20
-    );
+    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     if (keyIsDown(69) && canMoveEngineTwo) {
       canInteract = true;
       canMovePlayer = false;
-      canDrawnInventory = false;
       canTalkGlobalNPC = false;
+      canDrawnInventory = false;
 
       if (actualNPC.name === "npcJulliette") {
         actualDialog = actualNPC.dialog[0];
+        actualPlayersOrder = actualNPC.dialog[1];
       }
       if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
-        actualDialog = actualNPC.dialog[1];
+        actualDialog = actualNPC.dialog[2];
+        actualPlayersOrder = actualNPC.dialog[3];
         quests.questCloneMap.canDrawInteractionClonMapQuest = true;
       }
       if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
-        actualDialog = actualNPC.dialog[2];
+        actualDialog = actualNPC.dialog[4];
+        actualPlayersOrder = actualNPC.dialog[5];
         actualQuestName = ''
       }
       if (actualNPC.name === 'npcJulliette' && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.canTakeSeedBag && actualQuestName === "seedsBagQuest") {
-        actualDialog = actualNPC.dialog[3];
+        actualDialog = actualNPC.dialog[6];
+        actualPlayersOrder = actualNPC.dialog[7];
         quests.seedsBagQuest.seedBagHasBeenTaked = true;
         quests.seedsBagQuest.canTakeSeedBag = false;
         inventoryTab[inventoryTabNumber] = "coinYellow";
@@ -221,21 +252,20 @@ function canTalkToNpc(actualNPC) {
 
       if (actualNPC.name === "npcRose") {
         actualDialog = actualNPC.dialog[0];
+        actualPlayersOrder = actualNPC.dialog[1];
       }
       if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && actualQuestName === "seedsBagQuest") {
-        actualDialog = actualNPC.dialog[1];
+        actualDialog = actualNPC.dialog[2];
+        actualPlayersOrder = actualNPC.dialog[3];
         quests.seedsBagQuest.canTakeSeedBag = true;
       }
       if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.seedBagHasBeenTaked && actualQuestName === "seedsBagQuest") {
-        actualDialog = actualNPC.dialog[2];
+        actualDialog = actualNPC.dialog[4];
+        actualPlayersOrder = actualNPC.dialog[5];
         quests.seedsBagQuest.seedBagQuestIsOver = true;
         actualQuestName = "questCloneMap"
         quests.questCloneMap.questCloneMapIsStarted = true;
       }
-
-
-
-
       return;
     }
   }

@@ -354,10 +354,7 @@ function madeCollision() {
 //^ This function is used to take an object and set him in the inventory
 //- Take in param the player position point
 function takeObject(point) {
-  textSize(18);
-  fill("rgb(255,255,255)");
-  noStroke();
-  text("Press E to take the object", playerPosX - 100, playerPosY - 10);
+  image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
   if (keyIsDown(69)) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
@@ -371,10 +368,7 @@ function takeObject(point) {
 //- Take in param tha map wanted
 function changeMap(map) {
   if (map === "clone") {
-    textSize(18);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to change room", playerPosX - 100, playerPosY - 10);
+    image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "cloneMap";
@@ -386,10 +380,7 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "botanic") {
-    textSize(18);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to change room", playerPosX - 100, playerPosY - 10);
+    image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "botanicMap";
@@ -400,10 +391,7 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "command") {
-    textSize(18);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to change room", playerPosX - 100, playerPosY - 10);
+    image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "commandMap";

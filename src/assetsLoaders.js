@@ -16,7 +16,10 @@ function loadAssets() {
   mainCaracter = loadImage("assets/mainCaracter.png");
   npcRose = loadImage("assets/npcRose.png");
   npcJulliette = loadImage("assets/npcJulliette.png");
+  npcFinn = loadImage("assets/npcFinn.png");
+  dialogsHeads = loadImage("assets/dialogsHeads.png");
   assets = loadImage("assets/assets.png");
+  interactionButton = loadImage("assets/interactionButton.png");
 
   backgroundCloneMap = loadImage("assets/cloneMap/backgroundCloneMap.png");
   lightCloneMap = loadImage("assets/cloneMap/lightCloneMap.png");
@@ -27,9 +30,11 @@ function loadAssets() {
 
   backgroundBotanicMap = loadImage("assets/botanicMap/backgroundBotanicMap.png");
   planteAnimationBotanicMap = loadImage("assets/botanicMap/planteAnimationBotanicMap.png")
-  seedsBagBotanicMap = loadImage("assets/botanicMap/seedsBagBotanicMap.png")
+  lightBotanicMap = loadImage("assets/botanicMap/lightBotanicMap.png")
 
   backgroundCommandMap = loadImage("assets/commandMap/backgroundCommandMap.png")
+  lightCommandMap = loadImage("assets/commandMap/lightCommandMap.png")
+  animationScreenCommandMap = loadImage("assets/commandMap/animationScreenCommandMap.png")
 }
 
 //^ This function recover all assets
@@ -205,6 +210,8 @@ function findActualNpc(npcName) {
       return npcRose;
     case "npcJulliette":
       return npcJulliette;
+    case "npcFinn":
+      return npcFinn;
     default:
       throw new Error("Can't find the asset named : " + npcName);
   }
