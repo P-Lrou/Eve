@@ -22,10 +22,11 @@ function menuStart() {
                 canDoTransition = true;
                 setTimeout(() => {
                     currentEngine = ENGINE_TWO;
+                    cursor('default');
                 }, 900);
             }
         }
     } else {
-        cursor('auto');
+        cursor('default');
     }
 }
