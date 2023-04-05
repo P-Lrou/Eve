@@ -83,3 +83,22 @@ function drawInventory() {
   }
   fill("rgba(31, 31, 31, 0.68)");
 }
+
+
+function removeFromInventory(object) {
+  let tempArray = [];
+  inventoryTab.forEach(element => {
+    if (element === object) {
+
+    } else {
+      tempArray.push(element)
+    }
+  });
+  inventoryTab = []
+  inventoryTab.length = 4
+  inventoryTabNumber = 0
+  for (let v = 0; v < tempArray.length; v++) {
+    inventoryTab[inventoryTabNumber] = tempArray[v]
+    inventoryTabNumber++
+  }
+}

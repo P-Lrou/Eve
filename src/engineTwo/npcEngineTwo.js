@@ -261,6 +261,7 @@ function canTalkToNpc(actualNPC) {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
         quests.seedsBagQuest.seedBagQuestIsOver = true;
+        removeFromInventory("coinYellow")
         actualQuestName = "questCloneMap"
         quests.questCloneMap.questCloneMapIsStarted = true;
       }
