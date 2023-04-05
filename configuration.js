@@ -128,6 +128,26 @@ setInterval(() => {
     }
 }, 110);
 
+//+ Set animation for Command Map Control Panel
+let indexOfAnimation5 = 0;
+setInterval(() => {
+    if (indexOfAnimation5 < 11) {
+        indexOfAnimation5 += 1;
+    } else {
+        indexOfAnimation5 = 0;
+    }
+}, 110);
+
+//+ Set animation for Command Map Earth animation
+let indexOfAnimation6 = 0;
+setInterval(() => {
+    if (indexOfAnimation6 < 5) {
+        indexOfAnimation6 += 1;
+    } else {
+        indexOfAnimation6 = 0;
+    }
+}, 110);
+
 //+ Set animation for main caracter movement
 let indexOfAnimation = 0;
 setInterval(() => {
@@ -137,6 +157,7 @@ setInterval(() => {
         indexOfAnimation = 1;
     }
 }, 110);
+
 
 //^ This function is used to detect engines changes
 function changeEngine() {

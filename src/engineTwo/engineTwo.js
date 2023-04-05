@@ -63,7 +63,7 @@ function engineTwoStart() {
         EngineTwoMapY,
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
-      ); 
+      );
       drawNPCEngineTwo("npcRose");
       drawPlayerEngineTwo();
       drawInventory();
@@ -78,6 +78,20 @@ function engineTwoStart() {
       );
       image(
         animationScreenCommandMap.get(324 * indexOfAnimation4, 0, 324, 60),
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
+        controlPanelAnimationCommandMap.get(324 * indexOfAnimation5, 0, 324, 60),
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
+        earthAnimationCommandMap.get(324 * indexOfAnimation6, 0, 324, 60),
         EngineTwoMapX,
         EngineTwoMapY,
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
