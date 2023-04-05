@@ -5,6 +5,7 @@ function loadAssets() {
   map1 = loadJSON("json/map1.json");
   npc = loadJSON("json/npc.json");
   quests = loadJSON("json/quests.json");
+  moreInteractionJSON = loadJSON("json/moreInteractions.json");
   mainFont = loadFont("fonts/mainFont.ttf");
 
   tempBackground = loadImage("assets/tempBackground.jpg");

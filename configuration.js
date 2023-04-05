@@ -187,6 +187,7 @@ function writeText(actualDialog) {
                         canDrawnInventory = true;
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
+                            canMoveAllNPC = true;
                         }, 1000);
                     }
                 }

@@ -83,4 +83,5 @@ function engineTwoStart() {
   if (canInteract) {
     writeText(actualDialog);
   }
+  moreInteractionEnineTwo();
 }
