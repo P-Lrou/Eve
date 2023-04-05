@@ -47,7 +47,7 @@
       "canTalk": true,
       "dialog": [
         ["Salut"],
-        [2],
+        [3],
         [
           "J'aurais besoin de ton aide.",
           "Peux-tu aller récupérer un sac de graine à Juliette ?",

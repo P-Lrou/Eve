@@ -162,6 +162,7 @@ function changeMapEngineTwo() {
       setTimeout(() => {
         if (keyIsDown(69)) {
           canDoTransition = true;
+          canMovePlayer = false;
           setTimeout(() => {
             currentEngine = ENGINE_ONE;
           }, 900);
@@ -179,6 +180,7 @@ function changeMapEngineTwo() {
       setTimeout(() => {
         if (keyIsDown(69)) {
           canDoTransition = true;
+          canMovePlayer = false;
           setTimeout(() => {
             currentEngine = ENGINE_ONE;
           }, 900);

@@ -20,5 +20,6 @@ function transitionOut() {
         fade = 0
         transitionStatus = 'Enter'
         canDoTransition = false;
+        canMovePlayer = true;
     }
 }

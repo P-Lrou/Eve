@@ -1,7 +1,7 @@
 //& This file setup all variables for the global game
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = true;;
+let gameIsStarting = true;
 let startingIsDialogsFinish = false;
 
 //+ This set screen settings
@@ -65,7 +65,7 @@ let canDrawnInventory = true;
 //+ Set switch case to know the first engine
 switch (currentEngine) {
     case ENGINE_ONE:
-        spritePlayerSize = 120;
+        spritePlayerSize = 140;
 
         playerPosX = screenWidth / 2 - spritePlayerSize / 2;
         playerPosY = screenHeight / 2 - spritePlayerSize / 2;
@@ -164,7 +164,7 @@ setInterval(() => {
 function changeEngine() {
     if (currentEngine != tempCurrentEngine) {
         if (currentEngine == "engine_one") {
-            spritePlayerSize = 120;
+            spritePlayerSize = 140;
 
             playerPosX = screenWidth / 2 - spritePlayerSize / 2;
             playerPosY = screenHeight / 2 - spritePlayerSize / 2;
@@ -204,7 +204,7 @@ function writeText(actualDialog) {
         fill("rgb(255,255,255)");
         if (bool) {
             if (speak) {
-                if (key && keyIsDown(69)) {
+                if (key && keyIsDown(69) || key && keyIsDown(32) || key && keyIsDown(32)) {
                     if (index < actualDialog.length - 1) {
                         index++;
                         i = 0;
@@ -221,12 +221,12 @@ function writeText(actualDialog) {
                         canInteract = false;
                         canDrawnInventory = true;
                         startingIsDialogsFinish = true;
+                        canMoveAllNPC = true;
                         if (!gameIsStarting) {
                             canMovePlayer = true;
                         }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
-                            canMoveAllNPC = true;
                         }, 1000);
                         setTimeout(() => {
                             gameIsStarting = false;

@@ -29,17 +29,15 @@ function drawNPCEngineTwo(NPC) {
   if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcRose") {
     setTimeout(() => {
       actualNPC.canMove = true
-    }, 2500);
+    }, 1500);
   }
   if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcJulliette") {
-    setTimeout(() => {
-      actualNPC.canMove = true
-    }, 1000);
+    actualNPC.canMove = true
   }
   if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcFinn") {
     setTimeout(() => {
       actualNPC.canMove = true
-    }, 3500);
+    }, 2500);
   }
   if (actualNPC.xdist > Math.abs(engineTwoDividePartW * actualNPC.minX)) {
     actualNPC.npcDirection = [-1, 0];

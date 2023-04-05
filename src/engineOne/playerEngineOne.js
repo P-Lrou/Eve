@@ -4,25 +4,25 @@
 function playerInputs() {
   Direction = [0, 0];
   playerState = "idle";
-  if (keyIsDown(UP_ARROW) || keyIsDown(90)) {
+  if (keyIsDown(UP_ARROW) || keyIsDown(90) && canMovePlayer) {
     mapY -= playerSpeed;
     Direction[1] -= 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+  if (keyIsDown(DOWN_ARROW) || keyIsDown(83) && canMovePlayer) {
     mapY += playerSpeed;
     Direction[1] += 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(81) && canMovePlayer) {
     mapX -= playerSpeed;
     Direction[0] -= 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68) && canMovePlayer) {
     mapX += playerSpeed;
     Direction[0] += 1;
     playerState = "mooving";
@@ -354,7 +354,7 @@ function madeCollision() {
 //^ This function is used to take an object and set him in the inventory
 //- Take in param the player position point
 function takeObject(point) {
-  image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
+  image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
   if (keyIsDown(69)) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
@@ -368,7 +368,7 @@ function takeObject(point) {
 //- Take in param tha map wanted
 function changeMap(map) {
   if (map === "clone") {
-    image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "cloneMap";
@@ -376,6 +376,7 @@ function changeMap(map) {
         EngineTwoMapX =
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
+        canMovePlayer = false;
         setTimeout(() => {
           currentEngine = ENGINE_TWO;
         }, 900);
@@ -383,13 +384,14 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "botanic") {
-    image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "botanicMap";
         actualDirectionEngineTwo = "rigth";
         EngineTwoMapX = 0;
         canDoTransition = true;
+        canMovePlayer = false;
         setTimeout(() => {
           currentEngine = ENGINE_TWO;
         }, 900);
@@ -397,7 +399,7 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "command") {
-    image(interactionButton, playerPosX + 40, playerPosY - 45, 32, 32);
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "commandMap";
@@ -405,6 +407,7 @@ function changeMap(map) {
         EngineTwoMapX =
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
+        canMovePlayer = false;
         setTimeout(() => {
           currentEngine = ENGINE_TWO;
         }, 900);
