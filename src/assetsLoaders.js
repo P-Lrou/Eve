@@ -37,6 +37,7 @@ function loadAssets() {
   animationScreenCommandMap = loadImage("assets/commandMap/animationScreenCommandMap.png")
   controlPanelAnimationCommandMap = loadImage("assets/commandMap/controlPanelAnimationCommandMap.png")
   earthAnimationCommandMap = loadImage("assets/commandMap/earthAnimationCommandMap.png")
+  seatsCommandMap = loadImage("assets/commandMap/seatsCommandMap.png")
 }
 
 //^ This function recover all assets

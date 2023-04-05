@@ -98,6 +98,13 @@ function engineTwoStart() {
         screenHeight
       );
       image(
+        seatsCommandMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
         lightCommandMap,
         EngineTwoMapX,
         EngineTwoMapY,
