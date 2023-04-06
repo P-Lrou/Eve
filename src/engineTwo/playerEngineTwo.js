@@ -1,34 +1,40 @@
-// Assign all player inputs
+//& This file actually managed the player for the Engine Two
+
+//^ This function managed player input
 function playerInputsEngineTwo() {
   playerState = "idle";
-  if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo || (keyIsDown(81) && canMoveEngineTwo)) {
+  if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo && canMovePlayer || (keyIsDown(81) && canMoveEngineTwo && canMovePlayer)) {
     playerState = "mooving";
-    playerPosX -= playerSpeed;
-    if (playerPosX < 3) {
-      if (-EngineTwoMapX < 0) {
-        playerPosX += playerSpeed;
-        playerState = "idle";
+    playerPosX -= playerSpeedEngineTwo;
+    if (playerPosX < 200) {
+      if (-EngineTwoMapX > 0) {
+        EngineTwoMapX += playerSpeedEngineTwo;
+        playerPosX += playerSpeedEngineTwo;
       } else {
-        EngineTwoMapX += playerSpeed;
-        playerPosX += playerSpeed;
+        if (playerPosX < 17) {
+          playerPosX += playerSpeedEngineTwo;
+          playerState = "idle";
+        }
       }
     }
     Direction = "left";
   }
 
-  if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo || (keyIsDown(68) && canMoveEngineTwo)) {
+  if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo && canMovePlayer || (keyIsDown(68) && canMoveEngineTwo && canMovePlayer)) {
     playerState = "mooving";
-    playerPosX += playerSpeed;
-    if (playerPosX + spritePlayerSize > screenWidth + 17) {
+    playerPosX += playerSpeedEngineTwo;
+    if (playerPosX + spritePlayerSize > screenWidth - 200) {
       if (
-        screenWidth - EngineTwoMapX >
+        screenWidth - EngineTwoMapX <
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH)
       ) {
-        playerPosX -= playerSpeed;
-        playerState = "idle";
+        playerPosX -= playerSpeedEngineTwo;
+        EngineTwoMapX -= playerSpeedEngineTwo;
       } else {
-        playerPosX -= playerSpeed;
-        EngineTwoMapX -= playerSpeed;
+        if (playerPosX + spritePlayerSize > screenWidth - 17) {
+          playerPosX -= playerSpeedEngineTwo;
+          playerState = "idle";
+        }
       }
     }
     Direction = "right";
@@ -51,7 +57,7 @@ function playerInputsEngineTwo() {
   }
 }
 
-// Draw Player with the good asset
+//^ This function call the function to draw the player using the direction
 function drawPlayerEngineTwo() {
   switch (playerState) {
     case "idle":
@@ -65,6 +71,7 @@ function drawPlayerEngineTwo() {
   }
 }
 
+//^ This function draw the player if he dont move
 function drawIdlePlayerEngineTwo() {
   switch (Direction) {
     case "left":
@@ -87,7 +94,7 @@ function drawIdlePlayerEngineTwo() {
       break;
     default:
       image(
-        mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize),
+        mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize),
         playerPosX,
         playerPosY,
         spritePlayerSize,
@@ -96,6 +103,7 @@ function drawIdlePlayerEngineTwo() {
   }
 }
 
+//^ This function draw the player if he move
 function drawMovePlayerEngineTwo() {
   switch (Direction) {
     case "left":
@@ -130,7 +138,7 @@ function drawMovePlayerEngineTwo() {
       image(
         mainCaracter.get(
           spriteCutSize,
-          spriteCutSize * 3,
+          spriteCutSize * 1,
           spriteCutSize,
           spriteCutSize
         ),
@@ -142,18 +150,22 @@ function drawMovePlayerEngineTwo() {
   }
 }
 
+//^ This function is used to change map from the second engine to the first
 function changeMapEngineTwo() {
   if (actualDirectionEngineTwo == "left") {
     if (
       EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 &&
-      EngineTwoMapX - playerPosX > engineTwoDividePartW * 18
+      EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 &&
+      canMovePlayer && !canTalkingToNPC
     ) {
-      textSize(20);
-      fill("white");
-      text("Press E to change room", playerPosX - 40, playerPosY - 20);
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
         if (keyIsDown(69)) {
-          currentEngine = ENGINE_ONE;
+          canDoTransition = true;
+          canMovePlayer = false;
+          setTimeout(() => {
+            currentEngine = ENGINE_ONE;
+          }, 900);
         }
       }, 500);
     }
@@ -161,49 +173,38 @@ function changeMapEngineTwo() {
   if (actualDirectionEngineTwo == "rigth") {
     if (
       EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 &&
-      EngineTwoMapX - playerPosX > engineTwoDividePartW * 3
+      EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 &&
+      canMovePlayer && !canTalkingToNPC
     ) {
-      textSize(20);
-      fill("rgb(255,255,255)");
-      noStroke();
-      text("Press E to change room", playerPosX - 40, playerPosY - 20);
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
         if (keyIsDown(69)) {
-          currentEngine = ENGINE_ONE;
+          canDoTransition = true;
+          canMovePlayer = false;
+          setTimeout(() => {
+            currentEngine = ENGINE_ONE;
+          }, 900);
         }
       }, 500);
     }
   }
 }
 
-function canDoInteraction() {
+//^ This function is used to set the clone quest interaction
+function canDoInteractionCloneQuest() {
   if (
     EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 &&
-    EngineTwoMapX - playerPosX > engineTwoDividePartW * 9
+    EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 &&
+    canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest && !canTalkingToNPC
   ) {
-    textSize(20);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to interact", playerPosX - 40, playerPosY - 20);
+    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     setTimeout(() => {
       if (keyIsDown(69)) {
-        canDrawEngineTow2ndMap = true;
+        quests.questCloneMap.canDrawEngineCloneMapQuest = true;
         canMoveEngineTwo = false;
         canMoveAllNPC = false;
+        canMovePlayer = false;
       }
     }, 500);
   }
-}
-
-function drawEngineTow2ndMap() {
-  fill("rgba(31, 31, 31, 0.68)");
-  stroke("rgba(213, 213, 213, 0.24)");
-  rect(400, 50, 1100, 800);
-  setTimeout(() => {
-    if (keyIsDown(69)) {
-      canDrawEngineTow2ndMap = false;
-      canMoveAllNPC = true;
-      canMoveEngineTwo = true;
-    }
-  }, 500);
 }

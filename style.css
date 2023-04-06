@@ -8,10 +8,6 @@ body {
   overflow: hidden;
 }
 
-*{
-    overflow: hidden;
-}
-
 canvas {
   display: block;
 }

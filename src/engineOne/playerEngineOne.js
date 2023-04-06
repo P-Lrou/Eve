@@ -1,26 +1,28 @@
-// Assign all player inputs
+//& This file actually managed the player for the Engine One
+
+//^ This function managed player input
 function playerInputs() {
   Direction = [0, 0];
   playerState = "idle";
-  if (keyIsDown(UP_ARROW) || keyIsDown(90)) {
+  if (keyIsDown(UP_ARROW) || keyIsDown(90) && canMovePlayer) {
     mapY -= playerSpeed;
     Direction[1] -= 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+  if (keyIsDown(DOWN_ARROW) || keyIsDown(83) && canMovePlayer) {
     mapY += playerSpeed;
     Direction[1] += 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(81)) {
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(81) && canMovePlayer) {
     mapX -= playerSpeed;
     Direction[0] -= 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68) && canMovePlayer) {
     mapX += playerSpeed;
     Direction[0] += 1;
     playerState = "mooving";
@@ -44,7 +46,7 @@ function playerInputs() {
   madeCollision();
 }
 
-// Draw Player with the good asset
+//^ This function call the function to draw the player using the direction
 function drawPlayer() {
   let TopCornerLeft = getTopCornerLeft([
     playerPosX + 28,
@@ -104,6 +106,7 @@ function drawPlayer() {
   }
 }
 
+//^ This function draw the player if he dont move
 function drawIdlePlayer() {
   image(
     mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize),
@@ -114,6 +117,7 @@ function drawIdlePlayer() {
   );
 }
 
+//^ This function draw the player if he move
 function drawMovePlayer() {
   let animationMoovePlayer = mainCaracter.get(
     0,
@@ -172,86 +176,103 @@ function drawMovePlayer() {
   );
 }
 
-// Check if the tile where the player is, is a collision block
+//^ This function is used to check if the actual tile of the player is an tile with collision
+//- Take in param the actualtile number
 function checkIfIsCollisionWall(actualTile) {
   switch (actualTile) {
     case 1:
       return true;
     case 2:
       return true;
-    case "doorTopDown":
+    case 3:
       return true;
-    case 99:
-      changeMap("clone");
-      return false;
-    case "doorTopDown2":
+    case 4:
       return true;
-    case 98:
-      changeMap("botanic");
-      return false;
+    case 5:
+      return true;
+    case 6:
+      return true;
     case 7:
       return true;
     case 8:
       return true;
     case 9:
       return true;
+    case 10:
+      return true;
+    case 11:
+      return true;
+    case 12:
+      return true;
+    case 13:
+      return true;
     case 14:
+      return true;
+    case 15:
       return true;
     case 16:
       return true;
-    case 20:
+    case 17:
       return true;
-    case 21:
+    case 18:
       return true;
-    case 22:
+    case 19:
       return true;
     case 23:
       return true;
     case 24:
       return true;
-    case 25:
-      return true;
-    case 26:
-      return true;
-    case 90:
+    case 28:
       return true;
     case 29:
       return true;
-    case 30:
-      return true;
     case 33:
       return true;
+
+    case 99:
+      changeMap("clone");
+      return false;
+    case 98:
+      changeMap("botanic");
+      return false;
+    case 97:
+      changeMap("command");
+      return false;
+    case 96:
+      changeMap("capsule");
+      return false;
+
     default:
       return false;
   }
 }
 
+//^ This function is used to check if the actual tile of the player is an tile with an object that can be taked
+//- Take in param the actualtile number
 function checkIfIsObject(actualTile) {
   switch (actualTile) {
-    case "coinYellow":
-      return true;
-    case "coinGreen":
-      return true;
-    case "coinBlue":
-      return true;
     default:
       return false;
   }
 }
 
+//^ This function is used to get the actual tile name for collision tiles
+//- Take in param the player position point
 function getTileName(point) {
   return map.layers[0][Math.trunc((point[1] + mapY) / tileSize)][
     Math.trunc((point[0] + mapX) / tileSize)
   ];
 }
 
+//^ This function is used to get the actual tile name for objects tiles
+//- Take in param the player position point
 function getTileNameForObject(point) {
   return map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][
     Math.trunc((point[0] + mapX) / tileSize)
   ];
 }
 
-// Made the collision between the player and the collision tile
+//^ This function made the collision for the player
 function madeCollision() {
   let TopCornerLeft = getTopCornerLeft([
     playerPosX + 28,
@@ -327,11 +348,10 @@ function madeCollision() {
   }
 }
 
+//^ This function is used to take an object and set him in the inventory
+//- Take in param the player position point
 function takeObject(point) {
-  textSize(18);
-  fill("rgb(255,255,255)");
-  noStroke();
-  text("Press E to take the object", playerPosX - 100, playerPosY - 10);
+  image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
   if (keyIsDown(69)) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
@@ -341,33 +361,69 @@ function takeObject(point) {
   }
 }
 
+//^ This function is used to change map from the first engine to the second
+//- Take in param tha map wanted
 function changeMap(map) {
   if (map === "clone") {
-    textSize(18);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to change room", playerPosX - 100, playerPosY - 10);
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "cloneMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX =
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
-        currentEngine = ENGINE_TWO;
+        canDoTransition = true;
+        canMovePlayer = false;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
       }
     }, 500);
   }
   if (map === "botanic") {
-    textSize(18);
-    fill("rgb(255,255,255)");
-    noStroke();
-    text("Press E to change room", playerPosX - 100, playerPosY - 10);
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "botanicMap";
         actualDirectionEngineTwo = "rigth";
         EngineTwoMapX = 0;
-        currentEngine = ENGINE_TWO;
+        canDoTransition = true;
+        canMovePlayer = false;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
+      }
+    }, 500);
+  }
+  if (map === "command") {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        actualMapEngineTwo = "commandMap";
+        actualDirectionEngineTwo = "left";
+        EngineTwoMapX =
+          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+        canDoTransition = true;
+        canMovePlayer = false;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
+      }
+    }, 500);
+  }
+  if (map === "capsule") {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        actualMapEngineTwo = "capsuleMap";
+        actualDirectionEngineTwo = "left";
+        EngineTwoMapX =
+          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+        canDoTransition = true;
+        canMovePlayer = false;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
       }
     }, 500);
   }

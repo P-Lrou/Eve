@@ -1,4 +1,6 @@
-// Start creation of all engine two settings
+//& This file managed the Engine One
+
+//^ This function actually start and managed the Engine One
 function engineTwoStart() {
   erase();
   playerInputsEngineTwo();
@@ -26,7 +28,19 @@ function engineTwoStart() {
         screenHeight
       );
       drawNPCEngineTwo("npcJulliette");
-      canDoInteraction();
+      canDoInteractionCloneQuest();
+      drawPlayerEngineTwo();
+      image(
+        frontOfCloneMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      drawInventory();
+      if (quests.questCloneMap.canDrawEngineCloneMapQuest && !quests.questCloneMap.questCloneMapIsOver) {
+        drawnQuestCloneMap();
+      }
       break;
     case "botanicMap":
       image(
@@ -43,16 +57,95 @@ function engineTwoStart() {
         engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
         screenHeight
       );
+      image(
+        lightBotanicMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
       drawNPCEngineTwo("npcRose");
+      drawPlayerEngineTwo();
+      drawInventory();
+      break;
+    case "commandMap":
+      image(
+        backgroundCommandMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
+        animationScreenCommandMap.get(324 * indexOfAnimation4, 0, 324, 60),
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
+        controlPanelAnimationCommandMap.get(324 * indexOfAnimation5, 0, 324, 60),
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
+        earthAnimationCommandMap.get(324 * indexOfAnimation6, 0, 324, 60),
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
+        seatsCommandMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      image(
+        lightCommandMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      drawPlayerEngineTwo();
+      drawInventory();
+      if (gameIsStarting) {
+        canMovePlayer = false;
+        drawNPCEngineTwo('npcJulliette');
+        drawNPCEngineTwo('npcRose');
+        drawNPCEngineTwo('npcFinn');
+        actualDialog = moreInteractionJSON.dialogStartingAnimation[0];
+        actualPlayersOrder = moreInteractionJSON.dialogStartingAnimation[1];
+        if (!startingIsDialogsFinish) {
+          canInteract = true;
+          canMoveAllNPC = false;
+          canDrawnInventory = false;
+        }
+      }
+      break;
+    case "capsuleMap":
+      image(
+        backgroundCapsuleMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      drawPlayerEngineTwo();
+      drawInventory();
       break;
   }
-  drawPlayerEngineTwo();
-  drawInventory();
   changeMapEngineTwo();
   if (canInteract) {
+    rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)
+    tint(0, 0, 0)
+    noTint();
     writeText(actualDialog);
+    noFill();
   }
-  if (canDrawEngineTow2ndMap) {
-    drawEngineTow2ndMap();
-  }
+  moreInteractionEnineTwo();
 }
