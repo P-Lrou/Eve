@@ -19,7 +19,7 @@
         [
           "Ah, te revoilà. J'ai besoin de ton aide pour régler un soucis avec Eve",
           "Un soucis ?",
-          "Oui, les niveau d'oxygène dans la cuve sont déregler. Pourrais-tu t'en occuper ?",
+          "Oui, les niveau d'oxygène dans la cuve sont déreglés. Pourrais-tu t'en occuper ?",
           "Oui, je vais m'en occuper, compte sur moi."
         ],
         [2, 0, 2, 0],
@@ -27,7 +27,7 @@
         [0, 2],
         [
           "Juliette, je crois que tu as quelque chose pour Rose.",
-          "Oh, les graines, j'avais complétement oublié, tient, les voilà.",
+          "Oh, les graines, j'avais complétement oublié, tiens, les voilà.",
           "Merci. Je lui rapporte.",
           "Lowen, quand tu aura fini avec Rose, reviens me voir, j'aurai quelque chose à te demander."
         ],

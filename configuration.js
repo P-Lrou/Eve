@@ -213,6 +213,7 @@ function writeText(actualDialog) {
             if (speak) {
                 if (key && keyIsDown(69) || key && keyIsDown(32) || key && keyIsDown(32)) {
                     if (index < actualDialog.length - 1) {
+                        canMovePlayer = false;
                         index++;
                         i = 0;
                         tempText = "";
@@ -260,7 +261,7 @@ function writeText(actualDialog) {
         }
         noStroke();
         textSize(16);
-        text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 100);
+        text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 120);
         image(
             dialogsHeads.get(16 * actualHead, 0, 16, 16),
             (screenWidth) / 2 + 100, screenHeight - 345, 384, 384
