@@ -238,6 +238,9 @@ function checkIfIsCollisionWall(actualTile) {
     case 97:
       changeMap("command");
       return false;
+    case 96:
+      changeMap("capsule");
+      return false;
 
     default:
       return false;
@@ -248,12 +251,6 @@ function checkIfIsCollisionWall(actualTile) {
 //- Take in param the actualtile number
 function checkIfIsObject(actualTile) {
   switch (actualTile) {
-    case "coinYellow":
-      return true;
-    case "coinGreen":
-      return true;
-    case "coinBlue":
-      return true;
     default:
       return false;
   }
@@ -403,6 +400,22 @@ function changeMap(map) {
     setTimeout(() => {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "commandMap";
+        actualDirectionEngineTwo = "left";
+        EngineTwoMapX =
+          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+        canDoTransition = true;
+        canMovePlayer = false;
+        setTimeout(() => {
+          currentEngine = ENGINE_TWO;
+        }, 900);
+      }
+    }, 500);
+  }
+  if (map === "capsule") {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        actualMapEngineTwo = "capsuleMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX =
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;

@@ -127,6 +127,17 @@ function engineTwoStart() {
         }
       }
       break;
+    case "capsuleMap":
+      image(
+        backgroundCapsuleMap,
+        EngineTwoMapX,
+        EngineTwoMapY,
+        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
+        screenHeight
+      );
+      drawPlayerEngineTwo();
+      drawInventory();
+      break;
   }
   changeMapEngineTwo();
   if (canInteract) {

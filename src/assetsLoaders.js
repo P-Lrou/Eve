@@ -13,9 +13,6 @@ function loadAssets() {
   homePagePlayButtonHover = loadImage("assets/menu/homePagePlayButtonHover.png");
 
   tempBackground = loadImage("assets/tempBackground.jpg");
-  coinYellow = loadImage("assets/coinYellow.png");
-  coinGreen = loadImage("assets/coinGreen.png");
-  coinBlue = loadImage("assets/coinBlue.png");
 
   mainCaracter = loadImage("assets/mainCaracter.png");
   npcRose = loadImage("assets/npcRose.png");
@@ -35,6 +32,7 @@ function loadAssets() {
   backgroundBotanicMap = loadImage("assets/botanicMap/backgroundBotanicMap.png");
   planteAnimationBotanicMap = loadImage("assets/botanicMap/planteAnimationBotanicMap.png")
   lightBotanicMap = loadImage("assets/botanicMap/lightBotanicMap.png")
+  seedsBagBotanicMap = loadImage("assets/botanicMap/seedsBagBotanicMap.png")
 
   backgroundCommandMap = loadImage("assets/commandMap/backgroundCommandMap.png")
   lightCommandMap = loadImage("assets/commandMap/lightCommandMap.png")
@@ -42,6 +40,8 @@ function loadAssets() {
   controlPanelAnimationCommandMap = loadImage("assets/commandMap/controlPanelAnimationCommandMap.png")
   earthAnimationCommandMap = loadImage("assets/commandMap/earthAnimationCommandMap.png")
   seatsCommandMap = loadImage("assets/commandMap/seatsCommandMap.png")
+
+  backgroundCapsuleMap = loadImage("assets/capsuleMap/backgroundCapsuleMap.png")
 }
 
 //^ This function recover all assets
@@ -174,14 +174,9 @@ function findActualAsset(layer, row, column) {
       return floor6;
     case 97:
       return floor8;
+    case 96:
+      return floor4;
 
-
-    case "coinYellow":
-      return coinYellow;
-    case "coinGreen":
-      return coinGreen;
-    case "coinBlue":
-      return coinBlue;
     default:
       throw new Error(
         "Can't find the asset named : " +
@@ -198,12 +193,8 @@ function findActualAsset(layer, row, column) {
 //- Take in param the object name as a string
 function findActualObject(objectName) {
   switch (objectName) {
-    case "coinYellow":
-      return coinYellow;
-    case "coinGreen":
-      return coinGreen;
-    case "coinBlue":
-      return coinBlue;
+    case "seedsBagBotanicMap":
+      return seedsBagBotanicMap;
     default:
       throw new Error("Can't find the asset named : " + objectName);
   }

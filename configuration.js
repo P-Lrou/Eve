@@ -1,7 +1,7 @@
 //& This file setup all variables for the global game
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = true;
+let gameIsStarting = false;
 let startingIsDialogsFinish = false;
 
 //+ This set screen settings
@@ -112,7 +112,7 @@ setInterval(() => {
 //+ Set animation for Botanic Map Background
 let indexOfAnimation3 = 0;
 setInterval(() => {
-    if (indexOfAnimation3 < 17) {
+    if (indexOfAnimation3 < 57) {
         indexOfAnimation3 += 1;
     } else {
         indexOfAnimation3 = 0;
@@ -188,6 +188,12 @@ function changeEngine() {
                     playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
                     playerPosY = screenHeight - spritePlayerSize - 58;
                     break;
+                case "capsuleMap":
+                    spritePlayerSize = screenHeight / 2.58;
+
+                    playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
+                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    break;
             }
         }
         tempCurrentEngine = currentEngine;
@@ -197,6 +203,7 @@ function changeEngine() {
 //^ This function is used to show the text of dialogue feature
 function writeText(actualDialog) {
     if (canInteract) {
+        textLeading(25);
         fill("rgba(31, 31, 31, 1)");
         strokeWeight(4);
         stroke("rgba(213, 213, 213, 0.24)");

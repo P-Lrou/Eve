@@ -244,7 +244,7 @@ function canTalkToNpc(actualNPC) {
         actualPlayersOrder = actualNPC.dialog[7];
         quests.seedsBagQuest.seedBagHasBeenTaked = true;
         quests.seedsBagQuest.canTakeSeedBag = false;
-        inventoryTab[inventoryTabNumber] = "coinYellow";
+        inventoryTab[inventoryTabNumber] = "seedsBagBotanicMap";
         inventoryTabNumber++;
       }
 
@@ -261,7 +261,7 @@ function canTalkToNpc(actualNPC) {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
         quests.seedsBagQuest.seedBagQuestIsOver = true;
-        removeFromInventory("coinYellow")
+        removeFromInventory("seedsBagBotanicMap")
         actualQuestName = "questCloneMap"
         quests.questCloneMap.questCloneMapIsStarted = true;
       }
