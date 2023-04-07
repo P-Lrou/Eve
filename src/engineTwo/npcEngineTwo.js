@@ -123,6 +123,14 @@ function drawNPCEngineTwo(NPC) {
     }
   }
 
+  if (debugMode) {
+    fill(0, 255, 0, 60)
+    noStroke();
+    rect(actualNPC.startx + 30,
+      screenHeight - spritePlayerSize - 59,
+      spritePlayerSize,
+      spritePlayerSize)
+  }
   image(
     animationMoovePlayer,
     actualNPC.startx,

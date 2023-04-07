@@ -71,6 +71,11 @@ function drawPlayerEngineTwo() {
     default:
       throw new Error("Player State isn't defined or isn't the good value");
   }
+  if (debugMode) {
+    fill(255, 0, 0, 60)
+    noStroke();
+    rect(playerPosX + 50, playerPosY, spritePlayerSize - 90, spritePlayerSize)
+  }
 }
 
 //^ This function draw the player if he dont move

@@ -30,6 +30,12 @@ function drawTilesForOneLayer(actualLayer) {
         tileSize,
         tileSize
       );
+      if (debugMode) {
+        stroke(255, 255, 255, 30)
+        strokeWeight(1.5)
+        noFill()
+        rect(x * tileSize - mapX, y * tileSize - mapY, tileSize, tileSize)
+      }
     }
   }
 }
@@ -52,6 +58,12 @@ function drawTilesForOneLayer2(actualLayer) {
         tileSize,
         tileSize
       );
+      if (debugMode) {
+        stroke(255, 255, 255, 30)
+        strokeWeight(1.5)
+        noFill()
+        rect(x * tileSize - mapX, y * tileSize - mapY, tileSize, tileSize)
+      }
     }
   }
 }

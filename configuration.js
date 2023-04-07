@@ -1,11 +1,12 @@
 //& This file setup all variables for the global game
 
+let debugMode = false;
+
 let actualQuestName = "seedsBagQuest"
 let gameIsStarting = true;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;
-
 //+ This set screen settings
 let screenWidth = innerWidth;
 let screenHeight = innerHeight;

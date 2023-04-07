@@ -300,6 +300,11 @@ function madeCollision() {
     spritePlayerSize - 28,
     spritePlayerSize - 2,
   ]);
+  if (debugMode) {
+    fill(255, 0, 0, 60)
+    noStroke();
+    rect(playerPosX + 28, playerPosY + 60, spritePlayerSize - 60, spritePlayerSize - 58)
+  }
   // fill("red")
   // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
   // fill("blue")
