@@ -3,6 +3,8 @@
 let actualQuestName = "seedsBagQuest"
 let gameIsStarting = true;
 let startingIsDialogsFinish = false;
+let canShowArrows = false;
+let alphaArrows = 0;
 
 //+ This set screen settings
 let screenWidth = innerWidth;
@@ -203,6 +205,7 @@ function changeEngine() {
 //^ This function is used to show the text of dialogue feature
 function writeText(actualDialog) {
     if (canInteract) {
+        image(interactionButton, screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 64);
         textLeading(25);
         fill("rgba(31, 31, 31, 1)");
         strokeWeight(4);
@@ -211,7 +214,7 @@ function writeText(actualDialog) {
         fill("rgb(255,255,255)");
         if (bool) {
             if (speak) {
-                if (key && keyIsDown(69) || key && keyIsDown(32) || key && keyIsDown(32)) {
+                if (key && keyIsDown(69)) {
                     if (index < actualDialog.length - 1) {
                         canMovePlayer = false;
                         index++;
@@ -239,6 +242,7 @@ function writeText(actualDialog) {
                         setTimeout(() => {
                             gameIsStarting = false;
                             canMovePlayer = true;
+                            canShowArrows = true;
                         }, 8000);
                     }
                 }

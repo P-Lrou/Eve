@@ -112,6 +112,14 @@ function engineTwoStart() {
         screenHeight
       );
       drawPlayerEngineTwo();
+      if (canShowArrows) {
+        if (alphaArrows < 255) {
+          alphaArrows = alphaArrows + 5;
+        }
+        tint(255, alphaArrows);
+        image(arrowsButton, playerPosX + 100, playerPosY - 90, 137, 59);
+        noTint();
+      }
       drawInventory();
       if (gameIsStarting) {
         canMovePlayer = false;

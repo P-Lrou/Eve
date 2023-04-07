@@ -126,26 +126,7 @@ function drawMovePlayer() {
     spriteCutSize
   );
 
-  switch (Direction[0]) {
-    case 0:
-      break;
-    case 1:
-      animationMoovePlayer = mainCaracter.get(
-        spriteCutSize * indexOfAnimation,
-        spriteCutSize * 0,
-        spriteCutSize,
-        spriteCutSize
-      );
-      break;
-    case -1:
-      animationMoovePlayer = mainCaracter.get(
-        spriteCutSize * indexOfAnimation,
-        spriteCutSize * 1,
-        spriteCutSize,
-        spriteCutSize
-      );
-      break;
-  }
+
   switch (Direction[1]) {
     case 0:
       break;
@@ -161,6 +142,27 @@ function drawMovePlayer() {
       animationMoovePlayer = mainCaracter.get(
         spriteCutSize * indexOfAnimation,
         spriteCutSize * 2,
+        spriteCutSize,
+        spriteCutSize
+      );
+      break;
+  }
+
+  switch (Direction[0]) {
+    case 0:
+      break;
+    case 1:
+      animationMoovePlayer = mainCaracter.get(
+        spriteCutSize * indexOfAnimation,
+        spriteCutSize * 0,
+        spriteCutSize,
+        spriteCutSize
+      );
+      break;
+    case -1:
+      animationMoovePlayer = mainCaracter.get(
+        spriteCutSize * indexOfAnimation,
+        spriteCutSize * 1,
         spriteCutSize,
         spriteCutSize
       );

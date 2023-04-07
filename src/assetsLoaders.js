@@ -12,7 +12,7 @@ function loadAssets() {
   homePagePlayButton = loadImage("assets/menu/homePagePlayButton.png");
   homePagePlayButtonHover = loadImage("assets/menu/homePagePlayButtonHover.png");
 
-  tempBackground = loadImage("assets/tempBackground.jpg");
+  backgroundSpace = loadImage("assets/background.png");
 
   mainCaracter = loadImage("assets/mainCaracter.png");
   npcRose = loadImage("assets/npcRose.png");
@@ -21,6 +21,7 @@ function loadAssets() {
   dialogsHeads = loadImage("assets/dialogsHeads.png");
   assets = loadImage("assets/assets.png");
   interactionButton = loadImage("assets/interactionButton.png");
+  arrowsButton = loadImage("assets/arrowsButton.png")
 
   backgroundCloneMap = loadImage("assets/cloneMap/backgroundCloneMap.png");
   lightCloneMap = loadImage("assets/cloneMap/lightCloneMap.png");

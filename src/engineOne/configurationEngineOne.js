@@ -15,7 +15,7 @@ let ratio = 1;
 let tileSizeCut = 16;
 
 //+ Set player speed
-let playerSpeed = 7;
+let playerSpeed = 10;
 
 //+ actually useless -> Just set variable to take map settings in Json
 let map = undefined;

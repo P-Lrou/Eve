@@ -4,6 +4,7 @@
 function playerInputsEngineTwo() {
   playerState = "idle";
   if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo && canMovePlayer || (keyIsDown(81) && canMoveEngineTwo && canMovePlayer)) {
+    canShowArrows = false;
     playerState = "mooving";
     playerPosX -= playerSpeedEngineTwo;
     if (playerPosX < 200) {
@@ -21,6 +22,7 @@ function playerInputsEngineTwo() {
   }
 
   if (keyIsDown(RIGHT_ARROW) && canMoveEngineTwo && canMovePlayer || (keyIsDown(68) && canMoveEngineTwo && canMovePlayer)) {
+    canShowArrows = false;
     playerState = "mooving";
     playerPosX += playerSpeedEngineTwo;
     if (playerPosX + spritePlayerSize > screenWidth - 200) {
