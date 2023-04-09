@@ -14,7 +14,7 @@ let engineTwoMapSizeH = 60;
 let playerSpeedEngineTwo = 8;
 
 //+ Set size for the rect in cloneMap quest
-let heigthRectMapEngineTwoCloneMap = 527
+let heigthRectMapEngineTwoCloneMap = 535
 let yRectMapEngineTwoCloneMap = 250
 let limitYMax = 192;
 

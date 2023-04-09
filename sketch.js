@@ -34,7 +34,11 @@ function draw() {
             transitionEnter()
         }
         if (transitionStatus === "Out") {
+            currentEngine = newEngineSelected
             transitionOut()
         }
+    }
+    if (canShowInventoryAnimation) {
+        addToInventory(newObjectToAdd)
     }
 }

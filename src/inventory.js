@@ -84,6 +84,108 @@ function drawInventory() {
   fill("rgba(31, 31, 31, 0.68)");
 }
 
+function addToInventory(object) {
+  let actualObject = findActualObject(object);
+
+  let newObjectX = screenWidth / 2 - newObjectSize / 2 + newObjectOldX
+  let newObjectY = screenHeight / 2 - newObjectSize / 2 + newObjectOldY
+
+  if (newObjectSize < 510 && canUpObjectSize) {
+    newObjectSize += 10
+  } else if (canUpObjectSize) {
+    newObjectSize = 510
+    canUpObjectSize = false
+  }
+  setTimeout(() => {
+    canChangeObjectInventory = true;
+  }, 1000);
+  if (inventoryTabNumber === 0 && canChangeObjectInventory) {
+    if (newObjectX < inventoryWidthStart + inventorySquareSize - newObjectSize - 5) {
+      newObjectOldX += 8
+    } else if (inventoryWidthStart + inventorySquareSize === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize) {
+      newObjectX = inventoryWidthStart + inventorySquareSize - newObjectSize;
+    }
+    if (newObjectY > inventoryHeigthStart + 5) {
+      newObjectOldY -= 6
+    } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
+      newObjectY = inventoryHeigthStart
+    }
+    if (inventorySquareSize < newObjectSize) {
+      newObjectSize -= 10
+    } else if (newObjectSize > inventorySquareSize) {
+      newObjectSize = inventorySquareSize
+    }
+  }
+  if (inventoryTabNumber === 1 && canChangeObjectInventory) {
+    if (newObjectX < inventoryWidthStart + inventorySquareSize * 2 + 10 - newObjectSize - 5) {
+      newObjectOldX += 10
+    } else if (inventoryWidthStart + inventorySquareSize * 2 + 10 === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize * 2 + 10) {
+      newObjectX = inventoryWidthStart + inventorySquareSize * 2 + 10;
+    }
+    if (newObjectY > inventoryHeigthStart + 5) {
+      newObjectOldY -= 8
+    } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
+      newObjectY = inventoryHeigthStart
+    }
+    if (inventorySquareSize < newObjectSize) {
+      newObjectSize -= 10
+    } else if (newObjectSize > inventorySquareSize) {
+      newObjectSize = inventorySquareSize
+    }
+  }
+  if (inventoryTabNumber === 2 && canChangeObjectInventory) {
+    if (newObjectX < inventoryWidthStart + inventorySquareSize * 3 + 10 - newObjectSize - 5) {
+      newObjectOldX += 10
+    } else if (inventoryWidthStart + inventorySquareSize * 3 + 10 === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize * 3 + 10) {
+      newObjectX = inventoryWidthStart + inventorySquareSize * 3 + 10;
+    }
+    if (newObjectY > inventoryHeigthStart + 5) {
+      newObjectOldY -= 8
+    } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
+      newObjectY = inventoryHeigthStart
+    }
+    if (inventorySquareSize < newObjectSize) {
+      newObjectSize -= 10
+    } else if (newObjectSize > inventorySquareSize) {
+      newObjectSize = inventorySquareSize
+    }
+  }
+  if (inventoryTabNumber === 3 && canChangeObjectInventory) {
+    if (newObjectX < inventoryWidthStart + inventorySquareSize * 4 + 10 - newObjectSize - 5) {
+      newObjectOldX += 10
+    } else if (inventoryWidthStart + inventorySquareSize * 4 + 10 === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize * 4 + 10) {
+      newObjectX = inventoryWidthStart + inventorySquareSize * 4 + 10;
+    }
+    if (newObjectY > inventoryHeigthStart + 5) {
+      newObjectOldY -= 8
+    } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
+      newObjectY = inventoryHeigthStart
+    }
+    if (inventorySquareSize < newObjectSize) {
+      newObjectSize -= 10
+    } else if (newObjectSize > inventorySquareSize) {
+      newObjectSize = inventorySquareSize
+    }
+  }
+  if (canShowObjectInAnimation) {
+    image(actualObject, newObjectX, newObjectY, newObjectSize, newObjectSize);
+  }
+  setTimeout(() => {
+    if (!objectAsBeenAdToInventoryWithAnimation) {
+      inventoryTab[inventoryTabNumber] = object;
+      inventoryTabNumber++;
+      objectAsBeenAdToInventoryWithAnimation = true;
+      canShowInventoryAnimation = false;
+      canChangeObjectInventory = false;
+      canShowObjectInAnimation = true;
+      newObjectSize = 128;
+      newObjectOldX = 0;
+      newObjectOldY = 0;
+      canUpObjectSize = true;
+    }
+  }, 4500);
+}
+
 
 function removeFromInventory(object) {
   let tempArray = [];

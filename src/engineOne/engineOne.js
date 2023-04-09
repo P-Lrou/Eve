@@ -2,7 +2,7 @@
 
 //^ This function actually start and managed the Engine One
 function engineOneStart() {
-  background(backgroundSpace);
+  background("black");
   drawMap();
   drawPlayer();
   drawMap2();

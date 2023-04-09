@@ -9,10 +9,10 @@ function drawnQuestCloneMap() {
       1100,
       800
     ),
-    400,
-    50,
-    screenWidth / 1.74,
-    screenHeight / 1.16
+    266,
+    59,
+    1100,
+    800
   );
   noStroke();
   if (quests.questCloneMap.isGoodForColor) {
@@ -20,13 +20,13 @@ function drawnQuestCloneMap() {
   } else {
     fill('#cc2e1d')
   }
-  rect(1086.5, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
+  rect(950, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
   image(
     questCloneMap1,
-    400,
-    50,
-    screenWidth / 1.74,
-    screenHeight / 1.16
+    266,
+    59,
+    1100,
+    800
   );
 
 
@@ -43,11 +43,20 @@ function drawnQuestCloneMap() {
   } else {
     checkIfCloneMapQuestIsOver()
   }
+
+  if (yRectMapEngineTwoCloneMap < 202 || heigthRectMapEngineTwoCloneMap > 583) {
+    yRectMapEngineTwoCloneMap = 202;
+    heigthRectMapEngineTwoCloneMap = 583;
+  }
+  if (yRectMapEngineTwoCloneMap > 782 || heigthRectMapEngineTwoCloneMap < 3) {
+    yRectMapEngineTwoCloneMap = 782;
+    heigthRectMapEngineTwoCloneMap = 3;
+  }
 }
 
 //^ This function is used to draw the botanic map quest
 function checkIfCloneMapQuestIsOver() {
-  if (yRectMapEngineTwoCloneMap > 588 && yRectMapEngineTwoCloneMap < 595) {
+  if (yRectMapEngineTwoCloneMap > 596 && yRectMapEngineTwoCloneMap < 606) {
     quests.questCloneMap.isGoodForColor = true;
     quests.questCloneMap.canMoveQuestCloneMap = false;
     setTimeout(() => {

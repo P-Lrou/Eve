@@ -170,9 +170,7 @@ function changeMapEngineTwo() {
         if (keyIsDown(69)) {
           canDoTransition = true;
           canMovePlayer = false;
-          setTimeout(() => {
-            currentEngine = ENGINE_ONE;
-          }, 900);
+          newEngineSelected = ENGINE_ONE;
         }
       }, 500);
     }
@@ -188,9 +186,7 @@ function changeMapEngineTwo() {
         if (keyIsDown(69)) {
           canDoTransition = true;
           canMovePlayer = false;
-          setTimeout(() => {
-            currentEngine = ENGINE_ONE;
-          }, 900);
+          newEngineSelected = ENGINE_ONE;
         }
       }, 500);
     }

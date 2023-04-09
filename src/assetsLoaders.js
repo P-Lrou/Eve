@@ -87,6 +87,18 @@ function initAssets() {
   floor8 = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
   floor9 = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
   rigthDoor = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 6, tileSizeCut, tileSizeCut);
+
+  distributeur1 = assets.get(0, 0 + tileSizeCut * 7, tileSizeCut, tileSizeCut);
+  distributeur2 = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 7, tileSizeCut, tileSizeCut);
+  distributeur3 = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 7, tileSizeCut, tileSizeCut);
+  distributeur4 = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 7, tileSizeCut, tileSizeCut);
+  plante1 = assets.get(0 + tileSizeCut * 4, 0 + tileSizeCut * 7, tileSizeCut, tileSizeCut);
+
+  banc1 = assets.get(0, 0 + tileSizeCut * 8, tileSizeCut, tileSizeCut);
+  banc2 = assets.get(0 + tileSizeCut * 1, 0 + tileSizeCut * 8, tileSizeCut, tileSizeCut);
+  banc3 = assets.get(0 + tileSizeCut * 2, 0 + tileSizeCut * 8, tileSizeCut, tileSizeCut);
+  banc4 = assets.get(0 + tileSizeCut * 3, 0 + tileSizeCut * 8, tileSizeCut, tileSizeCut);
+  plante2 = assets.get(0 + tileSizeCut * 4, 0 + tileSizeCut * 8, tileSizeCut, tileSizeCut);
 }
 
 //^ This function find the good asset for the map creation
@@ -168,6 +180,28 @@ function findActualAsset(layer, row, column) {
       return floor9;
     case 33:
       return rigthDoor;
+
+    case 34:
+      return distributeur1;
+    case 35:
+      return distributeur2;
+    case 36:
+      return distributeur3;
+    case 37:
+      return distributeur4;
+    case 38:
+      return plante1;
+
+    case 39:
+      return banc1;
+    case 40:
+      return banc2;
+    case 41:
+      return banc3;
+    case 42:
+      return banc4;
+    case 43:
+      return plante2;
 
     case 99:
       return floor2;

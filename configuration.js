@@ -3,19 +3,28 @@
 let debugMode = false;
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = true;
+let gameIsStarting = false;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;
+
+let canChangeObjectInventory = false;
+let canShowObjectInAnimation = true;
+let newObjectToAdd = undefined;
+let canShowInventoryAnimation = false;
+let objectAsBeenAdToInventoryWithAnimation = false;
+
+
 //+ This set screen settings
-let screenWidth = innerWidth;
-let screenHeight = innerHeight;
+let screenWidth = 1632;
+let screenHeight = 918;
 let frameRateNumber = 60;
 
 //+ Set engines names to variables
 const ENGINE_ONE = "engine_one";
 const ENGINE_TWO = "engine_two";
 const MENU = "menu";
+let newEngineSelected = ENGINE_TWO;
 
 //+ Set the start engine
 let currentEngine = MENU;
@@ -34,7 +43,7 @@ let npcSpeed = 5;
 
 //+ Set inventory Params
 let inventorySquareSize = 100;
-let inventoryHeigthStart = 10;
+let inventoryHeigthStart = 8;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
 let actualInventoryChoose = 1;
@@ -234,8 +243,19 @@ function writeText(actualDialog) {
                         canDrawnInventory = true;
                         startingIsDialogsFinish = true;
                         canMoveAllNPC = true;
-                        if (!gameIsStarting) {
+                        if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag) {
                             canMovePlayer = true;
+                        }
+                        if (quests.seedsBagQuest.canAddToInventorySeedBag) {
+                            canShowInventoryAnimation = true;
+                            newObjectToAdd = "seedsBagBotanicMap";
+                            setTimeout(() => {
+                                objectAsBeenAdToInventoryWithAnimation = false;
+                            }, 10000);
+                            setTimeout(() => {
+                                canMovePlayer = true;
+                                quests.seedsBagQuest.canAddToInventorySeedBag = false;
+                            }, 4000);
                         }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
@@ -273,3 +293,11 @@ function writeText(actualDialog) {
         );
     }
 }
+
+
+
+
+let newObjectSize = 128;
+let newObjectOldX = 0;
+let newObjectOldY = 0;
+let canUpObjectSize = true;

@@ -2,7 +2,7 @@
 
 //+ This set the player start position on the map
 let playerStartX = 1750;
-let playerStartY =  3150;
+let playerStartY = 3150;
 
 //+ Set the start point of the map
 let mapX = -(screenWidth / 2) + playerStartX;

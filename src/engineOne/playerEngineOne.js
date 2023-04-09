@@ -230,6 +230,8 @@ function checkIfIsCollisionWall(actualTile) {
       return true;
     case 33:
       return true;
+    case 43:
+      return true;
 
     case 99:
       changeMap("clone");
@@ -337,6 +339,13 @@ function madeCollision() {
     checkIfIsCollisionWall(getTileName(BottomCornerLeft)) ||
     checkIfIsCollisionWall(getTileNameForObject(BottomCornerLeft))
   ) {
+    if (getTileName(BottomCornerLeft) === 36) {
+      if (Direction[1] === 1) {
+        mapY -= playerSpeed;
+      } else if (Direction[0] === -1) {
+        mapX += playerSpeed;
+      }
+    }
     if (Direction[1] === 1) {
       mapY -= playerSpeed;
     } else if (Direction[0] === -1) {
@@ -352,6 +361,7 @@ function madeCollision() {
     } else if (Direction[0] === 1) {
       mapX -= playerSpeed;
     }
+
   }
 }
 
@@ -381,9 +391,7 @@ function changeMap(map) {
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
         canMovePlayer = false;
-        setTimeout(() => {
-          currentEngine = ENGINE_TWO;
-        }, 900);
+        newEngineSelected = ENGINE_TWO
       }
     }, 500);
   }
@@ -396,9 +404,7 @@ function changeMap(map) {
         EngineTwoMapX = 0;
         canDoTransition = true;
         canMovePlayer = false;
-        setTimeout(() => {
-          currentEngine = ENGINE_TWO;
-        }, 900);
+        newEngineSelected = ENGINE_TWO
       }
     }, 500);
   }
@@ -412,9 +418,7 @@ function changeMap(map) {
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
         canMovePlayer = false;
-        setTimeout(() => {
-          currentEngine = ENGINE_TWO;
-        }, 900);
+        newEngineSelected = ENGINE_TWO
       }
     }, 500);
   }
@@ -428,9 +432,7 @@ function changeMap(map) {
           -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
         canMovePlayer = false;
-        setTimeout(() => {
-          currentEngine = ENGINE_TWO;
-        }, 900);
+        newEngineSelected = ENGINE_TWO
       }
     }, 500);
   }

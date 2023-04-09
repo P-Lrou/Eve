@@ -252,8 +252,7 @@ function canTalkToNpc(actualNPC) {
         actualPlayersOrder = actualNPC.dialog[7];
         quests.seedsBagQuest.seedBagHasBeenTaked = true;
         quests.seedsBagQuest.canTakeSeedBag = false;
-        inventoryTab[inventoryTabNumber] = "seedsBagBotanicMap";
-        inventoryTabNumber++;
+        quests.seedsBagQuest.canAddToInventorySeedBag = true;
       }
 
       if (actualNPC.name === "npcRose") {

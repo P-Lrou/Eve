@@ -11,6 +11,7 @@
     "questSeedBagQuestIsStarted": true,
     "canTakeSeedBag": false,
     "seedBagHasBeenTaked": false,
-    "seedBagQuestIsOver": false
+    "seedBagQuestIsOver": false,
+    "canAddToInventorySeedBag": false
   }
 }
