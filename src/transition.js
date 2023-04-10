@@ -21,5 +21,6 @@ function transitionOut() {
         transitionStatus = 'Enter'
         canDoTransition = false;
         canMovePlayer = true;
+        cursor('default');
     }
 }

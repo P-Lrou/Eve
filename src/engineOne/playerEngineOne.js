@@ -2,8 +2,11 @@
 
 //^ This function managed player input
 function playerInputs() {
+  let lastPosition = [mapX, mapY]
+
   Direction = [0, 0];
   playerState = "idle";
+
   if (keyIsDown(UP_ARROW) || keyIsDown(90) && canMovePlayer) {
     mapY -= playerSpeed;
     Direction[1] -= 1;
@@ -28,50 +31,26 @@ function playerInputs() {
     playerState = "mooving";
   }
 
-  if (keyIsDown(49)) {
-    actualInventoryChoose = 1;
-  }
+  if (keyIsDown(49)) actualInventoryChoose = 1; // Keyboard 1 --> Set inventory slot selected to 1
+  if (keyIsDown(50)) actualInventoryChoose = 2; // Keyboard 2 --> Set inventory slot selected to 2
+  if (keyIsDown(51)) actualInventoryChoose = 3; // Keyboard 3 --> Set inventory slot selected to 3
+  if (keyIsDown(52)) actualInventoryChoose = 4; // Keyboard 4 --> Set inventory slot selected to 4
 
-  if (keyIsDown(50)) {
-    actualInventoryChoose = 2;
-  }
 
-  if (keyIsDown(51)) {
-    actualInventoryChoose = 3;
-  }
-
-  if (keyIsDown(52)) {
-    actualInventoryChoose = 4;
-  }
   madeCollision();
+
+  // Specific collision, just put the player position on map and then it returns if yes or not there is a collision here
+  if (checkSpecificCollision([mapX + playerPosX + spritePlayerSize / 2, mapY + playerPosY + spritePlayerSize / 2]) === true) { mapX = lastPosition[0]; mapY = lastPosition[1] }
+
 }
 
 //^ This function call the function to draw the player using the direction
 function drawPlayer() {
-  let TopCornerLeft = getTopCornerLeft([
-    playerPosX + 28,
-    playerPosY,
-    spritePlayerSize,
-    spritePlayerSize,
-  ]);
-  let TopCornerRight = getTopCornerRight([
-    playerPosX,
-    playerPosY,
-    spritePlayerSize - 28,
-    spritePlayerSize,
-  ]);
-  let BottomCornerLeft = getBottomCornerLeft([
-    playerPosX + 28,
-    playerPosY,
-    spritePlayerSize - 40,
-    spritePlayerSize - 2,
-  ]);
-  let BottomCornerRight = getBottomCornerRight([
-    playerPosX,
-    playerPosY,
-    spritePlayerSize - 28,
-    spritePlayerSize - 2,
-  ]);
+  let TopCornerLeft = getTopCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize, spritePlayerSize,]);
+  let TopCornerRight = getTopCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize,]);
+  let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize - 2,]);
+  let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize - 2,]);
+
   // fill("red")
   // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
   // fill("blue")
@@ -108,43 +87,21 @@ function drawPlayer() {
 
 //^ This function draw the player if he dont move
 function drawIdlePlayer() {
-  image(
-    mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize),
-    playerPosX,
-    playerPosY,
-    spritePlayerSize,
-    spritePlayerSize
-  );
+  image(mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
 }
 
 //^ This function draw the player if he move
 function drawMovePlayer() {
-  let animationMoovePlayer = mainCaracter.get(
-    0,
-    spriteCutSize * 3,
-    spriteCutSize,
-    spriteCutSize
-  );
-
+  let animationMoovePlayer = mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
 
   switch (Direction[1]) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = mainCaracter.get(
-        spriteCutSize * indexOfAnimation,
-        spriteCutSize * 3,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
       break;
     case -1:
-      animationMoovePlayer = mainCaracter.get(
-        spriteCutSize * indexOfAnimation,
-        spriteCutSize * 2,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
       break;
   }
 
@@ -152,30 +109,14 @@ function drawMovePlayer() {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = mainCaracter.get(
-        spriteCutSize * indexOfAnimation,
-        spriteCutSize * 0,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
       break;
     case -1:
-      animationMoovePlayer = mainCaracter.get(
-        spriteCutSize * indexOfAnimation,
-        spriteCutSize * 1,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
       break;
   }
 
-  image(
-    animationMoovePlayer,
-    playerPosX,
-    playerPosY,
-    spritePlayerSize,
-    spritePlayerSize
-  );
+  image(animationMoovePlayer, playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
 }
 
 //^ This function is used to check if the actual tile of the player is an tile with collision
@@ -206,43 +147,39 @@ function checkIfIsCollisionWall(actualTile) {
       return true;
     case 12:
       return true;
-    case 13:
-      return true;
     case 14:
-      return true;
-    case 15:
-      return true;
-    case 16:
-      return true;
-    case 17:
       return true;
     case 18:
       return true;
     case 19:
       return true;
-    case 23:
+    case 20:
       return true;
     case 24:
       return true;
-    case 28:
+    case 26:
       return true;
-    case 29:
+    case 30:
       return true;
-    case 33:
+    case 222:
       return true;
-    case 43:
+    case 216:
+      return true;
+    case 244:
+      return true;
+    case 245:
       return true;
 
-    case 99:
+    case 998:
       changeMap("clone");
       return false;
-    case 98:
+    case 999:
       changeMap("botanic");
       return false;
-    case 97:
+    case 997:
       changeMap("command");
       return false;
-    case 96:
+    case 996:
       changeMap("capsule");
       return false;
 
@@ -263,49 +200,25 @@ function checkIfIsObject(actualTile) {
 //^ This function is used to get the actual tile name for collision tiles
 //- Take in param the player position point
 function getTileName(point) {
-  return map.layers[0][Math.trunc((point[1] + mapY) / tileSize)][
-    Math.trunc((point[0] + mapX) / tileSize)
-  ];
+  return map.layers[0][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
 }
 
 //^ This function is used to get the actual tile name for objects tiles
 //- Take in param the player position point
 function getTileNameForObject(point) {
-  return map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][
-    Math.trunc((point[0] + mapX) / tileSize)
-  ];
+  return map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
 }
 
 //^ This function made the collision for the player
 function madeCollision() {
-  let TopCornerLeft = getTopCornerLeft([
-    playerPosX + 28,
-    playerPosY + 60,
-    spritePlayerSize,
-    spritePlayerSize,
-  ]);
-  let TopCornerRight = getTopCornerRight([
-    playerPosX,
-    playerPosY + 60,
-    spritePlayerSize - 28,
-    spritePlayerSize,
-  ]);
-  let BottomCornerLeft = getBottomCornerLeft([
-    playerPosX + 28,
-    playerPosY,
-    spritePlayerSize - 40,
-    spritePlayerSize - 2,
-  ]);
-  let BottomCornerRight = getBottomCornerRight([
-    playerPosX,
-    playerPosY,
-    spritePlayerSize - 28,
-    spritePlayerSize - 2,
-  ]);
+  let TopCornerLeft = getTopCornerLeft([playerPosX + 28, playerPosY + 110, spritePlayerSize, spritePlayerSize,]);
+  let TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 110, spritePlayerSize - 28, spritePlayerSize,]);
+  let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize + 8,]);
+  let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize + 8,]);
   if (debugMode) {
     fill(255, 0, 0, 60)
     noStroke();
-    rect(playerPosX + 28, playerPosY + 60, spritePlayerSize - 60, spritePlayerSize - 58)
+    rect(playerPosX + 28, playerPosY + 60, spritePlayerSize - 60, spritePlayerSize - 54)
   }
   // fill("red")
   // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
@@ -315,53 +228,37 @@ function madeCollision() {
   // ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
   // fill("yellow")
   // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
-  if (
-    checkIfIsCollisionWall(getTileName(TopCornerLeft)) ||
-    checkIfIsCollisionWall(getTileNameForObject(TopCornerLeft))
-  ) {
+  // console.log("topleft")
+  // console.log(getTileName(TopCornerLeft))
+  // console.log("topright")
+  // console.log(getTileName(TopCornerRight))
+  if (checkIfIsCollisionWall(getTileName(TopCornerLeft)) || checkIfIsCollisionWall(getTileNameForObject(TopCornerLeft))) {
     if (Direction[0] === -1) {
       mapX += playerSpeed;
     } else if (Direction[1] === -1) {
       mapY += playerSpeed;
     }
   }
-  if (
-    checkIfIsCollisionWall(getTileName(TopCornerRight)) ||
-    checkIfIsCollisionWall(getTileNameForObject(TopCornerRight))
-  ) {
+  if (checkIfIsCollisionWall(getTileName(TopCornerRight)) || checkIfIsCollisionWall(getTileNameForObject(TopCornerRight))) {
     if (Direction[0] === 1) {
       mapX -= playerSpeed;
     } else if (Direction[1] === -1) {
       mapY += playerSpeed;
     }
   }
-  if (
-    checkIfIsCollisionWall(getTileName(BottomCornerLeft)) ||
-    checkIfIsCollisionWall(getTileNameForObject(BottomCornerLeft))
-  ) {
-    if (getTileName(BottomCornerLeft) === 36) {
-      if (Direction[1] === 1) {
-        mapY -= playerSpeed;
-      } else if (Direction[0] === -1) {
-        mapX += playerSpeed;
-      }
-    }
+  if (checkIfIsCollisionWall(getTileName(BottomCornerLeft)) || checkIfIsCollisionWall(getTileNameForObject(BottomCornerLeft))) {
     if (Direction[1] === 1) {
       mapY -= playerSpeed;
     } else if (Direction[0] === -1) {
       mapX += playerSpeed;
     }
   }
-  if (
-    checkIfIsCollisionWall(getTileName(BottomCornerRight)) ||
-    checkIfIsCollisionWall(getTileNameForObject(BottomCornerRight))
-  ) {
+  if (checkIfIsCollisionWall(getTileName(BottomCornerRight)) || checkIfIsCollisionWall(getTileNameForObject(BottomCornerRight))) {
     if (Direction[1] === 1) {
       mapY -= playerSpeed;
     } else if (Direction[0] === 1) {
       mapX -= playerSpeed;
     }
-
   }
 }
 
@@ -372,9 +269,7 @@ function takeObject(point) {
   if (keyIsDown(69)) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
-    map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][
-      Math.trunc((point[0] + mapX) / tileSize)
-    ] = 0;
+    map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)] = 0;
   }
 }
 
@@ -387,8 +282,7 @@ function changeMap(map) {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "cloneMap";
         actualDirectionEngineTwo = "left";
-        EngineTwoMapX =
-          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_TWO
@@ -414,8 +308,7 @@ function changeMap(map) {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "commandMap";
         actualDirectionEngineTwo = "left";
-        EngineTwoMapX =
-          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_TWO
@@ -428,8 +321,7 @@ function changeMap(map) {
       if (keyIsDown(69)) {
         actualMapEngineTwo = "capsuleMap";
         actualDirectionEngineTwo = "left";
-        EngineTwoMapX =
-          -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_TWO

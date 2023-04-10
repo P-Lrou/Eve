@@ -17,10 +17,10 @@
     }
     g.p5 = f()
   }
-}) (function () {
+})(function () {
   var define,
-  module,
-  exports;
+    module,
+    exports;
   return (function () {
     function r(e, n, t) {
       function o(i, f) {
@@ -48,7 +48,7 @@
       return o
     }
     return r
-  }) () ({
+  })()({
     1: [
       function (_dereq_, module, exports) {
         module.exports = {
@@ -15923,7 +15923,7 @@
           if (validLen === - 1) validLen = len;
           var placeHoldersLen = validLen === len ? 0 : 4 - validLen % 4;
           return [validLen,
-          placeHoldersLen];
+            placeHoldersLen];
         } // base64 is 4/3 + up to two characters of the original data
 
         function byteLength(b64) {
@@ -16268,11 +16268,11 @@
             return length | 0;
           }
           function SlowBuffer(length) {
-            if ( + length != length) {
+            if (+ length != length) {
               // eslint-disable-line eqeqeq
               length = 0;
             }
-            return Buffer.alloc( + length);
+            return Buffer.alloc(+ length);
           }
           Buffer.isBuffer = function isBuffer(b) {
             return b != null && b._isBuffer === true && b !== Buffer.prototype; // so Buffer.isBuffer(Buffer.prototype) will be false
@@ -16358,7 +16358,7 @@
             var mustMatch = arguments.length > 2 && arguments[2] === true;
             if (!mustMatch && len === 0) return 0; // Use a for loop to avoid recursion
             var loweredCase = false;
-            for (; ; ) {
+            for (; ;) {
               switch (encoding) {
                 case 'ascii':
                 case 'latin1':
@@ -16588,10 +16588,10 @@
             if (byteOffset < 0) byteOffset = buffer.length + byteOffset;
             if (byteOffset >= buffer.length) {
               if (dir) return - 1;
-               else byteOffset = buffer.length - 1;
+              else byteOffset = buffer.length - 1;
             } else if (byteOffset < 0) {
               if (dir) byteOffset = 0;
-               else return - 1;
+              else return - 1;
             } // Normalize val
 
             if (typeof val === 'string') {
@@ -16744,7 +16744,7 @@
             }
             if (!encoding) encoding = 'utf8';
             var loweredCase = false;
-            for (; ; ) {
+            for (; ;) {
               switch (encoding) {
                 case 'hex':
                   return hexWrite(this, string, offset, length);
@@ -16795,9 +16795,9 @@
               var bytesPerSequence = firstByte > 239 ? 4 : firstByte > 223 ? 3 : firstByte > 191 ? 2 : 1;
               if (i + bytesPerSequence <= end) {
                 var secondByte,
-                thirdByte,
-                fourthByte,
-                tempCodePoint;
+                  thirdByte,
+                  fourthByte,
+                  tempCodePoint;
                 switch (bytesPerSequence) {
                   case 1:
                     if (firstByte < 128) {
@@ -17348,7 +17348,7 @@
           var INVALID_BASE64_RE = /[^+/0-9A-Za-z-_]/g;
           function base64clean(str) {
             // Node takes equal signs as end of the Base64 encoding
-            str = str.split('=') [0]; // Node strips out invalid characters like \n and \t from the string, base64-js does not
+            str = str.split('=')[0]; // Node strips out invalid characters like \n and \t from the string, base64-js does not
             str = str.trim().replace(INVALID_BASE64_RE, ''); // Node converts strings with length < 2 to ''
             if (str.length < 2) return ''; // Node allows for non-padded base64 strings (missing trailing ===), base64-js does not
             while (str.length % 4 !== 0) {
@@ -17424,8 +17424,8 @@
           }
           function utf16leToBytes(str, units) {
             var c,
-            hi,
-            lo;
+              hi,
+              lo;
             var byteArray = [
             ];
             for (var i = 0; i < str.length; ++i) {
@@ -17652,7 +17652,7 @@
         };
         var exportTypedArrayStaticMethod = function (KEY, property, forced) {
           var ARRAY,
-          TypedArrayConstructor;
+            TypedArrayConstructor;
           if (!DESCRIPTORS) return;
           if (setPrototypeOf) {
             if (forced) for (ARRAY in TypedArrayConstructorsList) {
@@ -17801,7 +17801,7 @@
         var addGetter = function (Constructor, key) {
           defineProperty(Constructor[PROTOTYPE], key, {
             get: function () {
-              return getInternalState(this) [key];
+              return getInternalState(this)[key];
             }
           });
         };
@@ -17820,7 +17820,7 @@
           if (intIndex + count > store.byteLength) throw RangeError(WRONG_INDEX);
           var bytes = getInternalState(store.buffer).bytes;
           var start = intIndex + store.byteOffset;
-          var pack = conversion( + value);
+          var pack = conversion(+ value);
           for (var i = 0; i < count; i++) bytes[start + i] = pack[isLittleEndian ? i : count - i - 1];
         };
         if (!NATIVE_ARRAY_BUFFER) {
@@ -17860,10 +17860,10 @@
           }
           redefineAll($DataView[PROTOTYPE], {
             getInt8: function getInt8(byteOffset) {
-              return get(this, 1, byteOffset) [0] << 24 >> 24;
+              return get(this, 1, byteOffset)[0] << 24 >> 24;
             },
             getUint8: function getUint8(byteOffset) {
-              return get(this, 1, byteOffset) [0];
+              return get(this, 1, byteOffset)[0];
             },
             getInt16: function getInt16(byteOffset            /* , littleEndian */
             ) {
@@ -17926,7 +17926,7 @@
           if (!fails(function () {
             NativeArrayBuffer(1);
           }) || !fails(function () {
-            new NativeArrayBuffer( - 1); // eslint-disable-line no-new
+            new NativeArrayBuffer(- 1); // eslint-disable-line no-new
           }) || fails(function () {
             new NativeArrayBuffer(); // eslint-disable-line no-new
             new NativeArrayBuffer(1.5); // eslint-disable-line no-new
@@ -17938,7 +17938,7 @@
               return new NativeArrayBuffer(toIndex(length));
             };
             var ArrayBufferPrototype = $ArrayBuffer[PROTOTYPE] = NativeArrayBuffer[PROTOTYPE];
-            for (var keys = getOwnPropertyNames(NativeArrayBuffer), j = 0, key; keys.length > j; ) {
+            for (var keys = getOwnPropertyNames(NativeArrayBuffer), j = 0, key; keys.length > j;) {
               if (!((key = keys[j++]) in $ArrayBuffer)) {
                 createNonEnumerableProperty($ArrayBuffer, key, NativeArrayBuffer[key]);
               }
@@ -18003,28 +18003,28 @@
         // https://tc39.github.io/ecma262/#sec-array.prototype.copywithin
         module.exports = [
         ].copyWithin || function copyWithin(target        /* = 0 */
-        , start        /* = 0, end = @length */
+          , start        /* = 0, end = @length */
         ) {
-          var O = toObject(this);
-          var len = toLength(O.length);
-          var to = toAbsoluteIndex(target, len);
-          var from = toAbsoluteIndex(start, len);
-          var end = arguments.length > 2 ? arguments[2] : undefined;
-          var count = min((end === undefined ? len : toAbsoluteIndex(end, len)) - from, len - to);
-          var inc = 1;
-          if (from < to && to < from + count) {
-            inc = - 1;
-            from += count - 1;
-            to += count - 1;
-          }
-          while (count-- > 0) {
-            if (from in O) O[to] = O[from];
-             else delete O[to];
-            to += inc;
-            from += inc;
-          }
-          return O;
-        };
+            var O = toObject(this);
+            var len = toLength(O.length);
+            var to = toAbsoluteIndex(target, len);
+            var from = toAbsoluteIndex(start, len);
+            var end = arguments.length > 2 ? arguments[2] : undefined;
+            var count = min((end === undefined ? len : toAbsoluteIndex(end, len)) - from, len - to);
+            var inc = 1;
+            if (from < to && to < from + count) {
+              inc = - 1;
+              from += count - 1;
+              to += count - 1;
+            }
+            while (count-- > 0) {
+              if (from in O) O[to] = O[from];
+              else delete O[to];
+              to += inc;
+              from += inc;
+            }
+            return O;
+          };
       },
       {
         '../internals/to-absolute-index': 148,
@@ -18070,8 +18070,8 @@
         ) {
           return $forEach(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);
         }
-         : [
-        ].forEach;
+          : [
+          ].forEach;
       },
       {
         '../internals/array-iteration': 37,
@@ -18100,11 +18100,11 @@
           var iteratorMethod = getIteratorMethod(O);
           var index = 0;
           var length,
-          result,
-          step,
-          iterator,
-          next,
-          value;
+            result,
+            step,
+            iterator,
+            next,
+            value;
           if (mapping) mapfn = bind(mapfn, argumentsLength > 2 ? arguments[2] : undefined, 2); // if the target is not iterable or it's an array with the default iterator - use a simple case
           if (iteratorMethod != undefined && !(C == Array && isArrayIteratorMethod(iteratorMethod))) {
             iterator = iteratorMethod.call(O);
@@ -18200,25 +18200,25 @@
             var create = specificCreate || arraySpeciesCreate;
             var target = IS_MAP ? create($this, length) : IS_FILTER ? create($this, 0) : undefined;
             var value,
-            result;
+              result;
             for (; length > index; index++) if (NO_HOLES || index in self) {
               value = self[index];
               result = boundFunction(value, index, O);
               if (TYPE) {
                 if (IS_MAP) target[index] = result; // map
-                 else if (result) switch (TYPE) {
+                else if (result) switch (TYPE) {
                   case 3:
                     return true;
-                    // some
+                  // some
                   case 5:
                     return value;
-                    // find
+                  // find
                   case 6:
                     return index;
-                    // findIndex
+                  // findIndex
                   case 2:
                     push.call(target, value);
-                    // filter
+                  // filter
                 } else if (IS_EVERY) return false; // every
               }
             }
@@ -18290,7 +18290,7 @@
           for (; index >= 0; index--) if (index in O && O[index] === searchElement) return index || 0;
           return - 1;
         }
-         : nativeLastIndexOf;
+          : nativeLastIndexOf;
       },
       {
         '../internals/array-method-is-strict': 40,
@@ -18378,7 +18378,7 @@
               enumerable: true,
               get: thrower
             });
-             else O[1] = 1;
+            else O[1] = 1;
             method.call(O, argument0, argument1);
           });
         };
@@ -18448,12 +18448,12 @@
           if (isArray(originalArray)) {
             C = originalArray.constructor; // cross-realm fallback
             if (typeof C == 'function' && (C === Array || isArray(C.prototype))) C = undefined;
-             else if (isObject(C)) {
+            else if (isObject(C)) {
               C = C[SPECIES];
               if (C === null) C = undefined;
             }
           }
-          return new (C === undefined ? Array : C) (length === 0 ? 0 : length);
+          return new (C === undefined ? Array : C)(length === 0 ? 0 : length);
         };
       },
       {
@@ -18467,7 +18467,7 @@
         var anObject = _dereq_('../internals/an-object'); // call something on iterator step with safe closing on error
         module.exports = function (iterator, fn, value, ENTRIES) {
           try {
-            return ENTRIES ? fn(anObject(value) [0], value[1]) : fn(value); // 7.4.6 IteratorClose(iterator, completion)
+            return ENTRIES ? fn(anObject(value)[0], value[1]) : fn(value); // 7.4.6 IteratorClose(iterator, completion)
           } catch (error) {
             var returnMethod = iterator['return'];
             if (returnMethod !== undefined) anObject(returnMethod.call(iterator));
@@ -18560,12 +18560,12 @@
         }; // getting tag from ES6+ `Object.prototype.toString`
         module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
           var O,
-          tag,
-          result;
+            tag,
+            result;
           return it === undefined ? 'Undefined' : it === null ? 'Null' // @@toStringTag case
-           : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG)) == 'string' ? tag // builtinTag case
-           : CORRECT_ARGUMENTS ? classofRaw(O) // ES3 arguments fallback
-           : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
+            : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG)) == 'string' ? tag // builtinTag case
+              : CORRECT_ARGUMENTS ? classofRaw(O) // ES3 arguments fallback
+                : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
         };
       },
       {
@@ -18609,7 +18609,7 @@
               var state = getInternalState(that);
               var entry = getEntry(that, key);
               var previous,
-              index; // change existing entry
+                index; // change existing entry
               if (entry) {
                 entry.value = value; // create new entry
               } else {
@@ -18624,7 +18624,7 @@
                 if (!state.first) state.first = entry;
                 if (previous) previous.next = entry;
                 if (DESCRIPTORS) state.size++;
-                 else that.size++; // add to index
+                else that.size++; // add to index
                 if (index !== 'F') state.index[index] = entry;
               }
               return that;
@@ -18654,7 +18654,7 @@
                 }
                 state.first = state.last = undefined;
                 if (DESCRIPTORS) state.size = 0;
-                 else that.size = 0;
+                else that.size = 0;
               },
               // 23.1.3.3 Map.prototype.delete(key)
               // 23.2.3.4 Set.prototype.delete(value)
@@ -18672,7 +18672,7 @@
                   if (state.first == entry) state.first = next;
                   if (state.last == entry) state.last = prev;
                   if (DESCRIPTORS) state.size--;
-                   else that.size--;
+                  else that.size--;
                 }
                 return !!entry;
               },
@@ -18705,12 +18705,12 @@
                 return define(this, key === 0 ? 0 : key, value);
               }
             }
-             : {
-              // 23.2.3.1 Set.prototype.add(value)
-              add: function add(value) {
-                return define(this, value = value === 0 ? 0 : value, value);
-              }
-            });
+              : {
+                // 23.2.3.1 Set.prototype.add(value)
+                add: function add(value) {
+                  return define(this, value = value === 0 ? 0 : value, value);
+                }
+              });
             if (DESCRIPTORS) defineProperty(C.prototype, 'size', {
               get: function () {
                 return getInternalState(this).size;
@@ -18819,8 +18819,8 @@
           set: function (key, value) {
             var entry = findUncaughtFrozen(this, key);
             if (entry) entry[1] = value;
-             else this.entries.push([key,
-            value]);
+            else this.entries.push([key,
+              value]);
           },
           'delete': function (key) {
             var index = findIndex(this.entries, function (it) {
@@ -18846,7 +18846,7 @@
               var state = getInternalState(that);
               var data = getWeakData(anObject(key), true);
               if (data === true) uncaughtFrozenStore(state).set(key, value);
-               else data[state.id] = value;
+              else data[state.id] = value;
               return that;
             };
             redefineAll(C.prototype, {
@@ -18856,7 +18856,7 @@
                 var state = getInternalState(this);
                 if (!isObject(key)) return false;
                 var data = getWeakData(key);
-                if (data === true) return uncaughtFrozenStore(state) ['delete'](key);
+                if (data === true) return uncaughtFrozenStore(state)['delete'](key);
                 return data && $has(data, state.id) && delete data[state.id];
               },
               // 23.3.3.4 WeakMap.prototype.has(key)
@@ -18884,12 +18884,12 @@
                 return define(this, key, value);
               }
             }
-             : {
-              // 23.4.3.1 WeakSet.prototype.add(value)
-              add: function add(value) {
-                return define(this, value, true);
-              }
-            });
+              : {
+                // 23.4.3.1 WeakSet.prototype.add(value)
+                add: function add(value) {
+                  return define(this, value, true);
+                }
+              });
             return C;
           }
         };
@@ -18936,19 +18936,19 @@
               nativeMethod.call(this, value === 0 ? 0 : value);
               return this;
             }
-             : KEY == 'delete' ? function (key) {
-              return IS_WEAK && !isObject(key) ? false : nativeMethod.call(this, key === 0 ? 0 : key);
-            }
-             : KEY == 'get' ? function get(key) {
-              return IS_WEAK && !isObject(key) ? undefined : nativeMethod.call(this, key === 0 ? 0 : key);
-            }
-             : KEY == 'has' ? function has(key) {
-              return IS_WEAK && !isObject(key) ? false : nativeMethod.call(this, key === 0 ? 0 : key);
-            }
-             : function set(key, value) {
-              nativeMethod.call(this, key === 0 ? 0 : key, value);
-              return this;
-            });
+              : KEY == 'delete' ? function (key) {
+                return IS_WEAK && !isObject(key) ? false : nativeMethod.call(this, key === 0 ? 0 : key);
+              }
+                : KEY == 'get' ? function get(key) {
+                  return IS_WEAK && !isObject(key) ? undefined : nativeMethod.call(this, key === 0 ? 0 : key);
+                }
+                  : KEY == 'has' ? function has(key) {
+                    return IS_WEAK && !isObject(key) ? false : nativeMethod.call(this, key === 0 ? 0 : key);
+                  }
+                    : function set(key, value) {
+                      nativeMethod.call(this, key === 0 ? 0 : key, value);
+                      return this;
+                    });
           }; // eslint-disable-next-line max-len
           if (isForced(CONSTRUCTOR_NAME, typeof NativeConstructor != 'function' || !(IS_WEAK || NativePrototype.forEach && !fails(function () {
             new NativeConstructor().entries().next();
@@ -18960,7 +18960,7 @@
             var instance = new Constructor(); // early implementations not supports chaining
             var HASNT_CHAINING = instance[ADDER](IS_WEAK ? {
             }
-             : - 0, 1) != instance; // V8 ~ Chromium 40- weak-collections throws on primitives, but should return false
+              : - 0, 1) != instance; // V8 ~ Chromium 40- weak-collections throws on primitives, but should return false
             var THROWS_ON_PRIMITIVES = fails(function () {
               instance.has(1);
             }); // most early implementations doesn't supports iterables, most modern - not close it correctly
@@ -18973,7 +18973,7 @@
               var $instance = new NativeConstructor();
               var index = 5;
               while (index--) $instance[ADDER](index, index);
-              return !$instance.has( - 0);
+              return !$instance.has(- 0);
             });
             if (!ACCEPT_ITERABLES) {
               Constructor = wrapper(function (dummy, iterable) {
@@ -19132,10 +19132,10 @@
         module.exports = DESCRIPTORS ? function (object, key, value) {
           return definePropertyModule.f(object, key, createPropertyDescriptor(1, value));
         }
-         : function (object, key, value) {
-          object[key] = value;
-          return object;
-        };
+          : function (object, key, value) {
+            object[key] = value;
+            return object;
+          };
       },
       {
         '../internals/create-property-descriptor': 57,
@@ -19166,7 +19166,7 @@
         module.exports = function (object, key, value) {
           var propertyKey = toPrimitive(key);
           if (propertyKey in object) definePropertyModule.f(object, propertyKey, createPropertyDescriptor(0, value));
-           else object[propertyKey] = value;
+          else object[propertyKey] = value;
         };
       },
       {
@@ -19228,8 +19228,8 @@
           var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
           var anyNativeIterator = NAME == 'Array' ? IterablePrototype.entries || nativeIterator : nativeIterator;
           var CurrentIteratorPrototype,
-          methods,
-          KEY; // fix native
+            methods,
+            KEY; // fix native
           if (anyNativeIterator) {
             CurrentIteratorPrototype = getPrototypeOf(anyNativeIterator.call(new Iterable()));
             if (IteratorPrototype !== Object.prototype && CurrentIteratorPrototype.next) {
@@ -19320,7 +19320,7 @@
             get: function () {
               return 7;
             }
-          }) [1] != 7;
+          })[1] != 7;
         });
       },
       {
@@ -19410,7 +19410,7 @@
         var versions = process && process.versions;
         var v8 = versions && versions.v8;
         var match,
-        version;
+          version;
         if (v8) {
           match = v8.split('.');
           version = match[0] + match[1];
@@ -19472,11 +19472,11 @@
           var GLOBAL = options.global;
           var STATIC = options.stat;
           var FORCED,
-          target,
-          key,
-          targetProperty,
-          sourceProperty,
-          descriptor;
+            target,
+            key,
+            targetProperty,
+            sourceProperty,
+            descriptor;
           if (GLOBAL) {
             target = global;
           } else if (STATIC) {
@@ -19641,15 +19641,15 @@
             var regexMethod = methods[1];
             redefine(String.prototype, KEY, stringMethod);
             redefine(RegExp.prototype, SYMBOL, length == 2 // 21.2.5.8 RegExp.prototype[@@replace](string, replaceValue)
-            // 21.2.5.11 RegExp.prototype[@@split](string, limit)
-            ? function (string, arg) {
-              return regexMethod.call(string, this, arg);
-            } // 21.2.5.6 RegExp.prototype[@@match](string)
-            // 21.2.5.9 RegExp.prototype[@@search](string)
+              // 21.2.5.11 RegExp.prototype[@@split](string, limit)
+              ? function (string, arg) {
+                return regexMethod.call(string, this, arg);
+              } // 21.2.5.6 RegExp.prototype[@@match](string)
+              // 21.2.5.9 RegExp.prototype[@@search](string)
 
-             : function (string) {
-              return regexMethod.call(string, this);
-            });
+              : function (string) {
+                return regexMethod.call(string, this);
+              });
           }
           if (sham) createNonEnumerableProperty(RegExp.prototype[SYMBOL], 'sham', true);
         };
@@ -19699,8 +19699,7 @@
                 return fn.call(that, a, b, c);
               };
           }
-          return function ()          /* ...args */
-          {
+          return function ()          /* ...args */ {
             return fn.apply(that, arguments);
           };
         };
@@ -19731,8 +19730,7 @@
         ) {
           var fn = aFunction(this);
           var partArgs = slice.call(arguments, 1);
-          var boundFunction = function bound()          /* args... */
-          {
+          var boundFunction = function bound()          /* args... */ {
             var args = partArgs.concat(slice.call(arguments));
             return this instanceof boundFunction ? construct(fn, args.length, args) : fn.apply(that, args);
           };
@@ -19801,8 +19799,8 @@
             return it && it.Math == Math && it;
           }; // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
           module.exports = // eslint-disable-next-line no-undef
-          check(typeof globalThis == 'object' && globalThis) || check(typeof window == 'object' && window) || check(typeof self == 'object' && self) || check(typeof global == 'object' && global) || // eslint-disable-next-line no-new-func
-          Function('return this') ();
+            check(typeof globalThis == 'object' && globalThis) || check(typeof window == 'object' && window) || check(typeof self == 'object' && self) || check(typeof global == 'object' && global) || // eslint-disable-next-line no-new-func
+            Function('return this')();
         }).call(this, typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : {
         })
       },
@@ -19889,8 +19887,8 @@
           var sign = number < 0 || number === 0 && 1 / number < 0 ? 1 : 0;
           var index = 0;
           var exponent,
-          mantissa,
-          c;
+            mantissa,
+            c;
           number = abs(number); // eslint-disable-next-line no-self-compare
           if (number != number || number === Infinity) {
             // eslint-disable-next-line no-self-compare
@@ -19975,7 +19973,7 @@
         }) ? function (it) {
           return classof(it) == 'String' ? split.call(it, '') : Object(it);
         }
-         : Object;
+          : Object;
       },
       {
         '../internals/classof-raw': 46,
@@ -19988,10 +19986,10 @@
         var setPrototypeOf = _dereq_('../internals/object-set-prototype-of'); // makes subclassing work correct for wrapped built-ins
         module.exports = function ($this, dummy, Wrapper) {
           var NewTarget,
-          NewTargetPrototype;
+            NewTargetPrototype;
           if ( // it can work only with native `setPrototypeOf`
-          setPrototypeOf && // we haven't completely correct pre-ES6 way for getting `new.target`, so use this
-          typeof (NewTarget = dummy.constructor) == 'function' && NewTarget !== Wrapper && isObject(NewTargetPrototype = NewTarget.prototype) && NewTargetPrototype !== Wrapper.prototype) setPrototypeOf($this, NewTargetPrototype);
+            setPrototypeOf && // we haven't completely correct pre-ES6 way for getting `new.target`, so use this
+            typeof (NewTarget = dummy.constructor) == 'function' && NewTarget !== Wrapper && isObject(NewTargetPrototype = NewTarget.prototype) && NewTargetPrototype !== Wrapper.prototype) setPrototypeOf($this, NewTargetPrototype);
           return $this;
         };
       },
@@ -20091,8 +20089,8 @@
         var hiddenKeys = _dereq_('../internals/hidden-keys');
         var WeakMap = global.WeakMap;
         var set,
-        get,
-        has;
+          get,
+          has;
         var enforce = function (it) {
           return has(it) ? get(it) : set(it, {
           });
@@ -20252,12 +20250,12 @@
         var iterate = module.exports = function (iterable, fn, that, AS_ENTRIES, IS_ITERATOR) {
           var boundFunction = bind(fn, that, AS_ENTRIES ? 2 : 1);
           var iterator,
-          iterFn,
-          index,
-          length,
-          result,
-          next,
-          step;
+            iterFn,
+            index,
+            length,
+            result,
+            next,
+            step;
           if (IS_ITERATOR) {
             iterator = iterable;
           } else {
@@ -20265,7 +20263,7 @@
             if (typeof iterFn != 'function') throw TypeError('Target is not iterable'); // optimisation for array iterators
             if (isArrayIteratorMethod(iterFn)) {
               for (index = 0, length = toLength(iterable.length); length > index; index++) {
-                result = AS_ENTRIES ? boundFunction(anObject(step = iterable[index]) [0], step[1]) : boundFunction(iterable[index]);
+                result = AS_ENTRIES ? boundFunction(anObject(step = iterable[index])[0], step[1]) : boundFunction(iterable[index]);
                 if (result && result instanceof Result) return result;
               }
               return new Result(false);
@@ -20307,13 +20305,13 @@
         }; // `%IteratorPrototype%` object
         // https://tc39.github.io/ecma262/#sec-%iteratorprototype%-object
         var IteratorPrototype,
-        PrototypeOfArrayIteratorPrototype,
-        arrayIterator;
+          PrototypeOfArrayIteratorPrototype,
+          arrayIterator;
         if ([].keys) {
           arrayIterator = [
           ].keys(); // Safari 8 has buggy iterators w/o `next`
           if (!('next' in arrayIterator)) BUGGY_SAFARI_ITERATORS = true;
-           else {
+          else {
             PrototypeOfArrayIteratorPrototype = getPrototypeOf(getPrototypeOf(arrayIterator));
             if (PrototypeOfArrayIteratorPrototype !== Object.prototype) IteratorPrototype = PrototypeOfArrayIteratorPrototype;
           }
@@ -20370,17 +20368,17 @@
         var queueMicrotaskDescriptor = getOwnPropertyDescriptor(global, 'queueMicrotask');
         var queueMicrotask = queueMicrotaskDescriptor && queueMicrotaskDescriptor.value;
         var flush,
-        head,
-        last,
-        notify,
-        toggle,
-        node,
-        promise,
-        then; // modern engines have queueMicrotask method
+          head,
+          last,
+          notify,
+          toggle,
+          node,
+          promise,
+          then; // modern engines have queueMicrotask method
         if (!queueMicrotask) {
           flush = function () {
             var parent,
-            fn;
+              fn;
             if (IS_NODE && (parent = process.domain)) parent.exit();
             while (head) {
               fn = head.fn;
@@ -20389,7 +20387,7 @@
                 fn();
               } catch (error) {
                 if (head) notify();
-                 else last = undefined;
+                else last = undefined;
                 throw error;
               }
             }
@@ -20487,11 +20485,11 @@
             result += key + value;
           });
           return IS_PURE && !url.toJSON || !searchParams.sort || url.href !== 'http://a/c%20d?a=1&c=3' || searchParams.get('c') !== '3' || String(new URLSearchParams('?a=1')) !== 'a=1' || !searchParams[ITERATOR] // throws in Edge
-          || new URL('https://a@b').username !== 'a' || new URLSearchParams(new URLSearchParams('a=b')).get('a') !== 'b' // not punycoded in Edge
-          || new URL('http://тест').host !== 'xn--e1aybc' // not escaped in Chrome 62-
-          || new URL('http://a#б').hash !== '#%D0%B1' // fails in Chrome 66-
-          || result !== 'a1c3' // throws in Safari
-          || new URL('http://x', undefined).host !== 'x';
+            || new URL('https://a@b').username !== 'a' || new URLSearchParams(new URLSearchParams('a=b')).get('a') !== 'b' // not punycoded in Edge
+            || new URL('http://тест').host !== 'xn--e1aybc' // not escaped in Chrome 62-
+            || new URL('http://a#б').hash !== '#%D0%B1' // fails in Chrome 66-
+            || result !== 'a1c3' // throws in Safari
+            || new URL('http://x', undefined).host !== 'x';
         });
       },
       {
@@ -20518,7 +20516,7 @@
         var aFunction = _dereq_('../internals/a-function');
         var PromiseCapability = function (C) {
           var resolve,
-          reject;
+            reject;
           this.promise = new C(function ($$resolve, $$reject) {
             if (resolve !== undefined || reject !== undefined) throw TypeError('Bad Promise constructor');
             resolve = $$resolve;
@@ -20602,7 +20600,7 @@
             B[chr] = chr;
           });
           return nativeAssign({
-          }, A) [symbol] != 7 || objectKeys(nativeAssign({
+          }, A)[symbol] != 7 || objectKeys(nativeAssign({
           }, B)).join('') != alphabet;
         }) ? function assign(target, source) {
           // eslint-disable-line no-unused-vars
@@ -20624,7 +20622,7 @@
           }
           return T;
         }
-         : nativeAssign;
+          : nativeAssign;
       },
       {
         '../internals/descriptors': 61,
@@ -20927,7 +20925,7 @@
           var descriptor = getOwnPropertyDescriptor(this, V);
           return !!descriptor && descriptor.enumerable;
         }
-         : nativePropertyIsEnumerable;
+          : nativePropertyIsEnumerable;
       },
       {
       }
@@ -20941,27 +20939,27 @@
         /* eslint-disable no-proto */
         module.exports = Object.setPrototypeOf || ('__proto__' in {
         }
-        ? function () {
-          var CORRECT_SETTER = false;
-          var test = {
-          };
-          var setter;
-          try {
-            setter = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;
-            setter.call(test, [
-            ]);
-            CORRECT_SETTER = test instanceof Array;
-          } catch (error) {
-            /* empty */
-          }
-          return function setPrototypeOf(O, proto) {
-            anObject(O);
-            aPossiblePrototype(proto);
-            if (CORRECT_SETTER) setter.call(O, proto);
-             else O.__proto__ = proto;
-            return O;
-          };
-        }() : undefined);
+          ? function () {
+            var CORRECT_SETTER = false;
+            var test = {
+            };
+            var setter;
+            try {
+              setter = Object.getOwnPropertyDescriptor(Object.prototype, '__proto__').set;
+              setter.call(test, [
+              ]);
+              CORRECT_SETTER = test instanceof Array;
+            } catch (error) {
+              /* empty */
+            }
+            return function setPrototypeOf(O, proto) {
+              anObject(O);
+              aPossiblePrototype(proto);
+              if (CORRECT_SETTER) setter.call(O, proto);
+              else O.__proto__ = proto;
+              return O;
+            };
+          }() : undefined);
       },
       {
         '../internals/a-possible-prototype': 24,
@@ -21084,7 +21082,7 @@
           }
           if (O === global) {
             if (simple) O[key] = value;
-             else setGlobal(key, value);
+            else setGlobal(key, value);
             return;
           } else if (!unsafe) {
             delete O[key];
@@ -21092,8 +21090,8 @@
             simple = true;
           }
           if (simple) O[key] = value;
-           else createNonEnumerableProperty(O, key, value); // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
-        }) (Function.prototype, 'toString', function toString() {
+          else createNonEnumerableProperty(O, key, value); // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
+        })(Function.prototype, 'toString', function toString() {
           return typeof this == 'function' && getInternalState(this).source || inspectSource(this);
         });
       },
@@ -21149,15 +21147,15 @@
           return re1.lastIndex !== 0 || re2.lastIndex !== 0;
         }();
         var UNSUPPORTED_Y = stickyHelpers.UNSUPPORTED_Y || stickyHelpers.BROKEN_CARET; // nonparticipating capturing group, copied from es5-shim's String#split patch.
-        var NPCG_INCLUDED = /()??/.exec('') [1] !== undefined;
+        var NPCG_INCLUDED = /()??/.exec('')[1] !== undefined;
         var PATCH = UPDATES_LAST_INDEX_WRONG || NPCG_INCLUDED || UNSUPPORTED_Y;
         if (PATCH) {
           patchedExec = function exec(str) {
             var re = this;
             var lastIndex,
-            reCopy,
-            match,
-            i;
+              reCopy,
+              match,
+              i;
             var sticky = UNSUPPORTED_Y && re.sticky;
             var flags = regexpFlags.call(re);
             var source = re.source;
@@ -21384,7 +21382,7 @@
         (module.exports = function (key, value) {
           return store[key] || (store[key] = value !== undefined ? value : {
           });
-        }) ('versions', [
+        })('versions', [
         ]).push({
           version: '3.6.5',
           mode: IS_PURE ? 'pure' : 'global',
@@ -21406,7 +21404,7 @@
         module.exports = function (O, defaultConstructor) {
           var C = anObject(O).constructor;
           var S;
-          return C === undefined || (S = anObject(C) [SPECIES]) == undefined ? defaultConstructor : aFunction(S);
+          return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? defaultConstructor : aFunction(S);
         };
       },
       {
@@ -21440,7 +21438,7 @@
             var position = toInteger(pos);
             var size = S.length;
             var first,
-            second;
+              second;
             if (position < 0 || position >= size) return CONVERT_TO_STRING ? '' : undefined;
             first = S.charCodeAt(position);
             return first < 55296 || first > 56319 || position + 1 === size || (second = S.charCodeAt(position + 1)) < 56320 || second > 57343 ? CONVERT_TO_STRING ? S.charAt(position) : first : CONVERT_TO_STRING ? S.slice(position, position + 2) : (first - 55296 << 10) + (second - 56320) + 65536;
@@ -21545,7 +21543,7 @@
           var delta = 0;
           var bias = initialBias;
           var i,
-          currentValue; // Handle the basic code points.
+            currentValue; // Handle the basic code points.
           for (i = 0; i < input.length; i++) {
             currentValue = input[i];
             if (currentValue < 128) {
@@ -21584,7 +21582,7 @@
                 // Represent delta as a generalized variable-length integer.
                 var q = delta;
                 for (var k = base; ;                /* no condition */
-                k += base) {
+                  k += base) {
                   var t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
                   if (q < t) break;
                   var qMinusT = q - t;
@@ -21608,7 +21606,7 @@
           ];
           var labels = input.toLowerCase().replace(regexSeparators, '.').split('.');
           var i,
-          label;
+            label;
           for (i = 0; i < labels.length; i++) {
             label = labels[i];
             encoded.push(regexNonASCII.test(label) ? 'xn--' + encode(label) : label);
@@ -21708,8 +21706,8 @@
         };
         var ONREADYSTATECHANGE = 'onreadystatechange';
         var defer,
-        channel,
-        port;
+          channel,
+          port;
         var run = function (id) {
           // eslint-disable-next-line no-prototype-builtins
           if (queue.hasOwnProperty(id)) {
@@ -21766,7 +21764,7 @@
             global.addEventListener('message', listener, false); // IE8-
           } else if (ONREADYSTATECHANGE in createElement('script')) {
             defer = function (id) {
-              html.appendChild(createElement('script')) [ONREADYSTATECHANGE] = function () {
+              html.appendChild(createElement('script'))[ONREADYSTATECHANGE] = function () {
                 html.removeChild(this);
                 run(id);
               };
@@ -21861,7 +21859,7 @@
         var floor = Math.floor; // `ToInteger` abstract operation
         // https://tc39.github.io/ecma262/#sec-tointeger
         module.exports = function (argument) {
-          return isNaN(argument = + argument) ? 0 : (argument > 0 ? floor : ceil) (argument);
+          return isNaN(argument = + argument) ? 0 : (argument > 0 ? floor : ceil)(argument);
         };
       },
       {
@@ -21927,7 +21925,7 @@
         module.exports = function (input, PREFERRED_STRING) {
           if (!isObject(input)) return input;
           var fn,
-          val;
+            val;
           if (PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
           if (typeof (fn = input.valueOf) == 'function' && !isObject(val = fn.call(input))) return val;
           if (!PREFERRED_STRING && typeof (fn = input.toString) == 'function' && !isObject(val = fn.call(input))) return val;
@@ -21999,14 +21997,14 @@
         var fromList = function (C, list) {
           var index = 0;
           var length = list.length;
-          var result = new (aTypedArrayConstructor(C)) (length);
+          var result = new (aTypedArrayConstructor(C))(length);
           while (length > index) result[index] = list[index++];
           return result;
         };
         var addGetter = function (it, key) {
           nativeDefineProperty(it, key, {
             get: function () {
-              return getInternalState(this) [key];
+              return getInternalState(this)[key];
             }
           });
         };
@@ -22015,14 +22013,14 @@
           return it instanceof ArrayBuffer || (klass = classof(it)) == 'ArrayBuffer' || klass == 'SharedArrayBuffer';
         };
         var isTypedArrayIndex = function (target, key) {
-          return isTypedArray(target) && typeof key != 'symbol' && key in target && String( + key) == String(key);
+          return isTypedArray(target) && typeof key != 'symbol' && key in target && String(+ key) == String(key);
         };
         var wrappedGetOwnPropertyDescriptor = function getOwnPropertyDescriptor(target, key) {
           return isTypedArrayIndex(target, key = toPrimitive(key, true)) ? createPropertyDescriptor(2, target[key]) : nativeGetOwnPropertyDescriptor(target, key);
         };
         var wrappedDefineProperty = function defineProperty(target, key, descriptor) {
           if (isTypedArrayIndex(target, key = toPrimitive(key, true)) && isObject(descriptor) && has(descriptor, 'value') && !has(descriptor, 'get') && !has(descriptor, 'set') // TODO: add validation descriptor w/o calling accessors
-          && !descriptor.configurable && (!has(descriptor, 'writable') || descriptor.writable) && (!has(descriptor, 'enumerable') || descriptor.enumerable)) {
+            && !descriptor.configurable && (!has(descriptor, 'writable') || descriptor.writable) && (!has(descriptor, 'enumerable') || descriptor.enumerable)) {
             target[key] = descriptor.value;
             return target;
           }
@@ -22046,7 +22044,7 @@
             defineProperty: wrappedDefineProperty
           });
           module.exports = function (TYPE, wrapper, CLAMPED) {
-            var BYTES = TYPE.match(/\d+$/) [0] / 8;
+            var BYTES = TYPE.match(/\d+$/)[0] / 8;
             var CONSTRUCTOR_NAME = TYPE + (CLAMPED ? 'Clamped' : '') + 'Array';
             var GETTER = 'get' + TYPE;
             var SETTER = 'set' + TYPE;
@@ -22081,8 +22079,8 @@
                 var index = 0;
                 var byteOffset = 0;
                 var buffer,
-                byteLength,
-                length;
+                  byteLength,
+                  length;
                 if (!isObject(data)) {
                   length = toIndex(data);
                   byteLength = length * BYTES;
@@ -22199,7 +22197,7 @@
         module.exports = !NATIVE_ARRAY_BUFFER_VIEWS || !fails(function () {
           Int8Array(1);
         }) || !fails(function () {
-          new Int8Array( - 1);
+          new Int8Array(- 1);
         }) || !checkCorrectnessOfIteration(function (iterable) {
           new Int8Array();
           new Int8Array(null);
@@ -22233,11 +22231,11 @@
           var mapping = mapfn !== undefined;
           var iteratorMethod = getIteratorMethod(O);
           var i,
-          length,
-          result,
-          step,
-          iterator,
-          next;
+            length,
+            result,
+            step,
+            iterator,
+            next;
           if (iteratorMethod != undefined && !isArrayIteratorMethod(iteratorMethod)) {
             iterator = iteratorMethod.call(O);
             next = iterator.next;
@@ -22251,7 +22249,7 @@
             mapfn = bind(mapfn, arguments[2], 2);
           }
           length = toLength(O.length);
-          result = new (aTypedArrayConstructor(this)) (length);
+          result = new (aTypedArrayConstructor(this))(length);
           for (i = 0; length > i; i++) {
             result[i] = mapping ? mapfn(O[i], i) : O[i];
           }
@@ -22282,8 +22280,8 @@
       function (_dereq_, module, exports) {
         var NATIVE_SYMBOL = _dereq_('../internals/native-symbol');
         module.exports = NATIVE_SYMBOL // eslint-disable-next-line no-undef
-        && !Symbol.sham // eslint-disable-next-line no-undef
-        && typeof Symbol.iterator == 'symbol';
+          && !Symbol.sham // eslint-disable-next-line no-undef
+          && typeof Symbol.iterator == 'symbol';
       },
       {
         '../internals/native-symbol': 101
@@ -22312,7 +22310,7 @@
         module.exports = function (name) {
           if (!has(WellKnownSymbolsStore, name)) {
             if (NATIVE_SYMBOL && has(Symbol, name)) WellKnownSymbolsStore[name] = Symbol[name];
-             else WellKnownSymbolsStore[name] = createWellKnownSymbol('Symbol.' + name);
+            else WellKnownSymbolsStore[name] = createWellKnownSymbol('Symbol.' + name);
           }
           return WellKnownSymbolsStore[name];
         };
@@ -22384,7 +22382,7 @@
           var array = [
           ];
           array[IS_CONCAT_SPREADABLE] = false;
-          return array.concat() [0] !== array;
+          return array.concat()[0] !== array;
         });
         var SPECIES_SUPPORT = arrayMethodHasSpeciesSupport('concat');
         var isConcatSpreadable = function (O) {
@@ -22406,10 +22404,10 @@
             var A = arraySpeciesCreate(O, 0);
             var n = 0;
             var i,
-            k,
-            length,
-            len,
-            E;
+              k,
+              length,
+              len,
+              E;
             for (i = - 1, length = arguments.length; i < length; i++) {
               E = i === - 1 ? O : arguments[i];
               if (isConcatSpreadable(E)) {
@@ -22637,7 +22635,7 @@
           indexOf: function indexOf(searchElement          /* , fromIndex = 0 */
           ) {
             return NEGATIVE_ZERO // convert -0 to +0
-            ? nativeIndexOf.apply(this, arguments) || 0 : $indexOf(this, searchElement, arguments.length > 1 ? arguments[1] : undefined);
+              ? nativeIndexOf.apply(this, arguments) || 0 : $indexOf(this, searchElement, arguments.length > 1 ? arguments[1] : undefined);
           }
         });
       },
@@ -22833,8 +22831,8 @@
             var k = toAbsoluteIndex(start, length);
             var fin = toAbsoluteIndex(end === undefined ? length : end, length); // inline `ArraySpeciesCreate` for usage native `Array#slice` where it's possible
             var Constructor,
-            result,
-            n;
+              result,
+              n;
             if (isArray(O)) {
               Constructor = O.constructor; // cross-realm fallback
               if (typeof Constructor == 'function' && (Constructor === Array || isArray(Constructor.prototype))) {
@@ -22847,7 +22845,7 @@
                 return nativeSlice.call(O, k, fin);
               }
             }
-            result = new (Constructor === undefined ? Array : Constructor) (max(fin - k, 0));
+            result = new (Constructor === undefined ? Array : Constructor)(max(fin - k, 0));
             for (n = 0; k < fin; k++, n++) if (k in O) createProperty(result, n, O[k]);
             result.length = n;
             return result;
@@ -22931,11 +22929,11 @@
             var actualStart = toAbsoluteIndex(start, len);
             var argumentsLength = arguments.length;
             var insertCount,
-            actualDeleteCount,
-            A,
-            k,
-            from,
-            to;
+              actualDeleteCount,
+              A,
+              k,
+              from,
+              to;
             if (argumentsLength === 0) {
               insertCount = actualDeleteCount = 0;
             } else if (argumentsLength === 1) {
@@ -22959,7 +22957,7 @@
                 from = k + actualDeleteCount;
                 to = k + insertCount;
                 if (from in O) O[to] = O[from];
-                 else delete O[to];
+                else delete O[to];
               }
               for (k = len; k > len - actualDeleteCount + insertCount; k--) delete O[k - 1];
             } else if (insertCount > actualDeleteCount) {
@@ -22967,7 +22965,7 @@
                 from = k + actualDeleteCount - 1;
                 to = k + insertCount - 1;
                 if (from in O) O[to] = O[from];
-                 else delete O[to];
+                else delete O[to];
               }
             }
             for (k = 0; k < insertCount; k++) {
@@ -23004,7 +23002,7 @@
             configurable: true,
             get: function () {
               try {
-                return FunctionPrototypeToString.call(this).match(nameRE) [1];
+                return FunctionPrototypeToString.call(this).match(nameRE)[1];
               } catch (error) {
                 return '';
               }
@@ -23055,7 +23053,7 @@
             var aLen = arguments.length;
             var larg = 0;
             var arg,
-            div;
+              div;
             while (i < aLen) {
               arg = abs(arguments[i++]);
               if (larg < arg) {
@@ -23117,13 +23115,13 @@
         var toNumber = function (argument) {
           var it = toPrimitive(argument, false);
           var first,
-          third,
-          radix,
-          maxCode,
-          digits,
-          length,
-          index,
-          code;
+            third,
+            radix,
+            maxCode,
+            digits,
+            length,
+            index,
+            code;
           if (typeof it == 'string' && it.length > 2) {
             it = trim(it);
             first = it.charCodeAt(0);
@@ -23137,13 +23135,13 @@
                   radix = 2;
                   maxCode = 49;
                   break;
-                  // fast equal of /^0b[01]+$/i
+                // fast equal of /^0b[01]+$/i
                 case 79:
                 case 111:
                   radix = 8;
                   maxCode = 55;
                   break;
-                  // fast equal of /^0o[0-7]+$/i
+                // fast equal of /^0o[0-7]+$/i
                 default:
                   return + it;
               }
@@ -23165,13 +23163,13 @@
             var it = arguments.length < 1 ? 0 : value;
             var dummy = this;
             return dummy instanceof NumberWrapper // check on 1..constructor(foo) case
-            && (BROKEN_CLASSOF ? fails(function () {
-              NumberPrototype.valueOf.call(dummy);
-            }) : classof(dummy) != NUMBER) ? inheritIfRequired(new NativeNumber(toNumber(it)), dummy, NumberWrapper) : toNumber(it);
+              && (BROKEN_CLASSOF ? fails(function () {
+                NumberPrototype.valueOf.call(dummy);
+              }) : classof(dummy) != NUMBER) ? inheritIfRequired(new NativeNumber(toNumber(it)), dummy, NumberWrapper) : toNumber(it);
           };
           for (var keys = DESCRIPTORS ? getOwnPropertyNames(NativeNumber) : ( // ES3:
-          'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,' + // ES2015 (in case, if modules with ES2015 Number statics required before):
-          'EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,' + 'MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger').split(','), j = 0, key; keys.length > j; j++) {
+            'MAX_VALUE,MIN_VALUE,NaN,NEGATIVE_INFINITY,POSITIVE_INFINITY,' + // ES2015 (in case, if modules with ES2015 Number statics required before):
+            'EPSILON,isFinite,isInteger,isNaN,isSafeInteger,MAX_SAFE_INTEGER,' + 'MIN_SAFE_INTEGER,parseFloat,parseInt,isInteger').split(','), j = 0, key; keys.length > j; j++) {
             if (has(NativeNumber, key = keys[j]) && !has(NumberWrapper, key)) {
               defineProperty(NumberWrapper, key, getOwnPropertyDescriptor(NativeNumber, key));
             }
@@ -23241,7 +23239,7 @@
           }
           return n;
         };
-        var FORCED = nativeToFixed && (0.00008 .toFixed(3) !== '0.000' || 0.9 .toFixed(0) !== '1' || 1.255 .toFixed(2) !== '1.25' || 1000000000000000100 .toFixed(0) !== '1000000000000000128') || !fails(function () {
+        var FORCED = nativeToFixed && (0.00008.toFixed(3) !== '0.000' || 0.9.toFixed(0) !== '1' || 1.255.toFixed(2) !== '1.25' || 1000000000000000100 .toFixed(0) !== '1000000000000000128') || !fails(function () {
           // V8 ~ Android 4.3-
           nativeToFixed.call({
           });
@@ -23267,9 +23265,9 @@
             var sign = '';
             var result = '0';
             var e,
-            z,
-            j,
-            k;
+              z,
+              j,
+              k;
             var multiply = function (n, c) {
               var index = - 1;
               var c2 = c;
@@ -23551,9 +23549,9 @@
         var HANDLED = 1;
         var UNHANDLED = 2;
         var Internal,
-        OwnPromiseCapability,
-        PromiseWrapper,
-        nativeThen;
+          OwnPromiseCapability,
+          PromiseWrapper,
+          nativeThen;
         var FORCED = isForced(PROMISE, function () {
           var GLOBAL_CORE_JS_PROMISE = inspectSource(PromiseConstructor) !== String(PromiseConstructor);
           if (!GLOBAL_CORE_JS_PROMISE) {
@@ -23584,7 +23582,7 @@
           }) instanceof FakePromise);
         });
         var INCORRECT_ITERATION = FORCED || !checkCorrectnessOfIteration(function (iterable) {
-          PromiseConstructor.all(iterable) ['catch'](function () {
+          PromiseConstructor.all(iterable)['catch'](function () {
             /* empty */
           });
         }); // helpers
@@ -23607,8 +23605,8 @@
               var reject = reaction.reject;
               var domain = reaction.domain;
               var result,
-              then,
-              exited;
+                then,
+                exited;
               try {
                 if (handler) {
                   if (!ok) {
@@ -23616,7 +23614,7 @@
                     state.rejection = HANDLED;
                   }
                   if (handler === true) result = value;
-                   else {
+                  else {
                     if (domain) domain.enter();
                     result = handler(value); // can throw
                     if (domain) {
@@ -23643,7 +23641,7 @@
         };
         var dispatchEvent = function (name, promise, reason) {
           var event,
-          handler;
+            handler;
           if (DISPATCH_EVENT) {
             event = document.createEvent('Event');
             event.promise = promise;
@@ -23655,7 +23653,7 @@
             reason: reason
           };
           if (handler = global['on' + name]) handler(event);
-           else if (name === UNHANDLED_REJECTION) hostReportErrors('Unhandled promise rejection', reason);
+          else if (name === UNHANDLED_REJECTION) hostReportErrors('Unhandled promise rejection', reason);
         };
         var onUnhandled = function (promise, state) {
           task.call(global, function () {
@@ -23980,7 +23978,7 @@
                 null
               ];
               $args.push.apply($args, args);
-              return new (bind.apply(Target, $args)) ();
+              return new (bind.apply(Target, $args))();
             } // with altered newTarget, not support built-in constructors
 
             var proto = newTarget.prototype;
@@ -24286,33 +24284,33 @@
         var regExpExec = _dereq_('../internals/regexp-exec-abstract'); // @@match logic
         fixRegExpWellKnownSymbolLogic('match', 1, function (MATCH, nativeMatch, maybeCallNative) {
           return [ // `String.prototype.match` method
-          // https://tc39.github.io/ecma262/#sec-string.prototype.match
-          function match(regexp) {
-            var O = requireObjectCoercible(this);
-            var matcher = regexp == undefined ? undefined : regexp[MATCH];
-            return matcher !== undefined ? matcher.call(regexp, O) : new RegExp(regexp) [MATCH](String(O));
-          }, // `RegExp.prototype[@@match]` method
-          // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@match
-          function (regexp) {
-            var res = maybeCallNative(nativeMatch, regexp, this);
-            if (res.done) return res.value;
-            var rx = anObject(regexp);
-            var S = String(this);
-            if (!rx.global) return regExpExec(rx, S);
-            var fullUnicode = rx.unicode;
-            rx.lastIndex = 0;
-            var A = [
-            ];
-            var n = 0;
-            var result;
-            while ((result = regExpExec(rx, S)) !== null) {
-              var matchStr = String(result[0]);
-              A[n] = matchStr;
-              if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
-              n++;
+            // https://tc39.github.io/ecma262/#sec-string.prototype.match
+            function match(regexp) {
+              var O = requireObjectCoercible(this);
+              var matcher = regexp == undefined ? undefined : regexp[MATCH];
+              return matcher !== undefined ? matcher.call(regexp, O) : new RegExp(regexp)[MATCH](String(O));
+            }, // `RegExp.prototype[@@match]` method
+            // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@match
+            function (regexp) {
+              var res = maybeCallNative(nativeMatch, regexp, this);
+              if (res.done) return res.value;
+              var rx = anObject(regexp);
+              var S = String(this);
+              if (!rx.global) return regExpExec(rx, S);
+              var fullUnicode = rx.unicode;
+              rx.lastIndex = 0;
+              var A = [
+              ];
+              var n = 0;
+              var result;
+              while ((result = regExpExec(rx, S)) !== null) {
+                var matchStr = String(result[0]);
+                A[n] = matchStr;
+                if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
+                n++;
+              }
+              return n === 0 ? null : A;
             }
-            return n === 0 ? null : A;
-          }
           ];
         });
       },
@@ -24366,67 +24364,67 @@
           var REPLACE_KEEPS_$0 = reason.REPLACE_KEEPS_$0;
           var UNSAFE_SUBSTITUTE = REGEXP_REPLACE_SUBSTITUTES_UNDEFINED_CAPTURE ? '$' : '$0';
           return [ // `String.prototype.replace` method
-          // https://tc39.github.io/ecma262/#sec-string.prototype.replace
-          function replace(searchValue, replaceValue) {
-            var O = requireObjectCoercible(this);
-            var replacer = searchValue == undefined ? undefined : searchValue[REPLACE];
-            return replacer !== undefined ? replacer.call(searchValue, O, replaceValue) : nativeReplace.call(String(O), searchValue, replaceValue);
-          }, // `RegExp.prototype[@@replace]` method
-          // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@replace
-          function (regexp, replaceValue) {
-            if (!REGEXP_REPLACE_SUBSTITUTES_UNDEFINED_CAPTURE && REPLACE_KEEPS_$0 || typeof replaceValue === 'string' && replaceValue.indexOf(UNSAFE_SUBSTITUTE) === - 1) {
-              var res = maybeCallNative(nativeReplace, regexp, this, replaceValue);
-              if (res.done) return res.value;
-            }
-            var rx = anObject(regexp);
-            var S = String(this);
-            var functionalReplace = typeof replaceValue === 'function';
-            if (!functionalReplace) replaceValue = String(replaceValue);
-            var global = rx.global;
-            if (global) {
-              var fullUnicode = rx.unicode;
-              rx.lastIndex = 0;
-            }
-            var results = [
-            ];
-            while (true) {
-              var result = regExpExec(rx, S);
-              if (result === null) break;
-              results.push(result);
-              if (!global) break;
-              var matchStr = String(result[0]);
-              if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
-            }
-            var accumulatedResult = '';
-            var nextSourcePosition = 0;
-            for (var i = 0; i < results.length; i++) {
-              result = results[i];
-              var matched = String(result[0]);
-              var position = max(min(toInteger(result.index), S.length), 0);
-              var captures = [
-              ]; // NOTE: This is equivalent to
-              //   captures = result.slice(1).map(maybeToString)
-              // but for some reason `nativeSlice.call(result, 1, result.length)` (called in
-              // the slice polyfill when slicing native arrays) "doesn't work" in safari 9 and
-              // causes a crash (https://pastebin.com/N21QzeQA) when trying to debug it.
-              for (var j = 1; j < result.length; j++) captures.push(maybeToString(result[j]));
-              var namedCaptures = result.groups;
-              if (functionalReplace) {
-                var replacerArgs = [
-                  matched
-                ].concat(captures, position, S);
-                if (namedCaptures !== undefined) replacerArgs.push(namedCaptures);
-                var replacement = String(replaceValue.apply(undefined, replacerArgs));
-              } else {
-                replacement = getSubstitution(matched, S, position, captures, namedCaptures, replaceValue);
+            // https://tc39.github.io/ecma262/#sec-string.prototype.replace
+            function replace(searchValue, replaceValue) {
+              var O = requireObjectCoercible(this);
+              var replacer = searchValue == undefined ? undefined : searchValue[REPLACE];
+              return replacer !== undefined ? replacer.call(searchValue, O, replaceValue) : nativeReplace.call(String(O), searchValue, replaceValue);
+            }, // `RegExp.prototype[@@replace]` method
+            // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@replace
+            function (regexp, replaceValue) {
+              if (!REGEXP_REPLACE_SUBSTITUTES_UNDEFINED_CAPTURE && REPLACE_KEEPS_$0 || typeof replaceValue === 'string' && replaceValue.indexOf(UNSAFE_SUBSTITUTE) === - 1) {
+                var res = maybeCallNative(nativeReplace, regexp, this, replaceValue);
+                if (res.done) return res.value;
               }
-              if (position >= nextSourcePosition) {
-                accumulatedResult += S.slice(nextSourcePosition, position) + replacement;
-                nextSourcePosition = position + matched.length;
+              var rx = anObject(regexp);
+              var S = String(this);
+              var functionalReplace = typeof replaceValue === 'function';
+              if (!functionalReplace) replaceValue = String(replaceValue);
+              var global = rx.global;
+              if (global) {
+                var fullUnicode = rx.unicode;
+                rx.lastIndex = 0;
               }
+              var results = [
+              ];
+              while (true) {
+                var result = regExpExec(rx, S);
+                if (result === null) break;
+                results.push(result);
+                if (!global) break;
+                var matchStr = String(result[0]);
+                if (matchStr === '') rx.lastIndex = advanceStringIndex(S, toLength(rx.lastIndex), fullUnicode);
+              }
+              var accumulatedResult = '';
+              var nextSourcePosition = 0;
+              for (var i = 0; i < results.length; i++) {
+                result = results[i];
+                var matched = String(result[0]);
+                var position = max(min(toInteger(result.index), S.length), 0);
+                var captures = [
+                ]; // NOTE: This is equivalent to
+                //   captures = result.slice(1).map(maybeToString)
+                // but for some reason `nativeSlice.call(result, 1, result.length)` (called in
+                // the slice polyfill when slicing native arrays) "doesn't work" in safari 9 and
+                // causes a crash (https://pastebin.com/N21QzeQA) when trying to debug it.
+                for (var j = 1; j < result.length; j++) captures.push(maybeToString(result[j]));
+                var namedCaptures = result.groups;
+                if (functionalReplace) {
+                  var replacerArgs = [
+                    matched
+                  ].concat(captures, position, S);
+                  if (namedCaptures !== undefined) replacerArgs.push(namedCaptures);
+                  var replacement = String(replaceValue.apply(undefined, replacerArgs));
+                } else {
+                  replacement = getSubstitution(matched, S, position, captures, namedCaptures, replaceValue);
+                }
+                if (position >= nextSourcePosition) {
+                  accumulatedResult += S.slice(nextSourcePosition, position) + replacement;
+                  nextSourcePosition = position + matched.length;
+                }
+              }
+              return accumulatedResult + S.slice(nextSourcePosition);
             }
-            return accumulatedResult + S.slice(nextSourcePosition);
-          }
           ]; // https://tc39.github.io/ecma262/#sec-getsubstitution
           function getSubstitution(matched, str, position, captures, namedCaptures, replacement) {
             var tailPos = position + matched.length;
@@ -24488,24 +24486,24 @@
         var regExpExec = _dereq_('../internals/regexp-exec-abstract'); // @@search logic
         fixRegExpWellKnownSymbolLogic('search', 1, function (SEARCH, nativeSearch, maybeCallNative) {
           return [ // `String.prototype.search` method
-          // https://tc39.github.io/ecma262/#sec-string.prototype.search
-          function search(regexp) {
-            var O = requireObjectCoercible(this);
-            var searcher = regexp == undefined ? undefined : regexp[SEARCH];
-            return searcher !== undefined ? searcher.call(regexp, O) : new RegExp(regexp) [SEARCH](String(O));
-          }, // `RegExp.prototype[@@search]` method
-          // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@search
-          function (regexp) {
-            var res = maybeCallNative(nativeSearch, regexp, this);
-            if (res.done) return res.value;
-            var rx = anObject(regexp);
-            var S = String(this);
-            var previousLastIndex = rx.lastIndex;
-            if (!sameValue(previousLastIndex, 0)) rx.lastIndex = 0;
-            var result = regExpExec(rx, S);
-            if (!sameValue(rx.lastIndex, previousLastIndex)) rx.lastIndex = previousLastIndex;
-            return result === null ? - 1 : result.index;
-          }
+            // https://tc39.github.io/ecma262/#sec-string.prototype.search
+            function search(regexp) {
+              var O = requireObjectCoercible(this);
+              var searcher = regexp == undefined ? undefined : regexp[SEARCH];
+              return searcher !== undefined ? searcher.call(regexp, O) : new RegExp(regexp)[SEARCH](String(O));
+            }, // `RegExp.prototype[@@search]` method
+            // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@search
+            function (regexp) {
+              var res = maybeCallNative(nativeSearch, regexp, this);
+              if (res.done) return res.value;
+              var rx = anObject(regexp);
+              var S = String(this);
+              var previousLastIndex = rx.lastIndex;
+              if (!sameValue(previousLastIndex, 0)) rx.lastIndex = 0;
+              var result = regExpExec(rx, S);
+              if (!sameValue(rx.lastIndex, previousLastIndex)) rx.lastIndex = previousLastIndex;
+              return result === null ? - 1 : result.index;
+            }
           ];
         });
       },
@@ -24539,7 +24537,7 @@
         }); // @@split logic
         fixRegExpWellKnownSymbolLogic('split', 2, function (SPLIT, nativeSplit, maybeCallNative) {
           var internalSplit;
-          if ('abbc'.split(/(b)*/) [1] == 'c' || 'test'.split(/(?:)/, - 1).length != 4 || 'ab'.split(/(?:ab)*/).length != 2 || '.'.split(/(.?)(.?)/).length != 4 || '.'.split(/()()/).length > 1 || ''.split(/.?/).length) {
+          if ('abbc'.split(/(b)*/)[1] == 'c' || 'test'.split(/(?:)/, - 1).length != 4 || 'ab'.split(/(?:ab)*/).length != 2 || '.'.split(/(.?)(.?)/).length != 4 || '.'.split(/()()/).length > 1 || ''.split(/.?/).length) {
             // based on es5-shim implementation, need to rework it
             internalSplit = function (separator, limit) {
               var string = String(requireObjectCoercible(this));
@@ -24555,8 +24553,8 @@
               var lastLastIndex = 0; // Make `global` and avoid `lastIndex` issues by working with a copy
               var separatorCopy = new RegExp(separator.source, flags + 'g');
               var match,
-              lastIndex,
-              lastLength;
+                lastIndex,
+                lastLength;
               while (match = regexpExec.call(separatorCopy, string)) {
                 lastIndex = separatorCopy.lastIndex;
                 if (lastIndex > lastLastIndex) {
@@ -24580,55 +24578,55 @@
             };
           } else internalSplit = nativeSplit;
           return [ // `String.prototype.split` method
-          // https://tc39.github.io/ecma262/#sec-string.prototype.split
-          function split(separator, limit) {
-            var O = requireObjectCoercible(this);
-            var splitter = separator == undefined ? undefined : separator[SPLIT];
-            return splitter !== undefined ? splitter.call(separator, O, limit) : internalSplit.call(String(O), separator, limit);
-          }, // `RegExp.prototype[@@split]` method
-          // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@split
-          //
-          // NOTE: This cannot be properly polyfilled in engines that don't support
-          // the 'y' flag.
-          function (regexp, limit) {
-            var res = maybeCallNative(internalSplit, regexp, this, limit, internalSplit !== nativeSplit);
-            if (res.done) return res.value;
-            var rx = anObject(regexp);
-            var S = String(this);
-            var C = speciesConstructor(rx, RegExp);
-            var unicodeMatching = rx.unicode;
-            var flags = (rx.ignoreCase ? 'i' : '') + (rx.multiline ? 'm' : '') + (rx.unicode ? 'u' : '') + (SUPPORTS_Y ? 'y' : 'g'); // ^(? + rx + ) is needed, in combination with some S slicing, to
-            // simulate the 'y' flag.
-            var splitter = new C(SUPPORTS_Y ? rx : '^(?:' + rx.source + ')', flags);
-            var lim = limit === undefined ? MAX_UINT32 : limit >>> 0;
-            if (lim === 0) return [];
-            if (S.length === 0) return callRegExpExec(splitter, S) === null ? [
-              S
-            ] : [
-            ];
-            var p = 0;
-            var q = 0;
-            var A = [
-            ];
-            while (q < S.length) {
-              splitter.lastIndex = SUPPORTS_Y ? q : 0;
-              var z = callRegExpExec(splitter, SUPPORTS_Y ? S : S.slice(q));
-              var e;
-              if (z === null || (e = min(toLength(splitter.lastIndex + (SUPPORTS_Y ? 0 : q)), S.length)) === p) {
-                q = advanceStringIndex(S, q, unicodeMatching);
-              } else {
-                A.push(S.slice(p, q));
-                if (A.length === lim) return A;
-                for (var i = 1; i <= z.length - 1; i++) {
-                  A.push(z[i]);
+            // https://tc39.github.io/ecma262/#sec-string.prototype.split
+            function split(separator, limit) {
+              var O = requireObjectCoercible(this);
+              var splitter = separator == undefined ? undefined : separator[SPLIT];
+              return splitter !== undefined ? splitter.call(separator, O, limit) : internalSplit.call(String(O), separator, limit);
+            }, // `RegExp.prototype[@@split]` method
+            // https://tc39.github.io/ecma262/#sec-regexp.prototype-@@split
+            //
+            // NOTE: This cannot be properly polyfilled in engines that don't support
+            // the 'y' flag.
+            function (regexp, limit) {
+              var res = maybeCallNative(internalSplit, regexp, this, limit, internalSplit !== nativeSplit);
+              if (res.done) return res.value;
+              var rx = anObject(regexp);
+              var S = String(this);
+              var C = speciesConstructor(rx, RegExp);
+              var unicodeMatching = rx.unicode;
+              var flags = (rx.ignoreCase ? 'i' : '') + (rx.multiline ? 'm' : '') + (rx.unicode ? 'u' : '') + (SUPPORTS_Y ? 'y' : 'g'); // ^(? + rx + ) is needed, in combination with some S slicing, to
+              // simulate the 'y' flag.
+              var splitter = new C(SUPPORTS_Y ? rx : '^(?:' + rx.source + ')', flags);
+              var lim = limit === undefined ? MAX_UINT32 : limit >>> 0;
+              if (lim === 0) return [];
+              if (S.length === 0) return callRegExpExec(splitter, S) === null ? [
+                S
+              ] : [
+              ];
+              var p = 0;
+              var q = 0;
+              var A = [
+              ];
+              while (q < S.length) {
+                splitter.lastIndex = SUPPORTS_Y ? q : 0;
+                var z = callRegExpExec(splitter, SUPPORTS_Y ? S : S.slice(q));
+                var e;
+                if (z === null || (e = min(toLength(splitter.lastIndex + (SUPPORTS_Y ? 0 : q)), S.length)) === p) {
+                  q = advanceStringIndex(S, q, unicodeMatching);
+                } else {
+                  A.push(S.slice(p, q));
                   if (A.length === lim) return A;
+                  for (var i = 1; i <= z.length - 1; i++) {
+                    A.push(z[i]);
+                    if (A.length === lim) return A;
+                  }
+                  q = p = e;
                 }
-                q = p = e;
               }
+              A.push(S.slice(p));
+              return A;
             }
-            A.push(S.slice(p));
-            return A;
-          }
           ];
         }, !SUPPORTS_Y);
       },
@@ -24705,13 +24703,13 @@
         var copyConstructorProperties = _dereq_('../internals/copy-constructor-properties');
         var NativeSymbol = global.Symbol;
         if (DESCRIPTORS && typeof NativeSymbol == 'function' && (!('description' in NativeSymbol.prototype) || // Safari 12 bug
-        NativeSymbol().description !== undefined)) {
+          NativeSymbol().description !== undefined)) {
           var EmptyStringDescriptionStore = {
           }; // wrap Symbol constructor for correct work with undefined description
           var SymbolWrapper = function Symbol() {
             var description = arguments.length < 1 || arguments[0] === undefined ? undefined : String(arguments[0]);
             var result = this instanceof SymbolWrapper ? new NativeSymbol(description) // in Edge 13, String(Symbol(undefined)) === 'Symbol(undefined)'
-             : description === undefined ? NativeSymbol() : NativeSymbol(description);
+              : description === undefined ? NativeSymbol() : NativeSymbol(description);
             if (description === '') EmptyStringDescriptionStore[result] = true;
             return result;
           };
@@ -24835,7 +24833,7 @@
             nativeDefineProperty(ObjectPrototype, P, ObjectPrototypeDescriptor);
           }
         }
-         : nativeDefineProperty;
+          : nativeDefineProperty;
         var wrap = function (tag, description) {
           var symbol = AllSymbols[tag] = nativeObjectCreate($Symbol[PROTOTYPE]);
           setInternalState(symbol, {
@@ -24849,9 +24847,9 @@
         var isSymbol = USE_SYMBOL_AS_UID ? function (it) {
           return typeof it == 'symbol';
         }
-         : function (it) {
-          return Object(it) instanceof $Symbol;
-        };
+          : function (it) {
+            return Object(it) instanceof $Symbol;
+          };
         var $defineProperty = function defineProperty(O, P, Attributes) {
           if (O === ObjectPrototype) $defineProperty(ObjectPrototypeSymbols, P, Attributes);
           anObject(O);
@@ -25054,10 +25052,10 @@
           var FORCED_JSON_STRINGIFY = !NATIVE_SYMBOL || fails(function () {
             var symbol = $Symbol(); // MS Edge converts symbol values to JSON as {}
             return $stringify([symbol]) != '[null]' // WebKit converts symbol values to JSON as null
-            || $stringify({
-              a: symbol
-            }) != '{}' // V8 throws on boxed symbols
-            || $stringify(Object(symbol)) != '{}';
+              || $stringify({
+                a: symbol
+              }) != '{}' // V8 throws on boxed symbols
+              || $stringify(Object(symbol)) != '{}';
           });
           $({
             target: 'JSON',
@@ -25203,7 +25201,7 @@
           var C = speciesConstructor(this, this.constructor);
           var index = 0;
           var length = list.length;
-          var result = new (aTypedArrayConstructor(C)) (length);
+          var result = new (aTypedArrayConstructor(C))(length);
           while (length > index) result[index] = list[index++];
           return result;
         });
@@ -25449,7 +25447,7 @@
         exportTypedArrayMethod('map', function map(mapfn        /* , thisArg */
         ) {
           return $map(aTypedArray(this), mapfn, arguments.length > 1 ? arguments[1] : undefined, function (O, length) {
-            return new (aTypedArrayConstructor(speciesConstructor(O, O.constructor))) (length);
+            return new (aTypedArrayConstructor(speciesConstructor(O, O.constructor)))(length);
           });
         });
       },
@@ -25578,7 +25576,7 @@
           var C = speciesConstructor(this, this.constructor);
           var index = 0;
           var length = list.length;
-          var result = new (aTypedArrayConstructor(C)) (length);
+          var result = new (aTypedArrayConstructor(C))(length);
           while (length > index) result[index] = list[index++];
           return result;
         }, FORCED);
@@ -25638,7 +25636,7 @@
           var O = aTypedArray(this);
           var length = O.length;
           var beginIndex = toAbsoluteIndex(begin, length);
-          return new (speciesConstructor(O, O.constructor)) (O.buffer, O.byteOffset + beginIndex * O.BYTES_PER_ELEMENT, toLength((end === undefined ? length : toAbsoluteIndex(end, length)) - beginIndex));
+          return new (speciesConstructor(O, O.constructor))(O.buffer, O.byteOffset + beginIndex * O.BYTES_PER_ELEMENT, toLength((end === undefined ? length : toAbsoluteIndex(end, length)) - beginIndex));
         });
       },
       {
@@ -25666,11 +25664,11 @@
         });
         var FORCED = fails(function () {
           return [1,
-          2].toLocaleString() != new Int8Array([1,
-          2]).toLocaleString();
+            2].toLocaleString() != new Int8Array([1,
+              2]).toLocaleString();
         }) || !fails(function () {
           Int8Array.prototype.toLocaleString.call([1,
-          2]);
+            2]);
         }); // `%TypedArray%.prototype.toLocaleString` method
         // https://tc39.github.io/ecma262/#sec-%typedarray%.prototype.tolocalestring
         exportTypedArrayMethod('toLocaleString', function toLocaleString() {
@@ -25988,7 +25986,7 @@
             var attributes = query.split('&');
             var index = 0;
             var attribute,
-            entry;
+              entry;
             while (index < attributes.length) {
               attribute = attributes[index++];
               if (attribute.length) {
@@ -26028,22 +26026,21 @@
           return step;
         }); // `URLSearchParams` constructor
         // https://url.spec.whatwg.org/#interface-urlsearchparams
-        var URLSearchParamsConstructor = function URLSearchParams()        /* init */
-        {
+        var URLSearchParamsConstructor = function URLSearchParams()        /* init */ {
           anInstance(this, URLSearchParamsConstructor, URL_SEARCH_PARAMS);
           var init = arguments.length > 0 ? arguments[0] : undefined;
           var that = this;
           var entries = [
           ];
           var iteratorMethod,
-          iterator,
-          next,
-          step,
-          entryIterator,
-          entryNext,
-          first,
-          second,
-          key;
+            iterator,
+            next,
+            step,
+            entryIterator,
+            entryNext,
+            first,
+            second,
+            key;
           setInternalState(that, {
             type: URL_SEARCH_PARAMS,
             entries: entries,
@@ -26099,7 +26096,7 @@
             var index = 0;
             while (index < entries.length) {
               if (entries[index].key === key) entries.splice(index, 1);
-               else index++;
+              else index++;
             }
             state.updateURL();
           },
@@ -26156,7 +26153,7 @@
               entry = entries[index];
               if (entry.key === key) {
                 if (found) entries.splice(index--, 1);
-                 else {
+                else {
                   found = true;
                   entry.value = val;
                 }
@@ -26175,8 +26172,8 @@
             var entries = state.entries; // Array#sort is not stable in some engines
             var slice = entries.slice();
             var entry,
-            entriesIndex,
-            sliceIndex;
+              entriesIndex,
+              sliceIndex;
             entries.length = 0;
             for (sliceIndex = 0; sliceIndex < slice.length; sliceIndex++) {
               entry = slice[sliceIndex];
@@ -26253,8 +26250,8 @@
                 input
               ];
               var init,
-              body,
-              headers;
+                body,
+                headers;
               if (arguments.length > 1) {
                 init = arguments[1];
                 if (isObject(init)) {
@@ -26348,8 +26345,8 @@
         var EOF;
         var parseHost = function (url, input) {
           var result,
-          codePoints,
-          index;
+            codePoints,
+            index;
           if (input.charAt(0) == '[') {
             if (input.charAt(input.length - 1) != ']') return INVALID_HOST;
             result = parseIPv6(input.slice(1, - 1));
@@ -26374,12 +26371,12 @@
         var parseIPv4 = function (input) {
           var parts = input.split('.');
           var partsLength,
-          numbers,
-          index,
-          part,
-          radix,
-          number,
-          ipv4;
+            numbers,
+            index,
+            part,
+            radix,
+            number,
+            ipv4;
           if (parts.length && parts[parts.length - 1] == '') {
             parts.pop();
           }
@@ -26430,12 +26427,12 @@
           var compress = null;
           var pointer = 0;
           var value,
-          length,
-          numbersSeen,
-          ipv4Piece,
-          number,
-          swaps,
-          swap;
+            length,
+            numbersSeen,
+            ipv4Piece,
+            number,
+            swaps,
+            swap;
           var char = function () {
             return input.charAt(pointer);
           };
@@ -26469,14 +26466,14 @@
                 ipv4Piece = null;
                 if (numbersSeen > 0) {
                   if (char() == '.' && numbersSeen < 4) pointer++;
-                   else return;
+                  else return;
                 }
                 if (!DIGIT.test(char())) return;
                 while (DIGIT.test(char())) {
                   number = parseInt(char(), 10);
                   if (ipv4Piece === null) ipv4Piece = number;
-                   else if (ipv4Piece == 0) return;
-                   else ipv4Piece = ipv4Piece * 10 + number;
+                  else if (ipv4Piece == 0) return;
+                  else ipv4Piece = ipv4Piece * 10 + number;
                   if (ipv4Piece > 255) return;
                   pointer++;
                 }
@@ -26530,9 +26527,9 @@
         };
         var serializeHost = function (host) {
           var result,
-          index,
-          compress,
-          ignore0; // ipv4
+            index,
+            compress,
+            ignore0; // ipv4
           if (typeof host == 'number') {
             result = [
             ];
@@ -26682,9 +26679,9 @@
           var seenBracket = false;
           var seenPasswordToken = false;
           var codePoints,
-          char,
-          bufferCodePoints,
-          failure;
+            char,
+            bufferCodePoints,
+            failure;
           if (!stateOverride) {
             url.scheme = '';
             url.username = '';
@@ -26851,7 +26848,7 @@
                     }
                     var encodedCodePoints = percentEncode(codePoint, userinfoPercentEncodeSet);
                     if (seenPasswordToken) url.password += encodedCodePoints;
-                     else url.username += encodedCodePoints;
+                    else url.username += encodedCodePoints;
                   }
                   buffer = '';
                 } else if (char == EOF || char == '/' || char == '?' || char == '#' || char == '\\' && isSpecial(url)) {
@@ -26884,7 +26881,7 @@
                   continue;
                 } else {
                   if (char == '[') seenBracket = true;
-                   else if (char == ']') seenBracket = false;
+                  else if (char == ']') seenBracket = false;
                   buffer += char;
                 }
                 break;
@@ -26906,7 +26903,7 @@
               case FILE:
                 url.scheme = 'file';
                 if (char == '/' || char == '\\') state = FILE_SLASH;
-                 else if (base && base.scheme == 'file') {
+                else if (base && base.scheme == 'file') {
                   if (char == EOF) {
                     url.host = base.host;
                     url.path = base.path.slice();
@@ -26943,7 +26940,7 @@
                 }
                 if (base && base.scheme == 'file' && !startsWithWindowsDriveLetter(codePoints.slice(pointer).join(''))) {
                   if (isWindowsDriveLetter(base.path[0], true)) url.path.push(base.path[0]);
-                   else url.host = base.host;
+                  else url.host = base.host;
                 }
                 state = PATH;
                 continue;
@@ -27033,8 +27030,8 @@
                   state = FRAGMENT;
                 } else if (char != EOF) {
                   if (char == '\'' && isSpecial(url)) url.query += '%27';
-                   else if (char == '#') url.query += '%23';
-                   else url.query += percentEncode(char, C0ControlPercentEncodeSet);
+                  else if (char == '#') url.query += '%23';
+                  else url.query += percentEncode(char, C0ControlPercentEncodeSet);
                 }
                 break;
               case FRAGMENT:
@@ -27054,10 +27051,10 @@
             type: 'URL'
           });
           var baseState,
-          failure;
+            failure;
           if (base !== undefined) {
             if (base instanceof URLConstructor) baseState = getInternalURLState(base);
-             else {
+            else {
               failure = parseURL(baseState = {
               }, String(base));
               if (failure) throw TypeError(failure);
@@ -27233,7 +27230,7 @@
               if (cannotHaveUsernamePasswordPort(url)) return;
               port = String(port);
               if (port == '') url.port = null;
-               else parseURL(url, port, PORT);
+              else parseURL(url, port, PORT);
             }),
             // `URL.prototype.pathname` accessors pair
             // https://url.spec.whatwg.org/#dom-url-pathname
@@ -27354,7 +27351,7 @@
  */
           (function (global, factory) {
             typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : global.ES6Promise = factory();
-          }) (this, function () {
+          })(this, function () {
             'use strict';
             function objectOrFunction(x) {
               var type = typeof x;
@@ -27459,7 +27456,7 @@
             }
             function attemptVertx() {
               try {
-                var vertx = Function('return this') ().require('vertx');
+                var vertx = Function('return this')().require('vertx');
                 vertxNext = vertx.runOnLoop || vertx.runOnContext;
                 return useVertxTimer();
               } catch (e) {
@@ -27665,8 +27662,8 @@
                 return;
               }
               var child = void 0,
-              callback = void 0,
-              detail = promise._result;
+                callback = void 0,
+                detail = promise._result;
               for (var i = 0; i < subscribers.length; i += 3) {
                 child = subscribers[i];
                 callback = subscribers[i + settled];
@@ -27680,9 +27677,9 @@
             }
             function invokeCallback(settled, promise, callback, detail) {
               var hasCallback = isFunction(callback),
-              value = void 0,
-              error = void 0,
-              succeeded = true;
+                value = void 0,
+                error = void 0,
+                succeeded = true;
               if (hasCallback) {
                 try {
                   value = callback(detail);
@@ -28372,7 +28369,7 @@
                 local = self;
               } else {
                 try {
-                  local = Function('return this') ();
+                  local = Function('return this')();
                 } catch (e) {
                   throw new Error('polyfill failed because global object is unavailable in this environment');
                 }
@@ -28407,7 +28404,7 @@
         (function (global, factory) {
           if (typeof define === 'function' && define.amd) {
             define(['exports',
-            'module'], factory);
+              'module'], factory);
           } else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
             factory(exports, module);
           } else {
@@ -28418,7 +28415,7 @@
             factory(mod.exports, mod);
             global.fetchJsonp = mod.exports;
           }
-        }) (this, function (exports, module) {
+        })(this, function (exports, module) {
           'use strict';
           var defaultOptions = {
             timeout: 5000,
@@ -28440,13 +28437,13 @@
           function removeScript(scriptId) {
             var script = document.getElementById(scriptId);
             if (script) {
-              document.getElementsByTagName('head') [0].removeChild(script);
+              document.getElementsByTagName('head')[0].removeChild(script);
             }
           }
           function fetchJsonp(_url) {
             var options = arguments.length <= 1 || arguments[1] === undefined ? {
             }
-             : arguments[1]; // to avoid param reassign
+              : arguments[1]; // to avoid param reassign
             var url = _url;
             var timeout = options.timeout || defaultOptions.timeout;
             var jsonpCallback = options.jsonpCallback || defaultOptions.jsonpCallback;
@@ -28473,7 +28470,7 @@
                 jsonpScript.setAttribute('charset', options.charset);
               }
               jsonpScript.id = scriptId;
-              document.getElementsByTagName('head') [0].appendChild(jsonpScript);
+              document.getElementsByTagName('head')[0].appendChild(jsonpScript);
               timeoutId = setTimeout(function () {
                 reject(new Error('JSONP request to ' + _url + ' timed out'));
                 clearFunction(callbackFunction);
@@ -28532,130 +28529,130 @@
             return;
           }
           var doc = view.document // only get URL when necessary in case Blob.js hasn't overridden it yet
-          ,
-          get_URL = function () {
-            return view.URL || view.webkitURL || view;
-          },
-          save_link = doc.createElementNS('http://www.w3.org/1999/xhtml', 'a'),
-          can_use_save_link = 'download' in save_link,
-          click = function (node) {
-            var event = new MouseEvent('click');
-            node.dispatchEvent(event);
-          },
-          is_safari = /constructor/i.test(view.HTMLElement) || view.safari,
-          is_chrome_ios = /CriOS\/[\d]+/.test(navigator.userAgent),
-          throw_outside = function (ex) {
-            (view.setImmediate || view.setTimeout) (function () {
-              throw ex;
-            }, 0);
-          },
-          force_saveable_type = 'application/octet-stream' // the Blob API is fundamentally broken as there is no "downloadfinished" event to subscribe to
-          ,
-          arbitrary_revoke_timeout = 1000 * 40 // in ms
-          ,
-          revoke = function (file) {
-            var revoker = function () {
-              if (typeof file === 'string') {
-                // file is an object URL
-                get_URL().revokeObjectURL(file);
-              } else {
-                // file is a File
-                file.remove();
-              }
-            };
-            setTimeout(revoker, arbitrary_revoke_timeout);
-          },
-          dispatch = function (filesaver, event_types, event) {
-            event_types = [
-            ].concat(event_types);
-            var i = event_types.length;
-            while (i--) {
-              var listener = filesaver['on' + event_types[i]];
-              if (typeof listener === 'function') {
-                try {
-                  listener.call(filesaver, event || filesaver);
-                } catch (ex) {
-                  throw_outside(ex);
+            ,
+            get_URL = function () {
+              return view.URL || view.webkitURL || view;
+            },
+            save_link = doc.createElementNS('http://www.w3.org/1999/xhtml', 'a'),
+            can_use_save_link = 'download' in save_link,
+            click = function (node) {
+              var event = new MouseEvent('click');
+              node.dispatchEvent(event);
+            },
+            is_safari = /constructor/i.test(view.HTMLElement) || view.safari,
+            is_chrome_ios = /CriOS\/[\d]+/.test(navigator.userAgent),
+            throw_outside = function (ex) {
+              (view.setImmediate || view.setTimeout)(function () {
+                throw ex;
+              }, 0);
+            },
+            force_saveable_type = 'application/octet-stream' // the Blob API is fundamentally broken as there is no "downloadfinished" event to subscribe to
+            ,
+            arbitrary_revoke_timeout = 1000 * 40 // in ms
+            ,
+            revoke = function (file) {
+              var revoker = function () {
+                if (typeof file === 'string') {
+                  // file is an object URL
+                  get_URL().revokeObjectURL(file);
+                } else {
+                  // file is a File
+                  file.remove();
+                }
+              };
+              setTimeout(revoker, arbitrary_revoke_timeout);
+            },
+            dispatch = function (filesaver, event_types, event) {
+              event_types = [
+              ].concat(event_types);
+              var i = event_types.length;
+              while (i--) {
+                var listener = filesaver['on' + event_types[i]];
+                if (typeof listener === 'function') {
+                  try {
+                    listener.call(filesaver, event || filesaver);
+                  } catch (ex) {
+                    throw_outside(ex);
+                  }
                 }
               }
-            }
-          },
-          auto_bom = function (blob) {
-            // prepend BOM for UTF-8 XML and text/* types (including HTML)
-            // note: your browser will automatically convert UTF-16 U+FEFF to EF BB BF
-            if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
-              return new Blob([String.fromCharCode(65279),
-              blob], {
-                type: blob.type
-              });
-            }
-            return blob;
-          },
-          FileSaver = function (blob, name, no_auto_bom) {
-            if (!no_auto_bom) {
-              blob = auto_bom(blob);
-            } // First try a.download, then web filesystem, then object URLs
+            },
+            auto_bom = function (blob) {
+              // prepend BOM for UTF-8 XML and text/* types (including HTML)
+              // note: your browser will automatically convert UTF-16 U+FEFF to EF BB BF
+              if (/^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(blob.type)) {
+                return new Blob([String.fromCharCode(65279),
+                  blob], {
+                  type: blob.type
+                });
+              }
+              return blob;
+            },
+            FileSaver = function (blob, name, no_auto_bom) {
+              if (!no_auto_bom) {
+                blob = auto_bom(blob);
+              } // First try a.download, then web filesystem, then object URLs
 
-            var filesaver = this,
-            type = blob.type,
-            force = type === force_saveable_type,
-            object_url,
-            dispatch_all = function () {
-              dispatch(filesaver, 'writestart progress write writeend'.split(' '));
-            } // on any filesys errors revert to saving with object URLs
-            ,
-            fs_error = function () {
-              if ((is_chrome_ios || force && is_safari) && view.FileReader) {
-                // Safari doesn't allow downloading of blob urls
-                var reader = new FileReader();
-                reader.onloadend = function () {
-                  var url = is_chrome_ios ? reader.result : reader.result.replace(/^data:[^;]*;/, 'data:attachment/file;');
-                  var popup = view.open(url, '_blank');
-                  if (!popup) view.location.href = url;
-                  url = undefined; // release reference before dispatching
+              var filesaver = this,
+                type = blob.type,
+                force = type === force_saveable_type,
+                object_url,
+                dispatch_all = function () {
+                  dispatch(filesaver, 'writestart progress write writeend'.split(' '));
+                } // on any filesys errors revert to saving with object URLs
+                ,
+                fs_error = function () {
+                  if ((is_chrome_ios || force && is_safari) && view.FileReader) {
+                    // Safari doesn't allow downloading of blob urls
+                    var reader = new FileReader();
+                    reader.onloadend = function () {
+                      var url = is_chrome_ios ? reader.result : reader.result.replace(/^data:[^;]*;/, 'data:attachment/file;');
+                      var popup = view.open(url, '_blank');
+                      if (!popup) view.location.href = url;
+                      url = undefined; // release reference before dispatching
+                      filesaver.readyState = filesaver.DONE;
+                      dispatch_all();
+                    };
+                    reader.readAsDataURL(blob);
+                    filesaver.readyState = filesaver.INIT;
+                    return;
+                  } // don't create more object URLs than needed
+
+                  if (!object_url) {
+                    object_url = get_URL().createObjectURL(blob);
+                  }
+                  if (force) {
+                    view.location.href = object_url;
+                  } else {
+                    var opened = view.open(object_url, '_blank');
+                    if (!opened) {
+                      // Apple does not allow window.open, see https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/WorkingwithWindowsandTabs/WorkingwithWindowsandTabs.html
+                      view.location.href = object_url;
+                    }
+                  }
                   filesaver.readyState = filesaver.DONE;
                   dispatch_all();
+                  revoke(object_url);
                 };
-                reader.readAsDataURL(blob);
-                filesaver.readyState = filesaver.INIT;
-                return;
-              } // don't create more object URLs than needed
-
-              if (!object_url) {
+              filesaver.readyState = filesaver.INIT;
+              if (can_use_save_link) {
                 object_url = get_URL().createObjectURL(blob);
+                setTimeout(function () {
+                  save_link.href = object_url;
+                  save_link.download = name;
+                  click(save_link);
+                  dispatch_all();
+                  revoke(object_url);
+                  filesaver.readyState = filesaver.DONE;
+                });
+                return;
               }
-              if (force) {
-                view.location.href = object_url;
-              } else {
-                var opened = view.open(object_url, '_blank');
-                if (!opened) {
-                  // Apple does not allow window.open, see https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/WorkingwithWindowsandTabs/WorkingwithWindowsandTabs.html
-                  view.location.href = object_url;
-                }
-              }
-              filesaver.readyState = filesaver.DONE;
-              dispatch_all();
-              revoke(object_url);
-            };
-            filesaver.readyState = filesaver.INIT;
-            if (can_use_save_link) {
-              object_url = get_URL().createObjectURL(blob);
-              setTimeout(function () {
-                save_link.href = object_url;
-                save_link.download = name;
-                click(save_link);
-                dispatch_all();
-                revoke(object_url);
-                filesaver.readyState = filesaver.DONE;
-              });
-              return;
-            }
-            fs_error();
-          },
-          FS_proto = FileSaver.prototype,
-          saveAs = function (blob, name, no_auto_bom) {
-            return new FileSaver(blob, name || blob.name || 'download', no_auto_bom);
-          }; // IE 10+ (native saveAs)
+              fs_error();
+            },
+            FS_proto = FileSaver.prototype,
+            saveAs = function (blob, name, no_auto_bom) {
+              return new FileSaver(blob, name || blob.name || 'download', no_auto_bom);
+            }; // IE 10+ (native saveAs)
           if (typeof navigator !== 'undefined' && navigator.msSaveOrOpenBlob) {
             return function (blob, name, no_auto_bom) {
               name = name || blob.name || 'download';
@@ -28689,10 +28686,10 @@
     255: [
       function (_dereq_, module, exports) {
         var __defProp = Object.defineProperty;
-        var __markAsModule = target=>__defProp(target, '__esModule', {
+        var __markAsModule = target => __defProp(target, '__esModule', {
           value: true
         });
-        var __export = (target, all) =>{
+        var __export = (target, all) => {
           for (var name in all) __defProp(target, name, {
             get: all[name],
             enumerable: true
@@ -28700,16 +28697,16 @@
         }; // src/index.js
         __markAsModule(exports);
         __export(exports, {
-          GIFEncoder: () =>GIFEncoder,
-          applyPalette: () =>applyPalette,
-        default:
-          () =>src_default,
-          nearestColor: () =>nearestColor,
-          nearestColorIndex: () =>nearestColorIndex,
-          nearestColorIndexWithDistance: () =>nearestColorIndexWithDistance,
-          prequantize: () =>prequantize,
-          quantize: () =>quantize,
-          snapColorsToPalette: () =>snapColorsToPalette
+          GIFEncoder: () => GIFEncoder,
+          applyPalette: () => applyPalette,
+          default:
+            () => src_default,
+          nearestColor: () => nearestColor,
+          nearestColorIndex: () => nearestColorIndex,
+          nearestColorIndexWithDistance: () => nearestColorIndexWithDistance,
+          prequantize: () => prequantize,
+          quantize: () => quantize,
+          snapColorsToPalette: () => snapColorsToPalette
         }); // src/constants.js
         var constants_default = {
           signature: 'GIF',
@@ -28806,7 +28803,7 @@
           const initCodeSize = Math.max(2, colorDepth);
           accum.fill(0);
           codetab.fill(0);
-          htab.fill( - 1);
+          htab.fill(- 1);
           let cur_accum = 0;
           let cur_bits = 0;
           const init_bits = initCodeSize + 1;
@@ -28851,7 +28848,7 @@
                 codetab[i] = free_ent++;
                 htab[i] = fcode;
               } else {
-                htab.fill( - 1);
+                htab.fill(- 1);
                 free_ent = ClearCode + 2;
                 clear_flg = true;
                 output(ClearCode);
@@ -28865,7 +28862,7 @@
           function output(code) {
             cur_accum &= MASKS[cur_bits];
             if (cur_bits > 0) cur_accum |= code << cur_bits;
-             else cur_accum = code;
+            else cur_accum = code;
             cur_bits += n_bits;
             while (cur_bits >= 8) {
               accum[a_count++] = cur_accum & 255;
@@ -29026,7 +29023,7 @@
             clearAlphaThreshold = 0,
             oneBitAlpha = false
           }
-          = opts;
+            = opts;
           if (!rgba || !rgba.buffer) {
             throw new Error('quantize() expected RGBA Uint8Array data');
           }
@@ -29063,8 +29060,8 @@
           }
           if (useSqrt) bins[i].cnt = Math.sqrt(bins[i].cnt);
           var h,
-          l,
-          l2;
+            l,
+            l2;
           for (i = 0; i < maxbins; ++i) {
             find_nn(bins, i, false);
             var err = bins[i].err;
@@ -29076,14 +29073,14 @@
             heap[l] = i;
           }
           var extbins = maxbins - maxColors;
-          for (i = 0; i < extbins; ) {
+          for (i = 0; i < extbins;) {
             var tb;
-            for (; ; ) {
+            for (; ;) {
               var b1 = heap[1];
               tb = bins[b1];
               if (tb.tm >= tb.mtm && bins[tb.nn].mtm <= tb.tm) break;
               if (tb.mtm == bincountMinusOne) b1 = heap[1] = heap[heap[0]--];
-               else {
+              else {
                 find_nn(bins, b1, false);
                 tb.tm = i;
               }
@@ -29172,8 +29169,8 @@
           roundAlpha = 10,
           oneBitAlpha = null
         }
-        = {
-        }) {
+          = {
+          }) {
           const data = new Uint32Array(rgba.buffer);
           for (let i = 0; i < data.length; i++) {
             const color = data[i];
@@ -29276,7 +29273,7 @@
         }
         function snapColorsToPalette(palette, knownColors, threshold = 5) {
           if (!palette.length || !knownColors.length) return;
-          const paletteRGB = palette.map(p=>p.slice(0, 3));
+          const paletteRGB = palette.map(p => p.slice(0, 3));
           const thresholdSq = threshold * threshold;
           const dim = palette[0].length;
           for (let i = 0; i < knownColors.length; i++) {
@@ -29329,7 +29326,7 @@
             }
           }
           return [minDistIndex,
-          minDist];
+            minDist];
         }
         function nearestColor(colors, pixel, distanceFn = euclideanDistanceSquared) {
           return colors[nearestColorIndex(colors, pixel, distanceFn)];
@@ -29341,7 +29338,7 @@
             initialCapacity = 4096,
             auto = true
           }
-          = opt;
+            = opt;
           const stream = createStream(initialCapacity);
           const HSIZE = 5003;
           const accum = new Uint8Array(256);
@@ -29380,7 +29377,7 @@
                 colorDepth = 8,
                 dispose = - 1
               }
-              = opts;
+                = opts;
               let first = false;
               if (auto) {
                 if (!hasInit) {
@@ -29424,7 +29421,7 @@
             transparent = false;
           }
           var transp,
-          disp;
+            disp;
           if (!transparent) {
             transp = 0;
             disp = 0;
@@ -29452,8 +29449,8 @@
           writeUInt16(stream, width);
           writeUInt16(stream, height);
           stream.writeBytes([fields,
-          backgroundColorIndex,
-          pixelAspectRatio]);
+            backgroundColorIndex,
+            pixelAspectRatio]);
         }
         function encodeNetscapeExt(stream, repeat) {
           stream.writeByte(33);
@@ -29721,97 +29718,97 @@
           };
         }
         var Browser =        /*#__PURE__*/
-        function () {
-          function Browser(services) {
-            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-            };
-            _classCallCheck(this, Browser);
-            this.type = 'languageDetector';
-            this.detectors = {
-            };
-            this.init(services, options);
-          }
-          _createClass(Browser, [
-            {
-              key: 'init',
-              value: function init(services) {
-                var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-                };
-                var i18nOptions = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
-                };
-                this.services = services;
-                this.options = defaults(options, this.options || {
-                }, getDefaults()); // backwards compatibility
-                if (this.options.lookupFromUrlIndex) this.options.lookupFromPathIndex = this.options.lookupFromUrlIndex;
-                this.i18nOptions = i18nOptions;
-                this.addDetector(cookie$1);
-                this.addDetector(querystring);
-                this.addDetector(localStorage);
-                this.addDetector(navigator$1);
-                this.addDetector(htmlTag);
-                this.addDetector(path);
-                this.addDetector(subdomain);
-              }
-            },
-            {
-              key: 'addDetector',
-              value: function addDetector(detector) {
-                this.detectors[detector.name] = detector;
-              }
-            },
-            {
-              key: 'detect',
-              value: function detect(detectionOrder) {
-                var _this = this;
-                if (!detectionOrder) detectionOrder = this.options.order;
-                var detected = [
-                ];
-                detectionOrder.forEach(function (detectorName) {
-                  if (_this.detectors[detectorName]) {
-                    var lookup = _this.detectors[detectorName].lookup(_this.options);
-                    if (lookup && typeof lookup === 'string') lookup = [
-                      lookup
-                    ];
-                    if (lookup) detected = detected.concat(lookup);
-                  }
-                });
-                var found;
-                detected.forEach(function (lng) {
-                  if (found) return;
-                  var cleanedLng = _this.services.languageUtils.formatLanguageCode(lng);
-                  if (!_this.options.checkWhitelist || _this.services.languageUtils.isWhitelisted(cleanedLng)) found = cleanedLng;
-                });
-                if (!found) {
-                  var fallbacks = this.i18nOptions.fallbackLng;
-                  if (typeof fallbacks === 'string') fallbacks = [
-                    fallbacks
-                  ];
-                  if (!fallbacks) fallbacks = [
-                  ];
-                  if (Object.prototype.toString.apply(fallbacks) === '[object Array]') {
-                    found = fallbacks[0];
-                  } else {
-                    found = fallbacks[0] || fallbacks['default'] && fallbacks['default'][0];
-                  }
-                }
-                return found;
-              }
-            },
-            {
-              key: 'cacheUserLanguage',
-              value: function cacheUserLanguage(lng, caches) {
-                var _this2 = this;
-                if (!caches) caches = this.options.caches;
-                if (!caches) return;
-                if (this.options.excludeCacheFor && this.options.excludeCacheFor.indexOf(lng) > - 1) return;
-                caches.forEach(function (cacheName) {
-                  if (_this2.detectors[cacheName]) _this2.detectors[cacheName].cacheUserLanguage(lng, _this2.options);
-                });
-              }
+          function () {
+            function Browser(services) {
+              var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+              };
+              _classCallCheck(this, Browser);
+              this.type = 'languageDetector';
+              this.detectors = {
+              };
+              this.init(services, options);
             }
-          ]);
-          return Browser;
-        }();
+            _createClass(Browser, [
+              {
+                key: 'init',
+                value: function init(services) {
+                  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                  };
+                  var i18nOptions = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
+                  };
+                  this.services = services;
+                  this.options = defaults(options, this.options || {
+                  }, getDefaults()); // backwards compatibility
+                  if (this.options.lookupFromUrlIndex) this.options.lookupFromPathIndex = this.options.lookupFromUrlIndex;
+                  this.i18nOptions = i18nOptions;
+                  this.addDetector(cookie$1);
+                  this.addDetector(querystring);
+                  this.addDetector(localStorage);
+                  this.addDetector(navigator$1);
+                  this.addDetector(htmlTag);
+                  this.addDetector(path);
+                  this.addDetector(subdomain);
+                }
+              },
+              {
+                key: 'addDetector',
+                value: function addDetector(detector) {
+                  this.detectors[detector.name] = detector;
+                }
+              },
+              {
+                key: 'detect',
+                value: function detect(detectionOrder) {
+                  var _this = this;
+                  if (!detectionOrder) detectionOrder = this.options.order;
+                  var detected = [
+                  ];
+                  detectionOrder.forEach(function (detectorName) {
+                    if (_this.detectors[detectorName]) {
+                      var lookup = _this.detectors[detectorName].lookup(_this.options);
+                      if (lookup && typeof lookup === 'string') lookup = [
+                        lookup
+                      ];
+                      if (lookup) detected = detected.concat(lookup);
+                    }
+                  });
+                  var found;
+                  detected.forEach(function (lng) {
+                    if (found) return;
+                    var cleanedLng = _this.services.languageUtils.formatLanguageCode(lng);
+                    if (!_this.options.checkWhitelist || _this.services.languageUtils.isWhitelisted(cleanedLng)) found = cleanedLng;
+                  });
+                  if (!found) {
+                    var fallbacks = this.i18nOptions.fallbackLng;
+                    if (typeof fallbacks === 'string') fallbacks = [
+                      fallbacks
+                    ];
+                    if (!fallbacks) fallbacks = [
+                    ];
+                    if (Object.prototype.toString.apply(fallbacks) === '[object Array]') {
+                      found = fallbacks[0];
+                    } else {
+                      found = fallbacks[0] || fallbacks['default'] && fallbacks['default'][0];
+                    }
+                  }
+                  return found;
+                }
+              },
+              {
+                key: 'cacheUserLanguage',
+                value: function cacheUserLanguage(lng, caches) {
+                  var _this2 = this;
+                  if (!caches) caches = this.options.caches;
+                  if (!caches) return;
+                  if (this.options.excludeCacheFor && this.options.excludeCacheFor.indexOf(lng) > - 1) return;
+                  caches.forEach(function (cacheName) {
+                    if (_this2.detectors[cacheName]) _this2.detectors[cacheName].cacheUserLanguage(lng, _this2.options);
+                  });
+                }
+              }
+            ]);
+            return Browser;
+          }();
         Browser.type = 'languageDetector';
         module.exports = Browser;
       },
@@ -29866,152 +29863,152 @@
           output: function output(type, args) {
             var _console;
             /* eslint no-console: 0 */
-            if (console && console[type]) (_console = console) [type].apply(_console, _toConsumableArray(args));
+            if (console && console[type]) (_console = console)[type].apply(_console, _toConsumableArray(args));
           }
         };
         var Logger =        /*#__PURE__*/
-        function () {
-          function Logger(concreteLogger) {
-            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-            };
-            _classCallCheck(this, Logger);
-            this.init(concreteLogger, options);
-          }
-          _createClass(Logger, [
-            {
-              key: 'init',
-              value: function init(concreteLogger) {
-                var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-                };
-                this.prefix = options.prefix || 'i18next:';
-                this.logger = concreteLogger || consoleLogger;
-                this.options = options;
-                this.debug = options.debug;
-              }
-            },
-            {
-              key: 'setDebug',
-              value: function setDebug(bool) {
-                this.debug = bool;
-              }
-            },
-            {
-              key: 'log',
-              value: function log() {
-                for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-                  args[_key] = arguments[_key];
-                }
-                return this.forward(args, 'log', '', true);
-              }
-            },
-            {
-              key: 'warn',
-              value: function warn() {
-                for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-                  args[_key2] = arguments[_key2];
-                }
-                return this.forward(args, 'warn', '', true);
-              }
-            },
-            {
-              key: 'error',
-              value: function error() {
-                for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-                  args[_key3] = arguments[_key3];
-                }
-                return this.forward(args, 'error', '');
-              }
-            },
-            {
-              key: 'deprecate',
-              value: function deprecate() {
-                for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-                  args[_key4] = arguments[_key4];
-                }
-                return this.forward(args, 'warn', 'WARNING DEPRECATED: ', true);
-              }
-            },
-            {
-              key: 'forward',
-              value: function forward(args, lvl, prefix, debugOnly) {
-                if (debugOnly && !this.debug) return null;
-                if (typeof args[0] === 'string') args[0] = ''.concat(prefix).concat(this.prefix, ' ').concat(args[0]);
-                return this.logger[lvl](args);
-              }
-            },
-            {
-              key: 'create',
-              value: function create(moduleName) {
-                return new Logger(this.logger, _objectSpread({
-                }, {
-                  prefix: ''.concat(this.prefix, ':').concat(moduleName, ':')
-                }, this.options));
-              }
+          function () {
+            function Logger(concreteLogger) {
+              var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+              };
+              _classCallCheck(this, Logger);
+              this.init(concreteLogger, options);
             }
-          ]);
-          return Logger;
-        }();
+            _createClass(Logger, [
+              {
+                key: 'init',
+                value: function init(concreteLogger) {
+                  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                  };
+                  this.prefix = options.prefix || 'i18next:';
+                  this.logger = concreteLogger || consoleLogger;
+                  this.options = options;
+                  this.debug = options.debug;
+                }
+              },
+              {
+                key: 'setDebug',
+                value: function setDebug(bool) {
+                  this.debug = bool;
+                }
+              },
+              {
+                key: 'log',
+                value: function log() {
+                  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+                    args[_key] = arguments[_key];
+                  }
+                  return this.forward(args, 'log', '', true);
+                }
+              },
+              {
+                key: 'warn',
+                value: function warn() {
+                  for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+                    args[_key2] = arguments[_key2];
+                  }
+                  return this.forward(args, 'warn', '', true);
+                }
+              },
+              {
+                key: 'error',
+                value: function error() {
+                  for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+                    args[_key3] = arguments[_key3];
+                  }
+                  return this.forward(args, 'error', '');
+                }
+              },
+              {
+                key: 'deprecate',
+                value: function deprecate() {
+                  for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+                    args[_key4] = arguments[_key4];
+                  }
+                  return this.forward(args, 'warn', 'WARNING DEPRECATED: ', true);
+                }
+              },
+              {
+                key: 'forward',
+                value: function forward(args, lvl, prefix, debugOnly) {
+                  if (debugOnly && !this.debug) return null;
+                  if (typeof args[0] === 'string') args[0] = ''.concat(prefix).concat(this.prefix, ' ').concat(args[0]);
+                  return this.logger[lvl](args);
+                }
+              },
+              {
+                key: 'create',
+                value: function create(moduleName) {
+                  return new Logger(this.logger, _objectSpread({
+                  }, {
+                    prefix: ''.concat(this.prefix, ':').concat(moduleName, ':')
+                  }, this.options));
+                }
+              }
+            ]);
+            return Logger;
+          }();
         var baseLogger = new Logger();
         var EventEmitter =        /*#__PURE__*/
-        function () {
-          function EventEmitter() {
-            _classCallCheck(this, EventEmitter);
-            this.observers = {
-            };
-          }
-          _createClass(EventEmitter, [
-            {
-              key: 'on',
-              value: function on(events, listener) {
-                var _this = this;
-                events.split(' ').forEach(function (event) {
-                  _this.observers[event] = _this.observers[event] || [
-                  ];
-                  _this.observers[event].push(listener);
-                });
-                return this;
-              }
-            },
-            {
-              key: 'off',
-              value: function off(event, listener) {
-                if (!this.observers[event]) return;
-                if (!listener) {
-                  delete this.observers[event];
-                  return;
-                }
-                this.observers[event] = this.observers[event].filter(function (l) {
-                  return l !== listener;
-                });
-              }
-            },
-            {
-              key: 'emit',
-              value: function emit(event) {
-                for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-                  args[_key - 1] = arguments[_key];
-                }
-                if (this.observers[event]) {
-                  var cloned = [
-                  ].concat(this.observers[event]);
-                  cloned.forEach(function (observer) {
-                    observer.apply(void 0, args);
-                  });
-                }
-                if (this.observers['*']) {
-                  var _cloned = [
-                  ].concat(this.observers['*']);
-                  _cloned.forEach(function (observer) {
-                    observer.apply(observer, [
-                      event
-                    ].concat(args));
-                  });
-                }
-              }
+          function () {
+            function EventEmitter() {
+              _classCallCheck(this, EventEmitter);
+              this.observers = {
+              };
             }
-          ]);
-          return EventEmitter;
-        }(); // http://lea.verou.me/2016/12/resolve-promises-externally-with-this-one-weird-trick/
+            _createClass(EventEmitter, [
+              {
+                key: 'on',
+                value: function on(events, listener) {
+                  var _this = this;
+                  events.split(' ').forEach(function (event) {
+                    _this.observers[event] = _this.observers[event] || [
+                    ];
+                    _this.observers[event].push(listener);
+                  });
+                  return this;
+                }
+              },
+              {
+                key: 'off',
+                value: function off(event, listener) {
+                  if (!this.observers[event]) return;
+                  if (!listener) {
+                    delete this.observers[event];
+                    return;
+                  }
+                  this.observers[event] = this.observers[event].filter(function (l) {
+                    return l !== listener;
+                  });
+                }
+              },
+              {
+                key: 'emit',
+                value: function emit(event) {
+                  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                    args[_key - 1] = arguments[_key];
+                  }
+                  if (this.observers[event]) {
+                    var cloned = [
+                    ].concat(this.observers[event]);
+                    cloned.forEach(function (observer) {
+                      observer.apply(void 0, args);
+                    });
+                  }
+                  if (this.observers['*']) {
+                    var _cloned = [
+                    ].concat(this.observers['*']);
+                    _cloned.forEach(function (observer) {
+                      observer.apply(observer, [
+                        event
+                      ].concat(args));
+                    });
+                  }
+                }
+              }
+            ]);
+            return EventEmitter;
+          }(); // http://lea.verou.me/2016/12/resolve-promises-externally-with-this-one-weird-trick/
         function defer() {
           var res;
           var rej;
@@ -30058,14 +30055,14 @@
         }
         function setPath(object, path, newValue) {
           var _getLastOfPath = getLastOfPath(object, path, Object),
-          obj = _getLastOfPath.obj,
-          k = _getLastOfPath.k;
+            obj = _getLastOfPath.obj,
+            k = _getLastOfPath.k;
           obj[k] = newValue;
         }
         function pushPath(object, path, newValue, concat) {
           var _getLastOfPath2 = getLastOfPath(object, path, Object),
-          obj = _getLastOfPath2.obj,
-          k = _getLastOfPath2.k;
+            obj = _getLastOfPath2.obj,
+            k = _getLastOfPath2.k;
           obj[k] = obj[k] || [
           ];
           if (concat) obj[k] = obj[k].concat(newValue);
@@ -30073,8 +30070,8 @@
         }
         function getPath(object, path) {
           var _getLastOfPath3 = getLastOfPath(object, path),
-          obj = _getLastOfPath3.obj,
-          k = _getLastOfPath3.k;
+            obj = _getLastOfPath3.obj,
+            k = _getLastOfPath3.k;
           if (!obj) return undefined;
           return obj[k];
         }
@@ -30125,171 +30122,171 @@
           return data;
         }
         var ResourceStore =        /*#__PURE__*/
-        function (_EventEmitter) {
-          _inherits(ResourceStore, _EventEmitter);
-          function ResourceStore(data) {
-            var _this;
-            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-              ns: [
-                'translation'
-              ],
-              defaultNS: 'translation'
-            };
-            _classCallCheck(this, ResourceStore);
-            _this = _possibleConstructorReturn(this, _getPrototypeOf(ResourceStore).call(this));
-            EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
-            _this.data = data || {
-            };
-            _this.options = options;
-            if (_this.options.keySeparator === undefined) {
-              _this.options.keySeparator = '.';
+          function (_EventEmitter) {
+            _inherits(ResourceStore, _EventEmitter);
+            function ResourceStore(data) {
+              var _this;
+              var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                ns: [
+                  'translation'
+                ],
+                defaultNS: 'translation'
+              };
+              _classCallCheck(this, ResourceStore);
+              _this = _possibleConstructorReturn(this, _getPrototypeOf(ResourceStore).call(this));
+              EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
+              _this.data = data || {
+              };
+              _this.options = options;
+              if (_this.options.keySeparator === undefined) {
+                _this.options.keySeparator = '.';
+              }
+              return _this;
             }
-            return _this;
-          }
-          _createClass(ResourceStore, [
-            {
-              key: 'addNamespaces',
-              value: function addNamespaces(ns) {
-                if (this.options.ns.indexOf(ns) < 0) {
-                  this.options.ns.push(ns);
+            _createClass(ResourceStore, [
+              {
+                key: 'addNamespaces',
+                value: function addNamespaces(ns) {
+                  if (this.options.ns.indexOf(ns) < 0) {
+                    this.options.ns.push(ns);
+                  }
+                }
+              },
+              {
+                key: 'removeNamespaces',
+                value: function removeNamespaces(ns) {
+                  var index = this.options.ns.indexOf(ns);
+                  if (index > - 1) {
+                    this.options.ns.splice(index, 1);
+                  }
+                }
+              },
+              {
+                key: 'getResource',
+                value: function getResource(lng, ns, key) {
+                  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
+                  };
+                  var keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator;
+                  var path = [
+                    lng,
+                    ns
+                  ];
+                  if (key && typeof key !== 'string') path = path.concat(key);
+                  if (key && typeof key === 'string') path = path.concat(keySeparator ? key.split(keySeparator) : key);
+                  if (lng.indexOf('.') > - 1) {
+                    path = lng.split('.');
+                  }
+                  return getPath(this.data, path);
+                }
+              },
+              {
+                key: 'addResource',
+                value: function addResource(lng, ns, key, value) {
+                  var options = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {
+                    silent: false
+                  };
+                  var keySeparator = this.options.keySeparator;
+                  if (keySeparator === undefined) keySeparator = '.';
+                  var path = [
+                    lng,
+                    ns
+                  ];
+                  if (key) path = path.concat(keySeparator ? key.split(keySeparator) : key);
+                  if (lng.indexOf('.') > - 1) {
+                    path = lng.split('.');
+                    value = ns;
+                    ns = path[1];
+                  }
+                  this.addNamespaces(ns);
+                  setPath(this.data, path, value);
+                  if (!options.silent) this.emit('added', lng, ns, key, value);
+                }
+              },
+              {
+                key: 'addResources',
+                value: function addResources(lng, ns, resources) {
+                  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
+                    silent: false
+                  };
+                  /* eslint no-restricted-syntax: 0 */
+                  for (var m in resources) {
+                    if (typeof resources[m] === 'string' || Object.prototype.toString.apply(resources[m]) === '[object Array]') this.addResource(lng, ns, m, resources[m], {
+                      silent: true
+                    });
+                  }
+                  if (!options.silent) this.emit('added', lng, ns, resources);
+                }
+              },
+              {
+                key: 'addResourceBundle',
+                value: function addResourceBundle(lng, ns, resources, deep, overwrite) {
+                  var options = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : {
+                    silent: false
+                  };
+                  var path = [
+                    lng,
+                    ns
+                  ];
+                  if (lng.indexOf('.') > - 1) {
+                    path = lng.split('.');
+                    deep = resources;
+                    resources = ns;
+                    ns = path[1];
+                  }
+                  this.addNamespaces(ns);
+                  var pack = getPath(this.data, path) || {
+                  };
+                  if (deep) {
+                    deepExtend(pack, resources, overwrite);
+                  } else {
+                    pack = _objectSpread({
+                    }, pack, resources);
+                  }
+                  setPath(this.data, path, pack);
+                  if (!options.silent) this.emit('added', lng, ns, resources);
+                }
+              },
+              {
+                key: 'removeResourceBundle',
+                value: function removeResourceBundle(lng, ns) {
+                  if (this.hasResourceBundle(lng, ns)) {
+                    delete this.data[lng][ns];
+                  }
+                  this.removeNamespaces(ns);
+                  this.emit('removed', lng, ns);
+                }
+              },
+              {
+                key: 'hasResourceBundle',
+                value: function hasResourceBundle(lng, ns) {
+                  return this.getResource(lng, ns) !== undefined;
+                }
+              },
+              {
+                key: 'getResourceBundle',
+                value: function getResourceBundle(lng, ns) {
+                  if (!ns) ns = this.options.defaultNS; // COMPATIBILITY: remove extend in v2.1.0
+                  if (this.options.compatibilityAPI === 'v1') return _objectSpread({
+                  }, {
+                  }, this.getResource(lng, ns));
+                  return this.getResource(lng, ns);
+                }
+              },
+              {
+                key: 'getDataByLanguage',
+                value: function getDataByLanguage(lng) {
+                  return this.data[lng];
+                }
+              },
+              {
+                key: 'toJSON',
+                value: function toJSON() {
+                  return this.data;
                 }
               }
-            },
-            {
-              key: 'removeNamespaces',
-              value: function removeNamespaces(ns) {
-                var index = this.options.ns.indexOf(ns);
-                if (index > - 1) {
-                  this.options.ns.splice(index, 1);
-                }
-              }
-            },
-            {
-              key: 'getResource',
-              value: function getResource(lng, ns, key) {
-                var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
-                };
-                var keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator;
-                var path = [
-                  lng,
-                  ns
-                ];
-                if (key && typeof key !== 'string') path = path.concat(key);
-                if (key && typeof key === 'string') path = path.concat(keySeparator ? key.split(keySeparator) : key);
-                if (lng.indexOf('.') > - 1) {
-                  path = lng.split('.');
-                }
-                return getPath(this.data, path);
-              }
-            },
-            {
-              key: 'addResource',
-              value: function addResource(lng, ns, key, value) {
-                var options = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : {
-                  silent: false
-                };
-                var keySeparator = this.options.keySeparator;
-                if (keySeparator === undefined) keySeparator = '.';
-                var path = [
-                  lng,
-                  ns
-                ];
-                if (key) path = path.concat(keySeparator ? key.split(keySeparator) : key);
-                if (lng.indexOf('.') > - 1) {
-                  path = lng.split('.');
-                  value = ns;
-                  ns = path[1];
-                }
-                this.addNamespaces(ns);
-                setPath(this.data, path, value);
-                if (!options.silent) this.emit('added', lng, ns, key, value);
-              }
-            },
-            {
-              key: 'addResources',
-              value: function addResources(lng, ns, resources) {
-                var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
-                  silent: false
-                };
-                /* eslint no-restricted-syntax: 0 */
-                for (var m in resources) {
-                  if (typeof resources[m] === 'string' || Object.prototype.toString.apply(resources[m]) === '[object Array]') this.addResource(lng, ns, m, resources[m], {
-                    silent: true
-                  });
-                }
-                if (!options.silent) this.emit('added', lng, ns, resources);
-              }
-            },
-            {
-              key: 'addResourceBundle',
-              value: function addResourceBundle(lng, ns, resources, deep, overwrite) {
-                var options = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : {
-                  silent: false
-                };
-                var path = [
-                  lng,
-                  ns
-                ];
-                if (lng.indexOf('.') > - 1) {
-                  path = lng.split('.');
-                  deep = resources;
-                  resources = ns;
-                  ns = path[1];
-                }
-                this.addNamespaces(ns);
-                var pack = getPath(this.data, path) || {
-                };
-                if (deep) {
-                  deepExtend(pack, resources, overwrite);
-                } else {
-                  pack = _objectSpread({
-                  }, pack, resources);
-                }
-                setPath(this.data, path, pack);
-                if (!options.silent) this.emit('added', lng, ns, resources);
-              }
-            },
-            {
-              key: 'removeResourceBundle',
-              value: function removeResourceBundle(lng, ns) {
-                if (this.hasResourceBundle(lng, ns)) {
-                  delete this.data[lng][ns];
-                }
-                this.removeNamespaces(ns);
-                this.emit('removed', lng, ns);
-              }
-            },
-            {
-              key: 'hasResourceBundle',
-              value: function hasResourceBundle(lng, ns) {
-                return this.getResource(lng, ns) !== undefined;
-              }
-            },
-            {
-              key: 'getResourceBundle',
-              value: function getResourceBundle(lng, ns) {
-                if (!ns) ns = this.options.defaultNS; // COMPATIBILITY: remove extend in v2.1.0
-                if (this.options.compatibilityAPI === 'v1') return _objectSpread({
-                }, {
-                }, this.getResource(lng, ns));
-                return this.getResource(lng, ns);
-              }
-            },
-            {
-              key: 'getDataByLanguage',
-              value: function getDataByLanguage(lng) {
-                return this.data[lng];
-              }
-            },
-            {
-              key: 'toJSON',
-              value: function toJSON() {
-                return this.data;
-              }
-            }
-          ]);
-          return ResourceStore;
-        }(EventEmitter);
+            ]);
+            return ResourceStore;
+          }(EventEmitter);
         var postProcessor = {
           processors: {
           },
@@ -30307,452 +30304,452 @@
         var checkedLoadedFor = {
         };
         var Translator =        /*#__PURE__*/
-        function (_EventEmitter) {
-          _inherits(Translator, _EventEmitter);
-          function Translator(services) {
-            var _this;
-            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-            };
-            _classCallCheck(this, Translator);
-            _this = _possibleConstructorReturn(this, _getPrototypeOf(Translator).call(this));
-            EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
-            copy(['resourceStore',
-            'languageUtils',
-            'pluralResolver',
-            'interpolator',
-            'backendConnector',
-            'i18nFormat',
-            'utils'], services, _assertThisInitialized(_this));
-            _this.options = options;
-            if (_this.options.keySeparator === undefined) {
-              _this.options.keySeparator = '.';
+          function (_EventEmitter) {
+            _inherits(Translator, _EventEmitter);
+            function Translator(services) {
+              var _this;
+              var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+              };
+              _classCallCheck(this, Translator);
+              _this = _possibleConstructorReturn(this, _getPrototypeOf(Translator).call(this));
+              EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
+              copy(['resourceStore',
+                'languageUtils',
+                'pluralResolver',
+                'interpolator',
+                'backendConnector',
+                'i18nFormat',
+                'utils'], services, _assertThisInitialized(_this));
+              _this.options = options;
+              if (_this.options.keySeparator === undefined) {
+                _this.options.keySeparator = '.';
+              }
+              _this.logger = baseLogger.create('translator');
+              return _this;
             }
-            _this.logger = baseLogger.create('translator');
-            return _this;
-          }
-          _createClass(Translator, [
-            {
-              key: 'changeLanguage',
-              value: function changeLanguage(lng) {
-                if (lng) this.language = lng;
-              }
-            },
-            {
-              key: 'exists',
-              value: function exists(key) {
-                var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-                  interpolation: {
-                  }
-                };
-                var resolved = this.resolve(key, options);
-                return resolved && resolved.res !== undefined;
-              }
-            },
-            {
-              key: 'extractFromKey',
-              value: function extractFromKey(key, options) {
-                var nsSeparator = options.nsSeparator || this.options.nsSeparator;
-                if (nsSeparator === undefined) nsSeparator = ':';
-                var keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator;
-                var namespaces = options.ns || this.options.defaultNS;
-                if (nsSeparator && key.indexOf(nsSeparator) > - 1) {
-                  var parts = key.split(nsSeparator);
-                  if (nsSeparator !== keySeparator || nsSeparator === keySeparator && this.options.ns.indexOf(parts[0]) > - 1) namespaces = parts.shift();
-                  key = parts.join(keySeparator);
+            _createClass(Translator, [
+              {
+                key: 'changeLanguage',
+                value: function changeLanguage(lng) {
+                  if (lng) this.language = lng;
                 }
-                if (typeof namespaces === 'string') namespaces = [
-                  namespaces
-                ];
-                return {
-                  key: key,
-                  namespaces: namespaces
-                };
-              }
-            },
-            {
-              key: 'translate',
-              value: function translate(keys, options) {
-                var _this2 = this;
-                if (_typeof(options) !== 'object' && this.options.overloadTranslationOptionHandler) {
-                  /* eslint prefer-rest-params: 0 */
-                  options = this.options.overloadTranslationOptionHandler(arguments);
+              },
+              {
+                key: 'exists',
+                value: function exists(key) {
+                  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                    interpolation: {
+                    }
+                  };
+                  var resolved = this.resolve(key, options);
+                  return resolved && resolved.res !== undefined;
                 }
-                if (!options) options = {
-                }; // non valid keys handling
-                if (keys === undefined || keys === null                /* || keys === ''*/
-                ) return '';
-                if (!Array.isArray(keys)) keys = [
-                  String(keys)
-                ]; // separators
-                var keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator; // get namespace(s)
-                var _this$extractFromKey = this.extractFromKey(keys[keys.length - 1], options),
-                key = _this$extractFromKey.key,
-                namespaces = _this$extractFromKey.namespaces;
-                var namespace = namespaces[namespaces.length - 1]; // return key on CIMode
-                var lng = options.lng || this.language;
-                var appendNamespaceToCIMode = options.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
-                if (lng && lng.toLowerCase() === 'cimode') {
-                  if (appendNamespaceToCIMode) {
-                    var nsSeparator = options.nsSeparator || this.options.nsSeparator;
-                    return namespace + nsSeparator + key;
+              },
+              {
+                key: 'extractFromKey',
+                value: function extractFromKey(key, options) {
+                  var nsSeparator = options.nsSeparator || this.options.nsSeparator;
+                  if (nsSeparator === undefined) nsSeparator = ':';
+                  var keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator;
+                  var namespaces = options.ns || this.options.defaultNS;
+                  if (nsSeparator && key.indexOf(nsSeparator) > - 1) {
+                    var parts = key.split(nsSeparator);
+                    if (nsSeparator !== keySeparator || nsSeparator === keySeparator && this.options.ns.indexOf(parts[0]) > - 1) namespaces = parts.shift();
+                    key = parts.join(keySeparator);
                   }
-                  return key;
-                } // resolve from store
-
-                var resolved = this.resolve(keys, options);
-                var res = resolved && resolved.res;
-                var resUsedKey = resolved && resolved.usedKey || key;
-                var resExactUsedKey = resolved && resolved.exactUsedKey || key;
-                var resType = Object.prototype.toString.apply(res);
-                var noObject = [
-                  '[object Number]',
-                  '[object Function]',
-                  '[object RegExp]'
-                ];
-                var joinArrays = options.joinArrays !== undefined ? options.joinArrays : this.options.joinArrays; // object
-                var handleAsObjectInI18nFormat = !this.i18nFormat || this.i18nFormat.handleAsObject;
-                var handleAsObject = typeof res !== 'string' && typeof res !== 'boolean' && typeof res !== 'number';
-                if (handleAsObjectInI18nFormat && res && handleAsObject && noObject.indexOf(resType) < 0 && !(typeof joinArrays === 'string' && resType === '[object Array]')) {
-                  if (!options.returnObjects && !this.options.returnObjects) {
-                    this.logger.warn('accessing an object - but returnObjects options is not enabled!');
-                    return this.options.returnedObjectHandler ? this.options.returnedObjectHandler(resUsedKey, res, options) : 'key \''.concat(key, ' (').concat(this.language, ')\' returned an object instead of string.');
-                  } // if we got a separator we loop over children - else we just return object as is
-                  // as having it set to false means no hierarchy so no lookup for nested values
-
-                  if (keySeparator) {
-                    var resTypeIsArray = resType === '[object Array]';
-                    var copy$$1 = resTypeIsArray ? [
-                    ] : {
-                    }; // apply child translation on a copy
-                    /* eslint no-restricted-syntax: 0 */
-                    var newKeyToUse = resTypeIsArray ? resExactUsedKey : resUsedKey;
-                    for (var m in res) {
-                      if (Object.prototype.hasOwnProperty.call(res, m)) {
-                        var deepKey = ''.concat(newKeyToUse).concat(keySeparator).concat(m);
-                        copy$$1[m] = this.translate(deepKey, _objectSpread({
-                        }, options, {
-                          joinArrays: false,
-                          ns: namespaces
-                        }));
-                        if (copy$$1[m] === deepKey) copy$$1[m] = res[m]; // if nothing found use orginal value as fallback
-                      }
-                    }
-                    res = copy$$1;
-                  }
-                } else if (handleAsObjectInI18nFormat && typeof joinArrays === 'string' && resType === '[object Array]') {
-                  // array special treatment
-                  res = res.join(joinArrays);
-                  if (res) res = this.extendTranslation(res, keys, options);
-                } else {
-                  // string, empty or null
-                  var usedDefault = false;
-                  var usedKey = false; // fallback value
-                  if (!this.isValidLookup(res) && options.defaultValue !== undefined) {
-                    usedDefault = true;
-                    if (options.count !== undefined) {
-                      var suffix = this.pluralResolver.getSuffix(lng, options.count);
-                      res = options['defaultValue'.concat(suffix)];
-                    }
-                    if (!res) res = options.defaultValue;
-                  }
-                  if (!this.isValidLookup(res)) {
-                    usedKey = true;
-                    res = key;
-                  } // save missing
-
-                  var updateMissing = options.defaultValue && options.defaultValue !== res && this.options.updateMissing;
-                  if (usedKey || usedDefault || updateMissing) {
-                    this.logger.log(updateMissing ? 'updateKey' : 'missingKey', lng, namespace, key, updateMissing ? options.defaultValue : res);
-                    var lngs = [
-                    ];
-                    var fallbackLngs = this.languageUtils.getFallbackCodes(this.options.fallbackLng, options.lng || this.language);
-                    if (this.options.saveMissingTo === 'fallback' && fallbackLngs && fallbackLngs[0]) {
-                      for (var i = 0; i < fallbackLngs.length; i++) {
-                        lngs.push(fallbackLngs[i]);
-                      }
-                    } else if (this.options.saveMissingTo === 'all') {
-                      lngs = this.languageUtils.toResolveHierarchy(options.lng || this.language);
-                    } else {
-                      lngs.push(options.lng || this.language);
-                    }
-                    var send = function send(l, k) {
-                      if (_this2.options.missingKeyHandler) {
-                        _this2.options.missingKeyHandler(l, namespace, k, updateMissing ? options.defaultValue : res, updateMissing, options);
-                      } else if (_this2.backendConnector && _this2.backendConnector.saveMissing) {
-                        _this2.backendConnector.saveMissing(l, namespace, k, updateMissing ? options.defaultValue : res, updateMissing, options);
-                      }
-                      _this2.emit('missingKey', l, namespace, k, res);
-                    };
-                    if (this.options.saveMissing) {
-                      var needsPluralHandling = options.count !== undefined && typeof options.count !== 'string';
-                      if (this.options.saveMissingPlurals && needsPluralHandling) {
-                        lngs.forEach(function (l) {
-                          var plurals = _this2.pluralResolver.getPluralFormsOfKey(l, key);
-                          plurals.forEach(function (p) {
-                            return send([l], p);
-                          });
-                        });
-                      } else {
-                        send(lngs, key);
-                      }
-                    }
-                  } // extend
-
-                  res = this.extendTranslation(res, keys, options, resolved); // append namespace if still key
-                  if (usedKey && res === key && this.options.appendNamespaceToMissingKey) res = ''.concat(namespace, ':').concat(key); // parseMissingKeyHandler
-                  if (usedKey && this.options.parseMissingKeyHandler) res = this.options.parseMissingKeyHandler(res);
-                } // return
-
-                return res;
-              }
-            },
-            {
-              key: 'extendTranslation',
-              value: function extendTranslation(res, key, options, resolved) {
-                var _this3 = this;
-                if (this.i18nFormat && this.i18nFormat.parse) {
-                  res = this.i18nFormat.parse(res, options, resolved.usedLng, resolved.usedNS, resolved.usedKey, {
-                    resolved: resolved
-                  });
-                } else if (!options.skipInterpolation) {
-                  // i18next.parsing
-                  if (options.interpolation) this.interpolator.init(_objectSpread({
-                  }, options, {
-                    interpolation: _objectSpread({
-                    }, this.options.interpolation, options.interpolation)
-                  })); // interpolate
-                  var data = options.replace && typeof options.replace !== 'string' ? options.replace : options;
-                  if (this.options.interpolation.defaultVariables) data = _objectSpread({
-                  }, this.options.interpolation.defaultVariables, data);
-                  res = this.interpolator.interpolate(res, data, options.lng || this.language, options); // nesting
-                  if (options.nest !== false) res = this.interpolator.nest(res, function () {
-                    return _this3.translate.apply(_this3, arguments);
-                  }, options);
-                  if (options.interpolation) this.interpolator.reset();
-                } // post process
-
-                var postProcess = options.postProcess || this.options.postProcess;
-                var postProcessorNames = typeof postProcess === 'string' ? [
-                  postProcess
-                ] : postProcess;
-                if (res !== undefined && res !== null && postProcessorNames && postProcessorNames.length && options.applyPostProcessor !== false) {
-                  res = postProcessor.handle(postProcessorNames, res, key, this.options && this.options.postProcessPassResolved ? _objectSpread({
-                    i18nResolved: resolved
-                  }, options) : options, this);
+                  if (typeof namespaces === 'string') namespaces = [
+                    namespaces
+                  ];
+                  return {
+                    key: key,
+                    namespaces: namespaces
+                  };
                 }
-                return res;
-              }
-            },
-            {
-              key: 'resolve',
-              value: function resolve(keys) {
-                var _this4 = this;
-                var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-                };
-                var found;
-                var usedKey; // plain key
-                var exactUsedKey; // key with context / plural
-                var usedLng;
-                var usedNS;
-                if (typeof keys === 'string') keys = [
-                  keys
-                ]; // forEach possible key
-                keys.forEach(function (k) {
-                  if (_this4.isValidLookup(found)) return;
-                  var extracted = _this4.extractFromKey(k, options);
-                  var key = extracted.key;
-                  usedKey = key;
-                  var namespaces = extracted.namespaces;
-                  if (_this4.options.fallbackNS) namespaces = namespaces.concat(_this4.options.fallbackNS);
-                  var needsPluralHandling = options.count !== undefined && typeof options.count !== 'string';
-                  var needsContextHandling = options.context !== undefined && typeof options.context === 'string' && options.context !== '';
-                  var codes = options.lngs ? options.lngs : _this4.languageUtils.toResolveHierarchy(options.lng || _this4.language, options.fallbackLng);
-                  namespaces.forEach(function (ns) {
-                    if (_this4.isValidLookup(found)) return;
-                    usedNS = ns;
-                    if (!checkedLoadedFor[''.concat(codes[0], '-').concat(ns)] && _this4.utils && _this4.utils.hasLoadedNamespace && !_this4.utils.hasLoadedNamespace(usedNS)) {
-                      checkedLoadedFor[''.concat(codes[0], '-').concat(ns)] = true;
-                      _this4.logger.warn('key "'.concat(usedKey, '" for namespace "').concat(usedNS, '" for languages "').concat(codes.join(', '), '" won\'t get resolved as namespace was not yet loaded'), 'This means something IS WRONG in your application setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!');
+              },
+              {
+                key: 'translate',
+                value: function translate(keys, options) {
+                  var _this2 = this;
+                  if (_typeof(options) !== 'object' && this.options.overloadTranslationOptionHandler) {
+                    /* eslint prefer-rest-params: 0 */
+                    options = this.options.overloadTranslationOptionHandler(arguments);
+                  }
+                  if (!options) options = {
+                  }; // non valid keys handling
+                  if (keys === undefined || keys === null                /* || keys === ''*/
+                  ) return '';
+                  if (!Array.isArray(keys)) keys = [
+                    String(keys)
+                  ]; // separators
+                  var keySeparator = options.keySeparator !== undefined ? options.keySeparator : this.options.keySeparator; // get namespace(s)
+                  var _this$extractFromKey = this.extractFromKey(keys[keys.length - 1], options),
+                    key = _this$extractFromKey.key,
+                    namespaces = _this$extractFromKey.namespaces;
+                  var namespace = namespaces[namespaces.length - 1]; // return key on CIMode
+                  var lng = options.lng || this.language;
+                  var appendNamespaceToCIMode = options.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
+                  if (lng && lng.toLowerCase() === 'cimode') {
+                    if (appendNamespaceToCIMode) {
+                      var nsSeparator = options.nsSeparator || this.options.nsSeparator;
+                      return namespace + nsSeparator + key;
                     }
-                    codes.forEach(function (code) {
-                      if (_this4.isValidLookup(found)) return;
-                      usedLng = code;
-                      var finalKey = key;
-                      var finalKeys = [
-                        finalKey
-                      ];
-                      if (_this4.i18nFormat && _this4.i18nFormat.addLookupKeys) {
-                        _this4.i18nFormat.addLookupKeys(finalKeys, key, code, ns, options);
-                      } else {
-                        var pluralSuffix;
-                        if (needsPluralHandling) pluralSuffix = _this4.pluralResolver.getSuffix(code, options.count); // fallback for plural if context not found
-                        if (needsPluralHandling && needsContextHandling) finalKeys.push(finalKey + pluralSuffix); // get key for context if needed
-                        if (needsContextHandling) finalKeys.push(finalKey += ''.concat(_this4.options.contextSeparator).concat(options.context)); // get key for plural if needed
-                        if (needsPluralHandling) finalKeys.push(finalKey += pluralSuffix);
-                      } // iterate over finalKeys starting with most specific pluralkey (-> contextkey only) -> singularkey only
+                    return key;
+                  } // resolve from store
 
-                      var possibleKey;
-                      /* eslint no-cond-assign: 0 */
-                      while (possibleKey = finalKeys.pop()) {
-                        if (!_this4.isValidLookup(found)) {
-                          exactUsedKey = possibleKey;
-                          found = _this4.getResource(code, ns, possibleKey, options);
+                  var resolved = this.resolve(keys, options);
+                  var res = resolved && resolved.res;
+                  var resUsedKey = resolved && resolved.usedKey || key;
+                  var resExactUsedKey = resolved && resolved.exactUsedKey || key;
+                  var resType = Object.prototype.toString.apply(res);
+                  var noObject = [
+                    '[object Number]',
+                    '[object Function]',
+                    '[object RegExp]'
+                  ];
+                  var joinArrays = options.joinArrays !== undefined ? options.joinArrays : this.options.joinArrays; // object
+                  var handleAsObjectInI18nFormat = !this.i18nFormat || this.i18nFormat.handleAsObject;
+                  var handleAsObject = typeof res !== 'string' && typeof res !== 'boolean' && typeof res !== 'number';
+                  if (handleAsObjectInI18nFormat && res && handleAsObject && noObject.indexOf(resType) < 0 && !(typeof joinArrays === 'string' && resType === '[object Array]')) {
+                    if (!options.returnObjects && !this.options.returnObjects) {
+                      this.logger.warn('accessing an object - but returnObjects options is not enabled!');
+                      return this.options.returnedObjectHandler ? this.options.returnedObjectHandler(resUsedKey, res, options) : 'key \''.concat(key, ' (').concat(this.language, ')\' returned an object instead of string.');
+                    } // if we got a separator we loop over children - else we just return object as is
+                    // as having it set to false means no hierarchy so no lookup for nested values
+
+                    if (keySeparator) {
+                      var resTypeIsArray = resType === '[object Array]';
+                      var copy$$1 = resTypeIsArray ? [
+                      ] : {
+                      }; // apply child translation on a copy
+                      /* eslint no-restricted-syntax: 0 */
+                      var newKeyToUse = resTypeIsArray ? resExactUsedKey : resUsedKey;
+                      for (var m in res) {
+                        if (Object.prototype.hasOwnProperty.call(res, m)) {
+                          var deepKey = ''.concat(newKeyToUse).concat(keySeparator).concat(m);
+                          copy$$1[m] = this.translate(deepKey, _objectSpread({
+                          }, options, {
+                            joinArrays: false,
+                            ns: namespaces
+                          }));
+                          if (copy$$1[m] === deepKey) copy$$1[m] = res[m]; // if nothing found use orginal value as fallback
                         }
                       }
+                      res = copy$$1;
+                    }
+                  } else if (handleAsObjectInI18nFormat && typeof joinArrays === 'string' && resType === '[object Array]') {
+                    // array special treatment
+                    res = res.join(joinArrays);
+                    if (res) res = this.extendTranslation(res, keys, options);
+                  } else {
+                    // string, empty or null
+                    var usedDefault = false;
+                    var usedKey = false; // fallback value
+                    if (!this.isValidLookup(res) && options.defaultValue !== undefined) {
+                      usedDefault = true;
+                      if (options.count !== undefined) {
+                        var suffix = this.pluralResolver.getSuffix(lng, options.count);
+                        res = options['defaultValue'.concat(suffix)];
+                      }
+                      if (!res) res = options.defaultValue;
+                    }
+                    if (!this.isValidLookup(res)) {
+                      usedKey = true;
+                      res = key;
+                    } // save missing
+
+                    var updateMissing = options.defaultValue && options.defaultValue !== res && this.options.updateMissing;
+                    if (usedKey || usedDefault || updateMissing) {
+                      this.logger.log(updateMissing ? 'updateKey' : 'missingKey', lng, namespace, key, updateMissing ? options.defaultValue : res);
+                      var lngs = [
+                      ];
+                      var fallbackLngs = this.languageUtils.getFallbackCodes(this.options.fallbackLng, options.lng || this.language);
+                      if (this.options.saveMissingTo === 'fallback' && fallbackLngs && fallbackLngs[0]) {
+                        for (var i = 0; i < fallbackLngs.length; i++) {
+                          lngs.push(fallbackLngs[i]);
+                        }
+                      } else if (this.options.saveMissingTo === 'all') {
+                        lngs = this.languageUtils.toResolveHierarchy(options.lng || this.language);
+                      } else {
+                        lngs.push(options.lng || this.language);
+                      }
+                      var send = function send(l, k) {
+                        if (_this2.options.missingKeyHandler) {
+                          _this2.options.missingKeyHandler(l, namespace, k, updateMissing ? options.defaultValue : res, updateMissing, options);
+                        } else if (_this2.backendConnector && _this2.backendConnector.saveMissing) {
+                          _this2.backendConnector.saveMissing(l, namespace, k, updateMissing ? options.defaultValue : res, updateMissing, options);
+                        }
+                        _this2.emit('missingKey', l, namespace, k, res);
+                      };
+                      if (this.options.saveMissing) {
+                        var needsPluralHandling = options.count !== undefined && typeof options.count !== 'string';
+                        if (this.options.saveMissingPlurals && needsPluralHandling) {
+                          lngs.forEach(function (l) {
+                            var plurals = _this2.pluralResolver.getPluralFormsOfKey(l, key);
+                            plurals.forEach(function (p) {
+                              return send([l], p);
+                            });
+                          });
+                        } else {
+                          send(lngs, key);
+                        }
+                      }
+                    } // extend
+
+                    res = this.extendTranslation(res, keys, options, resolved); // append namespace if still key
+                    if (usedKey && res === key && this.options.appendNamespaceToMissingKey) res = ''.concat(namespace, ':').concat(key); // parseMissingKeyHandler
+                    if (usedKey && this.options.parseMissingKeyHandler) res = this.options.parseMissingKeyHandler(res);
+                  } // return
+
+                  return res;
+                }
+              },
+              {
+                key: 'extendTranslation',
+                value: function extendTranslation(res, key, options, resolved) {
+                  var _this3 = this;
+                  if (this.i18nFormat && this.i18nFormat.parse) {
+                    res = this.i18nFormat.parse(res, options, resolved.usedLng, resolved.usedNS, resolved.usedKey, {
+                      resolved: resolved
+                    });
+                  } else if (!options.skipInterpolation) {
+                    // i18next.parsing
+                    if (options.interpolation) this.interpolator.init(_objectSpread({
+                    }, options, {
+                      interpolation: _objectSpread({
+                      }, this.options.interpolation, options.interpolation)
+                    })); // interpolate
+                    var data = options.replace && typeof options.replace !== 'string' ? options.replace : options;
+                    if (this.options.interpolation.defaultVariables) data = _objectSpread({
+                    }, this.options.interpolation.defaultVariables, data);
+                    res = this.interpolator.interpolate(res, data, options.lng || this.language, options); // nesting
+                    if (options.nest !== false) res = this.interpolator.nest(res, function () {
+                      return _this3.translate.apply(_this3, arguments);
+                    }, options);
+                    if (options.interpolation) this.interpolator.reset();
+                  } // post process
+
+                  var postProcess = options.postProcess || this.options.postProcess;
+                  var postProcessorNames = typeof postProcess === 'string' ? [
+                    postProcess
+                  ] : postProcess;
+                  if (res !== undefined && res !== null && postProcessorNames && postProcessorNames.length && options.applyPostProcessor !== false) {
+                    res = postProcessor.handle(postProcessorNames, res, key, this.options && this.options.postProcessPassResolved ? _objectSpread({
+                      i18nResolved: resolved
+                    }, options) : options, this);
+                  }
+                  return res;
+                }
+              },
+              {
+                key: 'resolve',
+                value: function resolve(keys) {
+                  var _this4 = this;
+                  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                  };
+                  var found;
+                  var usedKey; // plain key
+                  var exactUsedKey; // key with context / plural
+                  var usedLng;
+                  var usedNS;
+                  if (typeof keys === 'string') keys = [
+                    keys
+                  ]; // forEach possible key
+                  keys.forEach(function (k) {
+                    if (_this4.isValidLookup(found)) return;
+                    var extracted = _this4.extractFromKey(k, options);
+                    var key = extracted.key;
+                    usedKey = key;
+                    var namespaces = extracted.namespaces;
+                    if (_this4.options.fallbackNS) namespaces = namespaces.concat(_this4.options.fallbackNS);
+                    var needsPluralHandling = options.count !== undefined && typeof options.count !== 'string';
+                    var needsContextHandling = options.context !== undefined && typeof options.context === 'string' && options.context !== '';
+                    var codes = options.lngs ? options.lngs : _this4.languageUtils.toResolveHierarchy(options.lng || _this4.language, options.fallbackLng);
+                    namespaces.forEach(function (ns) {
+                      if (_this4.isValidLookup(found)) return;
+                      usedNS = ns;
+                      if (!checkedLoadedFor[''.concat(codes[0], '-').concat(ns)] && _this4.utils && _this4.utils.hasLoadedNamespace && !_this4.utils.hasLoadedNamespace(usedNS)) {
+                        checkedLoadedFor[''.concat(codes[0], '-').concat(ns)] = true;
+                        _this4.logger.warn('key "'.concat(usedKey, '" for namespace "').concat(usedNS, '" for languages "').concat(codes.join(', '), '" won\'t get resolved as namespace was not yet loaded'), 'This means something IS WRONG in your application setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!');
+                      }
+                      codes.forEach(function (code) {
+                        if (_this4.isValidLookup(found)) return;
+                        usedLng = code;
+                        var finalKey = key;
+                        var finalKeys = [
+                          finalKey
+                        ];
+                        if (_this4.i18nFormat && _this4.i18nFormat.addLookupKeys) {
+                          _this4.i18nFormat.addLookupKeys(finalKeys, key, code, ns, options);
+                        } else {
+                          var pluralSuffix;
+                          if (needsPluralHandling) pluralSuffix = _this4.pluralResolver.getSuffix(code, options.count); // fallback for plural if context not found
+                          if (needsPluralHandling && needsContextHandling) finalKeys.push(finalKey + pluralSuffix); // get key for context if needed
+                          if (needsContextHandling) finalKeys.push(finalKey += ''.concat(_this4.options.contextSeparator).concat(options.context)); // get key for plural if needed
+                          if (needsPluralHandling) finalKeys.push(finalKey += pluralSuffix);
+                        } // iterate over finalKeys starting with most specific pluralkey (-> contextkey only) -> singularkey only
+
+                        var possibleKey;
+                        /* eslint no-cond-assign: 0 */
+                        while (possibleKey = finalKeys.pop()) {
+                          if (!_this4.isValidLookup(found)) {
+                            exactUsedKey = possibleKey;
+                            found = _this4.getResource(code, ns, possibleKey, options);
+                          }
+                        }
+                      });
                     });
                   });
-                });
-                return {
-                  res: found,
-                  usedKey: usedKey,
-                  exactUsedKey: exactUsedKey,
-                  usedLng: usedLng,
-                  usedNS: usedNS
-                };
+                  return {
+                    res: found,
+                    usedKey: usedKey,
+                    exactUsedKey: exactUsedKey,
+                    usedLng: usedLng,
+                    usedNS: usedNS
+                  };
+                }
+              },
+              {
+                key: 'isValidLookup',
+                value: function isValidLookup(res) {
+                  return res !== undefined && !(!this.options.returnNull && res === null) && !(!this.options.returnEmptyString && res === '');
+                }
+              },
+              {
+                key: 'getResource',
+                value: function getResource(code, ns, key) {
+                  var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
+                  };
+                  if (this.i18nFormat && this.i18nFormat.getResource) return this.i18nFormat.getResource(code, ns, key, options);
+                  return this.resourceStore.getResource(code, ns, key, options);
+                }
               }
-            },
-            {
-              key: 'isValidLookup',
-              value: function isValidLookup(res) {
-                return res !== undefined && !(!this.options.returnNull && res === null) && !(!this.options.returnEmptyString && res === '');
-              }
-            },
-            {
-              key: 'getResource',
-              value: function getResource(code, ns, key) {
-                var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
-                };
-                if (this.i18nFormat && this.i18nFormat.getResource) return this.i18nFormat.getResource(code, ns, key, options);
-                return this.resourceStore.getResource(code, ns, key, options);
-              }
-            }
-          ]);
-          return Translator;
-        }(EventEmitter);
+            ]);
+            return Translator;
+          }(EventEmitter);
         function capitalize(string) {
           return string.charAt(0).toUpperCase() + string.slice(1);
         }
         var LanguageUtil =        /*#__PURE__*/
-        function () {
-          function LanguageUtil(options) {
-            _classCallCheck(this, LanguageUtil);
-            this.options = options;
-            this.whitelist = this.options.whitelist || false;
-            this.logger = baseLogger.create('languageUtils');
-          }
-          _createClass(LanguageUtil, [
-            {
-              key: 'getScriptPartFromCode',
-              value: function getScriptPartFromCode(code) {
-                if (!code || code.indexOf('-') < 0) return null;
-                var p = code.split('-');
-                if (p.length === 2) return null;
-                p.pop();
-                return this.formatLanguageCode(p.join('-'));
-              }
-            },
-            {
-              key: 'getLanguagePartFromCode',
-              value: function getLanguagePartFromCode(code) {
-                if (!code || code.indexOf('-') < 0) return code;
-                var p = code.split('-');
-                return this.formatLanguageCode(p[0]);
-              }
-            },
-            {
-              key: 'formatLanguageCode',
-              value: function formatLanguageCode(code) {
-                // http://www.iana.org/assignments/language-tags/language-tags.xhtml
-                if (typeof code === 'string' && code.indexOf('-') > - 1) {
-                  var specialCases = [
-                    'hans',
-                    'hant',
-                    'latn',
-                    'cyrl',
-                    'cans',
-                    'mong',
-                    'arab'
-                  ];
-                  var p = code.split('-');
-                  if (this.options.lowerCaseLng) {
-                    p = p.map(function (part) {
-                      return part.toLowerCase();
-                    });
-                  } else if (p.length === 2) {
-                    p[0] = p[0].toLowerCase();
-                    p[1] = p[1].toUpperCase();
-                    if (specialCases.indexOf(p[1].toLowerCase()) > - 1) p[1] = capitalize(p[1].toLowerCase());
-                  } else if (p.length === 3) {
-                    p[0] = p[0].toLowerCase(); // if lenght 2 guess it's a country
-                    if (p[1].length === 2) p[1] = p[1].toUpperCase();
-                    if (p[0] !== 'sgn' && p[2].length === 2) p[2] = p[2].toUpperCase();
-                    if (specialCases.indexOf(p[1].toLowerCase()) > - 1) p[1] = capitalize(p[1].toLowerCase());
-                    if (specialCases.indexOf(p[2].toLowerCase()) > - 1) p[2] = capitalize(p[2].toLowerCase());
-                  }
-                  return p.join('-');
-                }
-                return this.options.cleanCode || this.options.lowerCaseLng ? code.toLowerCase() : code;
-              }
-            },
-            {
-              key: 'isWhitelisted',
-              value: function isWhitelisted(code) {
-                if (this.options.load === 'languageOnly' || this.options.nonExplicitWhitelist) {
-                  code = this.getLanguagePartFromCode(code);
-                }
-                return !this.whitelist || !this.whitelist.length || this.whitelist.indexOf(code) > - 1;
-              }
-            },
-            {
-              key: 'getFallbackCodes',
-              value: function getFallbackCodes(fallbacks, code) {
-                if (!fallbacks) return [];
-                if (typeof fallbacks === 'string') fallbacks = [
-                  fallbacks
-                ];
-                if (Object.prototype.toString.apply(fallbacks) === '[object Array]') return fallbacks;
-                if (!code) return fallbacks['default'] || [
-                ]; // asume we have an object defining fallbacks
-                var found = fallbacks[code];
-                if (!found) found = fallbacks[this.getScriptPartFromCode(code)];
-                if (!found) found = fallbacks[this.formatLanguageCode(code)];
-                if (!found) found = fallbacks['default'];
-                return found || [
-                ];
-              }
-            },
-            {
-              key: 'toResolveHierarchy',
-              value: function toResolveHierarchy(code, fallbackCode) {
-                var _this = this;
-                var fallbackCodes = this.getFallbackCodes(fallbackCode || this.options.fallbackLng || [
-                ], code);
-                var codes = [
-                ];
-                var addCode = function addCode(c) {
-                  if (!c) return;
-                  if (_this.isWhitelisted(c)) {
-                    codes.push(c);
-                  } else {
-                    _this.logger.warn('rejecting non-whitelisted language code: '.concat(c));
-                  }
-                };
-                if (typeof code === 'string' && code.indexOf('-') > - 1) {
-                  if (this.options.load !== 'languageOnly') addCode(this.formatLanguageCode(code));
-                  if (this.options.load !== 'languageOnly' && this.options.load !== 'currentOnly') addCode(this.getScriptPartFromCode(code));
-                  if (this.options.load !== 'currentOnly') addCode(this.getLanguagePartFromCode(code));
-                } else if (typeof code === 'string') {
-                  addCode(this.formatLanguageCode(code));
-                }
-                fallbackCodes.forEach(function (fc) {
-                  if (codes.indexOf(fc) < 0) addCode(_this.formatLanguageCode(fc));
-                });
-                return codes;
-              }
+          function () {
+            function LanguageUtil(options) {
+              _classCallCheck(this, LanguageUtil);
+              this.options = options;
+              this.whitelist = this.options.whitelist || false;
+              this.logger = baseLogger.create('languageUtils');
             }
-          ]);
-          return LanguageUtil;
-        }();
+            _createClass(LanguageUtil, [
+              {
+                key: 'getScriptPartFromCode',
+                value: function getScriptPartFromCode(code) {
+                  if (!code || code.indexOf('-') < 0) return null;
+                  var p = code.split('-');
+                  if (p.length === 2) return null;
+                  p.pop();
+                  return this.formatLanguageCode(p.join('-'));
+                }
+              },
+              {
+                key: 'getLanguagePartFromCode',
+                value: function getLanguagePartFromCode(code) {
+                  if (!code || code.indexOf('-') < 0) return code;
+                  var p = code.split('-');
+                  return this.formatLanguageCode(p[0]);
+                }
+              },
+              {
+                key: 'formatLanguageCode',
+                value: function formatLanguageCode(code) {
+                  // http://www.iana.org/assignments/language-tags/language-tags.xhtml
+                  if (typeof code === 'string' && code.indexOf('-') > - 1) {
+                    var specialCases = [
+                      'hans',
+                      'hant',
+                      'latn',
+                      'cyrl',
+                      'cans',
+                      'mong',
+                      'arab'
+                    ];
+                    var p = code.split('-');
+                    if (this.options.lowerCaseLng) {
+                      p = p.map(function (part) {
+                        return part.toLowerCase();
+                      });
+                    } else if (p.length === 2) {
+                      p[0] = p[0].toLowerCase();
+                      p[1] = p[1].toUpperCase();
+                      if (specialCases.indexOf(p[1].toLowerCase()) > - 1) p[1] = capitalize(p[1].toLowerCase());
+                    } else if (p.length === 3) {
+                      p[0] = p[0].toLowerCase(); // if lenght 2 guess it's a country
+                      if (p[1].length === 2) p[1] = p[1].toUpperCase();
+                      if (p[0] !== 'sgn' && p[2].length === 2) p[2] = p[2].toUpperCase();
+                      if (specialCases.indexOf(p[1].toLowerCase()) > - 1) p[1] = capitalize(p[1].toLowerCase());
+                      if (specialCases.indexOf(p[2].toLowerCase()) > - 1) p[2] = capitalize(p[2].toLowerCase());
+                    }
+                    return p.join('-');
+                  }
+                  return this.options.cleanCode || this.options.lowerCaseLng ? code.toLowerCase() : code;
+                }
+              },
+              {
+                key: 'isWhitelisted',
+                value: function isWhitelisted(code) {
+                  if (this.options.load === 'languageOnly' || this.options.nonExplicitWhitelist) {
+                    code = this.getLanguagePartFromCode(code);
+                  }
+                  return !this.whitelist || !this.whitelist.length || this.whitelist.indexOf(code) > - 1;
+                }
+              },
+              {
+                key: 'getFallbackCodes',
+                value: function getFallbackCodes(fallbacks, code) {
+                  if (!fallbacks) return [];
+                  if (typeof fallbacks === 'string') fallbacks = [
+                    fallbacks
+                  ];
+                  if (Object.prototype.toString.apply(fallbacks) === '[object Array]') return fallbacks;
+                  if (!code) return fallbacks['default'] || [
+                  ]; // asume we have an object defining fallbacks
+                  var found = fallbacks[code];
+                  if (!found) found = fallbacks[this.getScriptPartFromCode(code)];
+                  if (!found) found = fallbacks[this.formatLanguageCode(code)];
+                  if (!found) found = fallbacks['default'];
+                  return found || [
+                  ];
+                }
+              },
+              {
+                key: 'toResolveHierarchy',
+                value: function toResolveHierarchy(code, fallbackCode) {
+                  var _this = this;
+                  var fallbackCodes = this.getFallbackCodes(fallbackCode || this.options.fallbackLng || [
+                  ], code);
+                  var codes = [
+                  ];
+                  var addCode = function addCode(c) {
+                    if (!c) return;
+                    if (_this.isWhitelisted(c)) {
+                      codes.push(c);
+                    } else {
+                      _this.logger.warn('rejecting non-whitelisted language code: '.concat(c));
+                    }
+                  };
+                  if (typeof code === 'string' && code.indexOf('-') > - 1) {
+                    if (this.options.load !== 'languageOnly') addCode(this.formatLanguageCode(code));
+                    if (this.options.load !== 'languageOnly' && this.options.load !== 'currentOnly') addCode(this.getScriptPartFromCode(code));
+                    if (this.options.load !== 'currentOnly') addCode(this.getLanguagePartFromCode(code));
+                  } else if (typeof code === 'string') {
+                    addCode(this.formatLanguageCode(code));
+                  }
+                  fallbackCodes.forEach(function (fc) {
+                    if (codes.indexOf(fc) < 0) addCode(_this.formatLanguageCode(fc));
+                  });
+                  return codes;
+                }
+              }
+            ]);
+            return LanguageUtil;
+          }();
         /* eslint-disable */
         var sets = [
           {
@@ -31203,267 +31200,267 @@
           return rules;
         }
         var PluralResolver =        /*#__PURE__*/
-        function () {
-          function PluralResolver(languageUtils) {
-            var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-            };
-            _classCallCheck(this, PluralResolver);
-            this.languageUtils = languageUtils;
-            this.options = options;
-            this.logger = baseLogger.create('pluralResolver');
-            this.rules = createRules();
-          }
-          _createClass(PluralResolver, [
-            {
-              key: 'addRule',
-              value: function addRule(lng, obj) {
-                this.rules[lng] = obj;
-              }
-            },
-            {
-              key: 'getRule',
-              value: function getRule(code) {
-                return this.rules[code] || this.rules[this.languageUtils.getLanguagePartFromCode(code)];
-              }
-            },
-            {
-              key: 'needsPlural',
-              value: function needsPlural(code) {
-                var rule = this.getRule(code);
-                return rule && rule.numbers.length > 1;
-              }
-            },
-            {
-              key: 'getPluralFormsOfKey',
-              value: function getPluralFormsOfKey(code, key) {
-                var _this = this;
-                var ret = [
-                ];
-                var rule = this.getRule(code);
-                if (!rule) return ret;
-                rule.numbers.forEach(function (n) {
-                  var suffix = _this.getSuffix(code, n);
-                  ret.push(''.concat(key).concat(suffix));
-                });
-                return ret;
-              }
-            },
-            {
-              key: 'getSuffix',
-              value: function getSuffix(code, count) {
-                var _this2 = this;
-                var rule = this.getRule(code);
-                if (rule) {
-                  // if (rule.numbers.length === 1) return ''; // only singular
-                  var idx = rule.noAbs ? rule.plurals(count) : rule.plurals(Math.abs(count));
-                  var suffix = rule.numbers[idx]; // special treatment for lngs only having singular and plural
-                  if (this.options.simplifyPluralSuffix && rule.numbers.length === 2 && rule.numbers[0] === 1) {
-                    if (suffix === 2) {
-                      suffix = 'plural';
-                    } else if (suffix === 1) {
-                      suffix = '';
-                    }
-                  }
-                  var returnSuffix = function returnSuffix() {
-                    return _this2.options.prepend && suffix.toString() ? _this2.options.prepend + suffix.toString() : suffix.toString();
-                  }; // COMPATIBILITY JSON
-                  // v1
-                  if (this.options.compatibilityJSON === 'v1') {
-                    if (suffix === 1) return '';
-                    if (typeof suffix === 'number') return '_plural_'.concat(suffix.toString());
-                    return returnSuffix();
-                  } else if (                  /* v2 */
-                  this.options.compatibilityJSON === 'v2') {
-                    return returnSuffix();
-                  } else if (                  /* v3 - gettext index */
-                  this.options.simplifyPluralSuffix && rule.numbers.length === 2 && rule.numbers[0] === 1) {
-                    return returnSuffix();
-                  }
-                  return this.options.prepend && idx.toString() ? this.options.prepend + idx.toString() : idx.toString();
-                }
-                this.logger.warn('no plural rule found for: '.concat(code));
-                return '';
-              }
+          function () {
+            function PluralResolver(languageUtils) {
+              var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+              };
+              _classCallCheck(this, PluralResolver);
+              this.languageUtils = languageUtils;
+              this.options = options;
+              this.logger = baseLogger.create('pluralResolver');
+              this.rules = createRules();
             }
-          ]);
-          return PluralResolver;
-        }();
+            _createClass(PluralResolver, [
+              {
+                key: 'addRule',
+                value: function addRule(lng, obj) {
+                  this.rules[lng] = obj;
+                }
+              },
+              {
+                key: 'getRule',
+                value: function getRule(code) {
+                  return this.rules[code] || this.rules[this.languageUtils.getLanguagePartFromCode(code)];
+                }
+              },
+              {
+                key: 'needsPlural',
+                value: function needsPlural(code) {
+                  var rule = this.getRule(code);
+                  return rule && rule.numbers.length > 1;
+                }
+              },
+              {
+                key: 'getPluralFormsOfKey',
+                value: function getPluralFormsOfKey(code, key) {
+                  var _this = this;
+                  var ret = [
+                  ];
+                  var rule = this.getRule(code);
+                  if (!rule) return ret;
+                  rule.numbers.forEach(function (n) {
+                    var suffix = _this.getSuffix(code, n);
+                    ret.push(''.concat(key).concat(suffix));
+                  });
+                  return ret;
+                }
+              },
+              {
+                key: 'getSuffix',
+                value: function getSuffix(code, count) {
+                  var _this2 = this;
+                  var rule = this.getRule(code);
+                  if (rule) {
+                    // if (rule.numbers.length === 1) return ''; // only singular
+                    var idx = rule.noAbs ? rule.plurals(count) : rule.plurals(Math.abs(count));
+                    var suffix = rule.numbers[idx]; // special treatment for lngs only having singular and plural
+                    if (this.options.simplifyPluralSuffix && rule.numbers.length === 2 && rule.numbers[0] === 1) {
+                      if (suffix === 2) {
+                        suffix = 'plural';
+                      } else if (suffix === 1) {
+                        suffix = '';
+                      }
+                    }
+                    var returnSuffix = function returnSuffix() {
+                      return _this2.options.prepend && suffix.toString() ? _this2.options.prepend + suffix.toString() : suffix.toString();
+                    }; // COMPATIBILITY JSON
+                    // v1
+                    if (this.options.compatibilityJSON === 'v1') {
+                      if (suffix === 1) return '';
+                      if (typeof suffix === 'number') return '_plural_'.concat(suffix.toString());
+                      return returnSuffix();
+                    } else if (                  /* v2 */
+                      this.options.compatibilityJSON === 'v2') {
+                      return returnSuffix();
+                    } else if (                  /* v3 - gettext index */
+                      this.options.simplifyPluralSuffix && rule.numbers.length === 2 && rule.numbers[0] === 1) {
+                      return returnSuffix();
+                    }
+                    return this.options.prepend && idx.toString() ? this.options.prepend + idx.toString() : idx.toString();
+                  }
+                  this.logger.warn('no plural rule found for: '.concat(code));
+                  return '';
+                }
+              }
+            ]);
+            return PluralResolver;
+          }();
         var Interpolator =        /*#__PURE__*/
-        function () {
-          function Interpolator() {
-            var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-            };
-            _classCallCheck(this, Interpolator);
-            this.logger = baseLogger.create('interpolator');
-            this.options = options;
-            this.format = options.interpolation && options.interpolation.format || function (value) {
-              return value;
-            };
-            this.init(options);
-          }          /* eslint no-param-reassign: 0 */
+          function () {
+            function Interpolator() {
+              var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+              };
+              _classCallCheck(this, Interpolator);
+              this.logger = baseLogger.create('interpolator');
+              this.options = options;
+              this.format = options.interpolation && options.interpolation.format || function (value) {
+                return value;
+              };
+              this.init(options);
+            }          /* eslint no-param-reassign: 0 */
 
-          _createClass(Interpolator, [
-            {
-              key: 'init',
-              value: function init() {
-                var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-                };
-                if (!options.interpolation) options.interpolation = {
-                  escapeValue: true
-                };
-                var iOpts = options.interpolation;
-                this.escape = iOpts.escape !== undefined ? iOpts.escape : escape;
-                this.escapeValue = iOpts.escapeValue !== undefined ? iOpts.escapeValue : true;
-                this.useRawValueToEscape = iOpts.useRawValueToEscape !== undefined ? iOpts.useRawValueToEscape : false;
-                this.prefix = iOpts.prefix ? regexEscape(iOpts.prefix) : iOpts.prefixEscaped || '{{';
-                this.suffix = iOpts.suffix ? regexEscape(iOpts.suffix) : iOpts.suffixEscaped || '}}';
-                this.formatSeparator = iOpts.formatSeparator ? iOpts.formatSeparator : iOpts.formatSeparator || ',';
-                this.unescapePrefix = iOpts.unescapeSuffix ? '' : iOpts.unescapePrefix || '-';
-                this.unescapeSuffix = this.unescapePrefix ? '' : iOpts.unescapeSuffix || '';
-                this.nestingPrefix = iOpts.nestingPrefix ? regexEscape(iOpts.nestingPrefix) : iOpts.nestingPrefixEscaped || regexEscape('$t(');
-                this.nestingSuffix = iOpts.nestingSuffix ? regexEscape(iOpts.nestingSuffix) : iOpts.nestingSuffixEscaped || regexEscape(')');
-                this.maxReplaces = iOpts.maxReplaces ? iOpts.maxReplaces : 1000; // the regexp
-                this.resetRegExp();
-              }
-            },
-            {
-              key: 'reset',
-              value: function reset() {
-                if (this.options) this.init(this.options);
-              }
-            },
-            {
-              key: 'resetRegExp',
-              value: function resetRegExp() {
-                // the regexp
-                var regexpStr = ''.concat(this.prefix, '(.+?)').concat(this.suffix);
-                this.regexp = new RegExp(regexpStr, 'g');
-                var regexpUnescapeStr = ''.concat(this.prefix).concat(this.unescapePrefix, '(.+?)').concat(this.unescapeSuffix).concat(this.suffix);
-                this.regexpUnescape = new RegExp(regexpUnescapeStr, 'g');
-                var nestingRegexpStr = ''.concat(this.nestingPrefix, '(.+?)').concat(this.nestingSuffix);
-                this.nestingRegexp = new RegExp(nestingRegexpStr, 'g');
-              }
-            },
-            {
-              key: 'interpolate',
-              value: function interpolate(str, data, lng, options) {
-                var _this = this;
-                var match;
-                var value;
-                var replaces;
-                var defaultData = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {
-                };
-                function regexSafe(val) {
-                  return val.replace(/\$/g, '$$$$');
+            _createClass(Interpolator, [
+              {
+                key: 'init',
+                value: function init() {
+                  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+                  };
+                  if (!options.interpolation) options.interpolation = {
+                    escapeValue: true
+                  };
+                  var iOpts = options.interpolation;
+                  this.escape = iOpts.escape !== undefined ? iOpts.escape : escape;
+                  this.escapeValue = iOpts.escapeValue !== undefined ? iOpts.escapeValue : true;
+                  this.useRawValueToEscape = iOpts.useRawValueToEscape !== undefined ? iOpts.useRawValueToEscape : false;
+                  this.prefix = iOpts.prefix ? regexEscape(iOpts.prefix) : iOpts.prefixEscaped || '{{';
+                  this.suffix = iOpts.suffix ? regexEscape(iOpts.suffix) : iOpts.suffixEscaped || '}}';
+                  this.formatSeparator = iOpts.formatSeparator ? iOpts.formatSeparator : iOpts.formatSeparator || ',';
+                  this.unescapePrefix = iOpts.unescapeSuffix ? '' : iOpts.unescapePrefix || '-';
+                  this.unescapeSuffix = this.unescapePrefix ? '' : iOpts.unescapeSuffix || '';
+                  this.nestingPrefix = iOpts.nestingPrefix ? regexEscape(iOpts.nestingPrefix) : iOpts.nestingPrefixEscaped || regexEscape('$t(');
+                  this.nestingSuffix = iOpts.nestingSuffix ? regexEscape(iOpts.nestingSuffix) : iOpts.nestingSuffixEscaped || regexEscape(')');
+                  this.maxReplaces = iOpts.maxReplaces ? iOpts.maxReplaces : 1000; // the regexp
+                  this.resetRegExp();
                 }
-                var handleFormat = function handleFormat(key) {
-                  if (key.indexOf(_this.formatSeparator) < 0) {
-                    return getPathWithDefaults(data, defaultData, key);
+              },
+              {
+                key: 'reset',
+                value: function reset() {
+                  if (this.options) this.init(this.options);
+                }
+              },
+              {
+                key: 'resetRegExp',
+                value: function resetRegExp() {
+                  // the regexp
+                  var regexpStr = ''.concat(this.prefix, '(.+?)').concat(this.suffix);
+                  this.regexp = new RegExp(regexpStr, 'g');
+                  var regexpUnescapeStr = ''.concat(this.prefix).concat(this.unescapePrefix, '(.+?)').concat(this.unescapeSuffix).concat(this.suffix);
+                  this.regexpUnescape = new RegExp(regexpUnescapeStr, 'g');
+                  var nestingRegexpStr = ''.concat(this.nestingPrefix, '(.+?)').concat(this.nestingSuffix);
+                  this.nestingRegexp = new RegExp(nestingRegexpStr, 'g');
+                }
+              },
+              {
+                key: 'interpolate',
+                value: function interpolate(str, data, lng, options) {
+                  var _this = this;
+                  var match;
+                  var value;
+                  var replaces;
+                  var defaultData = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {
+                  };
+                  function regexSafe(val) {
+                    return val.replace(/\$/g, '$$$$');
                   }
-                  var p = key.split(_this.formatSeparator);
-                  var k = p.shift().trim();
-                  var f = p.join(_this.formatSeparator).trim();
-                  return _this.format(getPathWithDefaults(data, defaultData, k), f, lng);
-                };
-                this.resetRegExp();
-                var missingInterpolationHandler = options && options.missingInterpolationHandler || this.options.missingInterpolationHandler;
-                replaces = 0; // unescape if has unescapePrefix/Suffix
-                /* eslint no-cond-assign: 0 */
-                while (match = this.regexpUnescape.exec(str)) {
-                  value = handleFormat(match[1].trim());
-                  if (value === undefined) {
-                    if (typeof missingInterpolationHandler === 'function') {
-                      var temp = missingInterpolationHandler(str, match, options);
-                      value = typeof temp === 'string' ? temp : '';
-                    } else {
-                      this.logger.warn('missed to pass in variable '.concat(match[1], ' for interpolating ').concat(str));
-                      value = '';
+                  var handleFormat = function handleFormat(key) {
+                    if (key.indexOf(_this.formatSeparator) < 0) {
+                      return getPathWithDefaults(data, defaultData, key);
                     }
-                  } else if (typeof value !== 'string' && !this.useRawValueToEscape) {
-                    value = makeString(value);
-                  }
-                  str = str.replace(match[0], regexSafe(value));
-                  this.regexpUnescape.lastIndex = 0;
-                  replaces++;
-                  if (replaces >= this.maxReplaces) {
-                    break;
-                  }
-                }
-                replaces = 0; // regular escape on demand
-                while (match = this.regexp.exec(str)) {
-                  value = handleFormat(match[1].trim());
-                  if (value === undefined) {
-                    if (typeof missingInterpolationHandler === 'function') {
-                      var _temp = missingInterpolationHandler(str, match, options);
-                      value = typeof _temp === 'string' ? _temp : '';
-                    } else {
-                      this.logger.warn('missed to pass in variable '.concat(match[1], ' for interpolating ').concat(str));
-                      value = '';
+                    var p = key.split(_this.formatSeparator);
+                    var k = p.shift().trim();
+                    var f = p.join(_this.formatSeparator).trim();
+                    return _this.format(getPathWithDefaults(data, defaultData, k), f, lng);
+                  };
+                  this.resetRegExp();
+                  var missingInterpolationHandler = options && options.missingInterpolationHandler || this.options.missingInterpolationHandler;
+                  replaces = 0; // unescape if has unescapePrefix/Suffix
+                  /* eslint no-cond-assign: 0 */
+                  while (match = this.regexpUnescape.exec(str)) {
+                    value = handleFormat(match[1].trim());
+                    if (value === undefined) {
+                      if (typeof missingInterpolationHandler === 'function') {
+                        var temp = missingInterpolationHandler(str, match, options);
+                        value = typeof temp === 'string' ? temp : '';
+                      } else {
+                        this.logger.warn('missed to pass in variable '.concat(match[1], ' for interpolating ').concat(str));
+                        value = '';
+                      }
+                    } else if (typeof value !== 'string' && !this.useRawValueToEscape) {
+                      value = makeString(value);
                     }
-                  } else if (typeof value !== 'string' && !this.useRawValueToEscape) {
-                    value = makeString(value);
+                    str = str.replace(match[0], regexSafe(value));
+                    this.regexpUnescape.lastIndex = 0;
+                    replaces++;
+                    if (replaces >= this.maxReplaces) {
+                      break;
+                    }
                   }
-                  value = this.escapeValue ? regexSafe(this.escape(value)) : regexSafe(value);
-                  str = str.replace(match[0], value);
-                  this.regexp.lastIndex = 0;
-                  replaces++;
-                  if (replaces >= this.maxReplaces) {
-                    break;
+                  replaces = 0; // regular escape on demand
+                  while (match = this.regexp.exec(str)) {
+                    value = handleFormat(match[1].trim());
+                    if (value === undefined) {
+                      if (typeof missingInterpolationHandler === 'function') {
+                        var _temp = missingInterpolationHandler(str, match, options);
+                        value = typeof _temp === 'string' ? _temp : '';
+                      } else {
+                        this.logger.warn('missed to pass in variable '.concat(match[1], ' for interpolating ').concat(str));
+                        value = '';
+                      }
+                    } else if (typeof value !== 'string' && !this.useRawValueToEscape) {
+                      value = makeString(value);
+                    }
+                    value = this.escapeValue ? regexSafe(this.escape(value)) : regexSafe(value);
+                    str = str.replace(match[0], value);
+                    this.regexp.lastIndex = 0;
+                    replaces++;
+                    if (replaces >= this.maxReplaces) {
+                      break;
+                    }
                   }
+                  return str;
                 }
-                return str;
-              }
-            },
-            {
-              key: 'nest',
-              value: function nest(str, fc) {
-                var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
-                };
-                var match;
-                var value;
-                var clonedOptions = _objectSpread({
-                }, options);
-                clonedOptions.applyPostProcessor = false; // avoid post processing on nested lookup
-                delete clonedOptions.defaultValue; // assert we do not get a endless loop on interpolating defaultValue again and again
-                // if value is something like "myKey": "lorem $(anotherKey, { "count": {{aValueInOptions}} })"
-                function handleHasOptions(key, inheritedOptions) {
-                  if (key.indexOf(',') < 0) return key;
-                  var p = key.split(',');
-                  key = p.shift();
-                  var optionsString = p.join(',');
-                  optionsString = this.interpolate(optionsString, clonedOptions);
-                  optionsString = optionsString.replace(/'/g, '"');
-                  try {
-                    clonedOptions = JSON.parse(optionsString);
-                    if (inheritedOptions) clonedOptions = _objectSpread({
-                    }, inheritedOptions, clonedOptions);
-                  } catch (e) {
-                    this.logger.error('failed parsing options string in nesting for key '.concat(key), e);
-                  } // assert we do not get a endless loop on interpolating defaultValue again and again
+              },
+              {
+                key: 'nest',
+                value: function nest(str, fc) {
+                  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
+                  };
+                  var match;
+                  var value;
+                  var clonedOptions = _objectSpread({
+                  }, options);
+                  clonedOptions.applyPostProcessor = false; // avoid post processing on nested lookup
+                  delete clonedOptions.defaultValue; // assert we do not get a endless loop on interpolating defaultValue again and again
+                  // if value is something like "myKey": "lorem $(anotherKey, { "count": {{aValueInOptions}} })"
+                  function handleHasOptions(key, inheritedOptions) {
+                    if (key.indexOf(',') < 0) return key;
+                    var p = key.split(',');
+                    key = p.shift();
+                    var optionsString = p.join(',');
+                    optionsString = this.interpolate(optionsString, clonedOptions);
+                    optionsString = optionsString.replace(/'/g, '"');
+                    try {
+                      clonedOptions = JSON.parse(optionsString);
+                      if (inheritedOptions) clonedOptions = _objectSpread({
+                      }, inheritedOptions, clonedOptions);
+                    } catch (e) {
+                      this.logger.error('failed parsing options string in nesting for key '.concat(key), e);
+                    } // assert we do not get a endless loop on interpolating defaultValue again and again
 
-                  delete clonedOptions.defaultValue;
-                  return key;
-                } // regular escape on demand
+                    delete clonedOptions.defaultValue;
+                    return key;
+                  } // regular escape on demand
 
-                while (match = this.nestingRegexp.exec(str)) {
-                  value = fc(handleHasOptions.call(this, match[1].trim(), clonedOptions), clonedOptions); // is only the nesting key (key1 = '$(key2)') return the value without stringify
-                  if (value && match[0] === str && typeof value !== 'string') return value; // no string to include or empty
-                  if (typeof value !== 'string') value = makeString(value);
-                  if (!value) {
-                    this.logger.warn('missed to resolve '.concat(match[1], ' for nesting ').concat(str));
-                    value = '';
-                  } // Nested keys should not be escaped by default #854
-                  // value = this.escapeValue ? regexSafe(utils.escape(value)) : regexSafe(value);
+                  while (match = this.nestingRegexp.exec(str)) {
+                    value = fc(handleHasOptions.call(this, match[1].trim(), clonedOptions), clonedOptions); // is only the nesting key (key1 = '$(key2)') return the value without stringify
+                    if (value && match[0] === str && typeof value !== 'string') return value; // no string to include or empty
+                    if (typeof value !== 'string') value = makeString(value);
+                    if (!value) {
+                      this.logger.warn('missed to resolve '.concat(match[1], ' for nesting ').concat(str));
+                      value = '';
+                    } // Nested keys should not be escaped by default #854
+                    // value = this.escapeValue ? regexSafe(utils.escape(value)) : regexSafe(value);
 
-                  str = str.replace(match[0], value);
-                  this.regexp.lastIndex = 0;
+                    str = str.replace(match[0], value);
+                    this.regexp.lastIndex = 0;
+                  }
+                  return str;
                 }
-                return str;
               }
-            }
-          ]);
-          return Interpolator;
-        }();
+            ]);
+            return Interpolator;
+          }();
         function remove(arr, what) {
           var found = arr.indexOf(what);
           while (found !== - 1) {
@@ -31472,231 +31469,231 @@
           }
         }
         var Connector =        /*#__PURE__*/
-        function (_EventEmitter) {
-          _inherits(Connector, _EventEmitter);
-          function Connector(backend, store, services) {
-            var _this;
-            var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
-            };
-            _classCallCheck(this, Connector);
-            _this = _possibleConstructorReturn(this, _getPrototypeOf(Connector).call(this));
-            EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
-            _this.backend = backend;
-            _this.store = store;
-            _this.services = services;
-            _this.languageUtils = services.languageUtils;
-            _this.options = options;
-            _this.logger = baseLogger.create('backendConnector');
-            _this.state = {
-            };
-            _this.queue = [
-            ];
-            if (_this.backend && _this.backend.init) {
-              _this.backend.init(services, options.backend, options);
-            }
-            return _this;
-          }
-          _createClass(Connector, [
-            {
-              key: 'queueLoad',
-              value: function queueLoad(languages, namespaces, options, callback) {
-                var _this2 = this; // find what needs to be loaded
-                var toLoad = [
-                ];
-                var pending = [
-                ];
-                var toLoadLanguages = [
-                ];
-                var toLoadNamespaces = [
-                ];
-                languages.forEach(function (lng) {
-                  var hasAllNamespaces = true;
-                  namespaces.forEach(function (ns) {
-                    var name = ''.concat(lng, '|').concat(ns);
-                    if (!options.reload && _this2.store.hasResourceBundle(lng, ns)) {
-                      _this2.state[name] = 2; // loaded
-                    } else if (_this2.state[name] < 0);
-                     else if (_this2.state[name] === 1) {
-                      if (pending.indexOf(name) < 0) pending.push(name);
-                    } else {
-                      _this2.state[name] = 1; // pending
-                      hasAllNamespaces = false;
-                      if (pending.indexOf(name) < 0) pending.push(name);
-                      if (toLoad.indexOf(name) < 0) toLoad.push(name);
-                      if (toLoadNamespaces.indexOf(ns) < 0) toLoadNamespaces.push(ns);
-                    }
-                  });
-                  if (!hasAllNamespaces) toLoadLanguages.push(lng);
-                });
-                if (toLoad.length || pending.length) {
-                  this.queue.push({
-                    pending: pending,
-                    loaded: {
-                    },
-                    errors: [
-                    ],
-                    callback: callback
-                  });
-                }
-                return {
-                  toLoad: toLoad,
-                  pending: pending,
-                  toLoadLanguages: toLoadLanguages,
-                  toLoadNamespaces: toLoadNamespaces
-                };
+          function (_EventEmitter) {
+            _inherits(Connector, _EventEmitter);
+            function Connector(backend, store, services) {
+              var _this;
+              var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {
+              };
+              _classCallCheck(this, Connector);
+              _this = _possibleConstructorReturn(this, _getPrototypeOf(Connector).call(this));
+              EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
+              _this.backend = backend;
+              _this.store = store;
+              _this.services = services;
+              _this.languageUtils = services.languageUtils;
+              _this.options = options;
+              _this.logger = baseLogger.create('backendConnector');
+              _this.state = {
+              };
+              _this.queue = [
+              ];
+              if (_this.backend && _this.backend.init) {
+                _this.backend.init(services, options.backend, options);
               }
-            },
-            {
-              key: 'loaded',
-              value: function loaded(name, err, data) {
-                var _name$split = name.split('|'),
-                _name$split2 = _slicedToArray(_name$split, 2),
-                lng = _name$split2[0],
-                ns = _name$split2[1];
-                if (err) this.emit('failedLoading', lng, ns, err);
-                if (data) {
-                  this.store.addResourceBundle(lng, ns, data);
-                } // set loaded
-
-                this.state[name] = err ? - 1 : 2; // consolidated loading done in this run - only emit once for a loaded namespace
-                var loaded = {
-                }; // callback if ready
-                this.queue.forEach(function (q) {
-                  pushPath(q.loaded, [
-                    lng
-                  ], ns);
-                  remove(q.pending, name);
-                  if (err) q.errors.push(err);
-                  if (q.pending.length === 0 && !q.done) {
-                    // only do once per loaded -> this.emit('loaded', q.loaded);
-                    Object.keys(q.loaded).forEach(function (l) {
-                      if (!loaded[l]) loaded[l] = [
-                      ];
-                      if (q.loaded[l].length) {
-                        q.loaded[l].forEach(function (ns) {
-                          if (loaded[l].indexOf(ns) < 0) loaded[l].push(ns);
-                        });
+              return _this;
+            }
+            _createClass(Connector, [
+              {
+                key: 'queueLoad',
+                value: function queueLoad(languages, namespaces, options, callback) {
+                  var _this2 = this; // find what needs to be loaded
+                  var toLoad = [
+                  ];
+                  var pending = [
+                  ];
+                  var toLoadLanguages = [
+                  ];
+                  var toLoadNamespaces = [
+                  ];
+                  languages.forEach(function (lng) {
+                    var hasAllNamespaces = true;
+                    namespaces.forEach(function (ns) {
+                      var name = ''.concat(lng, '|').concat(ns);
+                      if (!options.reload && _this2.store.hasResourceBundle(lng, ns)) {
+                        _this2.state[name] = 2; // loaded
+                      } else if (_this2.state[name] < 0);
+                      else if (_this2.state[name] === 1) {
+                        if (pending.indexOf(name) < 0) pending.push(name);
+                      } else {
+                        _this2.state[name] = 1; // pending
+                        hasAllNamespaces = false;
+                        if (pending.indexOf(name) < 0) pending.push(name);
+                        if (toLoad.indexOf(name) < 0) toLoad.push(name);
+                        if (toLoadNamespaces.indexOf(ns) < 0) toLoadNamespaces.push(ns);
                       }
                     });
-                    /* eslint no-param-reassign: 0 */
-                    q.done = true;
-                    if (q.errors.length) {
-                      q.callback(q.errors);
-                    } else {
-                      q.callback();
+                    if (!hasAllNamespaces) toLoadLanguages.push(lng);
+                  });
+                  if (toLoad.length || pending.length) {
+                    this.queue.push({
+                      pending: pending,
+                      loaded: {
+                      },
+                      errors: [
+                      ],
+                      callback: callback
+                    });
+                  }
+                  return {
+                    toLoad: toLoad,
+                    pending: pending,
+                    toLoadLanguages: toLoadLanguages,
+                    toLoadNamespaces: toLoadNamespaces
+                  };
+                }
+              },
+              {
+                key: 'loaded',
+                value: function loaded(name, err, data) {
+                  var _name$split = name.split('|'),
+                    _name$split2 = _slicedToArray(_name$split, 2),
+                    lng = _name$split2[0],
+                    ns = _name$split2[1];
+                  if (err) this.emit('failedLoading', lng, ns, err);
+                  if (data) {
+                    this.store.addResourceBundle(lng, ns, data);
+                  } // set loaded
+
+                  this.state[name] = err ? - 1 : 2; // consolidated loading done in this run - only emit once for a loaded namespace
+                  var loaded = {
+                  }; // callback if ready
+                  this.queue.forEach(function (q) {
+                    pushPath(q.loaded, [
+                      lng
+                    ], ns);
+                    remove(q.pending, name);
+                    if (err) q.errors.push(err);
+                    if (q.pending.length === 0 && !q.done) {
+                      // only do once per loaded -> this.emit('loaded', q.loaded);
+                      Object.keys(q.loaded).forEach(function (l) {
+                        if (!loaded[l]) loaded[l] = [
+                        ];
+                        if (q.loaded[l].length) {
+                          q.loaded[l].forEach(function (ns) {
+                            if (loaded[l].indexOf(ns) < 0) loaded[l].push(ns);
+                          });
+                        }
+                      });
+                      /* eslint no-param-reassign: 0 */
+                      q.done = true;
+                      if (q.errors.length) {
+                        q.callback(q.errors);
+                      } else {
+                        q.callback();
+                      }
                     }
+                  }); // emit consolidated loaded event
+                  this.emit('loaded', loaded); // remove done load requests
+                  this.queue = this.queue.filter(function (q) {
+                    return !q.done;
+                  });
+                }
+              },
+              {
+                key: 'read',
+                value: function read(lng, ns, fcName) {
+                  var _this3 = this;
+                  var tried = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+                  var wait = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 250;
+                  var callback = arguments.length > 5 ? arguments[5] : undefined;
+                  if (!lng.length) return callback(null, {
+                  }); // noting to load
+                  return this.backend[fcName](lng, ns, function (err, data) {
+                    if (err && data                  /* = retryFlag */
+                      && tried < 5) {
+                      setTimeout(function () {
+                        _this3.read.call(_this3, lng, ns, fcName, tried + 1, wait * 2, callback);
+                      }, wait);
+                      return;
+                    }
+                    callback(err, data);
+                  });
+                }              /* eslint consistent-return: 0 */
+
+              },
+              {
+                key: 'prepareLoading',
+                value: function prepareLoading(languages, namespaces) {
+                  var _this4 = this;
+                  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
+                  };
+                  var callback = arguments.length > 3 ? arguments[3] : undefined;
+                  if (!this.backend) {
+                    this.logger.warn('No backend was added via i18next.use. Will not load resources.');
+                    return callback && callback();
                   }
-                }); // emit consolidated loaded event
-                this.emit('loaded', loaded); // remove done load requests
-                this.queue = this.queue.filter(function (q) {
-                  return !q.done;
-                });
-              }
-            },
-            {
-              key: 'read',
-              value: function read(lng, ns, fcName) {
-                var _this3 = this;
-                var tried = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
-                var wait = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 250;
-                var callback = arguments.length > 5 ? arguments[5] : undefined;
-                if (!lng.length) return callback(null, {
-                }); // noting to load
-                return this.backend[fcName](lng, ns, function (err, data) {
-                  if (err && data                  /* = retryFlag */
-                  && tried < 5) {
-                    setTimeout(function () {
-                      _this3.read.call(_this3, lng, ns, fcName, tried + 1, wait * 2, callback);
-                    }, wait);
+                  if (typeof languages === 'string') languages = this.languageUtils.toResolveHierarchy(languages);
+                  if (typeof namespaces === 'string') namespaces = [
+                    namespaces
+                  ];
+                  var toLoad = this.queueLoad(languages, namespaces, options, callback);
+                  if (!toLoad.toLoad.length) {
+                    if (!toLoad.pending.length) callback(); // nothing to load and no pendings...callback now
+                    return null; // pendings will trigger callback
+                  }
+                  toLoad.toLoad.forEach(function (name) {
+                    _this4.loadOne(name);
+                  });
+                }
+              },
+              {
+                key: 'load',
+                value: function load(languages, namespaces, callback) {
+                  this.prepareLoading(languages, namespaces, {
+                  }, callback);
+                }
+              },
+              {
+                key: 'reload',
+                value: function reload(languages, namespaces, callback) {
+                  this.prepareLoading(languages, namespaces, {
+                    reload: true
+                  }, callback);
+                }
+              },
+              {
+                key: 'loadOne',
+                value: function loadOne(name) {
+                  var _this5 = this;
+                  var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+                  var _name$split3 = name.split('|'),
+                    _name$split4 = _slicedToArray(_name$split3, 2),
+                    lng = _name$split4[0],
+                    ns = _name$split4[1];
+                  this.read(lng, ns, 'read', null, null, function (err, data) {
+                    if (err) _this5.logger.warn(''.concat(prefix, 'loading namespace ').concat(ns, ' for language ').concat(lng, ' failed'), err);
+                    if (!err && data) _this5.logger.log(''.concat(prefix, 'loaded namespace ').concat(ns, ' for language ').concat(lng), data);
+                    _this5.loaded(name, err, data);
+                  });
+                }
+              },
+              {
+                key: 'saveMissing',
+                value: function saveMissing(languages, namespace, key, fallbackValue, isUpdate) {
+                  var options = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : {
+                  };
+                  if (this.services.utils && this.services.utils.hasLoadedNamespace && !this.services.utils.hasLoadedNamespace(namespace)) {
+                    this.logger.warn('did not save key "'.concat(key, '" for namespace "').concat(namespace, '" as the namespace was not yet loaded'), 'This means something IS WRONG in your application setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!');
                     return;
-                  }
-                  callback(err, data);
-                });
-              }              /* eslint consistent-return: 0 */
+                  } // ignore non valid keys
 
-            },
-            {
-              key: 'prepareLoading',
-              value: function prepareLoading(languages, namespaces) {
-                var _this4 = this;
-                var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
-                };
-                var callback = arguments.length > 3 ? arguments[3] : undefined;
-                if (!this.backend) {
-                  this.logger.warn('No backend was added via i18next.use. Will not load resources.');
-                  return callback && callback();
+                  if (key === undefined || key === null || key === '') return;
+                  if (this.backend && this.backend.create) {
+                    this.backend.create(languages, namespace, key, fallbackValue, null                  /* unused callback */
+                      , _objectSpread({
+                      }, options, {
+                        isUpdate: isUpdate
+                      }));
+                  } // write to store to avoid resending
+
+                  if (!languages || !languages[0]) return;
+                  this.store.addResource(languages[0], namespace, key, fallbackValue);
                 }
-                if (typeof languages === 'string') languages = this.languageUtils.toResolveHierarchy(languages);
-                if (typeof namespaces === 'string') namespaces = [
-                  namespaces
-                ];
-                var toLoad = this.queueLoad(languages, namespaces, options, callback);
-                if (!toLoad.toLoad.length) {
-                  if (!toLoad.pending.length) callback(); // nothing to load and no pendings...callback now
-                  return null; // pendings will trigger callback
-                }
-                toLoad.toLoad.forEach(function (name) {
-                  _this4.loadOne(name);
-                });
               }
-            },
-            {
-              key: 'load',
-              value: function load(languages, namespaces, callback) {
-                this.prepareLoading(languages, namespaces, {
-                }, callback);
-              }
-            },
-            {
-              key: 'reload',
-              value: function reload(languages, namespaces, callback) {
-                this.prepareLoading(languages, namespaces, {
-                  reload: true
-                }, callback);
-              }
-            },
-            {
-              key: 'loadOne',
-              value: function loadOne(name) {
-                var _this5 = this;
-                var prefix = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-                var _name$split3 = name.split('|'),
-                _name$split4 = _slicedToArray(_name$split3, 2),
-                lng = _name$split4[0],
-                ns = _name$split4[1];
-                this.read(lng, ns, 'read', null, null, function (err, data) {
-                  if (err) _this5.logger.warn(''.concat(prefix, 'loading namespace ').concat(ns, ' for language ').concat(lng, ' failed'), err);
-                  if (!err && data) _this5.logger.log(''.concat(prefix, 'loaded namespace ').concat(ns, ' for language ').concat(lng), data);
-                  _this5.loaded(name, err, data);
-                });
-              }
-            },
-            {
-              key: 'saveMissing',
-              value: function saveMissing(languages, namespace, key, fallbackValue, isUpdate) {
-                var options = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : {
-                };
-                if (this.services.utils && this.services.utils.hasLoadedNamespace && !this.services.utils.hasLoadedNamespace(namespace)) {
-                  this.logger.warn('did not save key "'.concat(key, '" for namespace "').concat(namespace, '" as the namespace was not yet loaded'), 'This means something IS WRONG in your application setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!');
-                  return;
-                } // ignore non valid keys
-
-                if (key === undefined || key === null || key === '') return;
-                if (this.backend && this.backend.create) {
-                  this.backend.create(languages, namespace, key, fallbackValue, null                  /* unused callback */
-                  , _objectSpread({
-                  }, options, {
-                    isUpdate: isUpdate
-                  }));
-                } // write to store to avoid resending
-
-                if (!languages || !languages[0]) return;
-                this.store.addResource(languages[0], namespace, key, fallbackValue);
-              }
-            }
-          ]);
-          return Connector;
-        }(EventEmitter);
+            ]);
+            return Connector;
+          }(EventEmitter);
         function get() {
           return {
             debug: false,
@@ -31810,510 +31807,510 @@
         function noop() {
         }
         var I18n =        /*#__PURE__*/
-        function (_EventEmitter) {
-          _inherits(I18n, _EventEmitter);
-          function I18n() {
-            var _this;
-            var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-            };
-            var callback = arguments.length > 1 ? arguments[1] : undefined;
-            _classCallCheck(this, I18n);
-            _this = _possibleConstructorReturn(this, _getPrototypeOf(I18n).call(this));
-            EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
-            _this.options = transformOptions(options);
-            _this.services = {
-            };
-            _this.logger = baseLogger;
-            _this.modules = {
-              external: [
-              ]
-            };
-            if (callback && !_this.isInitialized && !options.isClone) {
-              // https://github.com/i18next/i18next/issues/879
-              if (!_this.options.initImmediate) {
-                _this.init(options, callback);
-                return _possibleConstructorReturn(_this, _assertThisInitialized(_this));
+          function (_EventEmitter) {
+            _inherits(I18n, _EventEmitter);
+            function I18n() {
+              var _this;
+              var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+              };
+              var callback = arguments.length > 1 ? arguments[1] : undefined;
+              _classCallCheck(this, I18n);
+              _this = _possibleConstructorReturn(this, _getPrototypeOf(I18n).call(this));
+              EventEmitter.call(_assertThisInitialized(_this)); // <=IE10 fix (unable to call parent constructor)
+              _this.options = transformOptions(options);
+              _this.services = {
+              };
+              _this.logger = baseLogger;
+              _this.modules = {
+                external: [
+                ]
+              };
+              if (callback && !_this.isInitialized && !options.isClone) {
+                // https://github.com/i18next/i18next/issues/879
+                if (!_this.options.initImmediate) {
+                  _this.init(options, callback);
+                  return _possibleConstructorReturn(_this, _assertThisInitialized(_this));
+                }
+                setTimeout(function () {
+                  _this.init(options, callback);
+                }, 0);
               }
-              setTimeout(function () {
-                _this.init(options, callback);
-              }, 0);
+              return _this;
             }
-            return _this;
-          }
-          _createClass(I18n, [
-            {
-              key: 'init',
-              value: function init() {
-                var _this2 = this;
-                var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-                };
-                var callback = arguments.length > 1 ? arguments[1] : undefined;
-                if (typeof options === 'function') {
-                  callback = options;
-                  options = {
+            _createClass(I18n, [
+              {
+                key: 'init',
+                value: function init() {
+                  var _this2 = this;
+                  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
                   };
-                }
-                this.options = _objectSpread({
-                }, get(), this.options, transformOptions(options));
-                this.format = this.options.interpolation.format;
-                if (!callback) callback = noop;
-                function createClassOnDemand(ClassOrObject) {
-                  if (!ClassOrObject) return null;
-                  if (typeof ClassOrObject === 'function') return new ClassOrObject();
-                  return ClassOrObject;
-                } // init services
-
-                if (!this.options.isClone) {
-                  if (this.modules.logger) {
-                    baseLogger.init(createClassOnDemand(this.modules.logger), this.options);
-                  } else {
-                    baseLogger.init(null, this.options);
+                  var callback = arguments.length > 1 ? arguments[1] : undefined;
+                  if (typeof options === 'function') {
+                    callback = options;
+                    options = {
+                    };
                   }
-                  var lu = new LanguageUtil(this.options);
-                  this.store = new ResourceStore(this.options.resources, this.options);
-                  var s = this.services;
-                  s.logger = baseLogger;
-                  s.resourceStore = this.store;
-                  s.languageUtils = lu;
-                  s.pluralResolver = new PluralResolver(lu, {
-                    prepend: this.options.pluralSeparator,
-                    compatibilityJSON: this.options.compatibilityJSON,
-                    simplifyPluralSuffix: this.options.simplifyPluralSuffix
-                  });
-                  s.interpolator = new Interpolator(this.options);
-                  s.utils = {
-                    hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
-                  };
-                  s.backendConnector = new Connector(createClassOnDemand(this.modules.backend), s.resourceStore, s, this.options); // pipe events from backendConnector
-                  s.backendConnector.on('*', function (event) {
-                    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-                      args[_key - 1] = arguments[_key];
+                  this.options = _objectSpread({
+                  }, get(), this.options, transformOptions(options));
+                  this.format = this.options.interpolation.format;
+                  if (!callback) callback = noop;
+                  function createClassOnDemand(ClassOrObject) {
+                    if (!ClassOrObject) return null;
+                    if (typeof ClassOrObject === 'function') return new ClassOrObject();
+                    return ClassOrObject;
+                  } // init services
+
+                  if (!this.options.isClone) {
+                    if (this.modules.logger) {
+                      baseLogger.init(createClassOnDemand(this.modules.logger), this.options);
+                    } else {
+                      baseLogger.init(null, this.options);
                     }
-                    _this2.emit.apply(_this2, [
-                      event
-                    ].concat(args));
-                  });
-                  if (this.modules.languageDetector) {
-                    s.languageDetector = createClassOnDemand(this.modules.languageDetector);
-                    s.languageDetector.init(s, this.options.detection, this.options);
-                  }
-                  if (this.modules.i18nFormat) {
-                    s.i18nFormat = createClassOnDemand(this.modules.i18nFormat);
-                    if (s.i18nFormat.init) s.i18nFormat.init(this);
-                  }
-                  this.translator = new Translator(this.services, this.options); // pipe events from translator
-                  this.translator.on('*', function (event) {
-                    for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-                      args[_key2 - 1] = arguments[_key2];
+                    var lu = new LanguageUtil(this.options);
+                    this.store = new ResourceStore(this.options.resources, this.options);
+                    var s = this.services;
+                    s.logger = baseLogger;
+                    s.resourceStore = this.store;
+                    s.languageUtils = lu;
+                    s.pluralResolver = new PluralResolver(lu, {
+                      prepend: this.options.pluralSeparator,
+                      compatibilityJSON: this.options.compatibilityJSON,
+                      simplifyPluralSuffix: this.options.simplifyPluralSuffix
+                    });
+                    s.interpolator = new Interpolator(this.options);
+                    s.utils = {
+                      hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
+                    };
+                    s.backendConnector = new Connector(createClassOnDemand(this.modules.backend), s.resourceStore, s, this.options); // pipe events from backendConnector
+                    s.backendConnector.on('*', function (event) {
+                      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                        args[_key - 1] = arguments[_key];
+                      }
+                      _this2.emit.apply(_this2, [
+                        event
+                      ].concat(args));
+                    });
+                    if (this.modules.languageDetector) {
+                      s.languageDetector = createClassOnDemand(this.modules.languageDetector);
+                      s.languageDetector.init(s, this.options.detection, this.options);
                     }
-                    _this2.emit.apply(_this2, [
-                      event
-                    ].concat(args));
-                  });
-                  this.modules.external.forEach(function (m) {
-                    if (m.init) m.init(_this2);
-                  });
-                } // append api
+                    if (this.modules.i18nFormat) {
+                      s.i18nFormat = createClassOnDemand(this.modules.i18nFormat);
+                      if (s.i18nFormat.init) s.i18nFormat.init(this);
+                    }
+                    this.translator = new Translator(this.services, this.options); // pipe events from translator
+                    this.translator.on('*', function (event) {
+                      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+                        args[_key2 - 1] = arguments[_key2];
+                      }
+                      _this2.emit.apply(_this2, [
+                        event
+                      ].concat(args));
+                    });
+                    this.modules.external.forEach(function (m) {
+                      if (m.init) m.init(_this2);
+                    });
+                  } // append api
 
-                var storeApi = [
-                  'getResource',
-                  'addResource',
-                  'addResources',
-                  'addResourceBundle',
-                  'removeResourceBundle',
-                  'hasResourceBundle',
-                  'getResourceBundle',
-                  'getDataByLanguage'
-                ];
-                storeApi.forEach(function (fcName) {
-                  _this2[fcName] = function () {
-                    var _this2$store;
-                    return (_this2$store = _this2.store) [fcName].apply(_this2$store, arguments);
-                  };
-                });
-                var deferred = defer();
-                var load = function load() {
-                  _this2.changeLanguage(_this2.options.lng, function (err, t) {
-                    _this2.isInitialized = true;
-                    _this2.logger.log('initialized', _this2.options);
-                    _this2.emit('initialized', _this2.options);
-                    deferred.resolve(t); // not rejecting on err (as err is only a loading translation failed warning)
-                    callback(err, t);
-                  });
-                };
-                if (this.options.resources || !this.options.initImmediate) {
-                  load();
-                } else {
-                  setTimeout(load, 0);
-                }
-                return deferred;
-              }              /* eslint consistent-return: 0 */
-
-            },
-            {
-              key: 'loadResources',
-              value: function loadResources(language) {
-                var _this3 = this;
-                var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
-                var usedCallback = callback;
-                var usedLng = typeof language === 'string' ? language : this.language;
-                if (typeof language === 'function') usedCallback = language;
-                if (!this.options.resources || this.options.partialBundledLanguages) {
-                  if (usedLng && usedLng.toLowerCase() === 'cimode') return usedCallback(); // avoid loading resources for cimode
-                  var toLoad = [
+                  var storeApi = [
+                    'getResource',
+                    'addResource',
+                    'addResources',
+                    'addResourceBundle',
+                    'removeResourceBundle',
+                    'hasResourceBundle',
+                    'getResourceBundle',
+                    'getDataByLanguage'
                   ];
-                  var append = function append(lng) {
-                    if (!lng) return;
-                    var lngs = _this3.services.languageUtils.toResolveHierarchy(lng);
-                    lngs.forEach(function (l) {
-                      if (toLoad.indexOf(l) < 0) toLoad.push(l);
+                  storeApi.forEach(function (fcName) {
+                    _this2[fcName] = function () {
+                      var _this2$store;
+                      return (_this2$store = _this2.store)[fcName].apply(_this2$store, arguments);
+                    };
+                  });
+                  var deferred = defer();
+                  var load = function load() {
+                    _this2.changeLanguage(_this2.options.lng, function (err, t) {
+                      _this2.isInitialized = true;
+                      _this2.logger.log('initialized', _this2.options);
+                      _this2.emit('initialized', _this2.options);
+                      deferred.resolve(t); // not rejecting on err (as err is only a loading translation failed warning)
+                      callback(err, t);
                     });
                   };
-                  if (!usedLng) {
-                    // at least load fallbacks in this case
-                    var fallbacks = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
-                    fallbacks.forEach(function (l) {
-                      return append(l);
-                    });
+                  if (this.options.resources || !this.options.initImmediate) {
+                    load();
                   } else {
-                    append(usedLng);
+                    setTimeout(load, 0);
                   }
-                  if (this.options.preload) {
-                    this.options.preload.forEach(function (l) {
-                      return append(l);
-                    });
-                  }
-                  this.services.backendConnector.load(toLoad, this.options.ns, usedCallback);
-                } else {
-                  usedCallback(null);
-                }
-              }
-            },
-            {
-              key: 'reloadResources',
-              value: function reloadResources(lngs, ns, callback) {
-                var deferred = defer();
-                if (!lngs) lngs = this.languages;
-                if (!ns) ns = this.options.ns;
-                if (!callback) callback = noop;
-                this.services.backendConnector.reload(lngs, ns, function (err) {
-                  deferred.resolve(); // not rejecting on err (as err is only a loading translation failed warning)
-                  callback(err);
-                });
-                return deferred;
-              }
-            },
-            {
-              key: 'use',
-              value: function use(module) {
-                if (module.type === 'backend') {
-                  this.modules.backend = module;
-                }
-                if (module.type === 'logger' || module.log && module.warn && module.error) {
-                  this.modules.logger = module;
-                }
-                if (module.type === 'languageDetector') {
-                  this.modules.languageDetector = module;
-                }
-                if (module.type === 'i18nFormat') {
-                  this.modules.i18nFormat = module;
-                }
-                if (module.type === 'postProcessor') {
-                  postProcessor.addPostProcessor(module);
-                }
-                if (module.type === '3rdParty') {
-                  this.modules.external.push(module);
-                }
-                return this;
-              }
-            },
-            {
-              key: 'changeLanguage',
-              value: function changeLanguage(lng, callback) {
-                var _this4 = this;
-                this.isLanguageChangingTo = lng;
-                var deferred = defer();
-                this.emit('languageChanging', lng);
-                var done = function done(err, l) {
-                  if (l) {
-                    _this4.language = l;
-                    _this4.languages = _this4.services.languageUtils.toResolveHierarchy(l);
-                    _this4.translator.changeLanguage(l);
-                    _this4.isLanguageChangingTo = undefined;
-                    _this4.emit('languageChanged', l);
-                    _this4.logger.log('languageChanged', l);
+                  return deferred;
+                }              /* eslint consistent-return: 0 */
+
+              },
+              {
+                key: 'loadResources',
+                value: function loadResources(language) {
+                  var _this3 = this;
+                  var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
+                  var usedCallback = callback;
+                  var usedLng = typeof language === 'string' ? language : this.language;
+                  if (typeof language === 'function') usedCallback = language;
+                  if (!this.options.resources || this.options.partialBundledLanguages) {
+                    if (usedLng && usedLng.toLowerCase() === 'cimode') return usedCallback(); // avoid loading resources for cimode
+                    var toLoad = [
+                    ];
+                    var append = function append(lng) {
+                      if (!lng) return;
+                      var lngs = _this3.services.languageUtils.toResolveHierarchy(lng);
+                      lngs.forEach(function (l) {
+                        if (toLoad.indexOf(l) < 0) toLoad.push(l);
+                      });
+                    };
+                    if (!usedLng) {
+                      // at least load fallbacks in this case
+                      var fallbacks = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+                      fallbacks.forEach(function (l) {
+                        return append(l);
+                      });
+                    } else {
+                      append(usedLng);
+                    }
+                    if (this.options.preload) {
+                      this.options.preload.forEach(function (l) {
+                        return append(l);
+                      });
+                    }
+                    this.services.backendConnector.load(toLoad, this.options.ns, usedCallback);
                   } else {
-                    _this4.isLanguageChangingTo = undefined;
+                    usedCallback(null);
                   }
-                  deferred.resolve(function () {
-                    return _this4.t.apply(_this4, arguments);
+                }
+              },
+              {
+                key: 'reloadResources',
+                value: function reloadResources(lngs, ns, callback) {
+                  var deferred = defer();
+                  if (!lngs) lngs = this.languages;
+                  if (!ns) ns = this.options.ns;
+                  if (!callback) callback = noop;
+                  this.services.backendConnector.reload(lngs, ns, function (err) {
+                    deferred.resolve(); // not rejecting on err (as err is only a loading translation failed warning)
+                    callback(err);
                   });
-                  if (callback) callback(err, function () {
-                    return _this4.t.apply(_this4, arguments);
-                  });
-                };
-                var setLng = function setLng(l) {
-                  if (l) {
-                    if (!_this4.language) {
+                  return deferred;
+                }
+              },
+              {
+                key: 'use',
+                value: function use(module) {
+                  if (module.type === 'backend') {
+                    this.modules.backend = module;
+                  }
+                  if (module.type === 'logger' || module.log && module.warn && module.error) {
+                    this.modules.logger = module;
+                  }
+                  if (module.type === 'languageDetector') {
+                    this.modules.languageDetector = module;
+                  }
+                  if (module.type === 'i18nFormat') {
+                    this.modules.i18nFormat = module;
+                  }
+                  if (module.type === 'postProcessor') {
+                    postProcessor.addPostProcessor(module);
+                  }
+                  if (module.type === '3rdParty') {
+                    this.modules.external.push(module);
+                  }
+                  return this;
+                }
+              },
+              {
+                key: 'changeLanguage',
+                value: function changeLanguage(lng, callback) {
+                  var _this4 = this;
+                  this.isLanguageChangingTo = lng;
+                  var deferred = defer();
+                  this.emit('languageChanging', lng);
+                  var done = function done(err, l) {
+                    if (l) {
                       _this4.language = l;
                       _this4.languages = _this4.services.languageUtils.toResolveHierarchy(l);
+                      _this4.translator.changeLanguage(l);
+                      _this4.isLanguageChangingTo = undefined;
+                      _this4.emit('languageChanged', l);
+                      _this4.logger.log('languageChanged', l);
+                    } else {
+                      _this4.isLanguageChangingTo = undefined;
                     }
-                    if (!_this4.translator.language) _this4.translator.changeLanguage(l);
-                    if (_this4.services.languageDetector) _this4.services.languageDetector.cacheUserLanguage(l);
-                  }
-                  _this4.loadResources(l, function (err) {
-                    done(err, l);
-                  });
-                };
-                if (!lng && this.services.languageDetector && !this.services.languageDetector.async) {
-                  setLng(this.services.languageDetector.detect());
-                } else if (!lng && this.services.languageDetector && this.services.languageDetector.async) {
-                  this.services.languageDetector.detect(setLng);
-                } else {
-                  setLng(lng);
-                }
-                return deferred;
-              }
-            },
-            {
-              key: 'getFixedT',
-              value: function getFixedT(lng, ns) {
-                var _this5 = this;
-                var fixedT = function fixedT(key, opts) {
-                  var options;
-                  if (_typeof(opts) !== 'object') {
-                    for (var _len3 = arguments.length, rest = new Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
-                      rest[_key3 - 2] = arguments[_key3];
+                    deferred.resolve(function () {
+                      return _this4.t.apply(_this4, arguments);
+                    });
+                    if (callback) callback(err, function () {
+                      return _this4.t.apply(_this4, arguments);
+                    });
+                  };
+                  var setLng = function setLng(l) {
+                    if (l) {
+                      if (!_this4.language) {
+                        _this4.language = l;
+                        _this4.languages = _this4.services.languageUtils.toResolveHierarchy(l);
+                      }
+                      if (!_this4.translator.language) _this4.translator.changeLanguage(l);
+                      if (_this4.services.languageDetector) _this4.services.languageDetector.cacheUserLanguage(l);
                     }
-                    options = _this5.options.overloadTranslationOptionHandler([key,
-                    opts].concat(rest));
+                    _this4.loadResources(l, function (err) {
+                      done(err, l);
+                    });
+                  };
+                  if (!lng && this.services.languageDetector && !this.services.languageDetector.async) {
+                    setLng(this.services.languageDetector.detect());
+                  } else if (!lng && this.services.languageDetector && this.services.languageDetector.async) {
+                    this.services.languageDetector.detect(setLng);
                   } else {
-                    options = _objectSpread({
-                    }, opts);
+                    setLng(lng);
                   }
-                  options.lng = options.lng || fixedT.lng;
-                  options.lngs = options.lngs || fixedT.lngs;
-                  options.ns = options.ns || fixedT.ns;
-                  return _this5.t(key, options);
-                };
-                if (typeof lng === 'string') {
-                  fixedT.lng = lng;
-                } else {
-                  fixedT.lngs = lng;
+                  return deferred;
                 }
-                fixedT.ns = ns;
-                return fixedT;
-              }
-            },
-            {
-              key: 't',
-              value: function t() {
-                var _this$translator;
-                return this.translator && (_this$translator = this.translator).translate.apply(_this$translator, arguments);
-              }
-            },
-            {
-              key: 'exists',
-              value: function exists() {
-                var _this$translator2;
-                return this.translator && (_this$translator2 = this.translator).exists.apply(_this$translator2, arguments);
-              }
-            },
-            {
-              key: 'setDefaultNamespace',
-              value: function setDefaultNamespace(ns) {
-                this.options.defaultNS = ns;
-              }
-            },
-            {
-              key: 'hasLoadedNamespace',
-              value: function hasLoadedNamespace(ns) {
-                var _this6 = this;
-                if (!this.isInitialized) {
-                  this.logger.warn('hasLoadedNamespace: i18next was not initialized', this.languages);
+              },
+              {
+                key: 'getFixedT',
+                value: function getFixedT(lng, ns) {
+                  var _this5 = this;
+                  var fixedT = function fixedT(key, opts) {
+                    var options;
+                    if (_typeof(opts) !== 'object') {
+                      for (var _len3 = arguments.length, rest = new Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
+                        rest[_key3 - 2] = arguments[_key3];
+                      }
+                      options = _this5.options.overloadTranslationOptionHandler([key,
+                        opts].concat(rest));
+                    } else {
+                      options = _objectSpread({
+                      }, opts);
+                    }
+                    options.lng = options.lng || fixedT.lng;
+                    options.lngs = options.lngs || fixedT.lngs;
+                    options.ns = options.ns || fixedT.ns;
+                    return _this5.t(key, options);
+                  };
+                  if (typeof lng === 'string') {
+                    fixedT.lng = lng;
+                  } else {
+                    fixedT.lngs = lng;
+                  }
+                  fixedT.ns = ns;
+                  return fixedT;
+                }
+              },
+              {
+                key: 't',
+                value: function t() {
+                  var _this$translator;
+                  return this.translator && (_this$translator = this.translator).translate.apply(_this$translator, arguments);
+                }
+              },
+              {
+                key: 'exists',
+                value: function exists() {
+                  var _this$translator2;
+                  return this.translator && (_this$translator2 = this.translator).exists.apply(_this$translator2, arguments);
+                }
+              },
+              {
+                key: 'setDefaultNamespace',
+                value: function setDefaultNamespace(ns) {
+                  this.options.defaultNS = ns;
+                }
+              },
+              {
+                key: 'hasLoadedNamespace',
+                value: function hasLoadedNamespace(ns) {
+                  var _this6 = this;
+                  if (!this.isInitialized) {
+                    this.logger.warn('hasLoadedNamespace: i18next was not initialized', this.languages);
+                    return false;
+                  }
+                  if (!this.languages || !this.languages.length) {
+                    this.logger.warn('hasLoadedNamespace: i18n.languages were undefined or empty', this.languages);
+                    return false;
+                  }
+                  var lng = this.languages[0];
+                  var fallbackLng = this.options ? this.options.fallbackLng : false;
+                  var lastLng = this.languages[this.languages.length - 1]; // we're in cimode so this shall pass
+                  if (lng.toLowerCase() === 'cimode') return true;
+                  var loadNotPending = function loadNotPending(l, n) {
+                    var loadState = _this6.services.backendConnector.state[''.concat(l, '|').concat(n)];
+                    return loadState === - 1 || loadState === 2;
+                  }; // loaded -> SUCCESS
+                  if (this.hasResourceBundle(lng, ns)) return true; // were not loading at all -> SEMI SUCCESS
+                  if (!this.services.backendConnector.backend) return true; // failed loading ns - but at least fallback is not pending -> SEMI SUCCESS
+                  if (loadNotPending(lng, ns) && (!fallbackLng || loadNotPending(lastLng, ns))) return true;
                   return false;
                 }
-                if (!this.languages || !this.languages.length) {
-                  this.logger.warn('hasLoadedNamespace: i18n.languages were undefined or empty', this.languages);
-                  return false;
+              },
+              {
+                key: 'loadNamespaces',
+                value: function loadNamespaces(ns, callback) {
+                  var _this7 = this;
+                  var deferred = defer();
+                  if (!this.options.ns) {
+                    callback && callback();
+                    return Promise.resolve();
+                  }
+                  if (typeof ns === 'string') ns = [
+                    ns
+                  ];
+                  ns.forEach(function (n) {
+                    if (_this7.options.ns.indexOf(n) < 0) _this7.options.ns.push(n);
+                  });
+                  this.loadResources(function (err) {
+                    deferred.resolve();
+                    if (callback) callback(err);
+                  });
+                  return deferred;
                 }
-                var lng = this.languages[0];
-                var fallbackLng = this.options ? this.options.fallbackLng : false;
-                var lastLng = this.languages[this.languages.length - 1]; // we're in cimode so this shall pass
-                if (lng.toLowerCase() === 'cimode') return true;
-                var loadNotPending = function loadNotPending(l, n) {
-                  var loadState = _this6.services.backendConnector.state[''.concat(l, '|').concat(n)];
-                  return loadState === - 1 || loadState === 2;
-                }; // loaded -> SUCCESS
-                if (this.hasResourceBundle(lng, ns)) return true; // were not loading at all -> SEMI SUCCESS
-                if (!this.services.backendConnector.backend) return true; // failed loading ns - but at least fallback is not pending -> SEMI SUCCESS
-                if (loadNotPending(lng, ns) && (!fallbackLng || loadNotPending(lastLng, ns))) return true;
-                return false;
-              }
-            },
-            {
-              key: 'loadNamespaces',
-              value: function loadNamespaces(ns, callback) {
-                var _this7 = this;
-                var deferred = defer();
-                if (!this.options.ns) {
-                  callback && callback();
-                  return Promise.resolve();
+              },
+              {
+                key: 'loadLanguages',
+                value: function loadLanguages(lngs, callback) {
+                  var deferred = defer();
+                  if (typeof lngs === 'string') lngs = [
+                    lngs
+                  ];
+                  var preloaded = this.options.preload || [
+                  ];
+                  var newLngs = lngs.filter(function (lng) {
+                    return preloaded.indexOf(lng) < 0;
+                  }); // Exit early if all given languages are already preloaded
+                  if (!newLngs.length) {
+                    if (callback) callback();
+                    return Promise.resolve();
+                  }
+                  this.options.preload = preloaded.concat(newLngs);
+                  this.loadResources(function (err) {
+                    deferred.resolve();
+                    if (callback) callback(err);
+                  });
+                  return deferred;
                 }
-                if (typeof ns === 'string') ns = [
-                  ns
-                ];
-                ns.forEach(function (n) {
-                  if (_this7.options.ns.indexOf(n) < 0) _this7.options.ns.push(n);
-                });
-                this.loadResources(function (err) {
-                  deferred.resolve();
-                  if (callback) callback(err);
-                });
-                return deferred;
-              }
-            },
-            {
-              key: 'loadLanguages',
-              value: function loadLanguages(lngs, callback) {
-                var deferred = defer();
-                if (typeof lngs === 'string') lngs = [
-                  lngs
-                ];
-                var preloaded = this.options.preload || [
-                ];
-                var newLngs = lngs.filter(function (lng) {
-                  return preloaded.indexOf(lng) < 0;
-                }); // Exit early if all given languages are already preloaded
-                if (!newLngs.length) {
-                  if (callback) callback();
-                  return Promise.resolve();
-                }
-                this.options.preload = preloaded.concat(newLngs);
-                this.loadResources(function (err) {
-                  deferred.resolve();
-                  if (callback) callback(err);
-                });
-                return deferred;
-              }
-            },
-            {
-              key: 'dir',
-              value: function dir(lng) {
-                if (!lng) lng = this.languages && this.languages.length > 0 ? this.languages[0] : this.language;
-                if (!lng) return 'rtl';
-                var rtlLngs = [
-                  'ar',
-                  'shu',
-                  'sqr',
-                  'ssh',
-                  'xaa',
-                  'yhd',
-                  'yud',
-                  'aao',
-                  'abh',
-                  'abv',
-                  'acm',
-                  'acq',
-                  'acw',
-                  'acx',
-                  'acy',
-                  'adf',
-                  'ads',
-                  'aeb',
-                  'aec',
-                  'afb',
-                  'ajp',
-                  'apc',
-                  'apd',
-                  'arb',
-                  'arq',
-                  'ars',
-                  'ary',
-                  'arz',
-                  'auz',
-                  'avl',
-                  'ayh',
-                  'ayl',
-                  'ayn',
-                  'ayp',
-                  'bbz',
-                  'pga',
-                  'he',
-                  'iw',
-                  'ps',
-                  'pbt',
-                  'pbu',
-                  'pst',
-                  'prp',
-                  'prd',
-                  'ur',
-                  'ydd',
-                  'yds',
-                  'yih',
-                  'ji',
-                  'yi',
-                  'hbo',
-                  'men',
-                  'xmn',
-                  'fa',
-                  'jpr',
-                  'peo',
-                  'pes',
-                  'prs',
-                  'dv',
-                  'sam'
-                ];
-                return rtlLngs.indexOf(this.services.languageUtils.getLanguagePartFromCode(lng)) >= 0 ? 'rtl' : 'ltr';
-              }              /* eslint class-methods-use-this: 0 */
+              },
+              {
+                key: 'dir',
+                value: function dir(lng) {
+                  if (!lng) lng = this.languages && this.languages.length > 0 ? this.languages[0] : this.language;
+                  if (!lng) return 'rtl';
+                  var rtlLngs = [
+                    'ar',
+                    'shu',
+                    'sqr',
+                    'ssh',
+                    'xaa',
+                    'yhd',
+                    'yud',
+                    'aao',
+                    'abh',
+                    'abv',
+                    'acm',
+                    'acq',
+                    'acw',
+                    'acx',
+                    'acy',
+                    'adf',
+                    'ads',
+                    'aeb',
+                    'aec',
+                    'afb',
+                    'ajp',
+                    'apc',
+                    'apd',
+                    'arb',
+                    'arq',
+                    'ars',
+                    'ary',
+                    'arz',
+                    'auz',
+                    'avl',
+                    'ayh',
+                    'ayl',
+                    'ayn',
+                    'ayp',
+                    'bbz',
+                    'pga',
+                    'he',
+                    'iw',
+                    'ps',
+                    'pbt',
+                    'pbu',
+                    'pst',
+                    'prp',
+                    'prd',
+                    'ur',
+                    'ydd',
+                    'yds',
+                    'yih',
+                    'ji',
+                    'yi',
+                    'hbo',
+                    'men',
+                    'xmn',
+                    'fa',
+                    'jpr',
+                    'peo',
+                    'pes',
+                    'prs',
+                    'dv',
+                    'sam'
+                  ];
+                  return rtlLngs.indexOf(this.services.languageUtils.getLanguagePartFromCode(lng)) >= 0 ? 'rtl' : 'ltr';
+                }              /* eslint class-methods-use-this: 0 */
 
-            },
-            {
-              key: 'createInstance',
-              value: function createInstance() {
-                var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-                };
-                var callback = arguments.length > 1 ? arguments[1] : undefined;
-                return new I18n(options, callback);
+              },
+              {
+                key: 'createInstance',
+                value: function createInstance() {
+                  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+                  };
+                  var callback = arguments.length > 1 ? arguments[1] : undefined;
+                  return new I18n(options, callback);
+                }
+              },
+              {
+                key: 'cloneInstance',
+                value: function cloneInstance() {
+                  var _this8 = this;
+                  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+                  };
+                  var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
+                  var mergedOptions = _objectSpread({
+                  }, this.options, options, {
+                    isClone: true
+                  });
+                  var clone = new I18n(mergedOptions);
+                  var membersToCopy = [
+                    'store',
+                    'services',
+                    'language'
+                  ];
+                  membersToCopy.forEach(function (m) {
+                    clone[m] = _this8[m];
+                  });
+                  clone.translator = new Translator(clone.services, clone.options);
+                  clone.translator.on('*', function (event) {
+                    for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+                      args[_key4 - 1] = arguments[_key4];
+                    }
+                    clone.emit.apply(clone, [
+                      event
+                    ].concat(args));
+                  });
+                  clone.init(mergedOptions, callback);
+                  clone.translator.options = clone.options; // sync options
+                  return clone;
+                }
               }
-            },
-            {
-              key: 'cloneInstance',
-              value: function cloneInstance() {
-                var _this8 = this;
-                var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-                };
-                var callback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : noop;
-                var mergedOptions = _objectSpread({
-                }, this.options, options, {
-                  isClone: true
-                });
-                var clone = new I18n(mergedOptions);
-                var membersToCopy = [
-                  'store',
-                  'services',
-                  'language'
-                ];
-                membersToCopy.forEach(function (m) {
-                  clone[m] = _this8[m];
-                });
-                clone.translator = new Translator(clone.services, clone.options);
-                clone.translator.on('*', function (event) {
-                  for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
-                    args[_key4 - 1] = arguments[_key4];
-                  }
-                  clone.emit.apply(clone, [
-                    event
-                  ].concat(args));
-                });
-                clone.init(mergedOptions, callback);
-                clone.translator.options = clone.options; // sync options
-                return clone;
-              }
-            }
-          ]);
-          return I18n;
-        }(EventEmitter);
+            ]);
+            return I18n;
+          }(EventEmitter);
         var i18next = new I18n();
         module.exports = i18next;
       },
@@ -32334,7 +32331,7 @@
       function (_dereq_, module, exports) {
         exports.read = function (buffer, offset, isLE, mLen, nBytes) {
           var e,
-          m;
+            m;
           var eLen = nBytes * 8 - mLen - 1;
           var eMax = (1 << eLen) - 1;
           var eBias = eMax >> 1;
@@ -32365,8 +32362,8 @@
         };
         exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
           var e,
-          m,
-          c;
+            m,
+            c;
           var eLen = nBytes * 8 - mLen - 1;
           var eMax = (1 << eLen) - 1;
           var eBias = eMax >> 1;
@@ -32457,12 +32454,12 @@
         }
         function v(a, b, c) {
           var d = b.b - a.b,
-          e = c.b - b.b;
+            e = c.b - b.b;
           return 0 < d + e ? d < e ? b.a - a.a + d / (d + e) * (a.a - c.a) : b.a - c.a + e / (d + e) * (c.a - a.a) : 0;
         }
         function x(a, b, c) {
           var d = b.b - a.b,
-          e = c.b - b.b;
+            e = c.b - b.b;
           return 0 < d + e ? (b.a - c.a) * d + (b.a - a.a) * e : 0;
         }
         function z(a, b) {
@@ -32470,12 +32467,12 @@
         }
         function aa(a, b, c) {
           var d = b.a - a.a,
-          e = c.a - b.a;
+            e = c.a - b.a;
           return 0 < d + e ? d < e ? b.b - a.b + d / (d + e) * (a.b - c.b) : b.b - c.b + e / (d + e) * (c.b - a.b) : 0;
         }
         function ba(a, b, c) {
           var d = b.a - a.a,
-          e = c.a - b.a;
+            e = c.a - b.a;
           return 0 < d + e ? (b.b - c.b) * d + (b.b - a.b) * e : 0;
         }
         function ca(a) {
@@ -32499,12 +32496,12 @@
         }
         function E(a, b) {
           var c = !1,
-          d = !1;
+            d = !1;
           a !== b && (b.a !== a.a && (d = !0, F(b.a, a.a)), b.d !== a.d && (c = !0, G(b.d, a.d)), H(b, a), d || (C(b, a.a), a.a.c = a), c || (D(b, a.d), a.d.a = a));
         }
         function I(a) {
           var b = a.b,
-          c = !1;
+            c = !1;
           a.d !== a.b.d && (c = !0, G(a.d, a.b.d));
           a.c === a ? F(a.a, null) : (a.b.d.a = J(a), a.a.c = a.c, H(a, J(a)), c || D(a, a.d));
           b.c === b ? (F(b.a, null), G(b.d, null)) : (a.d.a = J(b), b.a.c = b.c, H(b, J(b)));
@@ -32512,7 +32509,7 @@
         }
         function K(a) {
           var b = B(a),
-          c = b.b;
+            c = b.b;
           H(b, a.e);
           b.a = a.b.a;
           C(c, b.a);
@@ -32529,8 +32526,8 @@
         }
         function L(a, b) {
           var c = !1,
-          d = B(a),
-          e = d.b;
+            d = B(a),
+            e = d.b;
           b.d !== a.d && (c = !0, G(b.d, a.d));
           H(d, a.e);
           H(e, b);
@@ -32543,8 +32540,8 @@
         }
         function B(a) {
           var b = new M(),
-          c = new M(),
-          d = a.b.h;
+            c = new M(),
+            d = a.b.h;
           c.h = d;
           d.b.h = b;
           b.h = a;
@@ -32558,7 +32555,7 @@
         }
         function H(a, b) {
           var c = a.c,
-          d = b.c;
+            d = b.c;
           c.b.e = b;
           d.b.e = a;
           a.c = d;
@@ -32566,24 +32563,24 @@
         }
         function C(a, b) {
           var c = b.f,
-          d = new N(b, c);
+            d = new N(b, c);
           c.e = d;
           b.f = d;
           c = d.c = a;
           do c.a = d,
-          c = c.c;
+            c = c.c;
           while (c !== a);
         }
         function D(a, b) {
           var c = b.d,
-          d = new ga(b, c);
+            d = new ga(b, c);
           c.b = d;
           b.d = d;
           d.a = a;
           d.c = b.c;
           c = a;
           do c.d = d,
-          c = c.e;
+            c = c.e;
           while (c !== a);
         }
         function fa(a) {
@@ -32594,9 +32591,9 @@
         }
         function F(a, b) {
           var c = a.c,
-          d = c;
+            d = c;
           do d.a = b,
-          d = d.c;
+            d = d.c;
           while (d !== c);
           c = a.f;
           d = a.e;
@@ -32605,9 +32602,9 @@
         }
         function G(a, b) {
           var c = a.a,
-          d = c;
+            d = c;
           do d.d = b,
-          d = d.e;
+            d = d.e;
           while (d !== c);
           c = a.d;
           d = a.b;
@@ -32680,17 +32677,17 @@
         }
         function pa(a) {
           var b = a.a,
-          c = b.d;
+            c = b.d;
           c.c = a.d;
           c.a = b;
           Q(a);
         }
         function T(a, b, c) {
           a = b;
-          for (b = b.a; a !== c; ) {
+          for (b = b.a; a !== c;) {
             a.c = !1;
             var d = S(a),
-            e = d.a;
+              e = d.a;
             if (e.a !== b.a) {
               if (!d.c) {
                 pa(a);
@@ -32709,9 +32706,9 @@
         function U(a, b, c, d, e, f) {
           var g = !0;
           do la(a, b, c.b),
-          c = c.c;
+            c = c.c;
           while (c !== d);
-          for (null === e && (e = S(b).a.b.c); ; ) {
+          for (null === e && (e = S(b).a.b.c); ;) {
             d = S(b);
             c = d.a.b;
             if (c.a !== e.a) break;
@@ -32756,8 +32753,8 @@
         }
         function ua(a, b, c, d, e) {
           var f = Math.abs(b.b - a.b) + Math.abs(b.a - a.a),
-          g = Math.abs(c.b - a.b) + Math.abs(c.a - a.a),
-          h = e + 1;
+            g = Math.abs(c.b - a.b) + Math.abs(c.a - a.a),
+            h = e + 1;
           d[e] = 0.5 * g / (f + g);
           d[h] = 0.5 * f / (f + g);
           a.g[0] += d[e] * b.g[0] + d[h] * c.g[0];
@@ -32766,29 +32763,29 @@
         }
         function qa(a, b) {
           var c = S(b),
-          d = b.a,
-          e = c.a;
+            d = b.a,
+            e = c.a;
           if (u(d.a, e.a)) {
             if (0 < x(e.b.a, d.a, e.a)) return !1;
             if (!t(d.a, e.a)) K(e.b),
-            E(d, J(e)),
-            b.b = c.b = !0;
-             else if (d.a !== e.a) {
+              E(d, J(e)),
+              b.b = c.b = !0;
+            else if (d.a !== e.a) {
               var c = a.e,
-              f = d.a.h;
+                f = d.a.h;
               if (0 <= f) {
                 var c = c.b,
-                g = c.d,
-                h = c.e,
-                k = c.c,
-                l = k[f];
+                  g = c.d,
+                  h = c.e,
+                  k = c.c,
+                  l = k[f];
                 g[l] = g[c.a];
                 k[g[l]] = l;
                 l <= --c.a && (1 >= l ? W(c, l) : u(h[g[l >> 1]], h[g[l]]) ? W(c, l) : va(c, l));
                 h[f] = null;
                 k[f] = c.b;
                 c.b = f;
-              } else for (c.c[ - (f + 1)] = null; 0 < c.a && null === c.c[c.d[c.a - 1]]; ) --c.a;
+              } else for (c.c[- (f + 1)] = null; 0 < c.a && null === c.c[c.d[c.a - 1]];) --c.a;
               ta(a, J(e), d);
             }
           } else {
@@ -32801,13 +32798,13 @@
         }
         function wa(a, b) {
           var c = S(b),
-          d = b.a,
-          e = c.a,
-          f = d.a,
-          g = e.a,
-          h = d.b.a,
-          k = e.b.a,
-          l = new N();
+            d = b.a,
+            e = c.a,
+            f = d.a,
+            g = e.a,
+            h = d.b.a,
+            k = e.b.a,
+            l = new N();
           x(h, a.a, f);
           x(k, a.a, g);
           if (f === g || Math.min(f.a, h.a) > Math.max(g.a, k.a)) return !1;
@@ -32815,11 +32812,11 @@
             if (0 < x(k, f, g)) return !1;
           } else if (0 > x(h, g, f)) return !1;
           var r = h,
-          p = f,
-          q = k,
-          y = g,
-          m,
-          w;
+            p = f,
+            q = k,
+            y = g,
+            m,
+            w;
           u(r, p) || (m = r, r = p, p = m);
           u(q, y) || (m = q, q = y, y = m);
           u(r, q) || (m = r, r = q, q = m, m = p, p = y, y = m);
@@ -32832,15 +32829,15 @@
           r = u(f, g) ? f : g;
           u(r, l) && (l.b = r.b, l.a = r.a);
           if (t(l, f) || t(l, g)) return qa(a, b),
-          !1;
+            !1;
           if (!t(h, a.a) && 0 <= x(h, a.a, l) || !t(k, a.a) && 0 >= x(k, a.a, l)) {
             if (k === a.a) return K(d.b),
-            E(e.b, d),
-            b = ka(b),
-            d = S(b).a,
-            T(a, S(b), c),
-            U(a, b, J(d), d, d, !0),
-            !0;
+              E(e.b, d),
+              b = ka(b),
+              d = S(b).a,
+              T(a, S(b), c),
+              U(a, b, J(d), d, d, !0),
+              !0;
             if (h === a.a) {
               K(e.b);
               E(d.e, J(e));
@@ -32886,20 +32883,20 @@
           return !1;
         }
         function ra(a, b) {
-          for (var c = S(b); ; ) {
-            for (; c.b; ) b = c,
-            c = S(c);
+          for (var c = S(b); ;) {
+            for (; c.b;) b = c,
+              c = S(c);
             if (!b.b && (c = b, b = R(b), null === b || !b.b)) break;
             b.b = !1;
             var d = b.a,
-            e = c.a,
-            f;
+              e = c.a,
+              f;
             if (f = d.b.a !== e.b.a) a: {
               f = b;
               var g = S(f),
-              h = f.a,
-              k = g.a,
-              l = void 0;
+                h = f.a,
+                k = g.a,
+                l = void 0;
               if (u(h.b.a, k.b.a)) {
                 if (0 > x(h.b.a, k.b.a, h.a)) {
                   f = !1;
@@ -32923,30 +32920,30 @@
             }
             f && (c.c ? (Q(c), I(e), c = S(b), e = c.a) : b.c && (Q(b), I(d), b = R(c), d = b.a));
             if (d.a !== e.a) if (d.b.a === e.b.a || b.c || c.c || d.b.a !== a.a && e.b.a !== a.a) qa(a, b);
-             else if (wa(a, b)) break;
+            else if (wa(a, b)) break;
             d.a === e.a && d.b.a === e.b.a && (P(e, d), Q(b), I(d), b = R(c));
           }
         }
         function ya(a, b) {
           a.a = b;
-          for (var c = b.c; null === c.i; ) if (c = c.c, c === b.c) {
+          for (var c = b.c; null === c.i;) if (c = c.c, c === b.c) {
             var c = a,
-            d = b,
-            e = new ma();
+              d = b,
+              e = new ma();
             e.a = d.c.b;
             var f = c.f,
-            g = f.a;
+              g = f.a;
             do g = g.a;
             while (null !== g.b && !f.c(f.b, e, g.b));
             var f = g.b,
-            h = S(f),
-            e = f.a,
-            g = h.a;
+              h = S(f),
+              e = f.a,
+              g = h.a;
             if (0 === x(e.b.a, d, e.a)) e = f.a,
-            t(e.a, d) || t(e.b.a, d) || (K(e.b), f.c && (I(e.c), f.c = !1), E(d.c, e), ya(c, d));
-             else {
+              t(e.a, d) || t(e.b.a, d) || (K(e.b), f.c && (I(e.c), f.c = !1), E(d.c, e), ya(c, d));
+            else {
               var k = u(g.b.a, e.b.a) ? f : h,
-              h = void 0;
+                h = void 0;
               f.d || k.c ? (k === f ? h = L(d.c.b, e.e) : h = L(g.b.c.b, d.c).b, k.c ? ja(k, h) : (e = c, f = la(c, f, h), f.f = R(f).f + f.a.f, f.d = oa(e, f.f)), ya(c, d)) : U(c, f, d.c, d.c, null, !0);
             }
             return;
@@ -32957,11 +32954,11 @@
           e = T(a, e, null);
           if (e.c === f) {
             var f = e,
-            e = f.c,
-            g = S(c),
-            h = c.a,
-            k = g.a,
-            l = !1;
+              e = f.c,
+              g = S(c),
+              h = c.a,
+              k = g.a,
+              l = !1;
             h.b.a !== k.b.a && wa(a, c);
             t(h.a, a.a) && (E(J(e), h), c = ka(c), e = S(c).a, T(a, S(c), g), l = !0);
             t(k.a, a.a) && (E(f, J(k)), f = T(a, g, null), l = !0);
@@ -32970,7 +32967,7 @@
         }
         function za(a, b) {
           var c = new ma(),
-          d = ea(a.b);
+            d = ea(a.b);
           d.a.b = O;
           d.a.a = b;
           d.b.a.b = - O;
@@ -33103,11 +33100,11 @@
         };
         n.C = function (a, b) {
           var c = !1,
-          d = [
-            0,
-            0,
-            0
-          ];
+            d = [
+              0,
+              0,
+              0
+            ];
           Z(this, 2);
           for (var e = 0; 3 > e; ++e) {
             var f = a[e];
@@ -33145,14 +33142,14 @@
           Z(this, 1);
           this.d = Y;
           var a = this.j[0],
-          b = this.j[1],
-          c = this.j[2],
-          d = !1,
-          e = [
-            a,
-            b,
-            c
-          ];
+            b = this.j[1],
+            c = this.j[2],
+            d = !1,
+            e = [
+              a,
+              b,
+              c
+            ];
           if (0 === a && 0 === b && 0 === c) {
             for (var b = [
               - 2 * 1e+150,
@@ -33173,9 +33170,9 @@
             b[1] - f[1] > b[0] - f[0] && (a = 1);
             b[2] - f[2] > b[a] - f[a] && (a = 2);
             if (f[a] >= b[a]) e[0] = 0,
-            e[1] = 0,
-            e[2] = 1;
-             else {
+              e[1] = 0,
+              e[2] = 1;
+            else {
               b = 0;
               f = g[a];
               c = c[a];
@@ -33195,13 +33192,13 @@
                 0
               ];
               for (a = d.e; a !== d; a = a.e) h[0] = a.g[0] - c.g[0],
-              h[1] = a.g[1] - c.g[1],
-              h[2] = a.g[2] - c.g[2],
-              g[0] = f[1] * h[2] - f[2] * h[1],
-              g[1] = f[2] * h[0] - f[0] * h[2],
-              g[2] = f[0] * h[1] - f[1] * h[0],
-              k = g[0] * g[0] + g[1] * g[1] + g[2] * g[2],
-              k > b && (b = k, e[0] = g[0], e[1] = g[1], e[2] = g[2]);
+                h[1] = a.g[1] - c.g[1],
+                h[2] = a.g[2] - c.g[2],
+                g[0] = f[1] * h[2] - f[2] * h[1],
+                g[1] = f[2] * h[0] - f[0] * h[2],
+                g[2] = f[0] * h[1] - f[1] * h[0],
+                k = g[0] * g[0] + g[1] * g[1] + g[2] * g[2],
+                k > b && (b = k, e[0] = g[0], e[1] = g[1], e[2] = g[2]);
               0 >= b && (e[0] = e[1] = e[2] = 0, e[ha(f)] = 1);
             }
             d = !0;
@@ -33212,13 +33209,13 @@
           c = (g + 2) % 3;
           g = 0 < e[g] ? 1 : - 1;
           for (e = a.e; e !== a; e = e.e) e.b = e.g[b],
-          e.a = g * e.g[c];
+            e.a = g * e.g[c];
           if (d) {
             e = 0;
             d = this.b.a;
             for (a = d.b; a !== d; a = a.b) if (b = a.a, !(0 >= b.f)) {
               do e += (b.a.b - b.b.a.b) * (b.a.a + b.b.a.a),
-              b = b.e;
+                b = b.e;
               while (b !== a.a);
             }
             if (0 > e) for (e = this.b.c, d = e.e; d !== e; d = d.e) d.a = - d.a;
@@ -33239,10 +33236,10 @@
           Ea(e);
           this.f = new Aa(this);
           za(this, - O);
-          for (za(this, O); null !== (e = Fa(this.e)); ) {
-            for (; ; ) {
+          for (za(this, O); null !== (e = Fa(this.e));) {
+            for (; ;) {
               a: if (a = this.e, 0 === a.a) d = Ga(a.b);
-               else if (d = a.c[a.d[a.a - 1]], 0 !== a.b.a && (a = Ga(a.b), u(a, d))) {
+              else if (d = a.c[a.d[a.a - 1]], 0 !== a.b.a && (a = Ga(a.b), u(a, d))) {
                 d = a;
                 break a;
               }
@@ -33253,8 +33250,8 @@
             ya(this, e);
           }
           this.a = this.f.a.a.b.a.a;
-          for (e = 0; null !== (d = this.f.a.a.b); ) d.h || ++e,
-          Q(d);
+          for (e = 0; null !== (d = this.f.a.a.b);) d.h || ++e,
+            Q(d);
           this.f = null;
           e = this.e;
           e.b = null;
@@ -33262,34 +33259,34 @@
           this.e = e.c = null;
           e = this.b;
           for (a = e.a.b; a !== e.a; a = d) d = a.b,
-          a = a.a,
-          a.e.e === a && (P(a.c, a), I(a));
+            a = a.a,
+            a.e.e === a && (P(a.c, a), I(a));
           if (!this.n) {
             e = this.b;
             if (this.m) for (a = e.b.h; a !== e.b; a = d) d = a.h,
-            a.b.d.c !== a.d.c ? a.f = a.d.c ? 1 : - 1 : I(a);
-             else for (a = e.a.b; a !== e.a; a = d) if (d = a.b, a.c) {
+              a.b.d.c !== a.d.c ? a.f = a.d.c ? 1 : - 1 : I(a);
+            else for (a = e.a.b; a !== e.a; a = d) if (d = a.b, a.c) {
               for (a = a.a; u(a.b.a, a.a); a = a.c.b);
               for (; u(a.a, a.b.a); a = a.e);
               b = a.c.b;
-              for (c = void 0; a.e !== b; ) if (u(a.b.a, b.a)) {
-                for (; b.e !== a && (ca(b.e) || 0 >= x(b.a, b.b.a, b.e.b.a)); ) c = L(b.e, b),
-                b = c.b;
+              for (c = void 0; a.e !== b;) if (u(a.b.a, b.a)) {
+                for (; b.e !== a && (ca(b.e) || 0 >= x(b.a, b.b.a, b.e.b.a));) c = L(b.e, b),
+                  b = c.b;
                 b = b.c.b;
               } else {
-                for (; b.e !== a && (da(a.c.b) || 0 <= x(a.b.a, a.a, a.c.b.a)); ) c = L(a, a.c.b),
-                a = c.b;
+                for (; b.e !== a && (da(a.c.b) || 0 <= x(a.b.a, a.a, a.c.b.a));) c = L(a, a.c.b),
+                  a = c.b;
                 a = a.e;
               }
-              for (; b.e.e !== a; ) c = L(b.e, b),
-              b = c.b;
+              for (; b.e.e !== a;) c = L(b.e, b),
+                b = c.b;
             }
             if (this.h || this.i || this.k || this.l) if (this.m) for (e = this.b, d = e.a.b; d !== e.a; d = d.b) {
               if (d.c) {
                 this.h && this.h(2, this.c);
                 a = d.a;
                 do this.k && this.k(a.a.d, this.c),
-                a = a.e;
+                  a = a.e;
                 while (a !== d.a);
                 this.i && this.i(this.c);
               }
@@ -33302,8 +33299,8 @@
                 a || (this.h && this.h(4, this.c), a = !0);
                 g = c.a;
                 do d && (f = g.b.d.c ? 0 : 1, b !== f && (b = f, this.l && this.l(!!b, this.c))),
-                this.k && this.k(g.a.d, this.c),
-                g = g.e;
+                  this.k && this.k(g.a.d, this.c),
+                  g = g.e;
                 while (g !== c.a);
               }
               a && this.i && this.i(this.c);
@@ -33315,9 +33312,9 @@
                 c = b.e;
                 g = void 0;
                 do g = c,
-                c = g.e,
-                g.d = null,
-                null === g.b.d && (g.c === g ? F(g.a, null) : (g.a.c = g.c, H(g, J(g))), f = g.b, f.c === f ? F(f.a, null) : (f.a.c = f.c, H(f, J(f))), fa(g));
+                  c = g.e,
+                  g.d = null,
+                  null === g.b.d && (g.c === g ? F(g.a, null) : (g.a.c = g.c, H(g, J(g))), f = g.b, f.c === f ? F(f.a, null) : (f.a.c = f.c, H(f, J(f))), fa(g));
                 while (g !== b);
                 b = a.d;
                 a = a.b;
@@ -33332,14 +33329,14 @@
           this.b = this.c = null;
         };
         function Z(a, b) {
-          if (a.d !== b) for (; a.d !== b; ) if (a.d < b) switch (a.d) {
+          if (a.d !== b) for (; a.d !== b;) if (a.d < b) switch (a.d) {
             case Y:
               V(a, 100151);
               a.u(null);
               break;
             case 1:
               V(a, 100152),
-              a.t();
+                a.t();
           } else switch (a.d) {
             case 2:
               V(a, 100154);
@@ -33347,7 +33344,7 @@
               break;
             case 1:
               V(a, 100153),
-              a.w();
+                a.w();
           }
         }
         function V(a, b) {
@@ -33414,7 +33411,7 @@
         function xa(a, b) {
           if (a.e) {
             var c = a.b,
-            d = ++c.a;
+              d = ++c.a;
             2 * d > c.f && (c.f *= 2, c.c = Ja(c.c, c.f + 1));
             var e;
             0 === c.b ? e = d : (e = c.b, c.b = c.c[c.b]);
@@ -33467,15 +33464,15 @@
         }
         function Ka(a) {
           var b = a.d,
-          c = a.e,
-          d = a.c,
-          e = b[1],
-          f = c[e];
+            c = a.e,
+            d = a.c,
+            e = b[1],
+            f = c[e];
           0 < a.a && (b[1] = b[a.a], d[b[1]] = 1, c[e] = null, d[e] = a.b, a.b = e, 0 < --a.a && W(a, 1));
           return f;
         }
         function W(a, b) {
-          for (var c = a.d, d = a.e, e = a.c, f = b, g = c[f]; ; ) {
+          for (var c = a.d, d = a.e, e = a.c, f = b, g = c[f]; ;) {
             var h = f << 1;
             h < a.a && u(d[c[h + 1]], d[c[h]]) && (h += 1);
             var k = c[h];
@@ -33490,9 +33487,9 @@
           }
         }
         function va(a, b) {
-          for (var c = a.d, d = a.e, e = a.c, f = b, g = c[f]; ; ) {
+          for (var c = a.d, d = a.e, e = a.c, f = b, g = c[f]; ;) {
             var h = f >> 1,
-            k = c[h];
+              k = c[h];
             if (0 === h || u(d[k], d[g])) {
               c[f] = g;
               e[g] = f;
@@ -33609,7 +33606,7 @@
           var p = 0;
           var gopts = gopts === undefined ? {
           }
-           : gopts;
+            : gopts;
           var loop_count = gopts.loop === undefined ? null : gopts.loop;
           var global_palette = gopts.palette === undefined ? null : gopts.palette;
           if (width <= 0 || height <= 0 || width > 65535 || height > 65535) throw new Error('Width/Height invalid.');
@@ -33651,7 +33648,7 @@
           buf[p++] = height & 255;
           buf[p++] = height >> 8 & 255; // NOTE: Indicates 0-bpp original color resolution (unused?).
           buf[p++] = (global_palette !== null ? 128 : 0) | // Global Color Table Flag.
-          gp_num_colors_pow2; // NOTE: No sort flag (unused?).
+            gp_num_colors_pow2; // NOTE: No sort flag (unused?).
           buf[p++] = background; // Background Color Index.
           buf[p++] = 0; // Pixel aspect ratio (unused?).
           // - Global Color Table
@@ -33695,7 +33692,7 @@
 
             opts = opts === undefined ? {
             }
-             : opts; // TODO(deanm): Bounds check x, y.  Do they need to be within the virtual
+              : opts; // TODO(deanm): Bounds check x, y.  Do they need to be within the virtual
             // canvas width/height, I imagine?
             if (x < 0 || y < 0 || x > 65535 || y > 65535) throw new Error('x/y invalid.');
             if (w <= 0 || h <= 0 || w > 65535 || h > 65535) throw new Error('Width/Height invalid.');
@@ -33726,7 +33723,7 @@
             // browsers ignore the background palette index and clear to transparency.
             var disposal = opts.disposal === undefined ? 0 : opts.disposal;
             if (disposal < 0 || disposal > 3) // 4-7 is reserved.
-            throw new Error('Disposal out of range.');
+              throw new Error('Disposal out of range.');
             var use_transparency = false;
             var transparent_index = 0;
             if (opts.transparent !== undefined && opts.transparent !== null) {
@@ -33964,9 +33961,9 @@
                     // Application specific block
                     // Try if it's a Netscape block (with animation loop counter).
                     if (buf[p] !== 11 || // 21 FF already read, check block size.
-                    // NETSCAPE2.0
-                    buf[p + 1] == 78 && buf[p + 2] == 69 && buf[p + 3] == 84 && buf[p + 4] == 83 && buf[p + 5] == 67 && buf[p + 6] == 65 && buf[p + 7] == 80 && buf[p + 8] == 69 && buf[p + 9] == 50 && buf[p + 10] == 46 && buf[p + 11] == 48 && // Sub-block
-                    buf[p + 12] == 3 && buf[p + 13] == 1 && buf[p + 16] == 0) {
+                      // NETSCAPE2.0
+                      buf[p + 1] == 78 && buf[p + 2] == 69 && buf[p + 3] == 84 && buf[p + 4] == 83 && buf[p + 5] == 67 && buf[p + 6] == 65 && buf[p + 7] == 80 && buf[p + 8] == 69 && buf[p + 9] == 50 && buf[p + 10] == 46 && buf[p + 11] == 48 && // Sub-block
+                      buf[p + 12] == 3 && buf[p + 13] == 1 && buf[p + 16] == 0) {
                       p += 14;
                       loop_count = buf[p++] | buf[p++] << 8;
                       p++; // Skip terminator.
@@ -34261,7 +34258,7 @@
             op += chase_length;
             var b = op; // Track pointer, writing backwards.
             if (chase_code !== code) // The case of emitting {CODE-1} + k.
-            output[op++] = k;
+              output[op++] = k;
             chase = chase_code;
             while (chase_length--) {
               chase = code_table[chase];
@@ -34305,7 +34302,7 @@
           (function (global, factory) {
             typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) : typeof define === 'function' && define.amd ? define(['exports'], factory) : factory(global.opentype = {
             });
-          }) (this, function (exports) {
+          })(this, function (exports) {
             'use strict';
             /*! https://mths.be/codepointat v0.2.0 by @mathias */
             if (!String.prototype.codePointAt) {
@@ -34340,8 +34337,8 @@
                   var first = string.charCodeAt(index);
                   var second;
                   if ( // check if it’s the start of a surrogate pair
-                  first >= 55296 && first <= 56319 && // high surrogate
-                  size > index + 1 // there is a next code unit
+                    first >= 55296 && first <= 56319 && // high surrogate
+                    size > index + 1 // there is a next code unit
                   ) {
                     second = string.charCodeAt(index + 1);
                     if (second >= 56320 && second <= 57343) {
@@ -34361,7 +34358,7 @@
                 } else {
                   String.prototype.codePointAt = codePointAt;
                 }
-              }) ();
+              })();
             }
             var TINF_OK = 0;
             var TINF_DATA_ERROR = - 3;
@@ -34396,24 +34393,24 @@
             var dist_base = new Uint16Array(30);
             /* special ordering of code length codes */
             var clcidx = new Uint8Array([16,
-            17,
-            18,
-            0,
-            8,
-            7,
-            9,
-            6,
-            10,
-            5,
-            11,
-            4,
-            12,
-            3,
-            13,
-            2,
-            14,
-            1,
-            15]);
+              17,
+              18,
+              0,
+              8,
+              7,
+              9,
+              6,
+              10,
+              5,
+              11,
+              4,
+              12,
+              3,
+              13,
+              2,
+              14,
+              1,
+              15]);
             /* used by tinf_decode_trees, avoids allocations every call */
             var code_tree = new Tree();
             var lengths = new Uint8Array(288 + 32);
@@ -34423,7 +34420,7 @@
             /* build extra bits and base tables */
             function tinf_build_bits_base(bits, base, delta, first) {
               var i,
-              sum;
+                sum;
               /* build bits table */
               for (i = 0; i < delta; ++i) {
                 bits[i] = 0;
@@ -34472,7 +34469,7 @@
             var offs = new Uint16Array(16);
             function tinf_build_tree(t, lengths, off, num) {
               var i,
-              sum;
+                sum;
               /* clear code length count table */
               for (i = 0; i < 16; ++i) {
                 t.table[i] = 0;
@@ -34531,8 +34528,8 @@
                 d.bitcount += 8;
               }
               var sum = 0,
-              cur = 0,
-              len = 0;
+                cur = 0,
+                len = 0;
               var tag = d.tag;
               /* get more bits while code value is above sum */
               do {
@@ -34549,11 +34546,11 @@
 
             function tinf_decode_trees(d, lt, dt) {
               var hlit,
-              hdist,
-              hclen;
+                hdist,
+                hclen;
               var i,
-              num,
-              length;
+                num,
+                length;
               /* get 5 bits HLIT (257-286) */
               hlit = tinf_read_bits(d, 5, 257);
               /* get 5 bits HDIST (1-32) */
@@ -34572,7 +34569,7 @@
 
               tinf_build_tree(code_tree, lengths, 0, 19);
               /* decode code lengths for the dynamic trees */
-              for (num = 0; num < hlit + hdist; ) {
+              for (num = 0; num < hlit + hdist;) {
                 var sym = tinf_decode_symbol(d, code_tree);
                 switch (sym) {
                   case 16:
@@ -34619,8 +34616,8 @@
                   d.dest[d.destLen++] = sym;
                 } else {
                   var length,
-                  dist,
-                  offs;
+                    dist,
+                    offs;
                   var i;
                   sym -= 257;
                   /* possibly get more bits from length code */
@@ -34638,7 +34635,7 @@
 
             function tinf_inflate_uncompressed_block(d) {
               var length,
-              invlength;
+                invlength;
               var i;
               /* unread from bitbuffer */
               while (d.bitcount > 8) {
@@ -34668,8 +34665,8 @@
             function tinf_uncompress(source, dest) {
               var d = new Data(source, dest);
               var bfinal,
-              btype,
-              res;
+                btype,
+                res;
               do {
                 /* read final block flag */
                 bfinal = tinf_getbit(d);
@@ -34849,7 +34846,7 @@
                 if (b2ac < 0) {
                   continue;
                 }
-                var t1 = ( - b + Math.sqrt(b2ac)) / (2 * a);
+                var t1 = (- b + Math.sqrt(b2ac)) / (2 * a);
                 if (0 < t1 && t1 < 1) {
                   if (i === 0) {
                     this$1.addX(derive(p0[i], p1[i], p2[i], p3[i], t1));
@@ -34858,7 +34855,7 @@
                     this$1.addY(derive(p0[i], p1[i], p2[i], p3[i], t1));
                   }
                 }
-                var t2 = ( - b - Math.sqrt(b2ac)) / (2 * a);
+                var t2 = (- b - Math.sqrt(b2ac)) / (2 * a);
                 if (0 < t2 && t2 < 1) {
                   if (i === 0) {
                     this$1.addX(derive(p0[i], p1[i], p2[i], p3[i], t2));
@@ -35360,13 +35357,13 @@
    */
             encode.LONGDATETIME = function (v) {
               return [0,
-              0,
-              0,
-              0,
-              v >> 24 & 255,
-              v >> 16 & 255,
-              v >> 8 & 255,
-              v & 255];
+                0,
+                0,
+                0,
+                v >> 24 & 255,
+                v >> 16 & 255,
+                v >> 8 & 255,
+                v & 255];
             };
             /**
    * @constant
@@ -35435,8 +35432,8 @@
    */
             encode.NUMBER16 = function (v) {
               return [28,
-              v >> 8 & 255,
-              v & 255];
+                v >> 8 & 255,
+                v & 255];
             };
             /**
    * @constant
@@ -35452,10 +35449,10 @@
    */
             encode.NUMBER32 = function (v) {
               return [29,
-              v >> 24 & 255,
-              v >> 16 & 255,
-              v >> 8 & 255,
-              v & 255];
+                v >> 24 & 255,
+                v >> 16 & 255,
+                v >> 8 & 255,
+                v & 255];
             };
             /**
    * @constant
@@ -35573,25 +35570,25 @@
    */
             var eightBitMacEncodings = {
               'x-mac-croatian': // Python: 'mac_croatian'
-              'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®Š™´¨≠ŽØ∞±≤≥∆µ∂∑∏š∫ªºΩžø' + '¿¡¬√ƒ≈Ć«Č… ÀÃÕŒœĐ—“”‘’÷◊©⁄€‹›Æ»–·‚„‰ÂćÁčÈÍÎÏÌÓÔđÒÚÛÙıˆ˜¯πË˚¸Êæˇ',
+                'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®Š™´¨≠ŽØ∞±≤≥∆µ∂∑∏š∫ªºΩžø' + '¿¡¬√ƒ≈Ć«Č… ÀÃÕŒœĐ—“”‘’÷◊©⁄€‹›Æ»–·‚„‰ÂćÁčÈÍÎÏÌÓÔđÒÚÛÙıˆ˜¯πË˚¸Êæˇ',
               'x-mac-cyrillic': // Python: 'mac_cyrillic'
-              'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ†°Ґ£§•¶І®©™Ђђ≠Ѓѓ∞±≤≥іµґЈЄєЇїЉљЊњ' + 'јЅ¬√ƒ≈∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№Ёёяабвгдежзийклмнопрстуфхцчшщъыьэю',
+                'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ†°Ґ£§•¶І®©™Ђђ≠Ѓѓ∞±≤≥іµґЈЄєЇїЉљЊњ' + 'јЅ¬√ƒ≈∆«»… ЋћЌќѕ–—“”‘’÷„ЎўЏџ№Ёёяабвгдежзийклмнопрстуфхцчшщъыьэю',
               'x-mac-gaelic': // http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/GAELIC.TXT
-              'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØḂ±≤≥ḃĊċḊḋḞḟĠġṀæø' + 'ṁṖṗɼƒſṠ«»… ÀÃÕŒœ–—“”‘’ṡẛÿŸṪ€‹›Ŷŷṫ·Ỳỳ⁊ÂÊÁËÈÍÎÏÌÓÔ♣ÒÚÛÙıÝýŴŵẄẅẀẁẂẃ',
+                'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØḂ±≤≥ḃĊċḊḋḞḟĠġṀæø' + 'ṁṖṗɼƒſṠ«»… ÀÃÕŒœ–—“”‘’ṡẛÿŸṪ€‹›Ŷŷṫ·Ỳỳ⁊ÂÊÁËÈÍÎÏÌÓÔ♣ÒÚÛÙıÝýŴŵẄẅẀẁẂẃ',
               'x-mac-greek': // Python: 'mac_greek'
-              'Ä¹²É³ÖÜ΅àâä΄¨çéèêë£™îï•½‰ôö¦€ùûü†ΓΔΘΛΞΠß®©ΣΪ§≠°·Α±≤≥¥ΒΕΖΗΙΚΜΦΫΨΩ' + 'άΝ¬ΟΡ≈Τ«»… ΥΧΆΈœ–―“”‘’÷ΉΊΌΎέήίόΏύαβψδεφγηιξκλμνοπώρστθωςχυζϊϋΐΰ­',
+                'Ä¹²É³ÖÜ΅àâä΄¨çéèêë£™îï•½‰ôö¦€ùûü†ΓΔΘΛΞΠß®©ΣΪ§≠°·Α±≤≥¥ΒΕΖΗΙΚΜΦΫΨΩ' + 'άΝ¬ΟΡ≈Τ«»… ΥΧΆΈœ–―“”‘’÷ΉΊΌΎέήίόΏύαβψδεφγηιξκλμνοπώρστθωςχυζϊϋΐΰ­',
               'x-mac-icelandic': // Python: 'mac_iceland'
-              'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûüÝ°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€ÐðÞþý·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+                'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûüÝ°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€ÐðÞþý·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
               'x-mac-inuit': // http://unicode.org/Public/MAPPINGS/VENDORS/APPLE/INUIT.TXT
-              'ᐃᐄᐅᐆᐊᐋᐱᐲᐳᐴᐸᐹᑉᑎᑏᑐᑑᑕᑖᑦᑭᑮᑯᑰᑲᑳᒃᒋᒌᒍᒎᒐᒑ°ᒡᒥᒦ•¶ᒧ®©™ᒨᒪᒫᒻᓂᓃᓄᓅᓇᓈᓐᓯᓰᓱᓲᓴᓵᔅᓕᓖᓗ' + 'ᓘᓚᓛᓪᔨᔩᔪᔫᔭ… ᔮᔾᕕᕖᕗ–—“”‘’ᕘᕙᕚᕝᕆᕇᕈᕉᕋᕌᕐᕿᖀᖁᖂᖃᖄᖅᖏᖐᖑᖒᖓᖔᖕᙱᙲᙳᙴᙵᙶᖖᖠᖡᖢᖣᖤᖥᖦᕼŁł',
+                'ᐃᐄᐅᐆᐊᐋᐱᐲᐳᐴᐸᐹᑉᑎᑏᑐᑑᑕᑖᑦᑭᑮᑯᑰᑲᑳᒃᒋᒌᒍᒎᒐᒑ°ᒡᒥᒦ•¶ᒧ®©™ᒨᒪᒫᒻᓂᓃᓄᓅᓇᓈᓐᓯᓰᓱᓲᓴᓵᔅᓕᓖᓗ' + 'ᓘᓚᓛᓪᔨᔩᔪᔫᔭ… ᔮᔾᕕᕖᕗ–—“”‘’ᕘᕙᕚᕝᕆᕇᕈᕉᕋᕌᕐᕿᖀᖁᖂᖃᖄᖅᖏᖐᖑᖒᖓᖔᖕᙱᙲᙳᙴᙵᙶᖖᖠᖡᖢᖣᖤᖥᖦᕼŁł',
               'x-mac-ce': // Python: 'mac_latin2'
-              'ÄĀāÉĄÖÜáąČäčĆćéŹźĎíďĒēĖóėôöõúĚěü†°Ę£§•¶ß®©™ę¨≠ģĮįĪ≤≥īĶ∂∑łĻļĽľĹĺŅ' + 'ņŃ¬√ńŇ∆«»… ňŐÕőŌ–—“”‘’÷◊ōŔŕŘ‹›řŖŗŠ‚„šŚśÁŤťÍŽžŪÓÔūŮÚůŰűŲųÝýķŻŁżĢˇ',
+                'ÄĀāÉĄÖÜáąČäčĆćéŹźĎíďĒēĖóėôöõúĚěü†°Ę£§•¶ß®©™ę¨≠ģĮįĪ≤≥īĶ∂∑łĻļĽľĹĺŅ' + 'ņŃ¬√ńŇ∆«»… ňŐÕőŌ–—“”‘’÷◊ōŔŕŘ‹›řŖŗŠ‚„šŚśÁŤťÍŽžŪÓÔūŮÚůŰűŲųÝýķŻŁżĢˇ',
               macintosh: // Python: 'mac_roman'
-              'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+                'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›ﬁﬂ‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
               'x-mac-romanian': // Python: 'mac_romanian'
-              'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ĂȘ∞±≤≥¥µ∂∑∏π∫ªºΩăș' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›Țț‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
+                'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ĂȘ∞±≤≥¥µ∂∑∏π∫ªºΩăș' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸ⁄€‹›Țț‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙıˆ˜¯˘˙˚¸˝˛ˇ',
               'x-mac-turkish': // Python: 'mac_turkish'
-              'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸĞğİıŞş‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙˆ˜¯˘˙˚¸˝˛ˇ'
+                'ÄÅÇÉÑÖÜáàâäãåçéèêëíìîïñóòôöõúùûü†°¢£§•¶ß®©™´¨≠ÆØ∞±≤≥¥µ∂∑∏π∫ªºΩæø' + '¿¡¬√ƒ≈∆«»… ÀÃÕŒœ–—“”‘’÷◊ÿŸĞğİıŞş‡·‚„‰ÂÊÁËÈÍÎÏÌÓÔÒÚÛÙˆ˜¯˘˙˚¸˝˛ˇ'
             };
             /**
    * Decodes an old-style Macintosh string. Returns either a Unicode JavaScript
@@ -35841,7 +35838,7 @@
               }
               if (data.length === 0) {
                 return [0,
-                0];
+                  0];
               }
               var encodedOffsets = [
               ];
@@ -35903,7 +35900,7 @@
                 return [v];
               } else {
                 return [12,
-                v - 1200];
+                  v - 1200];
               }
             };
             /**
@@ -36017,7 +36014,7 @@
                 if (field.type === 'TABLE') {
                   subtableOffsets.push(d.length);
                   d = d.concat([0,
-                  0]);
+                    0]);
                   subtables.push(bytes);
                 } else {
                   d = d.concat(bytes);
@@ -36841,7 +36838,7 @@
                   })
                 })
               })) || [
-              ];
+                ];
             };
             Parser.prototype.parseFeatureList = function () {
               return this.parsePointer(Parser.recordList({
@@ -36851,7 +36848,7 @@
                   lookupListIndexes: Parser.uShortList
                 })
               })) || [
-              ];
+                ];
             };
             Parser.prototype.parseLookupList = function (lookupTableParsers) {
               return this.parsePointer(Parser.list(Parser.pointer(function () {
@@ -36866,7 +36863,7 @@
                   markFilteringSet: useMarkFilteringSet ? this.parseUShort() : undefined
                 };
               }))) || [
-              ];
+                ];
             };
             Parser.prototype.parseFeatureVariationsList = function () {
               return this.parsePointer32(function () {
@@ -36879,7 +36876,7 @@
                 });
                 return featureVariations;
               }) || [
-              ];
+                ];
             };
             var parse = {
               getByte: getByte,
@@ -37045,59 +37042,59 @@
               ];
               if (!isPlan0Only) {
                 cmapTable = cmapTable.concat([ // CMAP 12 header
-                {
-                  name: 'cmap12PlatformID',
-                  type: 'USHORT',
-                  value: 3
-                }, // We encode only for PlatformID = 3 (Windows) because it is supported everywhere
-                {
-                  name: 'cmap12EncodingID',
-                  type: 'USHORT',
-                  value: 10
-                },
-                {
-                  name: 'cmap12Offset',
-                  type: 'ULONG',
-                  value: 0
-                }
+                  {
+                    name: 'cmap12PlatformID',
+                    type: 'USHORT',
+                    value: 3
+                  }, // We encode only for PlatformID = 3 (Windows) because it is supported everywhere
+                  {
+                    name: 'cmap12EncodingID',
+                    type: 'USHORT',
+                    value: 10
+                  },
+                  {
+                    name: 'cmap12Offset',
+                    type: 'ULONG',
+                    value: 0
+                  }
                 ]);
               }
               cmapTable = cmapTable.concat([ // CMAP 4 Subtable
-              {
-                name: 'format',
-                type: 'USHORT',
-                value: 4
-              },
-              {
-                name: 'cmap4Length',
-                type: 'USHORT',
-                value: 0
-              },
-              {
-                name: 'language',
-                type: 'USHORT',
-                value: 0
-              },
-              {
-                name: 'segCountX2',
-                type: 'USHORT',
-                value: 0
-              },
-              {
-                name: 'searchRange',
-                type: 'USHORT',
-                value: 0
-              },
-              {
-                name: 'entrySelector',
-                type: 'USHORT',
-                value: 0
-              },
-              {
-                name: 'rangeShift',
-                type: 'USHORT',
-                value: 0
-              }
+                {
+                  name: 'format',
+                  type: 'USHORT',
+                  value: 4
+                },
+                {
+                  name: 'cmap4Length',
+                  type: 'USHORT',
+                  value: 0
+                },
+                {
+                  name: 'language',
+                  type: 'USHORT',
+                  value: 0
+                },
+                {
+                  name: 'segCountX2',
+                  type: 'USHORT',
+                  value: 0
+                },
+                {
+                  name: 'searchRange',
+                  type: 'USHORT',
+                  value: 0
+                },
+                {
+                  name: 'entrySelector',
+                  type: 'USHORT',
+                  value: 0
+                },
+                {
+                  name: 'rangeShift',
+                  type: 'USHORT',
+                  value: 0
+                }
               ]);
               var t = new table.Table('cmap', cmapTable);
               t.segments = [
@@ -37200,12 +37197,12 @@
               t.fields = t.fields.concat(idRangeOffsets);
               t.fields = t.fields.concat(glyphIds);
               t.cmap4Length = 14 + // Subtable header
-              endCounts.length * 2 + 2 + // reservedPad
-              startCounts.length * 2 + idDeltas.length * 2 + idRangeOffsets.length * 2 + glyphIds.length * 2;
+                endCounts.length * 2 + 2 + // reservedPad
+                startCounts.length * 2 + idDeltas.length * 2 + idRangeOffsets.length * 2 + glyphIds.length * 2;
               if (!isPlan0Only) {
                 // CMAP 12 Subtable
                 var cmap12Length = 16 + // Subtable header
-                cmap12Groups.length * 4;
+                  cmap12Groups.length * 4;
                 t.cmap12Offset = 12 + 2 * 2 + 4 + t.cmap4Length;
                 t.fields = t.fields.concat([{
                   name: 'cmap12Format',
@@ -39187,7 +39184,7 @@
                     op = 1200 + parser.parseByte();
                   }
                   entries.push([op,
-                  operands]);
+                    operands]);
                   operands = [
                   ];
                 } else {
@@ -40005,7 +40002,7 @@
                       } else if (v < 255) {
                         b1 = code[i];
                         i += 1;
-                        stack.push( - (v - 251) * 256 - b1 - 108);
+                        stack.push(- (v - 251) * 256 - b1 - 108);
                       } else {
                         b1 = code[i];
                         b2 = code[i + 1];
@@ -43720,7 +43717,7 @@
                         ]
                       }
                     };
-                    scripts.splice( - 1 - pos, 0, scr);
+                    scripts.splice(- 1 - pos, 0, scr);
                     return scr.script;
                   }
                 }
@@ -43752,7 +43749,7 @@
                         ]
                       }
                     };
-                    scriptTable.langSysRecords.splice( - 1 - pos, 0, langSysRecord);
+                    scriptTable.langSysRecords.splice(- 1 - pos, 0, langSysRecord);
                     return langSysRecord.langSys;
                   }
                 }
@@ -43945,7 +43942,7 @@
                         }
                       }
                       break;
-                      // left glyph found, not right glyph - try next subtable
+                    // left glyph found, not right glyph - try next subtable
                     case 2:
                       // Search Pair Adjustment Positioning Format 2
                       var class1 = this$1.getGlyphClass(subtable.classDef1, leftIndex);
@@ -44150,7 +44147,7 @@
    * @param {string} [language='dflt']
    */
             Substitution.prototype.addSingle = function (feature, substitution, script, language) {
-              var lookupTable = this.getLookupTables(script, language, feature, 1, true) [0];
+              var lookupTable = this.getLookupTables(script, language, feature, 1, true)[0];
               var subtable = getSubstFormat(lookupTable, 2, {
                 // lookup type 1 subtable, format 2, coverage format 1
                 substFormat: 2,
@@ -44180,7 +44177,7 @@
    * @param {string} [language='dflt']
    */
             Substitution.prototype.addAlternate = function (feature, substitution, script, language) {
-              var lookupTable = this.getLookupTables(script, language, feature, 3, true) [0];
+              var lookupTable = this.getLookupTables(script, language, feature, 3, true)[0];
               var subtable = getSubstFormat(lookupTable, 1, {
                 // lookup type 3 subtable, format 1, coverage format 1
                 substFormat: 1,
@@ -44211,7 +44208,7 @@
    * @param {string} [language='dflt']
    */
             Substitution.prototype.addLigature = function (feature, ligature, script, language) {
-              var lookupTable = this.getLookupTables(script, language, feature, 4, true) [0];
+              var lookupTable = this.getLookupTables(script, language, feature, 4, true)[0];
               var subtable = lookupTable.subtables[0];
               if (!subtable) {
                 subtable = {
@@ -44612,7 +44609,7 @@
                         dx: 0,
                         dy: 0
                       };
-                      secondPt = transformPoints([secondPt], transform) [0];
+                      secondPt = transformPoints([secondPt], transform)[0];
                       transform.dx = firstPt.x - secondPt.x;
                       transform.dy = firstPt.y - secondPt.y;
                       transformedPoints = transformPoints(componentGlyph.points, transform);
@@ -45103,7 +45100,7 @@
                 case 'glyf':
                   this.zp0 = this.zp1 = this.zp2 = 1;
                   this.rp0 = this.rp1 = this.rp2 = 0;
-                  /* fall through */
+                /* fall through */
                 case 'prep':
                   this.fv = this.pv = this.dpv = xUnitVector;
                   this.round = roundToGrid;
@@ -45870,7 +45867,7 @@
               if (exports.DEBUG) {
                 console.log(state.step, 'MINDEX[]', k);
               }
-              stack.push(stack.splice(stack.length - k, 1) [0]);
+              stack.push(stack.splice(stack.length - k, 1)[0]);
             } // FDEF[] Function DEFinition
             // 0x2C
 
@@ -45944,7 +45941,7 @@
             function SHP(a, state) {
               var stack = state.stack;
               var rpi = a ? state.rp1 : state.rp2;
-              var rp = (a ? state.z0 : state.z1) [rpi];
+              var rp = (a ? state.z0 : state.z1)[rpi];
               var fv = state.fv;
               var pv = state.pv;
               var loop = state.loop;
@@ -45966,7 +45963,7 @@
             function SHC(a, state) {
               var stack = state.stack;
               var rpi = a ? state.rp1 : state.rp2;
-              var rp = (a ? state.z0 : state.z1) [rpi];
+              var rp = (a ? state.z0 : state.z1)[rpi];
               var fv = state.fv;
               var pv = state.pv;
               var ci = stack.pop();
@@ -45988,7 +45985,7 @@
             function SHZ(a, state) {
               var stack = state.stack;
               var rpi = a ? state.rp1 : state.rp2;
-              var rp = (a ? state.z0 : state.z1) [rpi];
+              var rp = (a ? state.z0 : state.z1)[rpi];
               var fv = state.fv;
               var pv = state.pv;
               var e = stack.pop();
@@ -46518,7 +46515,7 @@
               if (exports.DEBUG) {
                 console.log(state.step, 'NEG[]', n);
               }
-              stack.push( - n);
+              stack.push(- n);
             } // FLOOR[] FLOOR
             // 0x66
 
@@ -47424,16 +47421,16 @@
             /*****************************
     Mathematical Considerations
   ******************************
-  	fv ... refers to freedom vector
+    fv ... refers to freedom vector
   pv ... refers to projection vector
   rp ... refers to reference point
   p  ... refers to to point being operated on
   d  ... refers to distance
-  	SETRELATIVE:
+    SETRELATIVE:
   ============
-  	case freedom vector == x-axis:
+    case freedom vector == x-axis:
   ------------------------------
-  	                        (pv)
+                            (pv)
                        .-'
                 rpd .-'
                  .-*
@@ -47446,16 +47443,16 @@
                           '
               p *----------*-------------- (fv)
                             pm
-  	  rpdx = rpx + d * pv.x
+      rpdx = rpx + d * pv.x
     rpdy = rpy + d * pv.y
-  	  equation of line b
-  	   y - rpdy = pvns * (x- rpdx)
-  	   y = p.y
-  	   x = rpdx + ( p.y - rpdy ) / pvns
+      equation of line b
+       y - rpdy = pvns * (x- rpdx)
+       y = p.y
+       x = rpdx + ( p.y - rpdy ) / pvns
   
   case freedom vector == y-axis:
   ------------------------------
-  	    * pm
+        * pm
       |\
       | \
       |  \
@@ -47474,15 +47471,15 @@
       |        .-'
       *     *-'  d
       p     rp
-  	  rpdx = rpx + d * pv.x
+      rpdx = rpx + d * pv.x
     rpdy = rpy + d * pv.y
-  	  equation of line b:
+      equation of line b:
              pvns ... normal slope to pv
-  	   y - rpdy = pvns * (x - rpdx)
-  	   x = p.x
-  	   y = rpdy +  pvns * (p.x - rpdx)
+       y - rpdy = pvns * (x - rpdx)
+       x = p.x
+       y = rpdy +  pvns * (p.x - rpdx)
   
-  	generic case:
+    generic case:
   -------------
   
                                 .'(fv)
@@ -47501,41 +47498,41 @@
            ...---'''   d
      *--'''
     rp
-  	    rpdx = rpx + d * pv.x
+        rpdx = rpx + d * pv.x
       rpdy = rpy + d * pv.y
-  	 equation of line b:
+     equation of line b:
       pvns... normal slope to pv
-  	    y - rpdy = pvns * (x - rpdx)
-  	 equation of freedom vector line:
+        y - rpdy = pvns * (x - rpdx)
+     equation of freedom vector line:
       fvs ... slope of freedom vector (=fy/fx)
-  	    y - py = fvs * (x - px)
+        y - py = fvs * (x - px)
   
     on pm both equations are true for same x/y
-  	    y - rpdy = pvns * (x - rpdx)
-  	    y - py = fvs * (x - px)
-  	  form to y and set equal:
-  	    pvns * (x - rpdx) + rpdy = fvs * (x - px) + py
-  	  expand:
-  	    pvns * x - pvns * rpdx + rpdy = fvs * x - fvs * px + py
-  	  switch:
-  	    fvs * x - fvs * px + py = pvns * x - pvns * rpdx + rpdy
-  	  solve for x:
-  	    fvs * x - pvns * x = fvs * px - pvns * rpdx - py + rpdy
+        y - rpdy = pvns * (x - rpdx)
+        y - py = fvs * (x - px)
+      form to y and set equal:
+        pvns * (x - rpdx) + rpdy = fvs * (x - px) + py
+      expand:
+        pvns * x - pvns * rpdx + rpdy = fvs * x - fvs * px + py
+      switch:
+        fvs * x - fvs * px + py = pvns * x - pvns * rpdx + rpdy
+      solve for x:
+        fvs * x - pvns * x = fvs * px - pvns * rpdx - py + rpdy
   
-  	          fvs * px - pvns * rpdx + rpdy - py
+              fvs * px - pvns * rpdx + rpdy - py
       x =  -----------------------------------
                    fvs - pvns
-  	  and:
-  	    y = fvs * (x - px) + py
+      and:
+        y = fvs * (x - px) + py
   
-  	INTERPOLATE:
+    INTERPOLATE:
   ============
-  	Examples of point interpolation.
-  	The weight of the movement of the reference point gets bigger
+    Examples of point interpolation.
+    The weight of the movement of the reference point gets bigger
   the further the other reference point is away, thus the safest
   option (that is avoiding 0/0 divisions) is to weight the
   original distance of the other point by the sum of both distances.
-  	If the sum of both distances is 0, then move the point by the
+    If the sum of both distances is 0, then move the point by the
   arithmetic average of the movement of both reference points.
   
   
@@ -47557,7 +47554,7 @@
   
   -------
   
-  	           (+10)
+               (+10)
       rp1o *-------->*rp1
            .         .                      (-10)
            .         .              rp2 *<---------* rpo2
@@ -47583,7 +47580,7 @@
   
                                  (+10)
                             po *-------->* p
-  	-------
+    -------
   
              (+10)
       rp1o *-------->*rp1
@@ -47594,7 +47591,7 @@
                                           (+25)
                             po *----------------------->* p
   
-  	vim: set ts=4 sw=4 expandtab:
+    vim: set ts=4 sw=4 expandtab:
   *****/
             // The Font object
             // This code is based on Array.from implementation for strings in https://github.com/mathiasbynens/Array.from
@@ -49016,7 +49013,7 @@
 
           exports.resolve = function () {
             var resolvedPath = '',
-            resolvedAbsolute = false;
+              resolvedAbsolute = false;
             for (var i = arguments.length - 1; i >= - 1 && !resolvedAbsolute; i--) {
               var path = i >= 0 ? arguments[i] : process.cwd(); // Skip empty and invalid entries
               if (typeof path !== 'string') {
@@ -49038,7 +49035,7 @@
           // posix version
           exports.normalize = function (path) {
             var isAbsolute = exports.isAbsolute(path),
-            trailingSlash = substr(path, - 1) === '/'; // Normalize the path
+              trailingSlash = substr(path, - 1) === '/'; // Normalize the path
             path = normalizeArray(filter(path.split('/'), function (p) {
               return !!p;
             }), !isAbsolute).join('/');
@@ -49103,7 +49100,7 @@
             if (path.length === 0) return '.';
             var code = path.charCodeAt(0);
             var hasRoot = code === 47            /*/*/
-            ;
+              ;
             var end = - 1;
             var matchedSlash = true;
             for (var i = path.length - 1; i >= 1; --i) {
@@ -49156,7 +49153,7 @@
 
           exports.basename = function (path, ext) {
             var f = basename(path);
-            if (ext && f.substr( - 1 * ext.length) === ext) {
+            if (ext && f.substr(- 1 * ext.length) === ext) {
               f = f.substr(0, f.length - ext.length);
             }
             return f;
@@ -49191,7 +49188,7 @@
               ) {
                 // If this is our first dot, mark it as the start of our extension
                 if (startDot === - 1) startDot = i;
-                 else if (preDotState !== 1) preDotState = 1;
+                else if (preDotState !== 1) preDotState = 1;
               } else if (startDot !== - 1) {
                 // We saw a non-dot and non-path separator before our dot, so we should
                 // have a good chance at having a non-empty extension
@@ -49199,8 +49196,8 @@
               }
             }
             if (startDot === - 1 || end === - 1 || // We saw a non-dot character immediately before the dot
-            preDotState === 0 || // The (right-most) trimmed path component is exactly '..'
-            preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+              preDotState === 0 || // The (right-most) trimmed path component is exactly '..'
+              preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
               return '';
             }
             return path.slice(startDot, end);
@@ -49215,13 +49212,13 @@
             return res;
           } // String.prototype.substr - negative index don't work in IE8
 
-          var substr = 'ab'.substr( - 1) === 'b' ? function (str, start, len) {
+          var substr = 'ab'.substr(- 1) === 'b' ? function (str, start, len) {
             return str.substr(start, len);
           }
-           : function (str, start, len) {
-            if (start < 0) start = str.length + start;
-            return str.substr(start, len);
-          };
+            : function (str, start, len) {
+              if (start < 0) start = str.length + start;
+              return str.substr(start, len);
+            };
         }).call(this, _dereq_('_process'))
       },
       {
@@ -49243,7 +49240,7 @@
         }
         function defaultClearTimeout() {
           throw new Error('clearTimeout has not been defined');
-        }(function () {
+        } (function () {
           try {
             if (typeof setTimeout === 'function') {
               cachedSetTimeout = setTimeout;
@@ -49262,7 +49259,7 @@
           } catch (e) {
             cachedClearTimeout = defaultClearTimeout;
           }
-        }) ();
+        })();
         function runTimeout(fun) {
           if (cachedSetTimeout === setTimeout) {
             //normal enviroments in sane situations
@@ -49510,8 +49507,8 @@
           exports.isGeneratorFunction = function (genFun) {
             var ctor = typeof genFun === 'function' && genFun.constructor;
             return ctor ? ctor === GeneratorFunction || // For the native GeneratorFunction constructor, the best we can
-            // do is to check its .name property.
-            (ctor.displayName || ctor.name) === 'GeneratorFunction' : false;
+              // do is to check its .name property.
+              (ctor.displayName || ctor.name) === 'GeneratorFunction' : false;
           };
           exports.mark = function (genFun) {
             if (Object.setPrototypeOf) {
@@ -49569,20 +49566,20 @@
                 });
               }
               return previousPromise = // If enqueue has been called before, then we want to wait until
-              // all previous Promises have been resolved before calling invoke,
-              // so that results are always delivered in the correct order. If
-              // enqueue has not been called before, then it is important to
-              // call invoke immediately, without waiting on a callback to fire,
-              // so that the async generator function has the opportunity to do
-              // any necessary setup in a predictable way. This predictability
-              // is why the Promise constructor synchronously invokes its
-              // executor callback, and why async functions synchronously
-              // execute code before the first await. Since we implement simple
-              // async functions in terms of async generators, it is especially
-              // important to get this right, even though it requires care.
-              previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, // Avoid propagating failures to Promises returned by later
-              // invocations of the iterator.
-              callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
+                // all previous Promises have been resolved before calling invoke,
+                // so that results are always delivered in the correct order. If
+                // enqueue has not been called before, then it is important to
+                // call invoke immediately, without waiting on a callback to fire,
+                // so that the async generator function has the opportunity to do
+                // any necessary setup in a predictable way. This predictability
+                // is why the Promise constructor synchronously invokes its
+                // executor callback, and why async functions synchronously
+                // execute code before the first await. Since we implement simple
+                // async functions in terms of async generators, it is especially
+                // important to get this right, even though it requires care.
+                previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, // Avoid propagating failures to Promises returned by later
+                  // invocations of the iterator.
+                  callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg();
             } // Define the unified helper method that is used to implement .next,
             // .throw, and .return (see defineIteratorMethods).
 
@@ -49598,9 +49595,9 @@
           exports.async = function (innerFn, outerFn, self, tryLocsList) {
             var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList));
             return exports.isGeneratorFunction(outerFn) ? iter // If outerFn is a generator, return the full iterator.
-             : iter.next().then(function (result) {
-              return result.done ? result.value : iter.next();
-            });
+              : iter.next().then(function (result) {
+                return result.done ? result.value : iter.next();
+              });
           };
           function makeInvokeMethod(innerFn, self, context) {
             var state = GenStateSuspendedStart;
@@ -49809,18 +49806,18 @@
               }
               if (!isNaN(iterable.length)) {
                 var i = - 1,
-                next = function next() {
-                  while (++i < iterable.length) {
-                    if (hasOwn.call(iterable, i)) {
-                      next.value = iterable[i];
-                      next.done = false;
-                      return next;
+                  next = function next() {
+                    while (++i < iterable.length) {
+                      if (hasOwn.call(iterable, i)) {
+                        next.value = iterable[i];
+                        next.done = false;
+                        return next;
+                      }
                     }
-                  }
-                  next.value = undefined;
-                  next.done = true;
-                  return next;
-                };
+                    next.value = undefined;
+                    next.done = true;
+                    return next;
+                  };
                 return next.next = next;
               }
             } // Return an iterator with no values.
@@ -49851,7 +49848,7 @@
               if (!skipTempReset) {
                 for (var name in this) {
                   // Not sure about the optimal order of these conditions:
-                  if (name.charAt(0) === 't' && hasOwn.call(this, name) && !isNaN( + name.slice(1))) {
+                  if (name.charAt(0) === 't' && hasOwn.call(this, name) && !isNaN(+ name.slice(1))) {
                     this[name] = undefined;
                   }
                 }
@@ -49999,11 +49996,11 @@
           // injected easily by `bin/regenerator --include-runtime script.js`.
           return exports;
         }( // If this script is executing as a CommonJS module, use module.exports
-        // as the regeneratorRuntime namespace. Otherwise create a new empty
-        // object. Either way, the resulting object will be used to initialize
-        // the regeneratorRuntime variable at the top of this file.
-        typeof module === 'object' ? module.exports : {
-        });
+          // as the regeneratorRuntime namespace. Otherwise create a new empty
+          // object. Either way, the resulting object will be used to initialize
+          // the regeneratorRuntime variable at the top of this file.
+          typeof module === 'object' ? module.exports : {
+          });
         try {
           regeneratorRuntime = runtime;
         } catch (accidentalStrictMode) {
@@ -50016,7 +50013,7 @@
           // you've misconfigured your bundler to force strict mode and applied a
           // CSP to forbid Function, and you're not willing to fix either of those
           // problems, please detail your unique predicament in a GitHub issue.
-          Function('r', 'regeneratorRuntime = r') (runtime);
+          Function('r', 'regeneratorRuntime = r')(runtime);
         }
       },
       {
@@ -50159,7 +50156,7 @@
             ];
             this.forEach(function (value, name) {
               items.push([name,
-              value]);
+                value]);
             });
             return iteratorFor(items);
           };
@@ -50458,7 +50455,7 @@
             });
           };
           self.fetch.polyfill = true;
-        }) (typeof self !== 'undefined' ? self : this);
+        })(typeof self !== 'undefined' ? self : this);
       },
       {
       }
@@ -50484,8 +50481,8 @@
         var _color_conversion = _interopRequireDefault(_dereq_('../color/color_conversion'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Environment
@@ -51208,8 +51205,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Environment
@@ -51580,8 +51577,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Environment
@@ -51733,8 +51730,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Environment
@@ -51921,8 +51918,8 @@
             this.dummyDOM = document.getElementById(cnvId).parentNode;
           }
           var cIdT,
-          container,
-          inner;
+            container,
+            inner;
           var query = '';
           if (display === 'Fallback') {
             cIdT = cnvId + type;
@@ -52092,7 +52089,7 @@
         }; //gets middle point / centroid of shape
         function _getMiddle(f, args) {
           var x,
-          y;
+            y;
           if (f === 'rectangle' || f === 'ellipse' || f === 'arc' || f === 'circle' || f === 'square') {
             x = Math.round(args[0] + args[2] / 2);
             y = Math.round(args[1] + args[3] / 2);
@@ -52110,7 +52107,7 @@
             y = args[1];
           }
           return [x,
-          y];
+            y];
         } //gets position of shape in the canvas
 
         function _getPos(args, canvasWidth, canvasHeight) {
@@ -52221,8 +52218,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Environment
@@ -52407,8 +52404,8 @@
         _dereq_('./core/init');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         } // core
         //accessibility
@@ -52516,8 +52513,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Color
@@ -52554,9 +52551,9 @@
           } // Hue and alpha stay the same.
 
           return [hue,
-          sat,
-          li,
-          hsba[3]];
+            sat,
+            li,
+            hsba[3]];
         };
         /**
  * Convert an HSBA array to RGBA.
@@ -52580,8 +52577,8 @@
             var tint2 = val * (1 - sat * (hue - sector));
             var tint3 = val * (1 - sat * (1 + sector - hue));
             var red,
-            green,
-            blue;
+              green,
+              blue;
             if (sector === 1) {
               // Yellow to green.
               red = tint2;
@@ -52638,9 +52635,9 @@
 
           sat = 2 * (val - li) / val; // Hue and alpha stay the same.
           return [hue,
-          sat,
-          val,
-          hsla[3]];
+            sat,
+            val,
+            hsla[3]];
         };
         /**
  * Convert an HSLA array to RGBA.
@@ -52713,7 +52710,7 @@
           var val = Math.max(red, green, blue);
           var chroma = val - Math.min(red, green, blue);
           var hue,
-          sat;
+            sat;
           if (chroma === 0) {
             // Return early if grayscale.
             hue = 0;
@@ -52738,8 +52735,8 @@
             }
           }
           return [hue / 6,
-          sat,
-          val,
+            sat,
+            val,
           rgba[3]];
         };
         /**
@@ -52754,7 +52751,7 @@
           var li = val + min; // We will halve this later.
           var chroma = val - min;
           var hue,
-          sat;
+            sat;
           if (chroma === 0) {
             // Return early if grayscale.
             hue = 0;
@@ -52783,7 +52780,7 @@
             }
           }
           return [hue / 6,
-          sat,
+            sat,
           li / 2,
           rgba[3]];
         };
@@ -52856,8 +52853,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -52885,8 +52882,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Color
@@ -53274,11 +53271,11 @@
           var mode = this._colorMode;
           var maxes = this._colorMaxes;
           var l0,
-          l1,
-          l2,
-          l3;
+            l1,
+            l2,
+            l3;
           var fromArray,
-          toArray;
+            toArray;
           if (mode === constants.RGB) {
             fromArray = c1.levels.map(function (level) {
               return level / 255;
@@ -53509,8 +53506,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -53538,8 +53535,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Color
@@ -54022,76 +54019,76 @@
           HEX8: /^#([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})([a-f0-9]{2})$/i,
           // Match colors in format rgb(R, G, B), e.g. rgb(255, 0, 128).
           RGB: new RegExp(['^rgb\\(',
-          INTEGER.source,
-          ',',
-          INTEGER.source,
-          ',',
-          INTEGER.source,
-          '\\)$'].join(WHITESPACE.source), 'i'),
+            INTEGER.source,
+            ',',
+            INTEGER.source,
+            ',',
+            INTEGER.source,
+            '\\)$'].join(WHITESPACE.source), 'i'),
           // Match colors in format rgb(R%, G%, B%), e.g. rgb(100%, 0%, 28.9%).
           RGB_PERCENT: new RegExp(['^rgb\\(',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          '\\)$'].join(WHITESPACE.source), 'i'),
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            '\\)$'].join(WHITESPACE.source), 'i'),
           // Match colors in format rgb(R, G, B, A), e.g. rgb(255, 0, 128, 0.25).
           RGBA: new RegExp(['^rgba\\(',
-          INTEGER.source,
-          ',',
-          INTEGER.source,
-          ',',
-          INTEGER.source,
-          ',',
-          DECIMAL.source,
-          '\\)$'].join(WHITESPACE.source), 'i'),
+            INTEGER.source,
+            ',',
+            INTEGER.source,
+            ',',
+            INTEGER.source,
+            ',',
+            DECIMAL.source,
+            '\\)$'].join(WHITESPACE.source), 'i'),
           // Match colors in format rgb(R%, G%, B%, A), e.g. rgb(100%, 0%, 28.9%, 0.5).
           RGBA_PERCENT: new RegExp(['^rgba\\(',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          ',',
-          DECIMAL.source,
-          '\\)$'].join(WHITESPACE.source), 'i'),
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            ',',
+            DECIMAL.source,
+            '\\)$'].join(WHITESPACE.source), 'i'),
           // Match colors in format hsla(H, S%, L%), e.g. hsl(100, 40%, 28.9%).
           HSL: new RegExp(['^hsl\\(',
-          INTEGER.source,
-          ',',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          '\\)$'].join(WHITESPACE.source), 'i'),
+            INTEGER.source,
+            ',',
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            '\\)$'].join(WHITESPACE.source), 'i'),
           // Match colors in format hsla(H, S%, L%, A), e.g. hsla(100, 40%, 28.9%, 0.5).
           HSLA: new RegExp(['^hsla\\(',
-          INTEGER.source,
-          ',',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          ',',
-          DECIMAL.source,
-          '\\)$'].join(WHITESPACE.source), 'i'),
+            INTEGER.source,
+            ',',
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            ',',
+            DECIMAL.source,
+            '\\)$'].join(WHITESPACE.source), 'i'),
           // Match colors in format hsb(H, S%, B%), e.g. hsb(100, 40%, 28.9%).
           HSB: new RegExp(['^hsb\\(',
-          INTEGER.source,
-          ',',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          '\\)$'].join(WHITESPACE.source), 'i'),
+            INTEGER.source,
+            ',',
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            '\\)$'].join(WHITESPACE.source), 'i'),
           // Match colors in format hsba(H, S%, B%, A), e.g. hsba(100, 40%, 28.9%, 0.5).
           HSBA: new RegExp(['^hsba\\(',
-          INTEGER.source,
-          ',',
-          PERCENT.source,
-          ',',
-          PERCENT.source,
-          ',',
-          DECIMAL.source,
-          '\\)$'].join(WHITESPACE.source), 'i')
+            INTEGER.source,
+            ',',
+            PERCENT.source,
+            ',',
+            PERCENT.source,
+            ',',
+            DECIMAL.source,
+            '\\)$'].join(WHITESPACE.source), 'i')
         };
         /**
  * For a number of different inputs, returns a color formatted as [r, g, b, a]
@@ -54390,8 +54387,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -54419,8 +54416,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Color
@@ -56171,8 +56168,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -56200,8 +56197,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Environment
@@ -57173,8 +57170,8 @@
         var _internationalization = _dereq_('../internationalization');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _slicedToArray(arr, i) {
@@ -57295,8 +57292,8 @@
             //const astrixTxtColor = '#ED225D';
             //const welcomeBgColor = '#ED225D';
             //const welcomeTextColor = 'white';
-            var welcomeMessage = (0, _internationalization.translator) ('fes.pre', {
-              message: (0, _internationalization.translator) ('fes.welcome')
+            var welcomeMessage = (0, _internationalization.translator)('fes.pre', {
+              message: (0, _internationalization.translator)('fes.welcome')
             });
             console.log('    _ \n' + ' /\\| |/\\ \n' + ' \\ ` \' /  \n' + ' / , . \\  \n' + ' \\/|_|\\/ ' + '\n\n' + welcomeMessage);
           };
@@ -57356,7 +57353,7 @@
               'font-family: Arial',
               'font-size: larger'
             ];
-            var prefixedMsg = (0, _internationalization.translator) ('fes.pre', {
+            var prefixedMsg = (0, _internationalization.translator)('fes.pre', {
               message: message
             });
             if (ENABLE_FES_STYLING) {
@@ -57386,11 +57383,11 @@
    * @private
    */
           _main.default._friendlyAutoplayError = function (src) {
-            var message = (0, _internationalization.translator) ('fes.autoplay', {
+            var message = (0, _internationalization.translator)('fes.autoplay', {
               src: src,
               url: 'https://developer.mozilla.org/docs/Web/Media/Autoplay_guide'
             });
-            console.log((0, _internationalization.translator) ('fes.pre', {
+            console.log((0, _internationalization.translator)('fes.pre', {
               message: message
             }));
           };
@@ -57412,7 +57409,7 @@
    */
           var computeEditDistance = function computeEditDistance(w1, w2) {
             var l1 = w1.length,
-            l2 = w2.length;
+              l2 = w2.length;
             if (l1 === 0) return w2;
             if (l2 === 0) return w1;
             var prev = [
@@ -57431,7 +57428,7 @@
                   cur[_j] = i;
                 } else {
                   var a1 = w1[i - 1],
-                  a2 = w2[_j - 1];
+                    a2 = w2[_j - 1];
                   var temp = 999999;
                   var cost = a1.toLowerCase() === a2.toLowerCase() ? 0 : 1;
                   temp = temp > cost + prev[_j - 1] ? cost + prev[_j - 1] : temp;
@@ -57472,7 +57469,7 @@
               // actual name with correct capitalization doesnt exist in context,
               // and if the user-defined symbol is of the type function
               if (fxns[lowercase] && !context[fxns[lowercase]] && typeof context[prop] === 'function') {
-                var msg = (0, _internationalization.translator) ('fes.checkUserDefinedFns', {
+                var msg = (0, _internationalization.translator)('fes.checkUserDefinedFns', {
                   name: prop,
                   actualName: fxns[lowercase]
                 });
@@ -57504,7 +57501,7 @@
             misusedAtTopLevelCode.forEach(function (symbol) {
               var dist = computeEditDistance(errSym, symbol.name);
               if (distanceMap[dist]) distanceMap[dist].push(symbol);
-               else distanceMap[dist] = [
+              else distanceMap[dist] = [
                 symbol
               ];
               if (dist < min) min = dist;
@@ -57520,7 +57517,7 @@
               if (parsed && parsed[0] && parsed[0].fileName && parsed[0].lineNumber && parsed[0].columnNumber) {
                 locationObj = {
                   location: ''.concat(parsed[0].fileName, ':').concat(parsed[0].lineNumber, ':').concat(parsed[0].columnNumber),
-                  file: parsed[0].fileName.split('/').slice( - 1),
+                  file: parsed[0].fileName.split('/').slice(- 1),
                   line: parsed[0].lineNumber
                 };
               }
@@ -57529,11 +57526,11 @@
                 // To be used when there is only one closest match. The count parameter
                 // allows i18n to pick between the keys "fes.misspelling" and
                 // "fes.misspelling_plural"
-                msg = (0, _internationalization.translator) ('fes.misspelling', {
+                msg = (0, _internationalization.translator)('fes.misspelling', {
                   name: errSym,
                   actualName: matchedSymbols[0].name,
                   type: matchedSymbols[0].type,
-                  location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : '',
+                  location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : '',
                   count: matchedSymbols.length
                 });
               } else {
@@ -57544,10 +57541,10 @@
                   var message = '▶️ ' + symbol.name + (symbol.type === 'function' ? '()' : '');
                   return mapToReference(message, symbol.name);
                 }).join('\n');
-                msg = (0, _internationalization.translator) ('fes.misspelling', {
+                msg = (0, _internationalization.translator)('fes.misspelling', {
                   name: errSym,
                   suggestions: suggestions,
-                  location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : '',
+                  location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : '',
                   count: matchedSymbols.length
                 });
               } // If there is only one closest match, tell _friendlyError to also add
@@ -57577,16 +57574,16 @@
               friendlyStack.forEach(function (frame, idx) {
                 var location = ''.concat(frame.fileName, ':').concat(frame.lineNumber, ':').concat(frame.columnNumber);
                 var frameMsg,
-                translationObj = {
-                  func: frame.functionName,
-                  line: frame.lineNumber,
-                  location: location,
-                  file: frame.fileName.split('/').slice( - 1)
-                };
+                  translationObj = {
+                    func: frame.functionName,
+                    line: frame.lineNumber,
+                    location: location,
+                    file: frame.fileName.split('/').slice(- 1)
+                  };
                 if (idx === 0) {
-                  frameMsg = (0, _internationalization.translator) ('fes.globalErrors.stackTop', translationObj);
+                  frameMsg = (0, _internationalization.translator)('fes.globalErrors.stackTop', translationObj);
                 } else {
-                  frameMsg = (0, _internationalization.translator) ('fes.globalErrors.stackSubseq', translationObj);
+                  frameMsg = (0, _internationalization.translator)('fes.globalErrors.stackSubseq', translationObj);
                 }
                 stacktraceMsg += frameMsg;
               });
@@ -57621,14 +57618,14 @@
           var processStack = function processStack(error, stacktrace) {
             // cannot process a stacktrace that doesn't exist
             if (!stacktrace) return [false,
-            null];
+              null];
             stacktrace.forEach(function (frame) {
               frame.functionName = frame.functionName || '';
             }); // isInternal - Did this error happen inside the library
             var isInternal = false;
             var p5FileName,
-            friendlyStack,
-            currentEntryPoint;
+              friendlyStack,
+              currentEntryPoint;
             for (var i = stacktrace.length - 1; i >= 0; i--) {
               var splitted = stacktrace[i].functionName.split('.');
               if (entryPoints.includes(splitted[splitted.length - 1])) {
@@ -57666,32 +57663,32 @@
               }); // a weird case, if for some reason we can't identify the function called
               // from user's code
               if (friendlyStack.length === 0) return [true,
-              null]; // get the function just above the topmost frame in the friendlyStack.
+                null]; // get the function just above the topmost frame in the friendlyStack.
               // i.e the name of the library function called from user's code
-              var func = stacktrace[friendlyStack[0].frameIndex - 1].functionName.split('.').slice( - 1) [0]; // Try and get the location (line no.) from the top element of the stack
+              var func = stacktrace[friendlyStack[0].frameIndex - 1].functionName.split('.').slice(- 1)[0]; // Try and get the location (line no.) from the top element of the stack
               var locationObj;
               if (friendlyStack[0].fileName && friendlyStack[0].lineNumber && friendlyStack[0].columnNumber) {
                 locationObj = {
                   location: ''.concat(friendlyStack[0].fileName, ':').concat(friendlyStack[0].lineNumber, ':').concat(friendlyStack[0].columnNumber),
-                  file: friendlyStack[0].fileName.split('/').slice( - 1),
+                  file: friendlyStack[0].fileName.split('/').slice(- 1),
                   line: friendlyStack[0].lineNumber
                 }; // if already handled by another part of the FES, don't handle again
                 if (_main.default._fesLogCache[locationObj.location]) return [true,
-                null];
+                  null];
               } // Check if the error is due to a non loadX method being used incorrectly
               // in preload
 
               if (currentEntryPoint === 'preload' && _main.default.prototype._preloadMethods[func] == null) {
-                _main.default._friendlyError((0, _internationalization.translator) ('fes.wrongPreload', {
+                _main.default._friendlyError((0, _internationalization.translator)('fes.wrongPreload', {
                   func: func,
-                  location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : '',
+                  location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : '',
                   error: error.message
                 }), 'preload');
               } else {
                 // Library error
-                _main.default._friendlyError((0, _internationalization.translator) ('fes.libraryError', {
+                _main.default._friendlyError((0, _internationalization.translator)('fes.libraryError', {
                   func: func,
-                  location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : '',
+                  location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : '',
                   error: error.message
                 }), func);
               } // Finally, if it's an internal error, print the friendlyStack
@@ -57702,7 +57699,7 @@
               }
             }
             return [isInternal,
-            friendlyStack];
+              friendlyStack];
           };
           /**
    * Handles "global" errors that the browser catches.
@@ -57732,9 +57729,9 @@
             var stacktrace = _main.default._getErrorStackParser().parse(error); // process the stacktrace from the browser and simplify it to give
             // friendlyStack.
             var _processStack = processStack(error, stacktrace),
-            _processStack2 = _slicedToArray(_processStack, 2),
-            isInternal = _processStack2[0],
-            friendlyStack = _processStack2[1]; // if this is an internal library error, the type of the error is not relevant,
+              _processStack2 = _slicedToArray(_processStack, 2),
+              isInternal = _processStack2[0],
+              friendlyStack = _processStack2[1]; // if this is an internal library error, the type of the error is not relevant,
             // only the user code that lead to it is.
             if (isInternal) {
               return;
@@ -57779,7 +57776,7 @@
             if (stacktrace && stacktrace[0].fileName && stacktrace[0].lineNumber && stacktrace[0].columnNumber) {
               locationObj = {
                 location: ''.concat(stacktrace[0].fileName, ':').concat(stacktrace[0].lineNumber, ':').concat(stacktrace[0].columnNumber),
-                file: stacktrace[0].fileName.split('/').slice( - 1),
+                file: stacktrace[0].fileName.split('/').slice(- 1),
                 line: friendlyStack[0].lineNumber
               };
             }
@@ -57795,7 +57792,7 @@
                         //Error if there is an invalid or unexpected token that doesn't belong at this position in the code
                         //let x = “not a string”; -> string not in proper quotes
                         var url = 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Errors/Illegal_character#What_went_wrong';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.syntax.invalidToken', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.syntax.invalidToken', {
                           url: url
                         }));
                         break;
@@ -57805,7 +57802,7 @@
                         //Error if a specific language construct(, { ; etc) was expected, but something else was provided
                         //for (let i = 0; i < 5,; ++i) -> a comma after i<5 instead of a semicolon
                         var _url = 'https://developer.mozilla.org/docs/Web/JavaScript/Reference/Errors/Unexpected_token#What_went_wrong';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.syntax.unexpectedToken', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.syntax.unexpectedToken', {
                           url: _url
                         }));
                         break;
@@ -57817,7 +57814,7 @@
                         //let a = 100;
                         var errSym = matchedError.match[1];
                         var _url2 = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Redeclared_parameter#what_went_wrong';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.syntax.redeclaredVariable', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.syntax.redeclaredVariable', {
                           symbol: errSym,
                           url: _url2
                         }));
@@ -57828,7 +57825,7 @@
                         //Error if a const variable is not initialized during declaration
                         //Example => const a;
                         var _url3 = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Missing_initializer_in_const#what_went_wrong';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.syntax.missingInitializer', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.syntax.missingInitializer', {
                           url: _url3
                         }));
                         break;
@@ -57841,7 +57838,7 @@
                         //  }
                         //  return; -> misplaced return statement
                         var _url4 = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Bad_return_or_yield#what_went_wrong';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.syntax.badReturnOrYield', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.syntax.badReturnOrYield', {
                           url: _url4
                         }));
                         break;
@@ -57864,10 +57861,10 @@
                         // of a p5 property/function
 
                         var _url5 = 'https://p5js.org/examples/data-variable-scope.html';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.reference.notDefined', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.reference.notDefined', {
                           url: _url5,
                           symbol: _errSym,
-                          location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : ''
+                          location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : ''
                         }));
                         if (friendlyStack) printFriendlyStack(friendlyStack);
                         break;
@@ -57879,10 +57876,10 @@
                         //let a=100;
                         var _errSym2 = matchedError.match[1];
                         var _url6 = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_access_lexical_declaration_before_init#what_went_wrong';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.reference.cannotAccess', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.reference.cannotAccess', {
                           url: _url6,
                           symbol: _errSym2,
-                          location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : ''
+                          location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : ''
                         }));
                         if (friendlyStack) printFriendlyStack(friendlyStack);
                         break;
@@ -57904,14 +57901,14 @@
                           url: _url7,
                           symbol: splitSym[splitSym.length - 1],
                           obj: splitSym.slice(0, splitSym.length - 1).join('.'),
-                          location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : ''
+                          location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : ''
                         }; // There are two cases to handle here. When the function is called
                         // as a property of an object and when it's called independently.
                         // Both have different explanations.
                         if (splitSym.length > 1) {
-                          _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.type.notfuncObj', translationObj));
+                          _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.type.notfuncObj', translationObj));
                         } else {
-                          _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.type.notfunc', translationObj));
+                          _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.type.notfunc', translationObj));
                         }
                         if (friendlyStack) printFriendlyStack(friendlyStack);
                         break;
@@ -57925,10 +57922,10 @@
                         var _url8 = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_access_property#what_went_wrong';
                         /*let url2 =
                   'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null';*/
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.type.readFromNull', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.type.readFromNull', {
                           url: _url8,
                           symbol: _errSym4,
-                          location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : ''
+                          location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : ''
                         }));
                         if (friendlyStack) printFriendlyStack(friendlyStack);
                         break;
@@ -57942,10 +57939,10 @@
                         var _url9 = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cant_access_property#what_went_wrong';
                         /*let url2 =
                   'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined#description';*/
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.type.readFromUndefined', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.type.readFromUndefined', {
                           url: _url9,
                           symbol: _errSym5,
-                          location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : ''
+                          location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : ''
                         }));
                         if (friendlyStack) printFriendlyStack(friendlyStack);
                         break;
@@ -57956,9 +57953,9 @@
                         //const a = 100;
                         //a=10;
                         var _url10 = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_const_assignment#what_went_wrong';
-                        _main.default._friendlyError((0, _internationalization.translator) ('fes.globalErrors.type.constAssign', {
+                        _main.default._friendlyError((0, _internationalization.translator)('fes.globalErrors.type.constAssign', {
                           url: _url10,
-                          location: locationObj ? (0, _internationalization.translator) ('fes.location', locationObj) : ''
+                          location: locationObj ? (0, _internationalization.translator)('fes.location', locationObj) : ''
                         }));
                         if (friendlyStack) printFriendlyStack(friendlyStack);
                         break;
@@ -58043,9 +58040,9 @@
           };
           misusedAtTopLevelCode = [
           ].concat(getSymbols(_main.default.prototype), // At present, p5 only adds its constants to p5.prototype during
-          // construction, which may not have happened at the time a
-          // ReferenceError is thrown, so we'll manually add them to our list.
-          getSymbols(_dereq_('../constants'))); // This will ultimately ensure that we report the most specific error
+            // construction, which may not have happened at the time a
+            // ReferenceError is thrown, so we'll manually add them to our list.
+            getSymbols(_dereq_('../constants'))); // This will ultimately ensure that we report the most specific error
           // possible to the user, e.g. advising them about HALF_PI instead of PI
           // when their code misuses the former.
           misusedAtTopLevelCode.sort(function (a, b) {
@@ -58099,7 +58096,7 @@
               if (typeof IS_MINIFIED !== 'undefined') {
                 log('Did you just try to use p5.js\'s '.concat(symbolName, ' ').concat(symbol.type, '? If so, you may want to move it into your sketch\'s setup() function.\n\nFor more details, see: ').concat(FAQ_URL));
               } else {
-                log((0, _internationalization.translator) ('fes.misusedTopLevel', {
+                log((0, _internationalization.translator)('fes.misusedTopLevel', {
                   symbolName: symbolName,
                   symbolType: symbol.type,
                   url: FAQ_URL
@@ -58167,8 +58164,8 @@
         var _internationalization = _dereq_('../internationalization');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @for p5
@@ -58181,68 +58178,68 @@
         } else {
           // mapping used by `_friendlyFileLoadError`
           var fileLoadErrorCases = function fileLoadErrorCases(num, filePath) {
-            var suggestion = (0, _internationalization.translator) ('fes.fileLoadError.suggestion', {
+            var suggestion = (0, _internationalization.translator)('fes.fileLoadError.suggestion', {
               filePath: filePath,
               url: 'https://github.com/processing/p5.js/wiki/Local-server'
             });
             switch (num) {
               case 0:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.image', {
+                  message: (0, _internationalization.translator)('fes.fileLoadError.image', {
                     suggestion: suggestion
                   }),
                   method: 'loadImage'
                 };
               case 1:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.xml', {
+                  message: (0, _internationalization.translator)('fes.fileLoadError.xml', {
                     suggestion: suggestion
                   }),
                   method: 'loadXML'
                 };
               case 2:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.table', {
+                  message: (0, _internationalization.translator)('fes.fileLoadError.table', {
                     suggestion: suggestion
                   }),
                   method: 'loadTable'
                 };
               case 3:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.strings', {
+                  message: (0, _internationalization.translator)('fes.fileLoadError.strings', {
                     suggestion: suggestion
                   }),
                   method: 'loadStrings'
                 };
               case 4:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.font', {
+                  message: (0, _internationalization.translator)('fes.fileLoadError.font', {
                     suggestion: suggestion
                   }),
                   method: 'loadFont'
                 };
               case 5:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.json', {
+                  message: (0, _internationalization.translator)('fes.fileLoadError.json', {
                     suggestion: suggestion
                   }),
                   method: 'loadJSON'
                 };
               case 6:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.bytes', {
+                  message: (0, _internationalization.translator)('fes.fileLoadError.bytes', {
                     suggestion: suggestion
                   }),
                   method: 'loadBytes'
                 };
               case 7:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.large'),
+                  message: (0, _internationalization.translator)('fes.fileLoadError.large'),
                   method: 'loadX'
                 };
               case 8:
                 return {
-                  message: (0, _internationalization.translator) ('fes.fileLoadError.gif'),
+                  message: (0, _internationalization.translator)('fes.fileLoadError.gif'),
                   method: 'loadImage'
                 };
             }
@@ -58260,8 +58257,8 @@
    */
           _main.default._friendlyFileLoadError = function (errorType, filePath) {
             var _fileLoadErrorCases = fileLoadErrorCases(errorType, filePath),
-            message = _fileLoadErrorCases.message,
-            method = _fileLoadErrorCases.method;
+              message = _fileLoadErrorCases.message,
+              method = _fileLoadErrorCases.method;
             _main.default._friendlyError(message, method, 3);
           };
         }
@@ -58371,8 +58368,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -58400,8 +58397,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _toConsumableArray(arr) {
@@ -58482,7 +58479,7 @@
               //will be true, hence a match is found
               if (constants[variableArray[i]] !== undefined) {
                 var url = 'https://p5js.org/reference/#/p5/'.concat(variableArray[i]); //display the FES message if a match is found
-                _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedConst', {
+                _main.default._friendlyError((0, _internationalization.translator)('fes.sketchReaderErrors.reservedConst', {
                   url: url,
                   symbol: variableArray[i]
                 }));
@@ -58507,7 +58504,7 @@
                   if (p5Constructors[keyArray[j]].prototype[variableArray[_i2]] !== undefined) {
                     //if a p5.js function is used ie it is in the funcs array
                     var _url = 'https://p5js.org/reference/#/p5/'.concat(variableArray[_i2]);
-                    _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedFunc', {
+                    _main.default._friendlyError((0, _internationalization.translator)('fes.sketchReaderErrors.reservedFunc', {
                       url: _url,
                       symbol: variableArray[_i2]
                     }));
@@ -58527,10 +58524,10 @@
           var squareBracketedExpr = /(?:\[[^\]]*\])/;
           var curlyBracketedExpr = /(?:\{[^}]*\})/;
           var bracketedExpr = new RegExp([roundBracketedExpr,
-          squareBracketedExpr,
-          curlyBracketedExpr].map(function (regex) {
-            return regex.source;
-          }).join('|')); // In an a = b expression, `b` can be any character up to a newline or comma,
+            squareBracketedExpr,
+            curlyBracketedExpr].map(function (regex) {
+              return regex.source;
+            }).join('|')); // In an a = b expression, `b` can be any character up to a newline or comma,
           // unless the comma is inside of a bracketed expression of some kind (to make
           // sure we parse function calls with multiple arguments properly.)
           var rightHandSide = new RegExp('(?:' + bracketedExpr.source + '|[^\\n,])+');
@@ -58581,7 +58578,7 @@
             //visit https://regexr.com/ for the detailed view.
             linesArray.forEach(function (ele) {
               var m = ele.match(letConstName);
-              if (m !== null) matches.push(ele.match(letConstName) [1]);
+              if (m !== null) matches.push(ele.match(letConstName)[1]);
             }); //matches array contains the names of the functions
             checkForConstsAndFuncs(matches);
           };
@@ -58661,7 +58658,7 @@
 
               if (constants[tempArray[i]] !== element) {
                 var url = 'https://p5js.org/reference/#/p5/'.concat(tempArray[i]);
-                _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedConst', {
+                _main.default._friendlyError((0, _internationalization.translator)('fes.sketchReaderErrors.reservedConst', {
                   url: url,
                   symbol: tempArray[i]
                 })); //if a p5.js constant is already reported then no need to check
@@ -58705,10 +58702,10 @@
 
                 for (var k = 0; k < keyArray.length; k++) {
                   if (p5Constructors[keyArray[k]].prototype[functionArray[_i5]] === undefined);
-                   else {
+                  else {
                     if (p5Constructors[keyArray[k]].prototype[functionArray[_i5]] !== element) {
                       var _url2 = 'https://p5js.org/reference/#/p5/'.concat(functionArray[_i5]);
-                      _main.default._friendlyError((0, _internationalization.translator) ('fes.sketchReaderErrors.reservedFunc', {
+                      _main.default._friendlyError((0, _internationalization.translator)('fes.sketchReaderErrors.reservedFunc', {
                         url: _url2,
                         symbol: functionArray[_i5]
                       }));
@@ -58816,8 +58813,8 @@
         var _main = _interopRequireDefault(_dereq_('../main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @for p5
@@ -59118,8 +59115,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -59147,8 +59144,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _classCallCheck(instance, Constructor) {
@@ -59185,7 +59182,7 @@
           }
           return function () {
             var Super = _getPrototypeOf(Derived),
-            result;
+              result;
             if (isNativeReflectConstruct()) {
               var NewTarget = _getPrototypeOf(this).constructor;
               result = Reflect.construct(Super, arguments, NewTarget);
@@ -59301,18 +59298,18 @@
           var docCache = {
           };
           var builtinTypes = new Set(['null',
-          'number',
-          'string',
-          'boolean',
-          'constant',
-          'function',
-          'any',
-          'integer']);
+            'number',
+            'string',
+            'boolean',
+            'constant',
+            'function',
+            'any',
+            'integer']);
           var basicTypes = {
             number: true,
             boolean: true,
             string: true,
-            function : true,
+            function: true,
             undefined: true
           }; // reverse map of all constants
           var constantsReverseMap = {
@@ -59522,7 +59519,7 @@
                 // split this parameter's types
                 format.types = format.type.split('|').map(function ct(type) {
                   // array
-                  if (type.slice( - 2) === '[]') {
+                  if (type.slice(- 2) === '[]') {
                     return {
                       name: type,
                       array: ct(type.slice(0, - 2))
@@ -59657,7 +59654,7 @@
                   break;
                 case 'string':
                   matches =                  /*typeof param === 'number' ||*/
-                  typeof param === 'string';
+                    typeof param === 'string';
                   break;
                 case 'constant':
                   matches = type.values.hasOwnProperty(param);
@@ -59775,23 +59772,23 @@
    */
           _main.default.ValidationError = function (name) {
             var err =            /*#__PURE__*/
-            function (_Error) {
-              _inherits(err, _Error);
-              var _super = _createSuper(err);
-              function err(message, func, type) {
-                var _this;
-                _classCallCheck(this, err);
-                _this = _super.call(this);
-                _this.message = message;
-                _this.func = func;
-                _this.type = type;
-                if ('captureStackTrace' in Error) Error.captureStackTrace(_assertThisInitialized(_this), err);
-                 else _this.stack = new Error().stack;
-                return _this;
-              }
-              return err;
-            }(            /*#__PURE__*/
-            _wrapNativeSuper(Error));
+              function (_Error) {
+                _inherits(err, _Error);
+                var _super = _createSuper(err);
+                function err(message, func, type) {
+                  var _this;
+                  _classCallCheck(this, err);
+                  _this = _super.call(this);
+                  _this.message = message;
+                  _this.func = func;
+                  _this.type = type;
+                  if ('captureStackTrace' in Error) Error.captureStackTrace(_assertThisInitialized(_this), err);
+                  else _this.stack = new Error().stack;
+                  return _this;
+                }
+                return err;
+              }(            /*#__PURE__*/
+                _wrapNativeSuper(Error));
             err.prototype.name = name;
             return err;
           }('ValidationError');
@@ -59819,7 +59816,7 @@
                     // specifies the values that the context can take so that it can
                     // statically prepare the translation files with them.
                     /* i18next-extract-mark-context-next-line ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"] */
-                    position: (0, _internationalization.translator) ('fes.positions.p', {
+                    position: (0, _internationalization.translator)('fes.positions.p', {
                       context: (errorObj.position + 1).toString(),
                       defaultValue: (errorObj.position + 1).toString()
                     }),
@@ -59836,7 +59833,7 @@
                     formatType: formatType(),
                     argType: argType,
                     /* i18next-extract-mark-context-next-line ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"] */
-                    position: (0, _internationalization.translator) ('fes.positions.p', {
+                    position: (0, _internationalization.translator)('fes.positions.p', {
                       context: (errorObj.position + 1).toString(),
                       defaultValue: (errorObj.position + 1).toString()
                     })
@@ -59867,7 +59864,7 @@
                 // const re = /Function\.validateParameters.*[\r\n].*[\r\n].*\(([^)]*)/;
                 var myError = new Error();
                 var parsed = _main.default._getErrorStackParser().parse(myError);
-                if (parsed[3] && parsed[3].functionName && parsed[3].functionName.includes('.') && _main.default.prototype[parsed[3].functionName.split('.').slice( - 1) [0]]) {
+                if (parsed[3] && parsed[3].functionName && parsed[3].functionName.includes('.') && _main.default.prototype[parsed[3].functionName.split('.').slice(- 1)[0]]) {
                   return;
                 }
                 if (_main.default._throwValidationErrors) {
@@ -59876,10 +59873,10 @@
 
                 if (parsed[3] && parsed[3].fileName && parsed[3].lineNumber && parsed[3].columnNumber) {
                   var location = ''.concat(parsed[3].fileName, ':').concat(parsed[3].lineNumber, ':').concat(parsed[3].columnNumber);
-                  translationObj.location = (0, _internationalization.translator) ('fes.location', {
+                  translationObj.location = (0, _internationalization.translator)('fes.location', {
                     location: location,
                     // for e.g. get "sketch.js" from "https://example.com/abc/sketch.js"
-                    file: parsed[3].fileName.split('/').slice( - 1),
+                    file: parsed[3].fileName.split('/').slice(- 1),
                     line: parsed[3].lineNumber
                   }); // tell fesErrorMonitor that we have already given a friendly message
                   // for this line, so it need not to do the same in case of an error
@@ -59891,7 +59888,7 @@
                 }
               }
               translationObj.context = errorObj.type; // i18next-extract-mark-context-next-line ["EMPTY_VAR", "TOO_MANY_ARGUMENTS", "TOO_FEW_ARGUMENTS", "WRONG_TYPE"]
-              message = (0, _internationalization.translator) ('fes.friendlyParamError.type', translationObj);
+              message = (0, _internationalization.translator)('fes.friendlyParamError.type', translationObj);
               _main.default._friendlyError(''.concat(message), func, 3);
             }
           };
@@ -60075,8 +60072,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -60171,8 +60168,8 @@
         var _internationalization = _dereq_('./internationalization');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * _globalInit
@@ -60214,9 +60211,9 @@
             }
           });
         }; // only load translations if we're using the full, un-minified library
-        var waitingForTranslator = typeof IS_MINIFIED === 'undefined' ? (0, _internationalization.initialize) () : Promise.resolve();
+        var waitingForTranslator = typeof IS_MINIFIED === 'undefined' ? (0, _internationalization.initialize)() : Promise.resolve();
         Promise.all([waitForDocumentReady(),
-        waitingForTranslator]).then(_globalInit);
+          waitingForTranslator]).then(_globalInit);
       },
       {
         '../core/main': 290,
@@ -60263,8 +60260,8 @@
         var _i18nextBrowserLanguagedetector = _interopRequireDefault(_dereq_('i18next-browser-languagedetector'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _classCallCheck(instance, Constructor) {
@@ -60287,7 +60284,7 @@
           return Constructor;
         }
         var fallbackResources,
-        languages;
+          languages;
         if (typeof IS_MINIFIED === 'undefined') {
           // internationalization is only for the unminified build
           var translationsModule = _dereq_('../../translations');
@@ -60315,81 +60312,81 @@
  */
 
         var FetchResources =        /*#__PURE__*/
-        function () {
-          function FetchResources(services, options) {
-            _classCallCheck(this, FetchResources);
-            this.init(services, options);
-          } // run fetch with a timeout. Automatically rejects on timeout
-          // default timeout = 2000 ms
+          function () {
+            function FetchResources(services, options) {
+              _classCallCheck(this, FetchResources);
+              this.init(services, options);
+            } // run fetch with a timeout. Automatically rejects on timeout
+            // default timeout = 2000 ms
 
-          _createClass(FetchResources, [
-            {
-              key: 'fetchWithTimeout',
-              value: function fetchWithTimeout(url, options) {
-                var timeout = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2000;
-                return Promise.race([fetch(url, options),
-                new Promise(function (_, reject) {
-                  return setTimeout(function () {
-                    return reject(new Error('timeout'));
-                  }, timeout);
-                })]);
-              }
-            },
-            {
-              key: 'init',
-              value: function init(services) {
-                var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
-                };
-                this.services = services;
-                this.options = options;
-              }
-            },
-            {
-              key: 'read',
-              value: function read(language, namespace, callback) {
-                var loadPath = this.options.loadPath;
-                if (language === this.options.fallback) {
-                  // if the default language of the user is the same as our inbuilt fallback,
-                  // there's no need to fetch resources from the cdn. This won't actually
-                  // need to run when we use "partialBundledLanguages" in the init
-                  // function.
-                  callback(null, fallbackResources[language][namespace]);
-                } else if (languages.includes(language)) {
-                  // The user's language is included in the list of languages
-                  // that we so far added translations for.
-                  var url = this.services.interpolator.interpolate(loadPath, {
-                    lng: language,
-                    ns: namespace
-                  });
-                  this.loadUrl(url, callback);
-                } else {
-                  // We don't have translations for this language. i18next will use
-                  // the default language instead.
-                  callback('Not found', false);
+            _createClass(FetchResources, [
+              {
+                key: 'fetchWithTimeout',
+                value: function fetchWithTimeout(url, options) {
+                  var timeout = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2000;
+                  return Promise.race([fetch(url, options),
+                  new Promise(function (_, reject) {
+                    return setTimeout(function () {
+                      return reject(new Error('timeout'));
+                    }, timeout);
+                  })]);
                 }
-              }
-            },
-            {
-              key: 'loadUrl',
-              value: function loadUrl(url, callback) {
-                this.fetchWithTimeout(url).then(function (response) {
-                  var ok = response.ok;
-                  if (!ok) {
+              },
+              {
+                key: 'init',
+                value: function init(services) {
+                  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+                  };
+                  this.services = services;
+                  this.options = options;
+                }
+              },
+              {
+                key: 'read',
+                value: function read(language, namespace, callback) {
+                  var loadPath = this.options.loadPath;
+                  if (language === this.options.fallback) {
+                    // if the default language of the user is the same as our inbuilt fallback,
+                    // there's no need to fetch resources from the cdn. This won't actually
+                    // need to run when we use "partialBundledLanguages" in the init
+                    // function.
+                    callback(null, fallbackResources[language][namespace]);
+                  } else if (languages.includes(language)) {
+                    // The user's language is included in the list of languages
+                    // that we so far added translations for.
+                    var url = this.services.interpolator.interpolate(loadPath, {
+                      lng: language,
+                      ns: namespace
+                    });
+                    this.loadUrl(url, callback);
+                  } else {
+                    // We don't have translations for this language. i18next will use
+                    // the default language instead.
+                    callback('Not found', false);
+                  }
+                }
+              },
+              {
+                key: 'loadUrl',
+                value: function loadUrl(url, callback) {
+                  this.fetchWithTimeout(url).then(function (response) {
+                    var ok = response.ok;
+                    if (!ok) {
+                      // caught in the catch() below
+                      throw new Error('failed loading '.concat(url));
+                    }
+                    return response.json();
+                  }, function () {
                     // caught in the catch() below
                     throw new Error('failed loading '.concat(url));
-                  }
-                  return response.json();
-                }, function () {
-                  // caught in the catch() below
-                  throw new Error('failed loading '.concat(url));
-                }).then(function (data) {
-                  return callback(null, data);
-                }).catch(callback);
+                  }).then(function (data) {
+                    return callback(null, data);
+                  }).catch(callback);
+                }
               }
-            }
-          ]);
-          return FetchResources;
-        }();
+            ]);
+            return FetchResources;
+          }();
         FetchResources.type = 'backend';
         /**
  * This is our translation function. Give it a key and
@@ -60508,8 +60505,8 @@
         var _main = _interopRequireDefault(_dereq_('./main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @for p5
@@ -60611,8 +60608,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -60681,685 +60678,685 @@
  */
 
         var p5 =        /*#__PURE__*/
-        function () {
-          function p5(sketch, node, sync) {
-            var _this = this;
-            _classCallCheck(this, p5); //////////////////////////////////////////////
-            // PUBLIC p5 PROPERTIES AND METHODS
-            //////////////////////////////////////////////
-            /**
-     * Called directly before <a href="#/p5/setup">setup()</a>, the <a href="#/p5/preload">preload()</a> function is used to handle
-     * asynchronous loading of external files in a blocking way. If a preload
-     * function is defined, <a href="#/p5/setup">setup()</a> will wait until any load calls within have
-     * finished. Nothing besides load calls (<a href="#/p5/loadImage">loadImage</a>, <a href="#/p5/loadJSON">loadJSON</a>, <a href="#/p5/loadFont">loadFont</a>,
-     * <a href="#/p5/loadStrings">loadStrings</a>, etc.) should be inside the preload function. If asynchronous
-     * loading is preferred, the load methods can instead be called in <a href="#/p5/setup">setup()</a>
-     * or anywhere else with the use of a callback parameter.
-     *
-     * By default the text "loading..." will be displayed. To make your own
-     * loading page, include an HTML element with id "p5_loading" in your
-     * page. More information <a href="http://bit.ly/2kQ6Nio">here</a>.
-     *
-     * @method preload
-     * @example
-     * <div><code>
-     * let img;
-     * let c;
-     * function preload() {
-     *   // preload() runs once
-     *   img = loadImage('assets/laDefense.jpg');
-     * }
-     *
-     * function setup() {
-     *   // setup() waits until preload() is done
-     *   img.loadPixels();
-     *   // get color of middle pixel
-     *   c = img.get(img.width / 2, img.height / 2);
-     * }
-     *
-     * function draw() {
-     *   background(c);
-     *   image(img, 25, 25, 50, 50);
-     * }
-     * </code></div>
-     *
-     * @alt
-     * nothing displayed
-     *
-     */
-            /**
-     * The <a href="#/p5/setup">setup()</a> function is called once when the program starts. It's used to
-     * define initial environment properties such as screen size and background
-     * color and to load media such as images and fonts as the program starts.
-     * There can only be one <a href="#/p5/setup">setup()</a> function for each program and it shouldn't
-     * be called again after its initial execution.
-     *
-     * Note: Variables declared within <a href="#/p5/setup">setup()</a> are not accessible within other
-     * functions, including <a href="#/p5/draw">draw()</a>.
-     *
-     * @method setup
-     * @example
-     * <div><code>
-     * let a = 0;
-     *
-     * function setup() {
-     *   background(0);
-     *   noStroke();
-     *   fill(102);
-     * }
-     *
-     * function draw() {
-     *   rect(a++ % width, 10, 2, 80);
-     * }
-     * </code></div>
-     *
-     * @alt
-     * nothing displayed
-     *
-     */
-            /**
-     * Called directly after <a href="#/p5/setup">setup()</a>, the <a href="#/p5/draw">draw()</a> function continuously executes
-     * the lines of code contained inside its block until the program is stopped
-     * or <a href="#/p5/noLoop">noLoop()</a> is called. Note if <a href="#/p5/noLoop">noLoop()</a> is called in <a href="#/p5/setup">setup()</a>, <a href="#/p5/draw">draw()</a> will
-     * still be executed once before stopping. <a href="#/p5/draw">draw()</a> is called automatically and
-     * should never be called explicitly.
-     *
-     * It should always be controlled with <a href="#/p5/noLoop">noLoop()</a>, <a href="#/p5/redraw">redraw()</a> and <a href="#/p5/loop">loop()</a>. After
-     * <a href="#/p5/noLoop">noLoop()</a> stops the code in <a href="#/p5/draw">draw()</a> from executing, <a href="#/p5/redraw">redraw()</a> causes the
-     * code inside <a href="#/p5/draw">draw()</a> to execute once, and <a href="#/p5/loop">loop()</a> will cause the code
-     * inside <a href="#/p5/draw">draw()</a> to resume executing continuously.
-     *
-     * The number of times <a href="#/p5/draw">draw()</a> executes in each second may be controlled with
-     * the <a href="#/p5/frameRate">frameRate()</a> function.
-     *
-     * There can only be one <a href="#/p5/draw">draw()</a> function for each sketch, and <a href="#/p5/draw">draw()</a> must
-     * exist if you want the code to run continuously, or to process events such
-     * as <a href="#/p5/mousePressed">mousePressed()</a>. Sometimes, you might have an empty call to <a href="#/p5/draw">draw()</a> in
-     * your program, as shown in the above example.
-     *
-     * It is important to note that the drawing coordinate system will be reset
-     * at the beginning of each <a href="#/p5/draw">draw()</a> call. If any transformations are performed
-     * within <a href="#/p5/draw">draw()</a> (ex: scale, rotate, translate), their effects will be
-     * undone at the beginning of <a href="#/p5/draw">draw()</a>, so transformations will not accumulate
-     * over time. On the other hand, styling applied (ex: fill, stroke, etc) will
-     * remain in effect.
-     *
-     * @method draw
-     * @example
-     * <div><code>
-     * let yPos = 0;
-     * function setup() {
-     *   // setup() runs once
-     *   frameRate(30);
-     * }
-     * function draw() {
-     *   // draw() loops forever, until stopped
-     *   background(204);
-     *   yPos = yPos - 1;
-     *   if (yPos < 0) {
-     *     yPos = height;
-     *   }
-     *   line(0, yPos, width, yPos);
-     * }
-     * </code></div>
-     *
-     * @alt
-     * nothing displayed
-     *
-     */
-            //////////////////////////////////////////////
-            // PRIVATE p5 PROPERTIES AND METHODS
-            //////////////////////////////////////////////
-            this._setupDone = false;
-            this._preloadDone = false; // for handling hidpi
-            this._pixelDensity = Math.ceil(window.devicePixelRatio) || 1;
-            this._userNode = node;
-            this._curElement = null;
-            this._elements = [
-            ];
-            this._glAttributes = null;
-            this._requestAnimId = 0;
-            this._preloadCount = 0;
-            this._isGlobal = false;
-            this._loop = true;
-            this._initializeInstanceVariables();
-            this._defaultCanvasSize = {
-              width: 100,
-              height: 100
-            };
-            this._events = {
-              // keep track of user-events for unregistering later
-              mousemove: null,
-              mousedown: null,
-              mouseup: null,
-              dragend: null,
-              dragover: null,
-              click: null,
-              dblclick: null,
-              mouseover: null,
-              mouseout: null,
-              keydown: null,
-              keyup: null,
-              keypress: null,
-              touchstart: null,
-              touchmove: null,
-              touchend: null,
-              resize: null,
-              blur: null
-            };
-            this._millisStart = - 1;
-            this._recording = false; // States used in the custom random generators
-            this._lcg_random_state = null;
-            this._gaussian_previous = false;
-            this._events.wheel = null;
-            this._loadingScreenId = 'p5_loading'; // Allows methods to be registered on an instance that
-            // are instance-specific.
-            this._registeredMethods = {
-            };
-            var methods = Object.getOwnPropertyNames(p5.prototype._registeredMethods);
-            var _iteratorNormalCompletion = true;
-            var _didIteratorError = false;
-            var _iteratorError = undefined;
-            try {
-              for (var _iterator = methods[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var prop = _step.value;
-                this._registeredMethods[prop] = p5.prototype._registeredMethods[prop].slice();
-              }
-            } catch (err) {
-              _didIteratorError = true;
-              _iteratorError = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion && _iterator.return != null) {
-                  _iterator.return();
-                }
-              } finally {
-                if (_didIteratorError) {
-                  throw _iteratorError;
-                }
-              }
-            }
-            if (window.DeviceOrientationEvent) {
-              this._events.deviceorientation = null;
-            }
-            if (window.DeviceMotionEvent && !window._isNodeWebkit) {
-              this._events.devicemotion = null;
-            }
-            this._start = function () {
-              // Find node if id given
-              if (_this._userNode) {
-                if (typeof _this._userNode === 'string') {
-                  _this._userNode = document.getElementById(_this._userNode);
-                }
-              }
-              var context = _this._isGlobal ? window : _this;
-              if (context.preload) {
-                // Setup loading screen
-                // Set loading screen into dom if not present
-                // Otherwise displays and removes user provided loading screen
-                var loadingScreen = document.getElementById(_this._loadingScreenId);
-                if (!loadingScreen) {
-                  loadingScreen = document.createElement('div');
-                  loadingScreen.innerHTML = 'Loading...';
-                  loadingScreen.style.position = 'absolute';
-                  loadingScreen.id = _this._loadingScreenId;
-                  var _node = _this._userNode || document.body;
-                  _node.appendChild(loadingScreen);
-                }
-                var _methods = _this._preloadMethods;
-                for (var method in _methods) {
-                  // default to p5 if no object defined
-                  _methods[method] = _methods[method] || p5;
-                  var obj = _methods[method]; //it's p5, check if it's global or instance
-                  if (obj === p5.prototype || obj === p5) {
-                    if (_this._isGlobal) {
-                      window[method] = _this._wrapPreload(_this, method);
-                    }
-                    obj = _this;
-                  }
-                  _this._registeredPreloadMethods[method] = obj[method];
-                  obj[method] = _this._wrapPreload(obj, method);
-                }
-                context.preload();
-                _this._runIfPreloadsAreDone();
-              } else {
-                _this._setup();
-                if (!_this._recording) {
-                  _this._draw();
-                }
-              }
-            };
-            this._runIfPreloadsAreDone = function () {
-              var context = this._isGlobal ? window : this;
-              if (context._preloadCount === 0) {
-                var loadingScreen = document.getElementById(context._loadingScreenId);
-                if (loadingScreen) {
-                  loadingScreen.parentNode.removeChild(loadingScreen);
-                }
-                if (!this._setupDone) {
-                  this._lastTargetFrameTime = window.performance.now();
-                  this._lastRealFrameTime = window.performance.now();
-                  context._setup();
-                  if (!this._recording) {
-                    context._draw();
-                  }
-                }
-              }
-            };
-            this._decrementPreload = function () {
-              var context = this._isGlobal ? window : this;
-              if (!context._preloadDone && typeof context.preload === 'function') {
-                context._setProperty('_preloadCount', context._preloadCount - 1);
-                context._runIfPreloadsAreDone();
-              }
-            };
-            this._wrapPreload = function (obj, fnName) {
-              var _this2 = this;
-              return function () {
-                //increment counter
-                _this2._incrementPreload(); //call original function
-                for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-                  args[_key] = arguments[_key];
-                }
-                return _this2._registeredPreloadMethods[fnName].apply(obj, args);
+          function () {
+            function p5(sketch, node, sync) {
+              var _this = this;
+              _classCallCheck(this, p5); //////////////////////////////////////////////
+              // PUBLIC p5 PROPERTIES AND METHODS
+              //////////////////////////////////////////////
+              /**
+       * Called directly before <a href="#/p5/setup">setup()</a>, the <a href="#/p5/preload">preload()</a> function is used to handle
+       * asynchronous loading of external files in a blocking way. If a preload
+       * function is defined, <a href="#/p5/setup">setup()</a> will wait until any load calls within have
+       * finished. Nothing besides load calls (<a href="#/p5/loadImage">loadImage</a>, <a href="#/p5/loadJSON">loadJSON</a>, <a href="#/p5/loadFont">loadFont</a>,
+       * <a href="#/p5/loadStrings">loadStrings</a>, etc.) should be inside the preload function. If asynchronous
+       * loading is preferred, the load methods can instead be called in <a href="#/p5/setup">setup()</a>
+       * or anywhere else with the use of a callback parameter.
+       *
+       * By default the text "loading..." will be displayed. To make your own
+       * loading page, include an HTML element with id "p5_loading" in your
+       * page. More information <a href="http://bit.ly/2kQ6Nio">here</a>.
+       *
+       * @method preload
+       * @example
+       * <div><code>
+       * let img;
+       * let c;
+       * function preload() {
+       *   // preload() runs once
+       *   img = loadImage('assets/laDefense.jpg');
+       * }
+       *
+       * function setup() {
+       *   // setup() waits until preload() is done
+       *   img.loadPixels();
+       *   // get color of middle pixel
+       *   c = img.get(img.width / 2, img.height / 2);
+       * }
+       *
+       * function draw() {
+       *   background(c);
+       *   image(img, 25, 25, 50, 50);
+       * }
+       * </code></div>
+       *
+       * @alt
+       * nothing displayed
+       *
+       */
+              /**
+       * The <a href="#/p5/setup">setup()</a> function is called once when the program starts. It's used to
+       * define initial environment properties such as screen size and background
+       * color and to load media such as images and fonts as the program starts.
+       * There can only be one <a href="#/p5/setup">setup()</a> function for each program and it shouldn't
+       * be called again after its initial execution.
+       *
+       * Note: Variables declared within <a href="#/p5/setup">setup()</a> are not accessible within other
+       * functions, including <a href="#/p5/draw">draw()</a>.
+       *
+       * @method setup
+       * @example
+       * <div><code>
+       * let a = 0;
+       *
+       * function setup() {
+       *   background(0);
+       *   noStroke();
+       *   fill(102);
+       * }
+       *
+       * function draw() {
+       *   rect(a++ % width, 10, 2, 80);
+       * }
+       * </code></div>
+       *
+       * @alt
+       * nothing displayed
+       *
+       */
+              /**
+       * Called directly after <a href="#/p5/setup">setup()</a>, the <a href="#/p5/draw">draw()</a> function continuously executes
+       * the lines of code contained inside its block until the program is stopped
+       * or <a href="#/p5/noLoop">noLoop()</a> is called. Note if <a href="#/p5/noLoop">noLoop()</a> is called in <a href="#/p5/setup">setup()</a>, <a href="#/p5/draw">draw()</a> will
+       * still be executed once before stopping. <a href="#/p5/draw">draw()</a> is called automatically and
+       * should never be called explicitly.
+       *
+       * It should always be controlled with <a href="#/p5/noLoop">noLoop()</a>, <a href="#/p5/redraw">redraw()</a> and <a href="#/p5/loop">loop()</a>. After
+       * <a href="#/p5/noLoop">noLoop()</a> stops the code in <a href="#/p5/draw">draw()</a> from executing, <a href="#/p5/redraw">redraw()</a> causes the
+       * code inside <a href="#/p5/draw">draw()</a> to execute once, and <a href="#/p5/loop">loop()</a> will cause the code
+       * inside <a href="#/p5/draw">draw()</a> to resume executing continuously.
+       *
+       * The number of times <a href="#/p5/draw">draw()</a> executes in each second may be controlled with
+       * the <a href="#/p5/frameRate">frameRate()</a> function.
+       *
+       * There can only be one <a href="#/p5/draw">draw()</a> function for each sketch, and <a href="#/p5/draw">draw()</a> must
+       * exist if you want the code to run continuously, or to process events such
+       * as <a href="#/p5/mousePressed">mousePressed()</a>. Sometimes, you might have an empty call to <a href="#/p5/draw">draw()</a> in
+       * your program, as shown in the above example.
+       *
+       * It is important to note that the drawing coordinate system will be reset
+       * at the beginning of each <a href="#/p5/draw">draw()</a> call. If any transformations are performed
+       * within <a href="#/p5/draw">draw()</a> (ex: scale, rotate, translate), their effects will be
+       * undone at the beginning of <a href="#/p5/draw">draw()</a>, so transformations will not accumulate
+       * over time. On the other hand, styling applied (ex: fill, stroke, etc) will
+       * remain in effect.
+       *
+       * @method draw
+       * @example
+       * <div><code>
+       * let yPos = 0;
+       * function setup() {
+       *   // setup() runs once
+       *   frameRate(30);
+       * }
+       * function draw() {
+       *   // draw() loops forever, until stopped
+       *   background(204);
+       *   yPos = yPos - 1;
+       *   if (yPos < 0) {
+       *     yPos = height;
+       *   }
+       *   line(0, yPos, width, yPos);
+       * }
+       * </code></div>
+       *
+       * @alt
+       * nothing displayed
+       *
+       */
+              //////////////////////////////////////////////
+              // PRIVATE p5 PROPERTIES AND METHODS
+              //////////////////////////////////////////////
+              this._setupDone = false;
+              this._preloadDone = false; // for handling hidpi
+              this._pixelDensity = Math.ceil(window.devicePixelRatio) || 1;
+              this._userNode = node;
+              this._curElement = null;
+              this._elements = [
+              ];
+              this._glAttributes = null;
+              this._requestAnimId = 0;
+              this._preloadCount = 0;
+              this._isGlobal = false;
+              this._loop = true;
+              this._initializeInstanceVariables();
+              this._defaultCanvasSize = {
+                width: 100,
+                height: 100
               };
-            };
-            this._incrementPreload = function () {
-              var context = this._isGlobal ? window : this; // Do nothing if we tried to increment preloads outside of `preload`
-              if (context._preloadDone) return;
-              context._setProperty('_preloadCount', context._preloadCount + 1);
-            };
-            this._setup = function () {
-              // Always create a default canvas.
-              // Later on if the user calls createCanvas, this default one
-              // will be replaced
-              _this.createCanvas(_this._defaultCanvasSize.width, _this._defaultCanvasSize.height, 'p2d'); // return preload functions to their normal vals if switched by preload
-              var context = _this._isGlobal ? window : _this;
-              if (typeof context.preload === 'function') {
-                for (var f in _this._preloadMethods) {
-                  context[f] = _this._preloadMethods[f][f];
-                  if (context[f] && _this) {
-                    context[f] = context[f].bind(_this);
-                  }
-                }
-              } // Record the time when sketch starts
-
-              _this._millisStart = window.performance.now();
-              context._preloadDone = true; // Short-circuit on this, in case someone used the library in "global"
-              // mode earlier
-              if (typeof context.setup === 'function') {
-                context.setup();
-              } // unhide any hidden canvases that were created
-
-              var canvases = document.getElementsByTagName('canvas');
-              var _iteratorNormalCompletion2 = true;
-              var _didIteratorError2 = false;
-              var _iteratorError2 = undefined;
+              this._events = {
+                // keep track of user-events for unregistering later
+                mousemove: null,
+                mousedown: null,
+                mouseup: null,
+                dragend: null,
+                dragover: null,
+                click: null,
+                dblclick: null,
+                mouseover: null,
+                mouseout: null,
+                keydown: null,
+                keyup: null,
+                keypress: null,
+                touchstart: null,
+                touchmove: null,
+                touchend: null,
+                resize: null,
+                blur: null
+              };
+              this._millisStart = - 1;
+              this._recording = false; // States used in the custom random generators
+              this._lcg_random_state = null;
+              this._gaussian_previous = false;
+              this._events.wheel = null;
+              this._loadingScreenId = 'p5_loading'; // Allows methods to be registered on an instance that
+              // are instance-specific.
+              this._registeredMethods = {
+              };
+              var methods = Object.getOwnPropertyNames(p5.prototype._registeredMethods);
+              var _iteratorNormalCompletion = true;
+              var _didIteratorError = false;
+              var _iteratorError = undefined;
               try {
-                for (var _iterator2 = canvases[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                  var k = _step2.value;
-                  if (k.dataset.hidden === 'true') {
-                    k.style.visibility = '';
-                    delete k.dataset.hidden;
-                  }
+                for (var _iterator = methods[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                  var prop = _step.value;
+                  this._registeredMethods[prop] = p5.prototype._registeredMethods[prop].slice();
                 }
               } catch (err) {
-                _didIteratorError2 = true;
-                _iteratorError2 = err;
+                _didIteratorError = true;
+                _iteratorError = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                    _iterator2.return();
+                  if (!_iteratorNormalCompletion && _iterator.return != null) {
+                    _iterator.return();
                   }
                 } finally {
-                  if (_didIteratorError2) {
-                    throw _iteratorError2;
+                  if (_didIteratorError) {
+                    throw _iteratorError;
                   }
                 }
               }
-              _this._lastTargetFrameTime = window.performance.now();
-              _this._lastRealFrameTime = window.performance.now();
-              _this._setupDone = true;
-              if (_this._accessibleOutputs.grid || _this._accessibleOutputs.text) {
-                _this._updateAccsOutput();
+              if (window.DeviceOrientationEvent) {
+                this._events.deviceorientation = null;
               }
-            };
-            this._draw = function () {
-              var now = window.performance.now();
-              var time_since_last = now - _this._lastTargetFrameTime;
-              var target_time_between_frames = 1000 / _this._targetFrameRate; // only draw if we really need to; don't overextend the browser.
-              // draw if we're within 5ms of when our next frame should paint
-              // (this will prevent us from giving up opportunities to draw
-              // again when it's really about time for us to do so). fixes an
-              // issue where the frameRate is too low if our refresh loop isn't
-              // in sync with the browser. note that we have to draw once even
-              // if looping is off, so we bypass the time delay if that
-              // is the case.
-              var epsilon = 5;
-              if (!_this._loop || time_since_last >= target_time_between_frames - epsilon) {
-                //mandatory update values(matrixes and stack)
-                _this.redraw();
-                _this._frameRate = 1000 / (now - _this._lastRealFrameTime);
-                _this.deltaTime = now - _this._lastRealFrameTime;
-                _this._setProperty('deltaTime', _this.deltaTime);
-                _this._lastTargetFrameTime = Math.max(_this._lastTargetFrameTime + target_time_between_frames, now);
-                _this._lastRealFrameTime = now; // If the user is actually using mouse module, then update
-                // coordinates, otherwise skip. We can test this by simply
-                // checking if any of the mouse functions are available or not.
-                // NOTE : This reflects only in complete build or modular build.
-                if (typeof _this._updateMouseCoords !== 'undefined') {
-                  _this._updateMouseCoords(); //reset delta values so they reset even if there is no mouse event to set them
-                  // for example if the mouse is outside the screen
-                  _this._setProperty('movedX', 0);
-                  _this._setProperty('movedY', 0);
+              if (window.DeviceMotionEvent && !window._isNodeWebkit) {
+                this._events.devicemotion = null;
+              }
+              this._start = function () {
+                // Find node if id given
+                if (_this._userNode) {
+                  if (typeof _this._userNode === 'string') {
+                    _this._userNode = document.getElementById(_this._userNode);
+                  }
                 }
-              } // get notified the next time the browser gives us
-              // an opportunity to draw.
+                var context = _this._isGlobal ? window : _this;
+                if (context.preload) {
+                  // Setup loading screen
+                  // Set loading screen into dom if not present
+                  // Otherwise displays and removes user provided loading screen
+                  var loadingScreen = document.getElementById(_this._loadingScreenId);
+                  if (!loadingScreen) {
+                    loadingScreen = document.createElement('div');
+                    loadingScreen.innerHTML = 'Loading...';
+                    loadingScreen.style.position = 'absolute';
+                    loadingScreen.id = _this._loadingScreenId;
+                    var _node = _this._userNode || document.body;
+                    _node.appendChild(loadingScreen);
+                  }
+                  var _methods = _this._preloadMethods;
+                  for (var method in _methods) {
+                    // default to p5 if no object defined
+                    _methods[method] = _methods[method] || p5;
+                    var obj = _methods[method]; //it's p5, check if it's global or instance
+                    if (obj === p5.prototype || obj === p5) {
+                      if (_this._isGlobal) {
+                        window[method] = _this._wrapPreload(_this, method);
+                      }
+                      obj = _this;
+                    }
+                    _this._registeredPreloadMethods[method] = obj[method];
+                    obj[method] = _this._wrapPreload(obj, method);
+                  }
+                  context.preload();
+                  _this._runIfPreloadsAreDone();
+                } else {
+                  _this._setup();
+                  if (!_this._recording) {
+                    _this._draw();
+                  }
+                }
+              };
+              this._runIfPreloadsAreDone = function () {
+                var context = this._isGlobal ? window : this;
+                if (context._preloadCount === 0) {
+                  var loadingScreen = document.getElementById(context._loadingScreenId);
+                  if (loadingScreen) {
+                    loadingScreen.parentNode.removeChild(loadingScreen);
+                  }
+                  if (!this._setupDone) {
+                    this._lastTargetFrameTime = window.performance.now();
+                    this._lastRealFrameTime = window.performance.now();
+                    context._setup();
+                    if (!this._recording) {
+                      context._draw();
+                    }
+                  }
+                }
+              };
+              this._decrementPreload = function () {
+                var context = this._isGlobal ? window : this;
+                if (!context._preloadDone && typeof context.preload === 'function') {
+                  context._setProperty('_preloadCount', context._preloadCount - 1);
+                  context._runIfPreloadsAreDone();
+                }
+              };
+              this._wrapPreload = function (obj, fnName) {
+                var _this2 = this;
+                return function () {
+                  //increment counter
+                  _this2._incrementPreload(); //call original function
+                  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+                    args[_key] = arguments[_key];
+                  }
+                  return _this2._registeredPreloadMethods[fnName].apply(obj, args);
+                };
+              };
+              this._incrementPreload = function () {
+                var context = this._isGlobal ? window : this; // Do nothing if we tried to increment preloads outside of `preload`
+                if (context._preloadDone) return;
+                context._setProperty('_preloadCount', context._preloadCount + 1);
+              };
+              this._setup = function () {
+                // Always create a default canvas.
+                // Later on if the user calls createCanvas, this default one
+                // will be replaced
+                _this.createCanvas(_this._defaultCanvasSize.width, _this._defaultCanvasSize.height, 'p2d'); // return preload functions to their normal vals if switched by preload
+                var context = _this._isGlobal ? window : _this;
+                if (typeof context.preload === 'function') {
+                  for (var f in _this._preloadMethods) {
+                    context[f] = _this._preloadMethods[f][f];
+                    if (context[f] && _this) {
+                      context[f] = context[f].bind(_this);
+                    }
+                  }
+                } // Record the time when sketch starts
 
-              if (_this._loop) {
-                _this._requestAnimId = window.requestAnimationFrame(_this._draw);
-              }
-            };
-            this._setProperty = function (prop, value) {
-              _this[prop] = value;
-              if (_this._isGlobal) {
-                window[prop] = value;
-              }
-            };
-            /**
-     * Removes the entire p5 sketch. This will remove the canvas and any
-     * elements created by p5.js. It will also stop the draw loop and unbind
-     * any properties or methods from the window global scope. It will
-     * leave a variable p5 in case you wanted to create a new p5 sketch.
-     * If you like, you can set p5 = null to erase it. While all functions and
-     * variables and objects created by the p5 library will be removed, any
-     * other global variables created by your code will remain.
-     *
-     * @method remove
-     * @example
-     * <div class='norender'><code>
-     * function draw() {
-     *   ellipse(50, 50, 10, 10);
-     * }
-     *
-     * function mousePressed() {
-     *   remove(); // remove whole sketch on mouse press
-     * }
-     * </code></div>
-     *
-     * @alt
-     * nothing displayed
-     *
-     */
-            this.remove = function () {
-              var loadingScreen = document.getElementById(_this._loadingScreenId);
-              if (loadingScreen) {
-                loadingScreen.parentNode.removeChild(loadingScreen); // Add 1 to preload counter to prevent the sketch ever executing setup()
-                _this._incrementPreload();
-              }
-              if (_this._curElement) {
-                // stop draw
-                _this._loop = false;
-                if (_this._requestAnimId) {
-                  window.cancelAnimationFrame(_this._requestAnimId);
-                } // unregister events sketch-wide
+                _this._millisStart = window.performance.now();
+                context._preloadDone = true; // Short-circuit on this, in case someone used the library in "global"
+                // mode earlier
+                if (typeof context.setup === 'function') {
+                  context.setup();
+                } // unhide any hidden canvases that were created
 
-                for (var ev in _this._events) {
-                  window.removeEventListener(ev, _this._events[ev]);
-                } // remove DOM elements created by p5, and listeners
-
-                var _iteratorNormalCompletion3 = true;
-                var _didIteratorError3 = false;
-                var _iteratorError3 = undefined;
+                var canvases = document.getElementsByTagName('canvas');
+                var _iteratorNormalCompletion2 = true;
+                var _didIteratorError2 = false;
+                var _iteratorError2 = undefined;
                 try {
-                  for (var _iterator3 = _this._elements[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                    var e = _step3.value;
-                    if (e.elt && e.elt.parentNode) {
-                      e.elt.parentNode.removeChild(e.elt);
+                  for (var _iterator2 = canvases[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var k = _step2.value;
+                    if (k.dataset.hidden === 'true') {
+                      k.style.visibility = '';
+                      delete k.dataset.hidden;
                     }
-                    for (var elt_ev in e._events) {
-                      e.elt.removeEventListener(elt_ev, e._events[elt_ev]);
-                    }
-                  } // call any registered remove functions
-
+                  }
                 } catch (err) {
-                  _didIteratorError3 = true;
-                  _iteratorError3 = err;
+                  _didIteratorError2 = true;
+                  _iteratorError2 = err;
                 } finally {
                   try {
-                    if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-                      _iterator3.return();
+                    if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+                      _iterator2.return();
                     }
                   } finally {
-                    if (_didIteratorError3) {
-                      throw _iteratorError3;
+                    if (_didIteratorError2) {
+                      throw _iteratorError2;
                     }
                   }
                 }
-                var self = _this;
-                _this._registeredMethods.remove.forEach(function (f) {
-                  if (typeof f !== 'undefined') {
-                    f.call(self);
+                _this._lastTargetFrameTime = window.performance.now();
+                _this._lastRealFrameTime = window.performance.now();
+                _this._setupDone = true;
+                if (_this._accessibleOutputs.grid || _this._accessibleOutputs.text) {
+                  _this._updateAccsOutput();
+                }
+              };
+              this._draw = function () {
+                var now = window.performance.now();
+                var time_since_last = now - _this._lastTargetFrameTime;
+                var target_time_between_frames = 1000 / _this._targetFrameRate; // only draw if we really need to; don't overextend the browser.
+                // draw if we're within 5ms of when our next frame should paint
+                // (this will prevent us from giving up opportunities to draw
+                // again when it's really about time for us to do so). fixes an
+                // issue where the frameRate is too low if our refresh loop isn't
+                // in sync with the browser. note that we have to draw once even
+                // if looping is off, so we bypass the time delay if that
+                // is the case.
+                var epsilon = 5;
+                if (!_this._loop || time_since_last >= target_time_between_frames - epsilon) {
+                  //mandatory update values(matrixes and stack)
+                  _this.redraw();
+                  _this._frameRate = 1000 / (now - _this._lastRealFrameTime);
+                  _this.deltaTime = now - _this._lastRealFrameTime;
+                  _this._setProperty('deltaTime', _this.deltaTime);
+                  _this._lastTargetFrameTime = Math.max(_this._lastTargetFrameTime + target_time_between_frames, now);
+                  _this._lastRealFrameTime = now; // If the user is actually using mouse module, then update
+                  // coordinates, otherwise skip. We can test this by simply
+                  // checking if any of the mouse functions are available or not.
+                  // NOTE : This reflects only in complete build or modular build.
+                  if (typeof _this._updateMouseCoords !== 'undefined') {
+                    _this._updateMouseCoords(); //reset delta values so they reset even if there is no mouse event to set them
+                    // for example if the mouse is outside the screen
+                    _this._setProperty('movedX', 0);
+                    _this._setProperty('movedY', 0);
                   }
-                });
-              } // remove window bound properties and methods
+                } // get notified the next time the browser gives us
+                // an opportunity to draw.
 
-              if (_this._isGlobal) {
-                for (var p in p5.prototype) {
+                if (_this._loop) {
+                  _this._requestAnimId = window.requestAnimationFrame(_this._draw);
+                }
+              };
+              this._setProperty = function (prop, value) {
+                _this[prop] = value;
+                if (_this._isGlobal) {
+                  window[prop] = value;
+                }
+              };
+              /**
+       * Removes the entire p5 sketch. This will remove the canvas and any
+       * elements created by p5.js. It will also stop the draw loop and unbind
+       * any properties or methods from the window global scope. It will
+       * leave a variable p5 in case you wanted to create a new p5 sketch.
+       * If you like, you can set p5 = null to erase it. While all functions and
+       * variables and objects created by the p5 library will be removed, any
+       * other global variables created by your code will remain.
+       *
+       * @method remove
+       * @example
+       * <div class='norender'><code>
+       * function draw() {
+       *   ellipse(50, 50, 10, 10);
+       * }
+       *
+       * function mousePressed() {
+       *   remove(); // remove whole sketch on mouse press
+       * }
+       * </code></div>
+       *
+       * @alt
+       * nothing displayed
+       *
+       */
+              this.remove = function () {
+                var loadingScreen = document.getElementById(_this._loadingScreenId);
+                if (loadingScreen) {
+                  loadingScreen.parentNode.removeChild(loadingScreen); // Add 1 to preload counter to prevent the sketch ever executing setup()
+                  _this._incrementPreload();
+                }
+                if (_this._curElement) {
+                  // stop draw
+                  _this._loop = false;
+                  if (_this._requestAnimId) {
+                    window.cancelAnimationFrame(_this._requestAnimId);
+                  } // unregister events sketch-wide
+
+                  for (var ev in _this._events) {
+                    window.removeEventListener(ev, _this._events[ev]);
+                  } // remove DOM elements created by p5, and listeners
+
+                  var _iteratorNormalCompletion3 = true;
+                  var _didIteratorError3 = false;
+                  var _iteratorError3 = undefined;
                   try {
-                    delete window[p];
-                  } catch (x) {
-                    window[p] = undefined;
-                  }
-                }
-                for (var p2 in _this) {
-                  if (_this.hasOwnProperty(p2)) {
+                    for (var _iterator3 = _this._elements[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+                      var e = _step3.value;
+                      if (e.elt && e.elt.parentNode) {
+                        e.elt.parentNode.removeChild(e.elt);
+                      }
+                      for (var elt_ev in e._events) {
+                        e.elt.removeEventListener(elt_ev, e._events[elt_ev]);
+                      }
+                    } // call any registered remove functions
+
+                  } catch (err) {
+                    _didIteratorError3 = true;
+                    _iteratorError3 = err;
+                  } finally {
                     try {
-                      delete window[p2];
+                      if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
+                        _iterator3.return();
+                      }
+                    } finally {
+                      if (_didIteratorError3) {
+                        throw _iteratorError3;
+                      }
+                    }
+                  }
+                  var self = _this;
+                  _this._registeredMethods.remove.forEach(function (f) {
+                    if (typeof f !== 'undefined') {
+                      f.call(self);
+                    }
+                  });
+                } // remove window bound properties and methods
+
+                if (_this._isGlobal) {
+                  for (var p in p5.prototype) {
+                    try {
+                      delete window[p];
                     } catch (x) {
-                      window[p2] = undefined;
+                      window[p] = undefined;
                     }
                   }
-                }
-                p5.instance = null;
-              }
-            }; // call any registered init functions
-            this._registeredMethods.init.forEach(function (f) {
-              if (typeof f !== 'undefined') {
-                f.call(this);
-              }
-            }, this); // Set up promise preloads
-            this._setupPromisePreloads();
-            var friendlyBindGlobal = this._createFriendlyGlobalFunctionBinder(); // If the user has created a global setup or draw function,
-            // assume "global" mode and make everything global (i.e. on the window)
-            if (!sketch) {
-              this._isGlobal = true;
-              p5.instance = this; // Loop through methods on the prototype and attach them to the window
-              for (var p in p5.prototype) {
-                if (typeof p5.prototype[p] === 'function') {
-                  var ev = p.substring(2);
-                  if (!this._events.hasOwnProperty(ev)) {
-                    if (Math.hasOwnProperty(p) && Math[p] === p5.prototype[p]) {
-                      // Multiple p5 methods are just native Math functions. These can be
-                      // called without any binding.
-                      friendlyBindGlobal(p, p5.prototype[p]);
-                    } else {
-                      friendlyBindGlobal(p, p5.prototype[p].bind(this));
+                  for (var p2 in _this) {
+                    if (_this.hasOwnProperty(p2)) {
+                      try {
+                        delete window[p2];
+                      } catch (x) {
+                        window[p2] = undefined;
+                      }
                     }
                   }
-                } else {
-                  friendlyBindGlobal(p, p5.prototype[p]);
+                  p5.instance = null;
                 }
-              } // Attach its properties to the window
-
-              for (var p2 in this) {
-                if (this.hasOwnProperty(p2)) {
-                  friendlyBindGlobal(p2, this[p2]);
+              }; // call any registered init functions
+              this._registeredMethods.init.forEach(function (f) {
+                if (typeof f !== 'undefined') {
+                  f.call(this);
                 }
-              }
-            } else {
-              // Else, the user has passed in a sketch closure that may set
-              // user-provided 'setup', 'draw', etc. properties on this instance of p5
-              sketch(this); // Run a check to see if the user has misspelled 'setup', 'draw', etc
-              // detects capitalization mistakes only ( Setup, SETUP, MouseClicked, etc)
-              p5._checkForUserDefinedFunctions(this);
-            } // Bind events to window (not using container div bc key events don't work)
-
-            for (var e in this._events) {
-              var f = this['_on'.concat(e)];
-              if (f) {
-                var m = f.bind(this);
-                window.addEventListener(e, m, {
-                  passive: false
-                });
-                this._events[e] = m;
-              }
-            }
-            var focusHandler = function focusHandler() {
-              _this._setProperty('focused', true);
-            };
-            var blurHandler = function blurHandler() {
-              _this._setProperty('focused', false);
-            };
-            window.addEventListener('focus', focusHandler);
-            window.addEventListener('blur', blurHandler);
-            this.registerMethod('remove', function () {
-              window.removeEventListener('focus', focusHandler);
-              window.removeEventListener('blur', blurHandler);
-            });
-            if (document.readyState === 'complete') {
-              this._start();
-            } else {
-              window.addEventListener('load', this._start.bind(this), false);
-            }
-          }
-          _createClass(p5, [
-            {
-              key: '_initializeInstanceVariables',
-              value: function _initializeInstanceVariables() {
-                this._accessibleOutputs = {
-                  text: false,
-                  grid: false,
-                  textLabel: false,
-                  gridLabel: false
-                };
-                this._styles = [
-                ];
-                this._bezierDetail = 20;
-                this._curveDetail = 20;
-                this._colorMode = constants.RGB;
-                this._colorMaxes = {
-                  rgb: [
-                    255,
-                    255,
-                    255,
-                    255
-                  ],
-                  hsb: [
-                    360,
-                    100,
-                    100,
-                    1
-                  ],
-                  hsl: [
-                    360,
-                    100,
-                    100,
-                    1
-                  ]
-                };
-                this._downKeys = {
-                }; //Holds the key codes of currently pressed keys
-              }
-            },
-            {
-              key: 'registerPreloadMethod',
-              value: function registerPreloadMethod(fnString, obj) {
-                // obj = obj || p5.prototype;
-                if (!p5.prototype._preloadMethods.hasOwnProperty(fnString)) {
-                  p5.prototype._preloadMethods[fnString] = obj;
-                }
-              }
-            },
-            {
-              key: 'registerMethod',
-              value: function registerMethod(name, m) {
-                var target = this || p5.prototype;
-                if (!target._registeredMethods.hasOwnProperty(name)) {
-                  target._registeredMethods[name] = [
-                  ];
-                }
-                target._registeredMethods[name].push(m);
-              } // create a function which provides a standardized process for binding
-              // globals; this is implemented as a factory primarily so that there's a
-              // way to redefine what "global" means for the binding function so it
-              // can be used in scenarios like unit testing where the window object
-              // might not exist
-
-            },
-            {
-              key: '_createFriendlyGlobalFunctionBinder',
-              value: function _createFriendlyGlobalFunctionBinder() {
-                var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-                };
-                var globalObject = options.globalObject || window;
-                var log = options.log || console.log.bind(console);
-                var propsToForciblyOverwrite = {
-                  // p5.print actually always overwrites an existing global function,
-                  // albeit one that is very unlikely to be used:
-                  //
-                  //   https://developer.mozilla.org/en-US/docs/Web/API/Window/print
-                  print: true
-                };
-                return function (prop, value) {
-                  if (!p5.disableFriendlyErrors && typeof IS_MINIFIED === 'undefined' && typeof value === 'function' && !(prop in p5.prototype._preloadMethods)) {
-                    try {
-                      // Because p5 has so many common function names, it's likely
-                      // that users may accidentally overwrite global p5 functions with
-                      // their own variables. Let's allow this but log a warning to
-                      // help users who may be doing this unintentionally.
-                      //
-                      // For more information, see:
-                      //
-                      //   https://github.com/processing/p5.js/issues/1317
-                      if (prop in globalObject && !(prop in propsToForciblyOverwrite)) {
-                        throw new Error('global "'.concat(prop, '" already exists'));
-                      } // It's possible that this might throw an error because there
-                      // are a lot of edge-cases in which `Object.defineProperty` might
-                      // not succeed; since this functionality is only intended to
-                      // help beginners anyways, we'll just catch such an exception
-                      // if it occurs, and fall back to legacy behavior.
-
-                      Object.defineProperty(globalObject, prop, {
-                        configurable: true,
-                        enumerable: true,
-                        get: function get() {
-                          return value;
-                        },
-                        set: function set(newValue) {
-                          Object.defineProperty(globalObject, prop, {
-                            configurable: true,
-                            enumerable: true,
-                            value: newValue,
-                            writable: true
-                          });
-                          log('You just changed the value of "'.concat(prop, '", which was a p5 function. This could cause problems later if you\'re not careful.'));
-                        }
-                      });
-                    } catch (e) {
-                      var message = 'p5 had problems creating the global function "'.concat(prop, '", possibly because your code is already using that name as a variable. You may want to rename your variable to something else.');
-                      p5._friendlyError(message, prop);
-                      globalObject[prop] = value;
+              }, this); // Set up promise preloads
+              this._setupPromisePreloads();
+              var friendlyBindGlobal = this._createFriendlyGlobalFunctionBinder(); // If the user has created a global setup or draw function,
+              // assume "global" mode and make everything global (i.e. on the window)
+              if (!sketch) {
+                this._isGlobal = true;
+                p5.instance = this; // Loop through methods on the prototype and attach them to the window
+                for (var p in p5.prototype) {
+                  if (typeof p5.prototype[p] === 'function') {
+                    var ev = p.substring(2);
+                    if (!this._events.hasOwnProperty(ev)) {
+                      if (Math.hasOwnProperty(p) && Math[p] === p5.prototype[p]) {
+                        // Multiple p5 methods are just native Math functions. These can be
+                        // called without any binding.
+                        friendlyBindGlobal(p, p5.prototype[p]);
+                      } else {
+                        friendlyBindGlobal(p, p5.prototype[p].bind(this));
+                      }
                     }
                   } else {
-                    globalObject[prop] = value;
+                    friendlyBindGlobal(p, p5.prototype[p]);
                   }
-                };
+                } // Attach its properties to the window
+
+                for (var p2 in this) {
+                  if (this.hasOwnProperty(p2)) {
+                    friendlyBindGlobal(p2, this[p2]);
+                  }
+                }
+              } else {
+                // Else, the user has passed in a sketch closure that may set
+                // user-provided 'setup', 'draw', etc. properties on this instance of p5
+                sketch(this); // Run a check to see if the user has misspelled 'setup', 'draw', etc
+                // detects capitalization mistakes only ( Setup, SETUP, MouseClicked, etc)
+                p5._checkForUserDefinedFunctions(this);
+              } // Bind events to window (not using container div bc key events don't work)
+
+              for (var e in this._events) {
+                var f = this['_on'.concat(e)];
+                if (f) {
+                  var m = f.bind(this);
+                  window.addEventListener(e, m, {
+                    passive: false
+                  });
+                  this._events[e] = m;
+                }
+              }
+              var focusHandler = function focusHandler() {
+                _this._setProperty('focused', true);
+              };
+              var blurHandler = function blurHandler() {
+                _this._setProperty('focused', false);
+              };
+              window.addEventListener('focus', focusHandler);
+              window.addEventListener('blur', blurHandler);
+              this.registerMethod('remove', function () {
+                window.removeEventListener('focus', focusHandler);
+                window.removeEventListener('blur', blurHandler);
+              });
+              if (document.readyState === 'complete') {
+                this._start();
+              } else {
+                window.addEventListener('load', this._start.bind(this), false);
               }
             }
-          ]);
-          return p5;
-        }(); // This is a pointer to our global mode p5 instance, if we're in
+            _createClass(p5, [
+              {
+                key: '_initializeInstanceVariables',
+                value: function _initializeInstanceVariables() {
+                  this._accessibleOutputs = {
+                    text: false,
+                    grid: false,
+                    textLabel: false,
+                    gridLabel: false
+                  };
+                  this._styles = [
+                  ];
+                  this._bezierDetail = 20;
+                  this._curveDetail = 20;
+                  this._colorMode = constants.RGB;
+                  this._colorMaxes = {
+                    rgb: [
+                      255,
+                      255,
+                      255,
+                      255
+                    ],
+                    hsb: [
+                      360,
+                      100,
+                      100,
+                      1
+                    ],
+                    hsl: [
+                      360,
+                      100,
+                      100,
+                      1
+                    ]
+                  };
+                  this._downKeys = {
+                  }; //Holds the key codes of currently pressed keys
+                }
+              },
+              {
+                key: 'registerPreloadMethod',
+                value: function registerPreloadMethod(fnString, obj) {
+                  // obj = obj || p5.prototype;
+                  if (!p5.prototype._preloadMethods.hasOwnProperty(fnString)) {
+                    p5.prototype._preloadMethods[fnString] = obj;
+                  }
+                }
+              },
+              {
+                key: 'registerMethod',
+                value: function registerMethod(name, m) {
+                  var target = this || p5.prototype;
+                  if (!target._registeredMethods.hasOwnProperty(name)) {
+                    target._registeredMethods[name] = [
+                    ];
+                  }
+                  target._registeredMethods[name].push(m);
+                } // create a function which provides a standardized process for binding
+                // globals; this is implemented as a factory primarily so that there's a
+                // way to redefine what "global" means for the binding function so it
+                // can be used in scenarios like unit testing where the window object
+                // might not exist
+
+              },
+              {
+                key: '_createFriendlyGlobalFunctionBinder',
+                value: function _createFriendlyGlobalFunctionBinder() {
+                  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+                  };
+                  var globalObject = options.globalObject || window;
+                  var log = options.log || console.log.bind(console);
+                  var propsToForciblyOverwrite = {
+                    // p5.print actually always overwrites an existing global function,
+                    // albeit one that is very unlikely to be used:
+                    //
+                    //   https://developer.mozilla.org/en-US/docs/Web/API/Window/print
+                    print: true
+                  };
+                  return function (prop, value) {
+                    if (!p5.disableFriendlyErrors && typeof IS_MINIFIED === 'undefined' && typeof value === 'function' && !(prop in p5.prototype._preloadMethods)) {
+                      try {
+                        // Because p5 has so many common function names, it's likely
+                        // that users may accidentally overwrite global p5 functions with
+                        // their own variables. Let's allow this but log a warning to
+                        // help users who may be doing this unintentionally.
+                        //
+                        // For more information, see:
+                        //
+                        //   https://github.com/processing/p5.js/issues/1317
+                        if (prop in globalObject && !(prop in propsToForciblyOverwrite)) {
+                          throw new Error('global "'.concat(prop, '" already exists'));
+                        } // It's possible that this might throw an error because there
+                        // are a lot of edge-cases in which `Object.defineProperty` might
+                        // not succeed; since this functionality is only intended to
+                        // help beginners anyways, we'll just catch such an exception
+                        // if it occurs, and fall back to legacy behavior.
+
+                        Object.defineProperty(globalObject, prop, {
+                          configurable: true,
+                          enumerable: true,
+                          get: function get() {
+                            return value;
+                          },
+                          set: function set(newValue) {
+                            Object.defineProperty(globalObject, prop, {
+                              configurable: true,
+                              enumerable: true,
+                              value: newValue,
+                              writable: true
+                            });
+                            log('You just changed the value of "'.concat(prop, '", which was a p5 function. This could cause problems later if you\'re not careful.'));
+                          }
+                        });
+                      } catch (e) {
+                        var message = 'p5 had problems creating the global function "'.concat(prop, '", possibly because your code is already using that name as a variable. You may want to rename your variable to something else.');
+                        p5._friendlyError(message, prop);
+                        globalObject[prop] = value;
+                      }
+                    } else {
+                      globalObject[prop] = value;
+                    }
+                  };
+                }
+              }
+            ]);
+            return p5;
+          }(); // This is a pointer to our global mode p5 instance, if we're in
         // global mode.
         p5.instance = null;
         /**
@@ -61447,8 +61444,8 @@
         var _main = _interopRequireDefault(_dereq_('./main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module DOM
@@ -62322,8 +62319,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -62351,8 +62348,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Rendering
@@ -62611,8 +62608,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -62640,8 +62637,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _typeof(obj) {
@@ -62767,9 +62764,9 @@
               // get(x,y)
               if (x < 0 || y < 0 || x >= canvas.width || y >= canvas.height) {
                 return [0,
-                0,
-                0,
-                0];
+                  0,
+                  0,
+                  0];
               }
               return this._getPixel(x, y);
             } // get(x,y,w,h)
@@ -63062,7 +63059,7 @@
  */
         function calculateOffset(object) {
           var currentLeft = 0,
-          currentTop = 0;
+            currentTop = 0;
           if (object.offsetParent) {
             do {
               currentLeft += object.offsetLeft;
@@ -63073,7 +63070,7 @@
             currentTop += object.offsetTop;
           }
           return [currentLeft,
-          currentTop];
+            currentTop];
         }
         var _default = _main.default.Renderer;
         exports.default = _default;
@@ -63173,8 +63170,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -63202,8 +63199,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * p5.Renderer2D
@@ -63421,7 +63418,7 @@
         // x,y are canvas-relative (pre-scaled by _pixelDensity)
         _main.default.Renderer2D.prototype._getPixel = function (x, y) {
           var imageData,
-          index;
+            index;
           imageData = this.drawingContext.getImageData(x, y, 1, 1).data;
           index = 0;
           return [imageData[index + 0],
@@ -63453,9 +63450,9 @@
             this.drawingContext.restore();
           } else {
             var r = 0,
-            g = 0,
-            b = 0,
-            a = 0;
+              g = 0,
+              b = 0,
+              a = 0;
             var idx = 4 * (y * pixelsState._pixelDensity * (this.width * pixelsState._pixelDensity) + x * pixelsState._pixelDensity);
             if (!pixelsState.imageData) {
               pixelsState.loadPixels.call(pixelsState);
@@ -63528,15 +63525,15 @@
         _main.default.Renderer2D.prototype._acuteArcToBezier = function _acuteArcToBezier(start, size) {
           // Evaluate constants.
           var alpha = size / 2,
-          cos_alpha = Math.cos(alpha),
-          sin_alpha = Math.sin(alpha),
-          cot_alpha = 1 / Math.tan(alpha),
-          // This is how far the arc needs to be rotated.
-          phi = start + alpha,
-          cos_phi = Math.cos(phi),
-          sin_phi = Math.sin(phi),
-          lambda = (4 - cos_alpha) / 3,
-          mu = sin_alpha + (cos_alpha - lambda) * cot_alpha; // Return rotated waypoints.
+            cos_alpha = Math.cos(alpha),
+            sin_alpha = Math.sin(alpha),
+            cot_alpha = 1 / Math.tan(alpha),
+            // This is how far the arc needs to be rotated.
+            phi = start + alpha,
+            cos_phi = Math.cos(phi),
+            sin_phi = Math.sin(phi),
+            lambda = (4 - cos_alpha) / 3,
+            mu = sin_alpha + (cos_alpha - lambda) * cot_alpha; // Return rotated waypoints.
           return {
             ax: Math.cos(start).toFixed(7),
             ay: Math.sin(start).toFixed(7),
@@ -63611,11 +63608,11 @@
         _main.default.Renderer2D.prototype.ellipse = function (args) {
           var ctx = this.drawingContext;
           var doFill = this._doFill,
-          doStroke = this._doStroke;
+            doStroke = this._doStroke;
           var x = parseFloat(args[0]),
-          y = parseFloat(args[1]),
-          w = parseFloat(args[2]),
-          h = parseFloat(args[3]);
+            y = parseFloat(args[1]),
+            w = parseFloat(args[2]),
+            h = parseFloat(args[3]);
           if (doFill && !doStroke) {
             if (this._getFill() === styleEmpty) {
               return this;
@@ -63626,17 +63623,17 @@
             }
           }
           var kappa = 0.5522847498,
-          // control point offset horizontal
-          ox = w / 2 * kappa,
-          // control point offset vertical
-          oy = h / 2 * kappa,
-          // x-end
-          xe = x + w,
-          // y-end
-          ye = y + h,
-          // x-middle
-          xm = x + w / 2,
-          ym = y + h / 2; // y-middle
+            // control point offset horizontal
+            ox = w / 2 * kappa,
+            // control point offset vertical
+            oy = h / 2 * kappa,
+            // x-end
+            xe = x + w,
+            // y-end
+            ye = y + h,
+            // x-middle
+            xm = x + w / 2,
+            ym = y + h / 2; // y-middle
           ctx.beginPath();
           ctx.moveTo(x, ym);
           ctx.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
@@ -63681,7 +63678,7 @@
         _main.default.Renderer2D.prototype.quad = function (x1, y1, x2, y2, x3, y3, x4, y4) {
           var ctx = this.drawingContext;
           var doFill = this._doFill,
-          doStroke = this._doStroke;
+            doStroke = this._doStroke;
           if (doFill && !doStroke) {
             if (this._getFill() === styleEmpty) {
               return this;
@@ -63716,7 +63713,7 @@
           var bl = args[7];
           var ctx = this.drawingContext;
           var doFill = this._doFill,
-          doStroke = this._doStroke;
+            doStroke = this._doStroke;
           if (doFill && !doStroke) {
             if (this._getFill() === styleEmpty) {
               return this;
@@ -63791,13 +63788,13 @@
         _main.default.Renderer2D.prototype.triangle = function (args) {
           var ctx = this.drawingContext;
           var doFill = this._doFill,
-          doStroke = this._doStroke;
+            doStroke = this._doStroke;
           var x1 = args[0],
-          y1 = args[1];
+            y1 = args[1];
           var x2 = args[2],
-          y2 = args[3];
+            y2 = args[3];
           var x3 = args[4],
-          y3 = args[5];
+            y3 = args[5];
           if (doFill && !doStroke) {
             if (this._getFill() === styleEmpty) {
               return this;
@@ -63832,13 +63829,13 @@
             vertices.push(vertices[0]);
           }
           var i,
-          j;
+            j;
           var numVerts = vertices.length;
           if (isCurve && (shapeKind === constants.POLYGON || shapeKind === null)) {
             if (numVerts > 3) {
               var b = [
               ],
-              s = 1 - this._curveTightness;
+                s = 1 - this._curveTightness;
               this.drawingContext.beginPath();
               this.drawingContext.moveTo(vertices[1][0], vertices[1][1]);
               for (i = 1; i + 2 < numVerts; i++) {
@@ -64292,8 +64289,8 @@
         var _main = _interopRequireDefault(_dereq_('./main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         _main.default.prototype._promisePreloads = [
@@ -64324,8 +64321,8 @@
               var preloadSetup = _step.value;
               var thisValue = this;
               var method = preloadSetup.method,
-              addCallbacks = preloadSetup.addCallbacks,
-              legacyPreloadSetup = preloadSetup.legacyPreloadSetup; // Get the target object that the preload gets assigned to by default,
+                addCallbacks = preloadSetup.addCallbacks,
+                legacyPreloadSetup = preloadSetup.legacyPreloadSetup; // Get the target object that the preload gets assigned to by default,
               // that is the current object.
               var target = preloadSetup.target || this;
               var sourceFunction = target[method].bind(target); // If the target is the p5 prototype, then only set it up on the first run per page
@@ -64496,8 +64493,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -64525,8 +64522,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _typeof(obj) {
@@ -64630,7 +64627,7 @@
               document.body.appendChild(m);
             } //append canvas to main
 
-            document.getElementsByTagName('main') [0].appendChild(c);
+            document.getElementsByTagName('main')[0].appendChild(c);
           } // Init our graphics renderer
           //webgl mode
 
@@ -64954,8 +64951,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -64983,8 +64980,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Shape
@@ -65160,11 +65157,11 @@
             vals.y,
             vals.w,
             vals.h,
-            detail]);
+              detail]);
           } else {
             this._renderer.arc(vals.x, vals.y, vals.w, vals.h, angles.start, // [0, TWO_PI)
-            angles.stop, // [start, start + TWO_PI)
-            mode, detail); //accessible Outputs
+              angles.stop, // [start, start + TWO_PI)
+              mode, detail); //accessible Outputs
             if (this._accessibleOutputs.grid || this._accessibleOutputs.text) {
               this._accsOutput('arc', [
                 vals.x,
@@ -65272,7 +65269,7 @@
           vals.y,
           vals.w,
           vals.h,
-          detailX]); //accessible Outputs
+            detailX]); //accessible Outputs
           if (this._accessibleOutputs.grid || this._accessibleOutputs.text) {
             this._accsOutput('ellipse', [
               vals.x,
@@ -65750,8 +65747,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -65779,8 +65776,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Shape
@@ -66168,8 +66165,8 @@
         _dereq_('../friendly_errors/validate_params');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Shape
@@ -66251,7 +66248,7 @@
           // visible, exit immediately
           if (!this._renderer._doStroke && !this._renderer._doFill) {
             return this;
-          }(_this$_renderer = this._renderer).bezier.apply(_this$_renderer, args);
+          } (_this$_renderer = this._renderer).bezier.apply(_this$_renderer, args);
           return this;
         };
         /**
@@ -66628,12 +66625,12 @@
         _main.default.prototype.curvePoint = function (a, b, c, d, t) {
           _main.default._validateParameters('curvePoint', arguments);
           var s = this._renderer._curveTightness,
-          t3 = t * t * t,
-          t2 = t * t,
-          f1 = (s - 1) / 2 * t3 + (1 - s) * t2 + (s - 1) / 2 * t,
-          f2 = (s + 3) / 2 * t3 + ( - 5 - s) / 2 * t2 + 1,
-          f3 = ( - 3 - s) / 2 * t3 + (s + 2) * t2 + (1 - s) / 2 * t,
-          f4 = (1 - s) / 2 * t3 + (s - 1) / 2 * t2;
+            t3 = t * t * t,
+            t2 = t * t,
+            f1 = (s - 1) / 2 * t3 + (1 - s) * t2 + (s - 1) / 2 * t,
+            f2 = (s + 3) / 2 * t3 + (- 5 - s) / 2 * t2 + 1,
+            f3 = (- 3 - s) / 2 * t3 + (s + 2) * t2 + (1 - s) / 2 * t,
+            f4 = (1 - s) / 2 * t3 + (s - 1) / 2 * t2;
           return a * f1 + b * f2 + c * f3 + d * f4;
         };
         /**
@@ -66674,12 +66671,12 @@
         _main.default.prototype.curveTangent = function (a, b, c, d, t) {
           _main.default._validateParameters('curveTangent', arguments);
           var s = this._renderer._curveTightness,
-          tt3 = t * t * 3,
-          t2 = t * 2,
-          f1 = (s - 1) / 2 * tt3 + (1 - s) * t2 + (s - 1) / 2,
-          f2 = (s + 3) / 2 * tt3 + ( - 5 - s) / 2 * t2,
-          f3 = ( - 3 - s) / 2 * tt3 + (s + 2) * t2 + (1 - s) / 2,
-          f4 = (1 - s) / 2 * tt3 + (s - 1) / 2 * t2;
+            tt3 = t * t * 3,
+            t2 = t * 2,
+            f1 = (s - 1) / 2 * tt3 + (1 - s) * t2 + (s - 1) / 2,
+            f2 = (s + 3) / 2 * tt3 + (- 5 - s) / 2 * t2,
+            f3 = (- 3 - s) / 2 * tt3 + (s + 2) * t2 + (1 - s) / 2,
+            f4 = (1 - s) / 2 * tt3 + (s - 1) / 2 * t2;
           return a * f1 + b * f2 + c * f3 + d * f4;
         };
         var _default = _main.default;
@@ -66750,8 +66747,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -66779,8 +66776,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Shape
@@ -67943,7 +67940,7 @@
               enumerable: false
             });
           }
-        }) ();
+        })();
         /**
  * this is implementation of Object.assign() which is unavailable in
  * IE11 and (non-Chrome) Android browsers.
@@ -67972,9 +67969,9 @@
               }
               var objTarget = Object(target);
               var s,
-              source,
-              i,
-              props;
+                source,
+                i,
+                props;
               for (s = 1; s < arguments.length; ++s) {
                 source = Object(arguments[s]);
                 props = keys(source);
@@ -67994,7 +67991,7 @@
               writable: true
             });
           }
-        }) ();
+        })();
       },
       {
         'core-js/modules/es.array.filter': 171,
@@ -68050,8 +68047,8 @@
         var _main = _interopRequireDefault(_dereq_('./main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Structure
@@ -68678,8 +68675,8 @@
         var _main = _interopRequireDefault(_dereq_('./main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _toConsumableArray(arr) {
@@ -69347,8 +69344,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _toConsumableArray(arr) {
@@ -69622,8 +69619,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Data
@@ -70132,9 +70129,9 @@
           if (Object.keys(this.data).length === 0) {
             throw new Error('Unable to search for a minimum or maximum value on an empty NumberDict');
           } else if (Object.keys(this.data).length === 1) {
-            return this.data[Object.keys(this.data) [0]];
+            return this.data[Object.keys(this.data)[0]];
           } else {
-            var result = this.data[Object.keys(this.data) [0]];
+            var result = this.data[Object.keys(this.data)[0]];
             for (var key in this.data) {
               if (this.data[key] * flip < result * flip) {
                 result = this.data[key];
@@ -70177,7 +70174,7 @@
  * </code></div>
  */
         _main.default.NumberDict.prototype.maxValue = function () {
-          return this._valueTest( - 1);
+          return this._valueTest(- 1);
         };
         /**
  * private helper function for finding lowest or highest key
@@ -70188,12 +70185,12 @@
           if (Object.keys(this.data).length === 0) {
             throw new Error('Unable to use minValue on an empty NumberDict');
           } else if (Object.keys(this.data).length === 1) {
-            return Object.keys(this.data) [0];
+            return Object.keys(this.data)[0];
           } else {
-            var result = Object.keys(this.data) [0];
+            var result = Object.keys(this.data)[0];
             for (var i = 1; i < Object.keys(this.data).length; i++) {
-              if (Object.keys(this.data) [i] * flip < result * flip) {
-                result = Object.keys(this.data) [i];
+              if (Object.keys(this.data)[i] * flip < result * flip) {
+                result = Object.keys(this.data)[i];
               }
             }
             return result;
@@ -70233,7 +70230,7 @@
  * </code></div>
  */
         _main.default.NumberDict.prototype.maxKey = function () {
-          return this._keyTest( - 1);
+          return this._keyTest(- 1);
         };
         var _default = _main.default.TypedDict;
         exports.default = _default;
@@ -70315,8 +70312,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _typeof(obj) {
@@ -70874,7 +70871,7 @@
           elt.appendChild(label); //checkbox must be wrapped in p5.Element before label so that label appears after
           var self = addElement(elt, this);
           self.checked = function () {
-            var cb = self.elt.firstElementChild.getElementsByTagName('input') [0];
+            var cb = self.elt.firstElementChild.getElementsByTagName('input')[0];
             if (cb) {
               if (arguments.length === 0) {
                 return cb.checked;
@@ -71147,7 +71144,7 @@
             self = arg0;
             this.elt = arg0.elt;
           } else if ( // If existing radio Element is provided as argument 0
-          arg0 instanceof HTMLDivElement || arg0 instanceof HTMLSpanElement) {
+            arg0 instanceof HTMLDivElement || arg0 instanceof HTMLSpanElement) {
             self = addElement(arg0, this);
             this.elt = arg0;
             radioElement = arg0;
@@ -71182,7 +71179,7 @@
             var _didIteratorError2 = false;
             var _iteratorError2 = undefined;
             try {
-              for (var _iterator2 = self._getOptionsArray() [Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+              for (var _iterator2 = self._getOptionsArray()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                 var option = _step2.value;
                 if (option.value === value) {
                   optionEl = option;
@@ -71236,7 +71233,7 @@
             var _didIteratorError3 = false;
             var _iteratorError3 = undefined;
             try {
-              for (var _iterator3 = self._getOptionsArray() [Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+              for (var _iterator3 = self._getOptionsArray()[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
                 var optionEl = _step3.value;
                 if (optionEl.value === value) {
                   if (isLabelElement(optionEl.parentElement)) {
@@ -71270,7 +71267,7 @@
             var _didIteratorError4 = false;
             var _iteratorError4 = undefined;
             try {
-              for (var _iterator4 = self._getOptionsArray() [Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+              for (var _iterator4 = self._getOptionsArray()[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
                 var option = _step4.value;
                 if (option.checked) {
                   result = option.value;
@@ -71300,7 +71297,7 @@
               var _didIteratorError5 = false;
               var _iteratorError5 = undefined;
               try {
-                for (var _iterator5 = self._getOptionsArray() [Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+                for (var _iterator5 = self._getOptionsArray()[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
                   var option = _step5.value;
                   if (option.checked) {
                     result = option;
@@ -71332,7 +71329,7 @@
               var _didIteratorError6 = false;
               var _iteratorError6 = undefined;
               try {
-                for (var _iterator6 = self._getOptionsArray() [Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                for (var _iterator6 = self._getOptionsArray()[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                   var _option = _step6.value;
                   if (_option.value === value) {
                     _option.setAttribute('checked', true);
@@ -71363,7 +71360,7 @@
             var _didIteratorError7 = false;
             var _iteratorError7 = undefined;
             try {
-              for (var _iterator7 = self._getOptionsArray() [Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+              for (var _iterator7 = self._getOptionsArray()[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
                 var radioInput = _step7.value;
                 radioInput.setAttribute('disabled', shouldDisable);
               }
@@ -71860,9 +71857,9 @@
             for (var _iterator10 = arguments[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
               var arg = _step10.value;
               if (arg === _main.default.prototype.VIDEO) useAudio = false;
-               else if (arg === _main.default.prototype.AUDIO) useVideo = false;
-               else if (_typeof(arg) === 'object') constraints = arg;
-               else if (typeof arg === 'function') callback = arg;
+              else if (arg === _main.default.prototype.AUDIO) useVideo = false;
+              else if (_typeof(arg) === 'object') constraints = arg;
+              else if (typeof arg === 'function') callback = arg;
             }
           } catch (err) {
             _didIteratorError10 = true;
@@ -72580,7 +72577,7 @@
                 this.elt.style.height = aH + 'px';
                 this._pInst.scale(this._pInst._pixelDensity, this._pInst._pixelDensity);
                 for (prop in j) {
-                  this.elt.getContext('2d') [prop] = j[prop];
+                  this.elt.getContext('2d')[prop] = j[prop];
                 }
               } else {
                 this.elt.style.width = aW + 'px';
@@ -73588,7 +73585,7 @@
  */
         _main.default.MediaElement.prototype.connect = function (obj) {
           var audioContext,
-          mainOutput; // if p5.sound exists, same audio context
+            mainOutput; // if p5.sound exists, same audio context
           if (typeof _main.default.prototype.getAudioContext === 'function') {
             audioContext = _main.default.prototype.getAudioContext();
             mainOutput = _main.default.soundOut.input;
@@ -74019,8 +74016,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -74048,8 +74045,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Events
@@ -74768,8 +74765,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Events
@@ -75219,8 +75216,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -75248,8 +75245,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Events
@@ -76267,8 +76264,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Events
@@ -76872,22 +76869,22 @@
           var maxIdx = pixels.length ? pixels.length / 4 : 0;
           var out = new Int32Array(maxIdx);
           var currRowIdx,
-          maxRowIdx,
-          colOrig,
-          colOut,
-          currLum;
+            maxRowIdx,
+            colOrig,
+            colOut,
+            currLum;
           var idxRight,
-          idxLeft,
-          idxUp,
-          idxDown;
+            idxLeft,
+            idxUp,
+            idxDown;
           var colRight,
-          colLeft,
-          colUp,
-          colDown;
+            colLeft,
+            colUp,
+            colDown;
           var lumRight,
-          lumLeft,
-          lumUp,
-          lumDown;
+            lumLeft,
+            lumUp,
+            lumDown;
           while (currIdx < maxIdx) {
             currRowIdx = currIdx;
             maxRowIdx = currIdx + canvas.width;
@@ -76950,22 +76947,22 @@
           var maxIdx = pixels.length ? pixels.length / 4 : 0;
           var out = new Int32Array(maxIdx);
           var currRowIdx,
-          maxRowIdx,
-          colOrig,
-          colOut,
-          currLum;
+            maxRowIdx,
+            colOrig,
+            colOut,
+            currLum;
           var idxRight,
-          idxLeft,
-          idxUp,
-          idxDown;
+            idxLeft,
+            idxUp,
+            idxDown;
           var colRight,
-          colLeft,
-          colUp,
-          colDown;
+            colLeft,
+            colUp,
+            colDown;
           var lumRight,
-          lumLeft,
-          lumUp,
-          lumDown;
+            lumLeft,
+            lumUp,
+            lumDown;
           while (currIdx < maxIdx) {
             currRowIdx = currIdx;
             maxRowIdx = currIdx + canvas.width;
@@ -77044,9 +77041,9 @@
               blurMult[l] = new Int32Array(256);
             }
             var bk,
-            bki;
+              bki;
             var bm,
-            bmi;
+              bmi;
             for (var i = 1, radiusi = radius - 1; i < radius; i++) {
               blurKernel[radius + i] = blurKernel[radiusi] = bki = radiusi * radiusi;
               bm = blurMult[radius + i];
@@ -77074,15 +77071,15 @@
             argb[j] = Filters._getARGB(pixels, j);
           }
           var sum,
-          cr,
-          cg,
-          cb,
-          ca;
+            cr,
+            cg,
+            cb,
+            ca;
           var read,
-          ri,
-          ym,
-          ymi,
-          bk0;
+            ri,
+            ym,
+            ymi,
+            bk0;
           var a2 = new Int32Array(numPackedPixels);
           var r2 = new Int32Array(numPackedPixels);
           var g2 = new Int32Array(numPackedPixels);
@@ -77090,8 +77087,8 @@
           var yi = 0;
           buildBlurKernel(radius);
           var x,
-          y,
-          i;
+            y,
+            i;
           var bm;
           for (y = 0; y < height; y++) {
             for (x = 0; x < width; x++) {
@@ -77298,8 +77295,8 @@
         var _omggif = _interopRequireDefault(_dereq_('omggif'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _toConsumableArray(arr) {
@@ -77449,8 +77446,8 @@
           var args = [
           ].slice.call(arguments);
           var htmlCanvas,
-          filename,
-          extension;
+            filename,
+            extension;
           if (arguments[0] instanceof HTMLCanvasElement) {
             htmlCanvas = arguments[0];
             args.shift();
@@ -77466,7 +77463,7 @@
           if (args.length >= 2) {
             extension = args[1];
           }
-          extension = extension || _main.default.prototype._checkFileExtension(filename, extension) [1] || 'png';
+          extension = extension || _main.default.prototype._checkFileExtension(filename, extension)[1] || 'png';
           var mimeType;
           switch (extension) {
             default:
@@ -77975,8 +77972,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -78004,8 +78001,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
@@ -78025,7 +78022,7 @@
         function _asyncToGenerator(fn) {
           return function () {
             var self = this,
-            args = arguments;
+              args = arguments;
             return new Promise(function (resolve, reject) {
               var gen = fn.apply(self, args);
               function _next(value) {
@@ -78230,243 +78227,243 @@
  * animation of a group of yellow circles moving in circles over a dark background
  */
         _main.default.prototype.saveGif =        /*#__PURE__*/
-        function () {
-          var _ref = _asyncToGenerator(          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee(fileName, duration) {
-            var options,
-            delay,
-            units,
-            _frameRate,
-            gifFrameDelay,
-            nFrames,
-            nFramesDelay,
-            totalNumberOfFrames,
-            frameIterator,
-            lastPixelDensity,
-            frames,
-            progressBarIdName,
-            p,
-            pixels,
-            gl,
-            data,
-            gif,
-            globalPalette,
-            paletteCache,
-            getIndexedFrame,
-            transparentIndex,
-            prevIndexedFrame,
-            i,
-            indexedFrame,
-            originalIndexedFrame,
-            _i,
-            buffer,
-            extension,
-            blob,
-            _args = arguments;
-            return regeneratorRuntime.wrap(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    options = _args.length > 2 && _args[2] !== undefined ? _args[2] : {
-                      delay: 0,
-                      units: 'seconds'
-                    };
-                    if (!(typeof fileName !== 'string')) {
-                      _context.next = 3;
-                      break;
-                    }
-                    throw TypeError('fileName parameter must be a string');
-                  case 3:
-                    if (!(typeof duration !== 'number')) {
-                      _context.next = 5;
-                      break;
-                    }
-                    throw TypeError('Duration parameter must be a number');
-                  case 5:
-                    // extract variables for more comfortable use
-                    delay = options && options.delay || 0; // in seconds
-                    units = options && options.units || 'seconds'; // either 'seconds' or 'frames'
-                    // if arguments in the options object are not correct, cancel operation
-                    if (!(typeof delay !== 'number')) {
-                      _context.next = 9;
-                      break;
-                    }
-                    throw TypeError('Delay parameter must be a number');
-                  case 9:
-                    if (!(units !== 'seconds' && units !== 'frames')) {
-                      _context.next = 11;
-                      break;
-                    }
-                    throw TypeError('Units parameter must be either "frames" or "seconds"');
-                  case 11:
-                    this._recording = true; // get the project's framerate
-                    _frameRate = this._targetFrameRate; // if it is undefined or some non useful value, assume it's 60
-                    if (_frameRate === Infinity || _frameRate === undefined || _frameRate === 0) {
-                      _frameRate = 60;
-                    } // calculate frame delay based on frameRate
-                    // this delay has nothing to do with the
-                    // delay in options, but rather is the delay
-                    // we have to specify to the gif encoder between frames.
+          function () {
+            var _ref = _asyncToGenerator(          /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee(fileName, duration) {
+                var options,
+                  delay,
+                  units,
+                  _frameRate,
+                  gifFrameDelay,
+                  nFrames,
+                  nFramesDelay,
+                  totalNumberOfFrames,
+                  frameIterator,
+                  lastPixelDensity,
+                  frames,
+                  progressBarIdName,
+                  p,
+                  pixels,
+                  gl,
+                  data,
+                  gif,
+                  globalPalette,
+                  paletteCache,
+                  getIndexedFrame,
+                  transparentIndex,
+                  prevIndexedFrame,
+                  i,
+                  indexedFrame,
+                  originalIndexedFrame,
+                  _i,
+                  buffer,
+                  extension,
+                  blob,
+                  _args = arguments;
+                return regeneratorRuntime.wrap(function _callee$(_context) {
+                  while (1) {
+                    switch (_context.prev = _context.next) {
+                      case 0:
+                        options = _args.length > 2 && _args[2] !== undefined ? _args[2] : {
+                          delay: 0,
+                          units: 'seconds'
+                        };
+                        if (!(typeof fileName !== 'string')) {
+                          _context.next = 3;
+                          break;
+                        }
+                        throw TypeError('fileName parameter must be a string');
+                      case 3:
+                        if (!(typeof duration !== 'number')) {
+                          _context.next = 5;
+                          break;
+                        }
+                        throw TypeError('Duration parameter must be a number');
+                      case 5:
+                        // extract variables for more comfortable use
+                        delay = options && options.delay || 0; // in seconds
+                        units = options && options.units || 'seconds'; // either 'seconds' or 'frames'
+                        // if arguments in the options object are not correct, cancel operation
+                        if (!(typeof delay !== 'number')) {
+                          _context.next = 9;
+                          break;
+                        }
+                        throw TypeError('Delay parameter must be a number');
+                      case 9:
+                        if (!(units !== 'seconds' && units !== 'frames')) {
+                          _context.next = 11;
+                          break;
+                        }
+                        throw TypeError('Units parameter must be either "frames" or "seconds"');
+                      case 11:
+                        this._recording = true; // get the project's framerate
+                        _frameRate = this._targetFrameRate; // if it is undefined or some non useful value, assume it's 60
+                        if (_frameRate === Infinity || _frameRate === undefined || _frameRate === 0) {
+                          _frameRate = 60;
+                        } // calculate frame delay based on frameRate
+                        // this delay has nothing to do with the
+                        // delay in options, but rather is the delay
+                        // we have to specify to the gif encoder between frames.
 
-                    gifFrameDelay = 1 / _frameRate * 1000; // constrain it to be always greater than 20,
-                    // otherwise it won't work in some browsers and systems
-                    // reference: https://stackoverflow.com/questions/64473278/gif-frame-duration-seems-slower-than-expected
-                    gifFrameDelay = gifFrameDelay < 20 ? 20 : gifFrameDelay; // check the mode we are in and how many frames
-                    // that duration translates to
-                    nFrames = units === 'seconds' ? duration * _frameRate : duration;
-                    nFramesDelay = units === 'seconds' ? delay * _frameRate : delay;
-                    totalNumberOfFrames = nFrames + nFramesDelay; // initialize variables for the frames processing
-                    frameIterator = nFramesDelay;
-                    this.frameCount = frameIterator;
-                    lastPixelDensity = this._pixelDensity;
-                    this.pixelDensity(1); // We first take every frame that we are going to use for the animation
-                    frames = [
-                    ];
-                    progressBarIdName = 'p5.gif.progressBar';
-                    if (document.getElementById(progressBarIdName) !== null) document.getElementById(progressBarIdName).remove();
-                    p = this.createP('');
-                    p.id('progressBar');
-                    p.style('font-size', '16px');
-                    p.style('font-family', 'Montserrat');
-                    p.style('background-color', '#ffffffa0');
-                    p.style('padding', '8px');
-                    p.style('border-radius', '10px');
-                    p.position(0, 0);
-                    if (this.drawingContext instanceof WebGLRenderingContext) {
-                      // if we have a WEBGL context, initialize the pixels array
-                      // and the gl context to use them inside the loop
-                      gl = document.getElementById('defaultCanvas0').getContext('webgl');
-                      pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
-                    } // stop the loop since we are going to manually redraw
+                        gifFrameDelay = 1 / _frameRate * 1000; // constrain it to be always greater than 20,
+                        // otherwise it won't work in some browsers and systems
+                        // reference: https://stackoverflow.com/questions/64473278/gif-frame-duration-seems-slower-than-expected
+                        gifFrameDelay = gifFrameDelay < 20 ? 20 : gifFrameDelay; // check the mode we are in and how many frames
+                        // that duration translates to
+                        nFrames = units === 'seconds' ? duration * _frameRate : duration;
+                        nFramesDelay = units === 'seconds' ? delay * _frameRate : delay;
+                        totalNumberOfFrames = nFrames + nFramesDelay; // initialize variables for the frames processing
+                        frameIterator = nFramesDelay;
+                        this.frameCount = frameIterator;
+                        lastPixelDensity = this._pixelDensity;
+                        this.pixelDensity(1); // We first take every frame that we are going to use for the animation
+                        frames = [
+                        ];
+                        progressBarIdName = 'p5.gif.progressBar';
+                        if (document.getElementById(progressBarIdName) !== null) document.getElementById(progressBarIdName).remove();
+                        p = this.createP('');
+                        p.id('progressBar');
+                        p.style('font-size', '16px');
+                        p.style('font-family', 'Montserrat');
+                        p.style('background-color', '#ffffffa0');
+                        p.style('padding', '8px');
+                        p.style('border-radius', '10px');
+                        p.position(0, 0);
+                        if (this.drawingContext instanceof WebGLRenderingContext) {
+                          // if we have a WEBGL context, initialize the pixels array
+                          // and the gl context to use them inside the loop
+                          gl = document.getElementById('defaultCanvas0').getContext('webgl');
+                          pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+                        } // stop the loop since we are going to manually redraw
 
-                    this.noLoop();
-                  case 36:
-                    if (!(frameIterator < totalNumberOfFrames)) {
-                      _context.next = 47;
-                      break;
-                    }                    /*
+                        this.noLoop();
+                      case 36:
+                        if (!(frameIterator < totalNumberOfFrames)) {
+                          _context.next = 47;
+                          break;
+                        }                    /*
               we draw the next frame. this is important, since
               busy sketches or low end devices might take longer
               to render some frames. So we just wait for the frame
               to be drawn and immediately save it to a buffer and continue
             */
 
-                    this.redraw(); // depending on the context we'll extract the pixels one way
-                    // or another
-                    data = undefined;
-                    if (this.drawingContext instanceof WebGLRenderingContext) {
-                      pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
-                      gl.readPixels(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
-                      data = _flipPixels(pixels);
-                    } else {
-                      data = this.drawingContext.getImageData(0, 0, this.width, this.height).data;
-                    }
-                    frames.push(data);
-                    frameIterator++;
-                    p.html('Saved frame <b>' + frames.length.toString() + '</b> out of ' + nFrames.toString());
-                    _context.next = 45;
-                    return new Promise(function (resolve) {
-                      return setTimeout(resolve, 0);
-                    });
-                  case 45:
-                    _context.next = 36;
-                    break;
-                  case 47:
-                    p.html('Frames processed, generating color palette...');
-                    this.loop();
-                    this.pixelDensity(lastPixelDensity); // create the gif encoder and the colorspace format
-                    gif = (0, _gifenc.GIFEncoder) (); // calculate the global palette for this set of frames
-                    globalPalette = _generateGlobalPalette(frames); // Rather than using applyPalette() from the gifenc library, we use our
-                    // own function to map frame pixels to a palette color. This way, we can
-                    // cache palette color mappings between frames for extra performance, and
-                    // use our own caching mechanism to avoid flickering colors from cache
-                    // key collisions.
-                    paletteCache = {
-                    };
-                    getIndexedFrame = function getIndexedFrame(frame) {
-                      var length = frame.length / 4;
-                      var index = new Uint8Array(length);
-                      for (var i = 0; i < length; i++) {
-                        var key = frame[i * 4] << 24 | frame[i * 4 + 1] << 16 | frame[i * 4 + 2] << 8 | frame[i * 4 + 3];
-                        if (paletteCache[key] === undefined) {
-                          paletteCache[key] = (0, _gifenc.nearestColorIndex) (globalPalette, frame.slice(i * 4, (i + 1) * 4));
+                        this.redraw(); // depending on the context we'll extract the pixels one way
+                        // or another
+                        data = undefined;
+                        if (this.drawingContext instanceof WebGLRenderingContext) {
+                          pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+                          gl.readPixels(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+                          data = _flipPixels(pixels);
+                        } else {
+                          data = this.drawingContext.getImageData(0, 0, this.width, this.height).data;
                         }
-                        index[i] = paletteCache[key];
-                      }
-                      return index;
-                    }; // the way we designed the palette means we always take the last index for transparency
-                    transparentIndex = globalPalette.length - 1; // we are going to iterate the frames in pairs, n-1 and n
-                    prevIndexedFrame = [
-                    ];
-                    i = 0;
-                  case 57:
-                    if (!(i < frames.length)) {
-                      _context.next = 68;
-                      break;
-                    } //const indexedFrame = applyPalette(frames[i], globalPaletteWithoutAlpha, 'rgba565');
+                        frames.push(data);
+                        frameIterator++;
+                        p.html('Saved frame <b>' + frames.length.toString() + '</b> out of ' + nFrames.toString());
+                        _context.next = 45;
+                        return new Promise(function (resolve) {
+                          return setTimeout(resolve, 0);
+                        });
+                      case 45:
+                        _context.next = 36;
+                        break;
+                      case 47:
+                        p.html('Frames processed, generating color palette...');
+                        this.loop();
+                        this.pixelDensity(lastPixelDensity); // create the gif encoder and the colorspace format
+                        gif = (0, _gifenc.GIFEncoder)(); // calculate the global palette for this set of frames
+                        globalPalette = _generateGlobalPalette(frames); // Rather than using applyPalette() from the gifenc library, we use our
+                        // own function to map frame pixels to a palette color. This way, we can
+                        // cache palette color mappings between frames for extra performance, and
+                        // use our own caching mechanism to avoid flickering colors from cache
+                        // key collisions.
+                        paletteCache = {
+                        };
+                        getIndexedFrame = function getIndexedFrame(frame) {
+                          var length = frame.length / 4;
+                          var index = new Uint8Array(length);
+                          for (var i = 0; i < length; i++) {
+                            var key = frame[i * 4] << 24 | frame[i * 4 + 1] << 16 | frame[i * 4 + 2] << 8 | frame[i * 4 + 3];
+                            if (paletteCache[key] === undefined) {
+                              paletteCache[key] = (0, _gifenc.nearestColorIndex)(globalPalette, frame.slice(i * 4, (i + 1) * 4));
+                            }
+                            index[i] = paletteCache[key];
+                          }
+                          return index;
+                        }; // the way we designed the palette means we always take the last index for transparency
+                        transparentIndex = globalPalette.length - 1; // we are going to iterate the frames in pairs, n-1 and n
+                        prevIndexedFrame = [
+                        ];
+                        i = 0;
+                      case 57:
+                        if (!(i < frames.length)) {
+                          _context.next = 68;
+                          break;
+                        } //const indexedFrame = applyPalette(frames[i], globalPaletteWithoutAlpha, 'rgba565');
 
-                    indexedFrame = getIndexedFrame(frames[i]); // Make a copy of the palette-applied frame before editing the original
-                    // to use transparent pixels
-                    originalIndexedFrame = indexedFrame.slice();
-                    if (i === 0) {
-                      gif.writeFrame(indexedFrame, this.width, this.height, {
-                        palette: globalPalette,
-                        delay: gifFrameDelay,
-                        dispose: 1
-                      });
-                    } else {
-                      // Matching pixels between frames can be set to full transparency,
-                      // allowing the previous frame's pixels to show through. We only do
-                      // this for pixels that get mapped to the same quantized color so that
-                      // the resulting image would be the same.
-                      for (_i = 0; _i < indexedFrame.length; _i++) {
-                        if (indexedFrame[_i] === prevIndexedFrame[_i]) {
-                          indexedFrame[_i] = transparentIndex;
+                        indexedFrame = getIndexedFrame(frames[i]); // Make a copy of the palette-applied frame before editing the original
+                        // to use transparent pixels
+                        originalIndexedFrame = indexedFrame.slice();
+                        if (i === 0) {
+                          gif.writeFrame(indexedFrame, this.width, this.height, {
+                            palette: globalPalette,
+                            delay: gifFrameDelay,
+                            dispose: 1
+                          });
+                        } else {
+                          // Matching pixels between frames can be set to full transparency,
+                          // allowing the previous frame's pixels to show through. We only do
+                          // this for pixels that get mapped to the same quantized color so that
+                          // the resulting image would be the same.
+                          for (_i = 0; _i < indexedFrame.length; _i++) {
+                            if (indexedFrame[_i] === prevIndexedFrame[_i]) {
+                              indexedFrame[_i] = transparentIndex;
+                            }
+                          } // Write frame into the encoder
+
+                          gif.writeFrame(indexedFrame, this.width, this.height, {
+                            delay: gifFrameDelay,
+                            transparent: true,
+                            transparentIndex: transparentIndex,
+                            dispose: 1
+                          });
                         }
-                      } // Write frame into the encoder
-
-                      gif.writeFrame(indexedFrame, this.width, this.height, {
-                        delay: gifFrameDelay,
-                        transparent: true,
-                        transparentIndex: transparentIndex,
-                        dispose: 1
-                      });
+                        prevIndexedFrame = originalIndexedFrame;
+                        p.html('Rendered frame <b>' + i.toString() + '</b> out of ' + nFrames.toString()); // this just makes the process asynchronous, preventing
+                        // that the encoding locks up the browser
+                        _context.next = 65;
+                        return new Promise(function (resolve) {
+                          return setTimeout(resolve, 0);
+                        });
+                      case 65:
+                        i++;
+                        _context.next = 57;
+                        break;
+                      case 68:
+                        gif.finish(); // Get a direct typed array view into the buffer to avoid copying it
+                        buffer = gif.bytesView();
+                        extension = 'gif';
+                        blob = new Blob([buffer], {
+                          type: 'image/gif'
+                        });
+                        frames = [
+                        ];
+                        this._recording = false;
+                        this.loop();
+                        p.html('Done. Downloading your gif!🌸');
+                        _main.default.prototype.downloadFile(blob, fileName, extension);
+                      case 77:
+                      case 'end':
+                        return _context.stop();
                     }
-                    prevIndexedFrame = originalIndexedFrame;
-                    p.html('Rendered frame <b>' + i.toString() + '</b> out of ' + nFrames.toString()); // this just makes the process asynchronous, preventing
-                    // that the encoding locks up the browser
-                    _context.next = 65;
-                    return new Promise(function (resolve) {
-                      return setTimeout(resolve, 0);
-                    });
-                  case 65:
-                    i++;
-                    _context.next = 57;
-                    break;
-                  case 68:
-                    gif.finish(); // Get a direct typed array view into the buffer to avoid copying it
-                    buffer = gif.bytesView();
-                    extension = 'gif';
-                    blob = new Blob([buffer], {
-                      type: 'image/gif'
-                    });
-                    frames = [
-                    ];
-                    this._recording = false;
-                    this.loop();
-                    p.html('Done. Downloading your gif!🌸');
-                    _main.default.prototype.downloadFile(blob, fileName, extension);
-                  case 77:
-                  case 'end':
-                    return _context.stop();
-                }
-              }
-            }, _callee, this);
-          }));
-          return function (_x, _x2) {
-            return _ref.apply(this, arguments);
-          };
-        }();
+                  }
+                }, _callee, this);
+              }));
+            return function (_x, _x2) {
+              return _ref.apply(this, arguments);
+            };
+          }();
         function _flipPixels(pixels) {
           // extracting the pixels using readPixels returns
           // an upside down image. we have to flip it back
@@ -78495,7 +78492,7 @@
             allColors.set(frames[f], f * frames[0].length);
           } // quantize this massive array into 256 colors and return it!
 
-          var colorPalette = (0, _gifenc.quantize) (allColors, 256, {
+          var colorPalette = (0, _gifenc.quantize)(allColors, 256, {
             format: 'rgba4444',
             oneBitAlpha: true
           }); // when generating the palette, we have to leave space for 1 of the
@@ -78517,7 +78514,7 @@
             colorPalette.push([Math.random() * 255,
             Math.random() * 255,
             Math.random() * 255,
-            0]);
+              0]);
           }
           return colorPalette;
         }        /**
@@ -78627,7 +78624,7 @@
         function _imageContain(xAlign, yAlign, dx, dy, dw, dh, sw, sh) {
           var r = Math.max(sw / dw, sh / dh);
           var adjusted_dw = sw / r,
-          adjusted_dh = sh / r;
+            adjusted_dh = sh / r;
           var x = dx;
           var y = dy;
           if (xAlign === constants.CENTER) {
@@ -78662,7 +78659,7 @@
         function _imageCover(xAlign, yAlign, dw, dh, sx, sy, sw, sh) {
           var r = Math.max(dw / sw, dh / sh);
           var adjusted_sw = dw / r,
-          adjusted_sh = dh / r;
+            adjusted_sh = dh / r;
           var x = sx;
           var y = sy;
           if (xAlign === constants.CENTER) {
@@ -78700,10 +78697,10 @@
         function _imageFit(fit, xAlign, yAlign, dx, dy, dw, dh, sx, sy, sw, sh) {
           if (fit === constants.COVER) {
             var _imageCover2 = _imageCover(xAlign, yAlign, dw, dh, sx, sy, sw, sh),
-            x = _imageCover2.x,
-            y = _imageCover2.y,
-            w = _imageCover2.w,
-            h = _imageCover2.h;
+              x = _imageCover2.x,
+              y = _imageCover2.y,
+              w = _imageCover2.w,
+              h = _imageCover2.h;
             sx = x;
             sy = y;
             sw = w;
@@ -78711,10 +78708,10 @@
           }
           if (fit === constants.CONTAIN) {
             var _imageContain2 = _imageContain(xAlign, yAlign, dx, dy, dw, dh, sw, sh),
-            _x3 = _imageContain2.x,
-            _y = _imageContain2.y,
-            _w = _imageContain2.w,
-            _h = _imageContain2.h;
+              _x3 = _imageContain2.x,
+              _y = _imageContain2.y,
+              _w = _imageContain2.w,
+              _h = _imageContain2.h;
             dx = _x3;
             dy = _y;
             dw = _w;
@@ -79224,8 +79221,8 @@
         var _filters = _interopRequireDefault(_dereq_('./filters'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Image
@@ -80401,8 +80398,8 @@
         _dereq_('../color/p5.Color');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Image
@@ -80634,14 +80631,14 @@
           }
           _main.default._validateParameters('copy', args);
           var srcImage,
-          sx,
-          sy,
-          sw,
-          sh,
-          dx,
-          dy,
-          dw,
-          dh;
+            sx,
+            sy,
+            sw,
+            sh,
+            dx,
+            dy,
+            dw,
+            dh;
           if (args.length === 9) {
             srcImage = args[0];
             sx = args[1];
@@ -81226,8 +81223,8 @@
         _dereq_('../core/friendly_errors/fes_core');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _typeof(obj) {
@@ -81456,7 +81453,7 @@
           var ret = [
           ];
           var callback,
-          errorCallback;
+            errorCallback;
           for (var i = 1; i < args.length; i++) {
             var arg = args[i];
             if (typeof arg === 'function') {
@@ -81605,12 +81602,12 @@
             var state = {
             }; // define constants
             var PRE_TOKEN = 0,
-            MID_TOKEN = 1,
-            POST_TOKEN = 2,
-            POST_RECORD = 4;
+              MID_TOKEN = 1,
+              POST_TOKEN = 2,
+              POST_RECORD = 4;
             var QUOTE = '"',
-            CR = '\r',
-            LF = '\n';
+              CR = '\r',
+              LF = '\n';
             var records = [
             ];
             var offset = 0;
@@ -81635,7 +81632,7 @@
               records.push(currentRecord);
               currentRecord = null;
             };
-            for (; ; ) {
+            for (; ;) {
               currentChar = resp[offset++]; // EOF
               if (currentChar == null) {
                 if (state.escaped) {
@@ -81814,7 +81811,7 @@
           }
           var ret = new _main.default.XML();
           var callback,
-          errorCallback;
+            errorCallback;
           for (var i = 1; i < args.length; i++) {
             var arg = args[i];
             if (typeof arg === 'function') {
@@ -82218,7 +82215,7 @@
             }
           }
           if (type === 'jsonp') {
-            promise = (0, _fetchJsonp.default) (path, jsonpOptions);
+            promise = (0, _fetchJsonp.default)(path, jsonpOptions);
           } else {
             promise = fetch(request);
           }
@@ -82617,7 +82614,7 @@
           } else {
             // =================================================
             // OPTION 2: extension clarifies saveStrings vs. saveJSON
-            var extension = _checkFileExtension(args[1], args[2]) [1];
+            var extension = _checkFileExtension(args[1], args[2])[1];
             switch (extension) {
               case 'json':
                 _main.default.prototype.saveJSON(args[0], args[1], args[2]);
@@ -82625,8 +82622,8 @@
               case 'txt':
                 _main.default.prototype.saveStrings(args[0], args[1], args[2]);
                 return;
-                // =================================================
-                // OPTION 3: decide based on object...
+              // =================================================
+              // OPTION 3: decide based on object...
               default:
                 if (args[0] instanceof Array) {
                   _main.default.prototype.saveStrings(args[0], args[1], args[2]);
@@ -82958,7 +82955,7 @@
             }
           }
           return [filename,
-          ext];
+            ext];
         }
         _main.default.prototype._checkFileExtension = _checkFileExtension;
         /**
@@ -83071,8 +83068,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module IO
@@ -84311,8 +84308,8 @@
           var tableObject = {
           };
           var obj,
-          cPos,
-          index;
+            cPos,
+            index;
           for (var i = 0; i < this.rows.length; i++) {
             obj = this.rows[i].obj;
             if (typeof headerColumn === 'string') {
@@ -84409,8 +84406,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module IO
@@ -84784,8 +84781,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module IO
@@ -85766,8 +85763,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Math
@@ -86659,8 +86656,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function isNativeReflectConstruct() {
@@ -86759,8 +86756,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         } //////////////////////////////////////////////////////////////
         // http://mrl.nyu.edu/~perlin/noise/
@@ -86873,18 +86870,18 @@
             z = - z;
           }
           var xi = Math.floor(x),
-          yi = Math.floor(y),
-          zi = Math.floor(z);
+            yi = Math.floor(y),
+            zi = Math.floor(z);
           var xf = x - xi;
           var yf = y - yi;
           var zf = z - zi;
           var rxf,
-          ryf;
+            ryf;
           var r = 0;
           var ampl = 0.5;
           var n1,
-          n2,
-          n3;
+            n2,
+            n3;
           for (var o = 0; o < perlin_octaves; o++) {
             var of = xi + (yi << PERLIN_YWRAPB) + (zi << PERLIN_ZWRAPB);
             rxf = scaled_cosine(xf);
@@ -87024,7 +87021,7 @@
             var a = 1664525; // c and m should be co-prime
             var c = 1013904223;
             var seed,
-            z;
+              z;
             return {
               setSeed: function setSeed(val) {
                 // pick a random seed if val is undefined or null
@@ -87130,8 +87127,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -87159,8 +87156,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Math
@@ -87210,8 +87207,8 @@
 
         _main.default.Vector = function Vector() {
           var x,
-          y,
-          z; // This is how it comes in with createVector()
+            y,
+            z; // This is how it comes in with createVector()
           // This check if the first argument is a function
           if ({
           }.toString.call(arguments[0]) === '[object Function]') {
@@ -88432,7 +88429,7 @@
           var mSq = this.magSq();
           if (mSq > max * max) {
             this.div(Math.sqrt(mSq)) //normalize it
-            .mult(max);
+              .mult(max);
           }
           return this;
         };
@@ -88725,7 +88722,7 @@
           //
           // Solution: we'll clamp the value to the -1,1 range
           var angle;
-          angle = Math.acos(Math.min(1, Math.max( - 1, dotmagmag)));
+          angle = Math.acos(Math.min(1, Math.max(- 1, dotmagmag)));
           angle = angle * Math.sign(this.cross(v).z || 1);
           if (this.isPInst) {
             angle = this._fromRadians(angle);
@@ -88945,8 +88942,8 @@
  */
         _main.default.Vector.prototype.equals = function equals(x, y, z) {
           var a,
-          b,
-          c;
+            b,
+            c;
           if (x instanceof _main.default.Vector) {
             a = x.x || 0;
             b = x.y || 0;
@@ -89601,8 +89598,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Math
@@ -89801,9 +89798,9 @@
         _main.default.prototype.randomGaussian = function (mean) {
           var sd = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
           var y1,
-          x1,
-          x2,
-          w;
+            x1,
+            x2,
+            w;
           if (this._gaussian_previous) {
             y1 = y2;
             this._gaussian_previous = false;
@@ -89813,7 +89810,7 @@
               x2 = this.random(2) - 1;
               w = x1 * x1 + x2 * x2;
             } while (w >= 1);
-            w = Math.sqrt( - 2 * Math.log(w) / w);
+            w = Math.sqrt(- 2 * Math.log(w) / w);
             y1 = x1 * w;
             y2 = x2 * w;
             this._gaussian_previous = true;
@@ -89884,8 +89881,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -89913,8 +89910,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Math
@@ -90296,8 +90293,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Typography
@@ -90739,8 +90736,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -90768,8 +90765,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Typography
@@ -91147,8 +91144,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -91176,8 +91173,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _typeof(obj) {
@@ -91397,15 +91394,15 @@
           var glyphs = this._getGlyphs(txt);
           function isSpace(i) {
             return glyphs[i].name && glyphs[i].name === 'space' || txt.length === glyphs.length && txt[i] === ' ' //||
-            //(glyphs[i].index && glyphs[i].index === 3)
-            ;
+              //(glyphs[i].index && glyphs[i].index === 3)
+              ;
           }
           fontSize = fontSize || this.parent._renderer._textSize;
           for (var i = 0; i < glyphs.length; i++) {
             if (!isSpace(i)) {
               // fix to #1817, #2069
               var gpath = glyphs[i].getPath(x, y, fontSize),
-              paths = splitPaths(gpath.commands);
+                paths = splitPaths(gpath.commands);
               for (var j = 0; j < paths.length; j++) {
                 var pts = pathToPoints(paths[j], options);
                 for (var k = 0; k < pts.length; k++) {
@@ -91444,8 +91441,8 @@
  */
         _main.default.Font.prototype._getPath = function (line, x, y, options) {
           var p = options && options.renderer && options.renderer._pInst || this.parent,
-          renderer = p._renderer,
-          pos = this._handleAlignment(renderer, line, x, y);
+            renderer = p._renderer,
+            pos = this._handleAlignment(renderer, line, x, y);
           return this.font.getPath(line, pos.x, pos.y, renderer._textSize, options);
         };
         /*
@@ -91635,10 +91632,10 @@
             simplifyThreshold: 0
           });
           var // total-length
-          len = pointAtLength(cmds, 0, 1),
-          t = len / (len * opts.sampleFactor),
-          pts = [
-          ];
+            len = pointAtLength(cmds, 0, 1),
+            t = len / (len * opts.sampleFactor),
+            pts = [
+            ];
           for (var i = 0; i < len; i += t) {
             pts.push(pointAtLength(cmds, i));
           }
@@ -91719,15 +91716,15 @@
             ];
           }
           var ab = collinear.tmpPoint1,
-          bc = collinear.tmpPoint2;
+            bc = collinear.tmpPoint2;
           ab.x = b.x - a.x;
           ab.y = b.y - a.y;
           bc.x = c.x - b.x;
           bc.y = c.y - b.y;
           var dot = ab.x * bc.x + ab.y * bc.y,
-          magA = Math.sqrt(ab.x * ab.x + ab.y * ab.y),
-          magB = Math.sqrt(bc.x * bc.x + bc.y * bc.y),
-          angle = Math.acos(dot / (magA * magB));
+            magA = Math.sqrt(ab.x * ab.x + ab.y * ab.y),
+            magB = Math.sqrt(bc.x * bc.x + bc.y * bc.y),
+            angle = Math.acos(dot / (magA * magB));
           return angle < thresholdAngle;
         }
         function areaTriangle(a, b, c) {
@@ -91827,11 +91824,11 @@
         function pathToAbsolute(pathArray) {
           var res = [
           ],
-          x = 0,
-          y = 0,
-          mx = 0,
-          my = 0,
-          start = 0;
+            x = 0,
+            y = 0,
+            mx = 0,
+            my = 0,
+            start = 0;
           if (!pathArray) {
             // console.warn("Unexpected state: undefined pathArray"); // shouldn't happen
             return res;
@@ -91902,7 +91899,7 @@
               res = res.concat(catmullRom2bezier(dots, crz));
               r = [
                 'R'
-              ].concat(pa.slice( - 2));
+              ].concat(pa.slice(- 2));
             } else {
               for (var k = 0, kk = pa.length; k < kk; k++) {
                 r[k] = pa[k];
@@ -91932,7 +91929,7 @@
         }
         function path2curve(path, path2) {
           var p = pathToAbsolute(path),
-          p2 = path2 && pathToAbsolute(path2);
+            p2 = path2 && pathToAbsolute(path2);
           var attrs = {
             x: 0,
             y: 0,
@@ -91967,12 +91964,12 @@
             };
             if (!path) {
               return ['C',
-              d.x,
-              d.y,
-              d.x,
-              d.y,
-              d.x,
-              d.y];
+                d.x,
+                d.y,
+                d.x,
+                d.y,
+                d.x,
+                d.y];
             }
             if (!(path[0] in tq)) {
               d.qx = d.qy = null;
@@ -92046,37 +92043,37 @@
             }
             return path;
           },
-          fixArc = function fixArc(pp, i) {
-            if (pp[i].length > 7) {
-              pp[i].shift();
-              var pi = pp[i];
-              while (pi.length) {
-                pcoms1[i] = 'A';
-                if (p2) {
-                  pcoms2[i] = 'A';
+            fixArc = function fixArc(pp, i) {
+              if (pp[i].length > 7) {
+                pp[i].shift();
+                var pi = pp[i];
+                while (pi.length) {
+                  pcoms1[i] = 'A';
+                  if (p2) {
+                    pcoms2[i] = 'A';
+                  }
+                  pp.splice(i++, 0, [
+                    'C'
+                  ].concat(pi.splice(0, 6)));
                 }
-                pp.splice(i++, 0, [
-                  'C'
-                ].concat(pi.splice(0, 6)));
+                pp.splice(i, 1);
+                ii = Math.max(p.length, p2 && p2.length || 0);
               }
-              pp.splice(i, 1);
-              ii = Math.max(p.length, p2 && p2.length || 0);
-            }
-          },
-          fixM = function fixM(path1, path2, a1, a2, i) {
-            if (path1 && path2 && path1[i][0] === 'M' && path2[i][0] !== 'M') {
-              path2.splice(i, 0, [
-                'M',
-                a2.x,
-                a2.y
-              ]);
-              a1.bx = 0;
-              a1.by = 0;
-              a1.x = path1[i][1];
-              a1.y = path1[i][2];
-              ii = Math.max(p.length, p2 && p2.length || 0);
-            }
-          };
+            },
+            fixM = function fixM(path1, path2, a1, a2, i) {
+              if (path1 && path2 && path1[i][0] === 'M' && path2[i][0] !== 'M') {
+                path2.splice(i, 0, [
+                  'M',
+                  a2.x,
+                  a2.y
+                ]);
+                a1.bx = 0;
+                a1.by = 0;
+                a1.x = path1[i][1];
+                a1.y = path1[i][2];
+                ii = Math.max(p.length, p2 && p2.length || 0);
+              }
+            };
           var pfirst = ''; // temporary holder for original path command
           var pcom = ''; // holder for previous path command of original path
           ii = Math.max(p.length, p2 && p2.length || 0);
@@ -92117,9 +92114,9 @@
             fixM(p, p2, attrs, attrs2, i);
             fixM(p2, p, attrs2, attrs, i);
             var seg = p[i],
-            seg2 = p2 && p2[i],
-            seglen = seg.length,
-            seg2len = p2 && seg2.length;
+              seg2 = p2 && p2[i],
+              seglen = seg.length,
+              seg2len = p2 && seg2.length;
             attrs.x = seg[seglen - 2];
             attrs.y = seg[seglen - 1];
             attrs.bx = parseFloat(seg[seglen - 4]) || attrs.x;
@@ -92143,13 +92140,13 @@
           var f2;
           var cx;
           var cy;
-          var rad = PI / 180 * ( + angle || 0);
+          var rad = PI / 180 * (+ angle || 0);
           var res = [
           ];
           var xy;
           var rotate = function rotate(x, y, rad) {
             var X = x * Math.cos(rad) - y * Math.sin(rad),
-            Y = x * Math.sin(rad) + y * Math.cos(rad);
+              Y = x * Math.sin(rad) + y * Math.cos(rad);
             return {
               x: X,
               y: Y
@@ -92171,7 +92168,7 @@
               ry = h * ry;
             }
             var rx2 = rx * rx,
-            ry2 = ry * ry;
+              ry2 = ry * ry;
             var k = (lac === sweep_flag ? - 1 : 1) * Math.sqrt(Math.abs((rx2 * ry2 - rx2 * y * y - ry2 * x * x) / (rx2 * y * y + ry2 * x * x)));
             cx = k * rx * y / ry + (x1 + x2) / 2;
             cy = k * - ry * x / rx + (y1 + y2) / 2;
@@ -92200,8 +92197,8 @@
           var df = f2 - f1;
           if (Math.abs(df) > _120) {
             var f2old = f2,
-            x2old = x2,
-            y2old = y2;
+              x2old = x2,
+              y2old = y2;
             f2 = f1 + _120 * (sweep_flag && f2 > f1 ? 1 : - 1);
             x2 = cx + rx * Math.cos(f2);
             y2 = cy + ry * Math.sin(f2);
@@ -92214,34 +92211,34 @@
           }
           df = f2 - f1;
           var c1 = Math.cos(f1),
-          s1 = Math.sin(f1),
-          c2 = Math.cos(f2),
-          s2 = Math.sin(f2),
-          t = Math.tan(df / 4),
-          hx = 4 / 3 * rx * t,
-          hy = 4 / 3 * ry * t,
-          m1 = [
-            x1,
-            y1
-          ],
-          m2 = [
-            x1 + hx * s1,
-            y1 - hy * c1
-          ],
-          m3 = [
-            x2 + hx * s2,
-            y2 - hy * c2
-          ],
-          m4 = [
-            x2,
-            y2
-          ];
+            s1 = Math.sin(f1),
+            c2 = Math.cos(f2),
+            s2 = Math.sin(f2),
+            t = Math.tan(df / 4),
+            hx = 4 / 3 * rx * t,
+            hy = 4 / 3 * ry * t,
+            m1 = [
+              x1,
+              y1
+            ],
+            m2 = [
+              x1 + hx * s1,
+              y1 - hy * c1
+            ],
+            m3 = [
+              x2 + hx * s2,
+              y2 - hy * c2
+            ],
+            m4 = [
+              x2,
+              y2
+            ];
           m2[0] = 2 * m1[0] - m2[0];
           m2[1] = 2 * m1[1] - m2[1];
           if (recursive) {
             return [m2,
-            m3,
-            m4].concat(res);
+              m3,
+              m4].concat(res);
           } else {
             res = [
               m2,
@@ -92311,32 +92308,32 @@
               }
             }
             d.push(['C',
-            ( - p[0].x + 6 * p[1].x + p[2].x) / 6,
-            ( - p[0].y + 6 * p[1].y + p[2].y) / 6,
-            (p[1].x + 6 * p[2].x - p[3].x) / 6,
-            (p[1].y + 6 * p[2].y - p[3].y) / 6,
-            p[2].x,
-            p[2].y]);
+              (- p[0].x + 6 * p[1].x + p[2].x) / 6,
+              (- p[0].y + 6 * p[1].y + p[2].y) / 6,
+              (p[1].x + 6 * p[2].x - p[3].x) / 6,
+              (p[1].y + 6 * p[2].y - p[3].y) / 6,
+              p[2].x,
+              p[2].y]);
           }
           return d;
         }
         function l2c(x1, y1, x2, y2) {
           return [x1,
-          y1,
-          x2,
-          y2,
-          x2,
-          y2];
+            y1,
+            x2,
+            y2,
+            x2,
+            y2];
         }
         function q2c(x1, y1, ax, ay, x2, y2) {
           var _13 = 1 / 3,
-          _23 = 2 / 3;
+            _23 = 2 / 3;
           return [_13 * x1 + _23 * ax,
           _13 * y1 + _23 * ay,
           _13 * x2 + _23 * ax,
           _13 * y2 + _23 * ay,
-          x2,
-          y2];
+            x2,
+            y2];
         }
         function bezlen(x1, y1, x2, y2, x3, y3, x4, y4, z) {
           if (z == null) {
@@ -92376,9 +92373,9 @@
           ];
           for (var i = 0; i < n; i++) {
             var ct = z2 * Tvalues[i] + z2,
-            xbase = base3(ct, x1, x2, x3, x4),
-            ybase = base3(ct, y1, y2, y3, y4),
-            comb = xbase * xbase + ybase * ybase;
+              xbase = base3(ct, x1, x2, x3, x4),
+              ybase = base3(ct, y1, y2, y3, y4),
+              comb = xbase * xbase + ybase * ybase;
             sum += Cvalues[i] * Math.sqrt(comb);
           }
           return z2 * sum;
@@ -92402,7 +92399,7 @@
         }
         function base3(t, p1, p2, p3, p4) {
           var t1 = - 3 * p1 + 9 * p2 - 9 * p3 + 3 * p4,
-          t2 = t * t1 + 6 * p1 - 12 * p2 + 6 * p3;
+            t2 = t * t1 + 6 * p1 - 12 * p2 + 6 * p3;
           return t * t2 - 3 * p1 + 3 * p2;
         }
         function cacheKey() {
@@ -92458,8 +92455,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Data
@@ -92669,8 +92666,8 @@
           var isView = ArrayBuffer && ArrayBuffer.isView && ArrayBuffer.isView(arr);
           arr = bool || isView ? arr : arr.slice();
           var rnd,
-          tmp,
-          idx = arr.length;
+            tmp,
+            idx = arr.length;
           while (idx > 1) {
             rnd = this.random(0, 1) * idx | 0;
             tmp = arr[--idx];
@@ -92830,8 +92827,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Data
@@ -93199,8 +93196,8 @@
         _dereq_('../core/friendly_errors/fes_core');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Data
@@ -93798,8 +93795,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module IO
@@ -94034,8 +94031,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -94063,8 +94060,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Shape
@@ -94129,8 +94126,8 @@
           if (!this._renderer.geometryInHash(gId)) {
             var _plane = function _plane() {
               var u,
-              v,
-              p;
+                v,
+                p;
               for (var i = 0; i <= this.detailY; i++) {
                 v = i / this.detailY;
                 for (var j = 0; j <= this.detailX; j++) {
@@ -94207,9 +94204,9 @@
             var _box = function _box() {
               var cubeIndices = [
                 [0,
-                4,
-                2,
-                6], // -1, 0, 0],// -x
+                  4,
+                  2,
+                  6], // -1, 0, 0],// -x
                 [
                   1,
                   3,
@@ -94244,7 +94241,7 @@
               //to avoid diagonal stroke lines across face of box
               this.strokeIndices = [
                 [0,
-                1],
+                  1],
                 [
                   1,
                   3
@@ -94302,8 +94299,8 @@
                   this.uvs.push(j & 1, (j & 2) / 2);
                 }
                 this.faces.push([v,
-                v + 1,
-                v + 2]);
+                  v + 1,
+                  v + 2]);
                 this.faces.push([v + 2,
                 v + 1,
                 v + 3]);
@@ -94435,8 +94432,8 @@
           var sinSlant = Math.sin(slant);
           var cosSlant = Math.cos(slant);
           var yy,
-          ii,
-          jj;
+            ii,
+            jj;
           for (yy = start; yy <= end; ++yy) {
             var v = yy / detailY;
             var y = height * v;
@@ -95057,11 +95054,11 @@
         };
         _main.default.RendererGL.prototype.triangle = function (args) {
           var x1 = args[0],
-          y1 = args[1];
+            y1 = args[1];
           var x2 = args[2],
-          y2 = args[3];
+            y2 = args[3];
           var x3 = args[4],
-          y3 = args[5];
+            y3 = args[5];
           var gId = 'tri';
           if (!this.geometryInHash(gId)) {
             var _triangle = function _triangle() {
@@ -95072,7 +95069,7 @@
               vertices.push(new _main.default.Vector(0, 1, 0));
               this.strokeIndices = [
                 [0,
-                1],
+                  1],
                 [
                   1,
                   2
@@ -95085,8 +95082,8 @@
               this.vertices = vertices;
               this.faces = [
                 [0,
-                1,
-                2]
+                  1,
+                  2]
               ];
               this.uvs = [
                 0,
@@ -95112,20 +95109,20 @@
           try {
             var mult = new _main.default.Matrix([x2 - x1,
             y2 - y1,
-            0,
-            0, // the resulting unit X-axis
+              0,
+              0, // the resulting unit X-axis
             x3 - x1,
             y3 - y1,
-            0,
-            0, // the resulting unit Y-axis
-            0,
-            0,
-            1,
-            0, // the resulting unit Z-axis (unchanged)
-            x1,
-            y1,
-            0,
-            1 // the resulting origin
+              0,
+              0, // the resulting unit Y-axis
+              0,
+              0,
+              1,
+              0, // the resulting unit Z-axis (unchanged)
+              x1,
+              y1,
+              0,
+              1 // the resulting origin
             ]).mult(this.uMVMatrix);
             this.uMVMatrix = mult;
             this.drawBuffers(gId);
@@ -95164,7 +95161,7 @@
                 if (mode === constants.PIE || typeof mode === 'undefined') {
                   this.vertices.push(new _main.default.Vector(0.5, 0.5, 0));
                   this.uvs.push([0.5,
-                  0.5]);
+                    0.5]);
                 } // vertices for the perimeter of the circle
 
                 for (var i = 0; i <= detail; i++) {
@@ -95174,11 +95171,11 @@
                   var _y = 0.5 + Math.sin(theta) / 2;
                   this.vertices.push(new _main.default.Vector(_x, _y, 0));
                   this.uvs.push([_x,
-                  _y]);
+                    _y]);
                   if (i < detail - 1) {
                     this.faces.push([0,
-                    i + 1,
-                    i + 2]);
+                      i + 1,
+                      i + 2]);
                     this.strokeIndices.push([i + 1,
                     i + 2]);
                   }
@@ -95187,29 +95184,29 @@
                 switch (mode) {
                   case constants.PIE:
                     this.faces.push([0,
-                    this.vertices.length - 2,
-                    this.vertices.length - 1]);
+                      this.vertices.length - 2,
+                      this.vertices.length - 1]);
                     this.strokeIndices.push([0,
-                    1]);
+                      1]);
                     this.strokeIndices.push([this.vertices.length - 2,
                     this.vertices.length - 1]);
                     this.strokeIndices.push([0,
-                    this.vertices.length - 1]);
+                      this.vertices.length - 1]);
                     break;
                   case constants.CHORD:
                     this.strokeIndices.push([0,
-                    1]);
+                      1]);
                     this.strokeIndices.push([0,
-                    this.vertices.length - 1]);
+                      this.vertices.length - 1]);
                     break;
                   case constants.OPEN:
                     this.strokeIndices.push([0,
-                    1]);
+                      1]);
                     break;
                   default:
                     this.faces.push([0,
-                    this.vertices.length - 2,
-                    this.vertices.length - 1]);
+                      this.vertices.length - 2,
+                      this.vertices.length - 1]);
                     this.strokeIndices.push([this.vertices.length - 2,
                     this.vertices.length - 1]);
                 }
@@ -95227,8 +95224,8 @@
           var uMVMatrix = this.uMVMatrix.copy();
           try {
             this.uMVMatrix.translate([x,
-            y,
-            0]);
+              y,
+              0]);
             this.uMVMatrix.scale(width, height, 1);
             this.drawBuffers(gId);
           } finally {
@@ -95263,7 +95260,7 @@
                 if (detailX > 0 && detailY > 0) {
                   this.strokeIndices = [
                     [0,
-                    detailX],
+                      detailX],
                     [
                       detailX,
                       (detailX + 1) * (detailY + 1) - 1
@@ -95290,8 +95287,8 @@
             var uMVMatrix = this.uMVMatrix.copy();
             try {
               this.uMVMatrix.translate([x,
-              y,
-              0]);
+                y,
+                0]);
               this.uMVMatrix.scale(width, height, 1);
               this.drawBuffers(gId);
             } finally {
@@ -95414,7 +95411,7 @@
                   var ptz = (1 - pctx) * linePt0z + pctx * linePt1z;
                   this.vertices.push(new _main.default.Vector(ptx, pty, ptz));
                   this.uvs.push([pctx,
-                  pcty]);
+                    pcty]);
                 }
               }
             });
@@ -95427,11 +95424,11 @@
                 var pt2 = x + 1 + (y + 1) * detailX;
                 var pt3 = x + (y + 1) * detailX;
                 quadGeom.faces.push([pt0,
-                pt1,
-                pt2]);
+                  pt1,
+                  pt2]);
                 quadGeom.faces.push([pt0,
-                pt2,
-                pt3]);
+                  pt2,
+                  pt3]);
               }
             }
             quadGeom.computeNormals()._makeTriangleEdges()._edgesToVertices();
@@ -95443,12 +95440,12 @@
         //is based on Bernstein polynomial
         // pretier-ignore
         _main.default.RendererGL.prototype.bezier = function (x1, y1, z1, // x2
-        x2, // y2
-        y2, // x3
-        z2, // y3
-        x3, // x4
-        y3, // y4
-        z3, x4, y4, z4) {
+          x2, // y2
+          y2, // x3
+          z2, // y3
+          x3, // x4
+          y3, // y4
+          z3, x4, y4, z4) {
           if (arguments.length === 8) {
             y4 = y3;
             x4 = x3;
@@ -95471,12 +95468,12 @@
           return this;
         }; // pretier-ignore
         _main.default.RendererGL.prototype.curve = function (x1, y1, z1, // x2
-        x2, // y2
-        y2, // x3
-        z2, // y3
-        x3, // x4
-        y3, // y4
-        z3, x4, y4, z4) {
+          x2, // y2
+          y2, // x3
+          z2, // y3
+          x3, // x4
+          y3, // y4
+          z3, x4, y4, z4) {
           if (arguments.length === 8) {
             x4 = x3;
             y4 = y3;
@@ -95493,9 +95490,9 @@
             var c2 = Math.pow(i / curveDetail, 2) * 0.5;
             var c3 = i / curveDetail * 0.5;
             var c4 = 0.5;
-            var vx = c1 * ( - x1 + 3 * x2 - 3 * x3 + x4) + c2 * (2 * x1 - 5 * x2 + 4 * x3 - x4) + c3 * ( - x1 + x3) + c4 * (2 * x2);
-            var vy = c1 * ( - y1 + 3 * y2 - 3 * y3 + y4) + c2 * (2 * y1 - 5 * y2 + 4 * y3 - y4) + c3 * ( - y1 + y3) + c4 * (2 * y2);
-            var vz = c1 * ( - z1 + 3 * z2 - 3 * z3 + z4) + c2 * (2 * z1 - 5 * z2 + 4 * z3 - z4) + c3 * ( - z1 + z3) + c4 * (2 * z2);
+            var vx = c1 * (- x1 + 3 * x2 - 3 * x3 + x4) + c2 * (2 * x1 - 5 * x2 + 4 * x3 - x4) + c3 * (- x1 + x3) + c4 * (2 * x2);
+            var vy = c1 * (- y1 + 3 * y2 - 3 * y3 + y4) + c2 * (2 * y1 - 5 * y2 + 4 * y3 - y4) + c3 * (- y1 + y3) + c4 * (2 * y2);
+            var vz = c1 * (- z1 + 3 * z2 - 3 * z3 + z4) + c2 * (2 * z1 - 5 * z2 + 4 * z3 - z4) + c3 * (- z1 + z3) + c4 * (2 * z2);
             this.vertex(vx, vy, vz);
           }
           this.endShape();
@@ -95555,12 +95552,12 @@
             var w_z = [
             ];
             var t,
-            _x,
-            _y,
-            _z,
-            i,
-            k,
-            m; // variable i for bezierPoints, k for components, and m for anchor points.
+              _x,
+              _y,
+              _z,
+              i,
+              k,
+              m; // variable i for bezierPoints, k for components, and m for anchor points.
             var argLength = arguments.length;
             t = 0;
             if (this._lookUpTableBezier.length === 0 || this._lutBezierDetail !== this._pInst._curveDetail) {
@@ -95593,14 +95590,14 @@
             for (m = 0; m < 4; m++) {
               fillColors.push([]);
             }
-            fillColors[0] = this.immediateMode.geometry.vertexColors.slice( - 4);
+            fillColors[0] = this.immediateMode.geometry.vertexColors.slice(- 4);
             fillColors[3] = this.curFillColor.slice(); // Do the same for strokeColor.
             var strokeColors = [
             ];
             for (m = 0; m < 4; m++) {
               strokeColors.push([]);
             }
-            strokeColors[0] = this.immediateMode.geometry.vertexStrokeColors.slice( - 4);
+            strokeColors[0] = this.immediateMode.geometry.vertexStrokeColors.slice(- 4);
             strokeColors[3] = this.curStrokeColor.slice();
             if (argLength === 6) {
               this.isBezier = true;
@@ -95738,12 +95735,12 @@
             var w_z = [
             ];
             var t,
-            _x,
-            _y,
-            _z,
-            i,
-            k,
-            m; // variable i for bezierPoints, k for components, and m for anchor points.
+              _x,
+              _y,
+              _z,
+              i,
+              k,
+              m; // variable i for bezierPoints, k for components, and m for anchor points.
             var argLength = arguments.length;
             t = 0;
             if (this._lookUpTableQuadratic.length === 0 || this._lutQuadraticDetail !== this._pInst._curveDetail) {
@@ -95776,14 +95773,14 @@
             for (m = 0; m < 3; m++) {
               fillColors.push([]);
             }
-            fillColors[0] = this.immediateMode.geometry.vertexColors.slice( - 4);
+            fillColors[0] = this.immediateMode.geometry.vertexColors.slice(- 4);
             fillColors[2] = this.curFillColor.slice(); // Do the same for strokeColor.
             var strokeColors = [
             ];
             for (m = 0; m < 3; m++) {
               strokeColors.push([]);
             }
-            strokeColors[0] = this.immediateMode.geometry.vertexStrokeColors.slice( - 4);
+            strokeColors[0] = this.immediateMode.geometry.vertexStrokeColors.slice(- 4);
             strokeColors[2] = this.curStrokeColor.slice();
             if (argLength === 4) {
               this.isQuadratic = true;
@@ -95905,10 +95902,10 @@
           var w_z = [
           ];
           var t,
-          _x,
-          _y,
-          _z,
-          i;
+            _x,
+            _y,
+            _z,
+            i;
           t = 0;
           var argLength = arguments.length;
           if (this._lookUpTableBezier.length === 0 || this._lutBezierDetail !== this._pInst._curveDetail) {
@@ -96105,8 +96102,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -96134,8 +96131,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module 3D
@@ -96531,8 +96528,8 @@
             this._renderer.uMVMatrix.set(this._renderer._curCamera.cameraMatrix.mat4[0], this._renderer._curCamera.cameraMatrix.mat4[1], this._renderer._curCamera.cameraMatrix.mat4[2], this._renderer._curCamera.cameraMatrix.mat4[3], this._renderer._curCamera.cameraMatrix.mat4[4], this._renderer._curCamera.cameraMatrix.mat4[5], this._renderer._curCamera.cameraMatrix.mat4[6], this._renderer._curCamera.cameraMatrix.mat4[7], this._renderer._curCamera.cameraMatrix.mat4[8], this._renderer._curCamera.cameraMatrix.mat4[9], this._renderer._curCamera.cameraMatrix.mat4[10], this._renderer._curCamera.cameraMatrix.mat4[11], this._renderer._curCamera.cameraMatrix.mat4[12], this._renderer._curCamera.cameraMatrix.mat4[13], this._renderer._curCamera.cameraMatrix.mat4[14], this._renderer._curCamera.cameraMatrix.mat4[15]); // Lines along X axis
             for (var q = 0; q <= numDivs; q++) {
               this.beginShape(this.LINES);
-              this.vertex( - halfSize + xOff, yOff, q * spacing - halfSize + zOff);
-              this.vertex( + halfSize + xOff, yOff, q * spacing - halfSize + zOff);
+              this.vertex(- halfSize + xOff, yOff, q * spacing - halfSize + zOff);
+              this.vertex(+ halfSize + xOff, yOff, q * spacing - halfSize + zOff);
               this.endShape();
             } // Lines along Z axis
 
@@ -96664,8 +96661,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -96693,8 +96690,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module 3D
@@ -96991,8 +96988,8 @@
             color = this.color(v1, v2, v3);
           }
           var _x,
-          _y,
-          _z;
+            _y,
+            _z;
           var v = arguments[arguments.length - 1];
           if (typeof v === 'number') {
             _x = arguments[arguments.length - 3];
@@ -97102,8 +97099,8 @@
             color = this.color(v1, v2, v3);
           }
           var _x,
-          _y,
-          _z;
+            _y,
+            _z;
           var v = arguments[arguments.length - 1];
           if (typeof v === 'number') {
             _x = arguments[arguments.length - 3];
@@ -97397,8 +97394,8 @@
           this._assert3d('spotLight');
           _main.default._validateParameters('spotLight', arguments);
           var color,
-          position,
-          direction;
+            position,
+            direction;
           var length = arguments.length;
           switch (length) {
             case 11:
@@ -97679,8 +97676,8 @@
         _dereq_('./p5.Geometry');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Shape
@@ -97789,7 +97786,7 @@
           var normalize;
           var successCallback;
           var failureCallback;
-          var fileType = path.slice( - 4);
+          var fileType = path.slice(- 4);
           if (typeof arguments[1] === 'boolean') {
             normalize = arguments[1];
             successCallback = arguments[2];
@@ -97922,7 +97919,7 @@
                         model.uvs.push(loadedVerts.vt[vertParts[1]].slice());
                       } else {
                         model.uvs.push([0,
-                        0]);
+                          0]);
                       }
                       if (loadedVerts.vn[vertParts[2]]) {
                         model.vertexNormals.push(loadedVerts.vn[vertParts[2]].copy());
@@ -98014,18 +98011,18 @@
           var reader = new DataView(buffer); // Number of faces is present following the header
           var faces = reader.getUint32(80, true);
           var r,
-          g,
-          b,
-          hasColors = false,
-          colors;
+            g,
+            b,
+            hasColors = false,
+            colors;
           var defaultR,
-          defaultG,
-          defaultB; // Binary files contain 80-byte header, which is generally ignored.
+            defaultG,
+            defaultB; // Binary files contain 80-byte header, which is generally ignored.
           for (var index = 0; index < 80 - 10; index++) {
             // Check for `COLOR=`
             if (reader.getUint32(index, false) === 1129270351            /*COLO*/
-            && reader.getUint8(index + 4) === 82            /*'R'*/
-            && reader.getUint8(index + 5) === 61            /*'='*/
+              && reader.getUint8(index + 4) === 82            /*'R'*/
+              && reader.getUint8(index + 5) === 61            /*'='*/
             ) {
               hasColors = true;
               colors = [
@@ -98070,7 +98067,7 @@
             3 * face + 1,
             3 * face + 2]);
             model.uvs.push([0,
-            0], [
+              0], [
               0,
               0
             ], [
@@ -98097,7 +98094,7 @@
           var curVertexIndex = [
           ];
           var newNormal,
-          newVertex;
+            newVertex;
           for (var iterator = 0; iterator < lines.length; ++iterator) {
             var line = lines[iterator].trim();
             var parts = line.split(' ');
@@ -98155,7 +98152,7 @@
                   newVertex = new _main.default.Vector(parseFloat(parts[1]), parseFloat(parts[2]), parseFloat(parts[3]));
                   model.vertices.push(newVertex);
                   model.uvs.push([0,
-                  0]);
+                    0]);
                   curVertexIndex.push(model.vertices.indexOf(newVertex));
                 } else if (parts[0] === 'endloop') {
                   // End of vertices
@@ -98320,8 +98317,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -98349,8 +98346,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module 3D
@@ -99462,8 +99459,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module 3D
@@ -100711,8 +100708,8 @@
           var ty = - eyeY;
           var tz = - eyeZ;
           this.cameraMatrix.translate([tx,
-          ty,
-          tz]);
+            ty,
+            tz]);
           if (this._isActive()) {
             this._renderer.uMVMatrix.set(this.cameraMatrix.mat4[0], this.cameraMatrix.mat4[1], this.cameraMatrix.mat4[2], this.cameraMatrix.mat4[3], this.cameraMatrix.mat4[4], this.cameraMatrix.mat4[5], this.cameraMatrix.mat4[6], this.cameraMatrix.mat4[7], this.cameraMatrix.mat4[8], this.cameraMatrix.mat4[9], this.cameraMatrix.mat4[10], this.cameraMatrix.mat4[11], this.cameraMatrix.mat4[12], this.cameraMatrix.mat4[13], this.cameraMatrix.mat4[14], this.cameraMatrix.mat4[15]);
           }
@@ -100976,7 +100973,7 @@
           var diffZ = this.eyeZ - this.centerZ; // get spherical coorinates for current camera position about origin
           var camRadius = Math.sqrt(diffX * diffX + diffY * diffY + diffZ * diffZ); // from https://github.com/mrdoob/three.js/blob/dev/src/math/Spherical.js#L72-L73
           var camTheta = Math.atan2(diffX, diffZ); // equatorial angle
-          var camPhi = Math.acos(Math.max( - 1, Math.min(1, diffY / camRadius))); // polar angle
+          var camPhi = Math.acos(Math.max(- 1, Math.min(1, diffY / camRadius))); // polar angle
           var newUpY = this.upY > 0 ? 1 : - 1; // add change according to the direction of newupY
           camTheta += newUpY * dTheta;
           camPhi += newUpY * dPhi; // if camPhi becomes >= PI or <= 0,
@@ -101102,8 +101099,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @module Shape
@@ -101195,9 +101192,9 @@
           this.faces.length = 0;
           var sliceCount = this.detailX + 1;
           var a,
-          b,
-          c,
-          d;
+            b,
+            c,
+            d;
           for (var i = 0; i < this.detailY; i++) {
             for (var j = 0; j < this.detailX; j++) {
               a = i * sliceCount + j; // + offset;
@@ -101205,11 +101202,11 @@
               c = (i + 1) * sliceCount + j + 1; // + offset;
               d = (i + 1) * sliceCount + j; // + offset;
               this.faces.push([a,
-              b,
-              d]);
+                b,
+                d]);
               this.faces.push([d,
-              b,
-              c]);
+                b,
+                c]);
             }
           }
           return this;
@@ -101384,13 +101381,13 @@
                 this._addJoin(begin, lastValidDir, dir, fromColor);
               }
               if (dirOK && !addedStartingCap && !closed) {
-                this._addCap(begin, dir.copy().mult( - 1), fromColor);
+                this._addCap(begin, dir.copy().mult(- 1), fromColor);
                 addedStartingCap = true;
               }
             } else {
               addedStartingCap = false; // Start a new line
               if (dirOK && (!closed || i > 0)) {
-                this._addCap(begin, dir.copy().mult( - 1), fromColor);
+                this._addCap(begin, dir.copy().mult(- 1), fromColor);
                 addedStartingCap = true;
               }
               if (lastValidDir && (!closed || i < this.edges.length - 1)) {
@@ -101474,7 +101471,7 @@
             this.lineTangentsOut.push(tanOutArray);
             this.lineVertexColors.push(color);
           }
-          this.lineSides.push( - 1, - 2, 2, 2, 1, - 1);
+          this.lineSides.push(- 1, - 2, 2, 2, 1, - 1);
           return this;
         };
         /**
@@ -101619,8 +101616,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * @requires constants
@@ -101662,31 +101659,31 @@
           }
           if (args[0] === 'mat3') {
             this.mat3 = Array.isArray(args[1]) ? args[1] : new GLMAT_ARRAY_TYPE([1,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            1]);
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1]);
           } else {
             this.mat4 = Array.isArray(args[0]) ? args[0] : new GLMAT_ARRAY_TYPE([1,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            1]);
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1]);
           }
           return this;
         };
@@ -101783,11 +101780,11 @@
  */
         _main.default.Matrix.prototype.transpose = function (a) {
           var a01,
-          a02,
-          a03,
-          a12,
-          a13,
-          a23;
+            a02,
+            a03,
+            a12,
+            a13,
+            a23;
           if (a instanceof _main.default.Matrix) {
             a01 = a.mat4[1];
             a02 = a.mat4[2];
@@ -101846,21 +101843,21 @@
  */
         _main.default.Matrix.prototype.invert = function (a) {
           var a00,
-          a01,
-          a02,
-          a03,
-          a10,
-          a11,
-          a12,
-          a13;
+            a01,
+            a02,
+            a03,
+            a10,
+            a11,
+            a12,
+            a13;
           var a20,
-          a21,
-          a22,
-          a23,
-          a30,
-          a31,
-          a32,
-          a33;
+            a21,
+            a22,
+            a23,
+            a30,
+            a31,
+            a32,
+            a33;
           if (a instanceof _main.default.Matrix) {
             a00 = a.mat4[0];
             a01 = a.mat4[1];
@@ -101955,13 +101952,13 @@
           }
           det = 1 / det;
           this.mat3[0] = b01 * det;
-          this.mat3[1] = ( - a22 * a01 + a02 * a21) * det;
+          this.mat3[1] = (- a22 * a01 + a02 * a21) * det;
           this.mat3[2] = (a12 * a01 - a02 * a11) * det;
           this.mat3[3] = b11 * det;
           this.mat3[4] = (a22 * a00 - a02 * a20) * det;
-          this.mat3[5] = ( - a12 * a00 + a02 * a10) * det;
+          this.mat3[5] = (- a12 * a00 + a02 * a10) * det;
           this.mat3[6] = b21 * det;
-          this.mat3[7] = ( - a21 * a00 + a01 * a20) * det;
+          this.mat3[7] = (- a21 * a00 + a01 * a20) * det;
           this.mat3[8] = (a11 * a00 - a01 * a10) * det;
           return this;
         };
@@ -101973,8 +101970,8 @@
  */
         _main.default.Matrix.prototype.transpose3x3 = function (mat3) {
           var a01 = mat3[1],
-          a02 = mat3[2],
-          a12 = mat3[5];
+            a02 = mat3[2],
+            a12 = mat3[5];
           this.mat3[1] = mat3[3];
           this.mat3[2] = mat3[6];
           this.mat3[3] = a01;
@@ -102024,17 +102021,17 @@
  */
         _main.default.Matrix.prototype.determinant = function () {
           var d00 = this.mat4[0] * this.mat4[5] - this.mat4[1] * this.mat4[4],
-          d01 = this.mat4[0] * this.mat4[6] - this.mat4[2] * this.mat4[4],
-          d02 = this.mat4[0] * this.mat4[7] - this.mat4[3] * this.mat4[4],
-          d03 = this.mat4[1] * this.mat4[6] - this.mat4[2] * this.mat4[5],
-          d04 = this.mat4[1] * this.mat4[7] - this.mat4[3] * this.mat4[5],
-          d05 = this.mat4[2] * this.mat4[7] - this.mat4[3] * this.mat4[6],
-          d06 = this.mat4[8] * this.mat4[13] - this.mat4[9] * this.mat4[12],
-          d07 = this.mat4[8] * this.mat4[14] - this.mat4[10] * this.mat4[12],
-          d08 = this.mat4[8] * this.mat4[15] - this.mat4[11] * this.mat4[12],
-          d09 = this.mat4[9] * this.mat4[14] - this.mat4[10] * this.mat4[13],
-          d10 = this.mat4[9] * this.mat4[15] - this.mat4[11] * this.mat4[13],
-          d11 = this.mat4[10] * this.mat4[15] - this.mat4[11] * this.mat4[14]; // Calculate the determinant
+            d01 = this.mat4[0] * this.mat4[6] - this.mat4[2] * this.mat4[4],
+            d02 = this.mat4[0] * this.mat4[7] - this.mat4[3] * this.mat4[4],
+            d03 = this.mat4[1] * this.mat4[6] - this.mat4[2] * this.mat4[5],
+            d04 = this.mat4[1] * this.mat4[7] - this.mat4[3] * this.mat4[5],
+            d05 = this.mat4[2] * this.mat4[7] - this.mat4[3] * this.mat4[6],
+            d06 = this.mat4[8] * this.mat4[13] - this.mat4[9] * this.mat4[12],
+            d07 = this.mat4[8] * this.mat4[14] - this.mat4[10] * this.mat4[12],
+            d08 = this.mat4[8] * this.mat4[15] - this.mat4[11] * this.mat4[12],
+            d09 = this.mat4[9] * this.mat4[14] - this.mat4[10] * this.mat4[13],
+            d10 = this.mat4[9] * this.mat4[15] - this.mat4[11] * this.mat4[13],
+            d11 = this.mat4[10] * this.mat4[15] - this.mat4[11] * this.mat4[14]; // Calculate the determinant
           return d00 * d11 - d01 * d10 + d02 * d09 + d03 * d08 - d04 * d07 + d05 * d06;
         };
         /**
@@ -102059,9 +102056,9 @@
           } // each row is used for the multiplier
 
           var b0 = this.mat4[0],
-          b1 = this.mat4[1],
-          b2 = this.mat4[2],
-          b3 = this.mat4[3];
+            b1 = this.mat4[1],
+            b2 = this.mat4[2],
+            b3 = this.mat4[3];
           this.mat4[0] = b0 * _src[0] + b1 * _src[4] + b2 * _src[8] + b3 * _src[12];
           this.mat4[1] = b0 * _src[1] + b1 * _src[5] + b2 * _src[9] + b3 * _src[13];
           this.mat4[2] = b0 * _src[2] + b1 * _src[6] + b2 * _src[10] + b3 * _src[14];
@@ -102243,8 +102240,8 @@
  */
         _main.default.Matrix.prototype.translate = function (v) {
           var x = v[0],
-          y = v[1],
-          z = v[2] || 0;
+            y = v[1],
+            z = v[2] || 0;
           this.mat4[12] += this.mat4[0] * x + this.mat4[4] * y + this.mat4[8] * z;
           this.mat4[13] += this.mat4[1] * x + this.mat4[5] * y + this.mat4[9] * z;
           this.mat4[14] += this.mat4[2] * x + this.mat4[6] * y + this.mat4[10] * z;
@@ -102270,7 +102267,7 @@
  */
         _main.default.Matrix.prototype.perspective = function (fovy, aspect, near, far) {
           var f = 1 / Math.tan(fovy / 2),
-          nf = 1 / (near - far);
+            nf = 1 / (near - far);
           this.mat4[0] = f / aspect;
           this.mat4[1] = 0;
           this.mat4[2] = 0;
@@ -102302,8 +102299,8 @@
  */
         _main.default.Matrix.prototype.ortho = function (left, right, bottom, top, near, far) {
           var lr = 1 / (left - right),
-          bt = 1 / (bottom - top),
-          nf = 1 / (near - far);
+            bt = 1 / (bottom - top),
+            nf = 1 / (near - far);
           this.mat4[0] = - 2 * lr;
           this.mat4[1] = 0;
           this.mat4[2] = 0;
@@ -102410,8 +102407,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         _main.default.RenderBuffer = function (size, src, dst, attr, renderer, map) {
@@ -102557,8 +102554,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -102586,8 +102583,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _toConsumableArray(arr) {
@@ -102665,8 +102662,8 @@
             }
           }
           var z,
-          u,
-          v; // default to (x, y) mode: all other arguments assumed to be 0.
+            u,
+            v; // default to (x, y) mode: all other arguments assumed to be 0.
           z = u = v = 0;
           if (arguments.length === 3) {
             // (x, y, z) mode: (u, v) assumed to be 0.
@@ -102806,37 +102803,37 @@
             case constants.TRIANGLE_STRIP:
               for (i = 0; i < verts.length - 2; i++) {
                 res.push([i,
-                i + 1]);
+                  i + 1]);
                 res.push([i,
-                i + 2]);
+                  i + 2]);
               }
               res.push([i,
-              i + 1]);
+                i + 1]);
               break;
             case constants.TRIANGLE_FAN:
               for (i = 1; i < verts.length - 1; i++) {
                 res.push([0,
-                i]);
+                  i]);
                 res.push([i,
-                i + 1]);
+                  i + 1]);
               }
               res.push([0,
-              verts.length - 1]);
+                verts.length - 1]);
               break;
             case constants.TRIANGLES:
               for (i = 0; i < verts.length - 2; i = i + 3) {
                 res.push([i,
-                i + 1]);
+                  i + 1]);
                 res.push([i + 1,
                 i + 2]);
                 res.push([i + 2,
-                i]);
+                  i]);
               }
               break;
             case constants.LINES:
               for (i = 0; i < verts.length - 1; i = i + 2) {
                 res.push([i,
-                i + 1]);
+                  i + 1]);
               }
               break;
             case constants.QUADS:
@@ -102846,7 +102843,7 @@
               // 1--2   4
               for (i = 0; i < verts.length - 5; i += 6) {
                 res.push([i,
-                i + 1]);
+                  i + 1]);
                 res.push([i + 1,
                 i + 2]);
                 res.push([i + 3,
@@ -102861,25 +102858,25 @@
               // 1---3---5
               for (i = 0; i < verts.length - 2; i += 2) {
                 res.push([i,
-                i + 1]);
+                  i + 1]);
                 res.push([i,
-                i + 2]);
+                  i + 2]);
                 res.push([i + 1,
                 i + 3]);
               }
               res.push([i,
-              i + 1]);
+                i + 1]);
               break;
             default:
               for (i = 0; i < verts.length - 1; i++) {
                 res.push([i,
-                i + 1]);
+                  i + 1]);
               }
               break;
           }
           if (shouldClose) {
             res.push([verts.length - 1,
-            0]);
+              0]);
           }
           return res;
         };
@@ -103120,8 +103117,8 @@
         _dereq_('./p5.RenderBuffer');
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         } //Retained Mode. The default mode for rendering 3D primitives
         //in WEBGL.
@@ -103139,7 +103136,7 @@
           this._freeBuffers(gId); //@TODO remove this limit on hashes in retainedMode.geometry
           hashCount++;
           if (hashCount > 1000) {
-            var key = Object.keys(this.retainedMode.geometry) [0];
+            var key = Object.keys(this.retainedMode.geometry)[0];
             delete this.retainedMode.geometry[key];
             hashCount--;
           } //create a new entry in our retainedMode.geometry
@@ -103553,8 +103550,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -103582,8 +103579,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }
         function _toConsumableArray(arr) {
@@ -104248,7 +104245,7 @@
         };
         _main.default.RendererGL.prototype.blendMode = function (mode) {
           if (mode === constants.DARKEST || mode === constants.LIGHTEST || mode === constants.ADD || mode === constants.BLEND || mode === constants.SUBTRACT || mode === constants.SCREEN || mode === constants.EXCLUSION || mode === constants.REPLACE || mode === constants.MULTIPLY || mode === constants.REMOVE) this.curBlendMode = mode;
-           else if (mode === constants.BURN || mode === constants.OVERLAY || mode === constants.HARD_LIGHT || mode === constants.SOFT_LIGHT || mode === constants.DODGE) {
+          else if (mode === constants.BURN || mode === constants.OVERLAY || mode === constants.HARD_LIGHT || mode === constants.SOFT_LIGHT || mode === constants.DODGE) {
             console.warn('BURN, OVERLAY, HARD_LIGHT, SOFT_LIGHT, and DODGE only work for blendMode in 2D mode.');
           }
         };
@@ -104327,7 +104324,7 @@
         }; // x,y are canvas-relative (pre-scaled by _pixelDensity)
         _main.default.RendererGL.prototype._getPixel = function (x, y) {
           var imageData,
-          index;
+            index;
           imageData = new Uint8Array(4);
           this.drawingContext.readPixels(x, y, 1, 1, this.drawingContext.RGBA, this.drawingContext.UNSIGNED_BYTE, imageData);
           index = 0;
@@ -104405,21 +104402,21 @@
             _main.default.Matrix.prototype.apply.apply(this.uMVMatrix, arguments);
           } else {
             this.uMVMatrix.apply([a,
-            b,
-            0,
-            0,
-            c,
-            d,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            e,
-            f,
-            0,
-            1]);
+              b,
+              0,
+              0,
+              c,
+              d,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              e,
+              f,
+              0,
+              1]);
           }
         };
         /**
@@ -104438,8 +104435,8 @@
             x = x.x;
           }
           this.uMVMatrix.translate([x,
-          y,
-          z]);
+            y,
+            z]);
           return this;
         };
         /**
@@ -104745,7 +104742,7 @@
           if (!target) target = this.GL.ARRAY_BUFFER;
           this.GL.bindBuffer(target, buffer);
           if (values !== undefined) {
-            var data = new (type || Float32Array) (values);
+            var data = new (type || Float32Array)(values);
             this.GL.bufferData(target, data, usage || this.GL.STATIC_DRAW);
           }
         }; ///////////////////////////////
@@ -104949,17 +104946,17 @@
           var mt2 = mt * mt;
           var mt3 = mt2 * mt;
           return [mt3,
-          3 * mt2 * t,
-          3 * mt * t2,
-          t3];
+            3 * mt2 * t,
+            3 * mt * t2,
+            t3];
         }; // function to calculate QuadraticVertex Coefficients
         _main.default.RendererGL.prototype._quadraticCoefficients = function (t) {
           var t2 = t * t;
           var mt = 1 - t;
           var mt2 = mt * mt;
           return [mt2,
-          2 * mt * t,
-          t2];
+            2 * mt * t,
+            t2];
         }; // function to convert Bezier coordinates to Catmull Rom Splines
         _main.default.RendererGL.prototype._bezierToCatmull = function (w) {
           var p1 = w[1];
@@ -105065,8 +105062,8 @@
         var _main = _interopRequireDefault(_dereq_('../core/main'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * This module defines the p5.Shader class
@@ -105540,7 +105537,7 @@
                 uniform.texture.src._animateGif(this._renderer._pInst);
               }
               break;
-              //@todo complete all types
+            //@todo complete all types
           }
           return this;
         };
@@ -105716,8 +105713,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -105745,8 +105742,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         }        /**
  * This module defines the p5.Texture class
@@ -105859,9 +105856,9 @@
             // assign a 1×1 empty texture initially, because data is not yet ready,
             // so that no errors occur in gl console!
             var tmpdata = new Uint8Array([1,
-            1,
-            1,
-            1]);
+              1,
+              1,
+              1]);
             gl.texImage2D(this.glTarget, 0, gl.RGBA, 1, 1, 0, this.glFormat, this.glDataType, tmpdata);
           } else {
             // data is ready: just push the texture!
@@ -106170,8 +106167,8 @@
           }
           if (obj === null || _typeof(obj) !== 'object' && typeof obj !== 'function') {
             return {
-            default:
-              obj
+              default:
+                obj
             };
           }
           var cache = _getRequireWildcardCache();
@@ -106199,8 +106196,8 @@
         }
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         } // Text/Typography
         // @TODO:
@@ -106250,7 +106247,7 @@
             if (space > imageSize) throw new Error('font is too complex to render in 3D'); // search through the list of images, looking for one with
             // anough unused space.
             var imageInfo,
-            imageData;
+              imageData;
             for (var ii = this.infos.length - 1; ii >= 0; --ii) {
               var imageInfoTest = this.infos[ii];
               if (imageInfoTest.index + space < imageSize) {
@@ -106267,7 +106264,7 @@
               } catch (err) {
                 // for browsers that don't support ImageData constructors (ie IE11)
                 // create an ImageData using the old method
-                var canvas = document.getElementsByTagName('canvas') [0];
+                var canvas = document.getElementsByTagName('canvas')[0];
                 var created = !canvas;
                 if (!canvas) {
                   // create a temporary canvas
@@ -106391,7 +106388,7 @@
        * find the minimum & maximum value in a list of values
        */
               function minMax(rg, min, max) {
-                for (var _i = rg.length; _i-- > 0; ) {
+                for (var _i = rg.length; _i-- > 0;) {
                   var _v = rg[_i];
                   if (min > _v) min = _v;
                   if (max < _v) max = _v;
@@ -106531,8 +106528,8 @@
                       C = - C;
                     }
                     var Q = Math.sqrt(disc);
-                    var t0 = ( - B - Q) / (2 * A); // the first inflection point
-                    var t1 = ( - B + Q) / (2 * A); // the second inflection point
+                    var t0 = (- B - Q) / (2 * A); // the first inflection point
+                    var t1 = (- B + Q) / (2 * A); // the second inflection point
                     // test if the first inflection point lies on the curve
                     if (t0 > 0 && t0 < 1) {
                       // split at the first inflection point
@@ -106583,7 +106580,7 @@
                   var tail = [
                   ];
                   var t3 = void 0;
-                  for (; ; ) {
+                  for (; ;) {
                     // calculate this cubic's precision
                     t3 = precision / cubic.quadError();
                     if (t3 >= 0.5 * 0.5 * 0.5) {
@@ -106634,7 +106631,7 @@
               var mx = (x0 + x1) / 2;
               var my = (y0 + y1) / 2;
               push([x0,
-              x1], [
+                x1], [
                 y0,
                 y1
               ], {
@@ -106658,9 +106655,9 @@
               return Math.abs(x1 - x0) < 0.00001 && Math.abs(y1 - y0) < 0.00001;
             }
             var x0,
-            y0,
-            xs,
-            ys;
+              y0,
+              xs,
+              ys;
             var _iteratorNormalCompletion2 = true;
             var _didIteratorError2 = false;
             var _iteratorError2 = undefined;
@@ -106690,8 +106687,8 @@
                       var cx = (cmd.x1 - xMin) / gWidth;
                       var cy = (cmd.y1 - yMin) / gHeight;
                       push([x0,
-                      x1,
-                      cx], [
+                        x1,
+                        cx], [
                         y0,
                         y1,
                         cy
@@ -107083,8 +107080,8 @@
         var _translation = _interopRequireDefault(_dereq_('./en/translation'));
         function _interopRequireDefault(obj) {
           return obj && obj.__esModule ? obj : {
-          default:
-            obj
+            default:
+              obj
           };
         } // Only one language is imported above. This is intentional as other languages
         // will be hosted online and then downloaded whenever needed
@@ -107121,5 +107118,5 @@
   }, {
   }, [
     273
-  ]) (273)
+  ])(273)
 });

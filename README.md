@@ -12,12 +12,12 @@
 <br />
 <div align="center">
 
-<h3 align="center">Projet-Jeu-2D</h3>
+<h3 align="center">Eve</h3>
 
   <p align="center">
-    This is a web game made with p5.js who's currently in developpment. 
+    Eve is a web game made with p5.js who's currently in developpment. 
     <br />
-    <a href="https://github.com/P-Lrou/Projet-Jeu-2D"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/P-Lrou/Projet-Jeu-2D"><strong>"Explore the docs"</strong></a>
     <br />
     <br />
     <a href="https://github.com/P-Lrou/Projet-Jeu-2D/issues">Report Bug</a>
@@ -57,17 +57,6 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    git clone https://github.com/P-Lrou/Projet-Jeu-2D.git
    ```
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [x] Moves
-- [x] Colision
-- [x] Can take item and stock it in inventory
-- [] Add PNJ and iteraction with them
-
-See the [open issues](https://github.com/P-Lrou/Projet-Jeu-2D/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 

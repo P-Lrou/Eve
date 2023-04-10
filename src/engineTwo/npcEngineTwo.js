@@ -17,12 +17,7 @@ function drawNPCEngineTwo(NPC) {
     });
   }
   let npcTile = findActualNpc(actualNPC.name);
-  let animationMoovePlayer = npcTile.get(
-    0,
-    spriteCutSize * 3,
-    spriteCutSize,
-    spriteCutSize
-  );
+  let animationMoovePlayer = npcTile.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
   actualNPC.startx = actualNPC.xdist + EngineTwoMapX;
 
 
@@ -49,24 +44,14 @@ function drawNPCEngineTwo(NPC) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 0,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 0, spriteCutSize, spriteCutSize);
       if (actualNPC.canMove && canMoveAllNPC) {
         actualNPC.xdist += npcSpeed;
       }
       collisionNPCEngineTwo(actualNPC);
       break;
     case -1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 1,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 1, spriteCutSize, spriteCutSize);
       if (actualNPC.canMove && canMoveAllNPC) {
         actualNPC.xdist -= npcSpeed;
       }
@@ -77,21 +62,11 @@ function drawNPCEngineTwo(NPC) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 3,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 3, spriteCutSize, spriteCutSize);
       collisionNPCEngineTwo(actualNPC);
       break;
     case -1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 2,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 2, spriteCutSize, spriteCutSize);
       collisionNPCEngineTwo(actualNPC);
       break;
   }
@@ -106,67 +81,28 @@ function drawNPCEngineTwo(NPC) {
   }
   if (!actualNPC.canMove || !canMoveAllNPC) {
     if (actualNPCCollision === 'left') {
-      animationMoovePlayer = npcTile.get(
-        0,
-        spriteCutSize,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(0, spriteCutSize, spriteCutSize, spriteCutSize);
     }
     if (actualNPCCollision === 'rigth') {
-      animationMoovePlayer = npcTile.get(
-        0,
-        0,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(0, 0, spriteCutSize, spriteCutSize);
     }
   }
 
   if (debugMode) {
     fill(0, 255, 0, 60)
     noStroke();
-    rect(actualNPC.startx + 30,
-      screenHeight - spritePlayerSize - 59,
-      spritePlayerSize,
-      spritePlayerSize)
+    rect(actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize)
   }
-  image(
-    animationMoovePlayer,
-    actualNPC.startx,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize,
-    spritePlayerSize
-  );
+  image(animationMoovePlayer, actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize);
 }
 
 //^ This function do the collision for the NPC with the same function as the main player
 //- Take in params the actualNPC
 function collisionNPCEngineTwo(actualNPC) {
-  let TopCornerLeft = getTopCornerLeft([
-    actualNPC.startx + 30,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize,
-    spritePlayerSize,
-  ]);
-  let TopCornerRight = getTopCornerRight([
-    actualNPC.startx,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize - 25,
-    spritePlayerSize,
-  ]);
-  let BottomCornerLeft = getBottomCornerLeft([
-    actualNPC.startx + 30,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize,
-    spritePlayerSize,
-  ]);
-  let BottomCornerRight = getBottomCornerRight([
-    actualNPC.startx,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize - 25,
-    spritePlayerSize,
-  ]);
+  let TopCornerLeft = getTopCornerLeft([actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize,]);
+  let TopCornerRight = getTopCornerRight([actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize - 25, spritePlayerSize,]);
+  let BottomCornerLeft = getBottomCornerLeft([actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize,]);
+  let BottomCornerRight = getBottomCornerRight([actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize - 25, spritePlayerSize,]);
   // fill("red")
   // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
   // fill("blue")
@@ -209,12 +145,7 @@ function collisionNPCEngineTwo(actualNPC) {
 //^ This function is actually to check if the npc position is on a collision 
 //- Take in params the acutal player position
 function isCollisionWithPlayer(point) {
-  let cornerMyPlayer = [
-    playerPosX,
-    playerPosY,
-    spritePlayerSize,
-    spritePlayerSize,
-  ];
+  let cornerMyPlayer = [playerPosX, playerPosY, spritePlayerSize, spritePlayerSize,];
   if (pointIsInRect(point, cornerMyPlayer)) {
     return true;
   }
@@ -231,7 +162,7 @@ function canTalkToNpc(actualNPC) {
       canInteract = true;
       canMovePlayer = false;
       canTalkGlobalNPC = false;
-      canDrawnInventory = false;
+      canDrawMenus = false;
 
       if (actualNPC.name === "npcJulliette") {
         actualDialog = actualNPC.dialog[0];

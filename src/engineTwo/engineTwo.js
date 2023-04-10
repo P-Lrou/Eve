@@ -6,111 +6,37 @@ function engineTwoStart() {
   playerInputsEngineTwo();
   switch (actualMapEngineTwo) {
     case "cloneMap":
-      image(
-        backgroundCloneMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        jarAnimationCloneMap.get(324 * indexOfAnimation2, 0, 324, 60),
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        lightCloneMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
+      image(backgroundCloneMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(jarAnimationCloneMap.get(324 * indexOfAnimation2, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(lightCloneMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawNPCEngineTwo("npcJulliette");
       canDoInteractionCloneQuest();
       drawPlayerEngineTwo();
-      image(
-        frontOfCloneMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      drawInventory();
+      image(frontOfCloneMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      if (!quests.questCloneMap.canDrawEngineCloneMapQuest){
+        drawInventory();
+        drawQuestMenu();
+      }
       if (quests.questCloneMap.canDrawEngineCloneMapQuest && !quests.questCloneMap.questCloneMapIsOver) {
         drawnQuestCloneMap();
       }
       break;
     case "botanicMap":
-      image(
-        backgroundBotanicMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        planteAnimationBotanicMap.get(324 * indexOfAnimation3, 0, 324, 60),
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        lightBotanicMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
+      image(backgroundBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(planteAnimationBotanicMap.get(324 * indexOfAnimation3, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(lightBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawNPCEngineTwo("npcRose");
       drawPlayerEngineTwo();
       drawInventory();
+      drawQuestMenu();
       break;
     case "commandMap":
-      image(
-        backgroundCommandMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        animationScreenCommandMap.get(324 * indexOfAnimation4, 0, 324, 60),
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        controlPanelAnimationCommandMap.get(324 * indexOfAnimation5, 0, 324, 60),
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        earthAnimationCommandMap.get(324 * indexOfAnimation6, 0, 324, 60),
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        seatsCommandMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
-      image(
-        lightCommandMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
+      image(backgroundCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(animationScreenCommandMap.get(324 * indexOfAnimation4, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(controlPanelAnimationCommandMap.get(324 * indexOfAnimation5, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(earthAnimationCommandMap.get(324 * indexOfAnimation6, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(seatsCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(lightCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawPlayerEngineTwo();
       if (canShowArrows) {
         if (alphaArrows < 255) {
@@ -121,6 +47,7 @@ function engineTwoStart() {
         noTint();
       }
       drawInventory();
+      drawQuestMenu();
       if (gameIsStarting) {
         canMovePlayer = false;
         drawNPCEngineTwo('npcJulliette');
@@ -131,20 +58,15 @@ function engineTwoStart() {
         if (!startingIsDialogsFinish) {
           canInteract = true;
           canMoveAllNPC = false;
-          canDrawnInventory = false;
+          canDrawMenus = false;
         }
       }
       break;
     case "capsuleMap":
-      image(
-        backgroundCapsuleMap,
-        EngineTwoMapX,
-        EngineTwoMapY,
-        engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH),
-        screenHeight
-      );
+      image(backgroundCapsuleMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawPlayerEngineTwo();
       drawInventory();
+      drawQuestMenu();
       break;
   }
   changeMapEngineTwo();

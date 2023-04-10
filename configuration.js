@@ -3,7 +3,7 @@
 let debugMode = false;
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = false;
+let gameIsStarting = true;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;
@@ -72,7 +72,7 @@ let canMoveAllNPC = true;
 let canTalkGlobalNPC = true;
 
 //+ Set a boolean if can draw inventory
-let canDrawnInventory = true;
+let canDrawMenus = true;
 
 //+ Set switch case to know the first engine
 switch (currentEngine) {
@@ -216,7 +216,7 @@ function changeEngine() {
 function writeText(actualDialog) {
     if (canInteract) {
         image(interactionButton, screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 64);
-        textLeading(25);
+        textLeading(28);
         fill("rgba(31, 31, 31, 1)");
         strokeWeight(4);
         stroke("rgba(213, 213, 213, 0.24)");
@@ -240,13 +240,14 @@ function writeText(actualDialog) {
                         key = false;
                         index = 0;
                         canInteract = false;
-                        canDrawnInventory = true;
                         startingIsDialogsFinish = true;
                         canMoveAllNPC = true;
                         if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag) {
                             canMovePlayer = true;
+                            canDrawMenus = true;
                         }
                         if (quests.seedsBagQuest.canAddToInventorySeedBag) {
+                            canDrawMenus = true;
                             canShowInventoryAnimation = true;
                             newObjectToAdd = "seedsBagBotanicMap";
                             setTimeout(() => {
@@ -255,7 +256,7 @@ function writeText(actualDialog) {
                             setTimeout(() => {
                                 canMovePlayer = true;
                                 quests.seedsBagQuest.canAddToInventorySeedBag = false;
-                            }, 4000);
+                            }, 3500);
                         }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
@@ -264,6 +265,7 @@ function writeText(actualDialog) {
                             gameIsStarting = false;
                             canMovePlayer = true;
                             canShowArrows = true;
+                            canDrawMenus = true;
                         }, 8000);
                     }
                 }
@@ -285,7 +287,7 @@ function writeText(actualDialog) {
             bool = true
         }
         noStroke();
-        textSize(16);
+        textSize(14);
         text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 120);
         image(
             dialogsHeads.get(16 * actualHead, 0, 16, 16),

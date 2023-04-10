@@ -12,7 +12,7 @@ function moreInteractionEnineTwo() {
                         canMovePlayer = false;
                         canTalkGlobalNPC = false;
                         canMoveAllNPC = false;
-                        canDrawnInventory = false;
+                        canDrawMenus = false;
                         actualDialog = moreInteractionJSON.moreInteractions[3];
                     }
                 }, 500);
@@ -26,7 +26,7 @@ function moreInteractionEnineTwo() {
                         canMovePlayer = false;
                         canTalkGlobalNPC = false;
                         canMoveAllNPC = false;
-                        canDrawnInventory = false;
+                        canDrawMenus = false;
                         actualDialog = moreInteractionJSON.moreInteractions[4];
                     }
                 }, 500);
@@ -42,7 +42,7 @@ function moreInteractionEnineTwo() {
                         canMovePlayer = false;
                         canTalkGlobalNPC = false;
                         canMoveAllNPC = false;
-                        canDrawnInventory = false;
+                        canDrawMenus = false;
                         actualDialog = moreInteractionJSON.moreInteractions[1];
                     }
                 }, 500);
@@ -56,7 +56,7 @@ function moreInteractionEnineTwo() {
                         canMovePlayer = false;
                         canTalkGlobalNPC = false;
                         canMoveAllNPC = false;
-                        canDrawnInventory = false;
+                        canDrawMenus = false;
                         actualDialog = moreInteractionJSON.moreInteractions[2];
                     }
                 }, 500);
@@ -72,7 +72,7 @@ function moreInteractionEnineTwo() {
                         canMovePlayer = false;
                         canTalkGlobalNPC = false;
                         canMoveAllNPC = false;
-                        canDrawnInventory = false;
+                        canDrawMenus = false;
                         actualDialog = moreInteractionJSON.moreInteractions[0];
                     }
                 }, 500);

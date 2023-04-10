@@ -2,18 +2,7 @@
 
 //^ This function is used to draw the clone map quest
 function drawnQuestCloneMap() {
-  image(
-    questAnimationCloneMap.get(
-      1100 * indexOfAnimationQuestClone,
-      0,
-      1100,
-      800
-    ),
-    266,
-    59,
-    1100,
-    800
-  );
+  image(questAnimationCloneMap.get(1100 * indexOfAnimationQuestClone, 0, 1100, 800), 266, 59, 1100, 800);
   noStroke();
   if (quests.questCloneMap.isGoodForColor) {
     fill('#00E4B0')
@@ -21,15 +10,7 @@ function drawnQuestCloneMap() {
     fill('#cc2e1d')
   }
   rect(950, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
-  image(
-    questCloneMap1,
-    266,
-    59,
-    1100,
-    800
-  );
-
-
+  image(questCloneMap1, 266, 59, 1100, 800);
 
   if (keyIsPressed) {
     if (keyIsDown(UP_ARROW) && quests.questCloneMap.canMoveQuestCloneMap) {
