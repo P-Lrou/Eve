@@ -747,12 +747,12 @@
       "sizeCollision": [0.6, 0.55]
     },
     {
-      "positionCollision": [14, 11.4],
-      "sizeCollision": [0.6, 0.25]
+      "positionCollision": [14, 11.1],
+      "sizeCollision": [0.6, 0.55]
     },
     {
-      "positionCollision": [16.4, 11.4],
-      "sizeCollision": [0.6, 0.25]
+      "positionCollision": [16.4, 11.1],
+      "sizeCollision": [0.6, 0.55]
     },
     {
       "positionCollision": [28, 7.30],
@@ -763,12 +763,12 @@
       "sizeCollision": [0.6, 0.55]
     },
     {
-      "positionCollision": [28, 11.4],
-      "sizeCollision": [0.6, 0.25]
+      "positionCollision": [28, 11.1],
+      "sizeCollision": [0.6, 0.55]
     },
     {
-      "positionCollision": [30.4, 11.4],
-      "sizeCollision": [0.6, 0.25]
+      "positionCollision": [30.4, 11.1],
+      "sizeCollision": [0.6, 0.55]
     }
   ]
 }
