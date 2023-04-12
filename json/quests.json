@@ -13,5 +13,13 @@
     "seedBagHasBeenTaked": false,
     "seedBagQuestIsOver": false,
     "canAddToInventorySeedBag": false
+  },
+  "repareCapsulesMap": {
+    "questRepareCapsulesMapIsStarted": false,
+    "canTakeWrench": false,
+    "wrenchIsTaked": false,
+    "canRepareWall":false,
+    "wallIsRepare": false,
+    "questRepareCapsulesMapIsOver": false
   }
 }

@@ -61,6 +61,41 @@
         ],
         [0, 3]
       ]
+    },
+    {
+      "name": "npcFinn",
+      "startx": 200,
+      "xdist": 3500,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": true,
+      "canTalk": true,
+      "dialog": [
+        ["Salut"],
+        [1],
+        [
+          "Oh salut Lowen, tu tombe bien, j'aurais besoin de ton aide.",
+          "Oui, je te cherchai, dit moi.",
+          "J'ai un petit soucis avec la capsule, pourrais-tu regarder pour le réparer ?",
+          "Pour cela tu aura besoin d'une clé à molette, tu devrais en trouver une dans les couloirs de la base.",
+          "D'accord, je vais regarder."
+        ],
+        [1, 0, 1, 1, 0],
+        [
+          "C'est bon Finn, j'ai trouvé la clé à molette.",
+          "Merci beaucoup, utilise là pour réparer la capsule et reviens me voir quand tu aura fini."
+        ],
+        [0, 1],
+        [
+          "J'ai réussi à réparer la capsule Finn",
+          "C'est parfais, maintenant nous avons de quoi survivre si il y à un soucis.",
+          "Tu ferai bien d'aller te coucher maintenant, il se fait tard."
+        ],
+        [0, 1, 1]
+      ]
     }
   ],
 

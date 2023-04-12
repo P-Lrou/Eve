@@ -64,6 +64,7 @@ function engineTwoStart() {
       break;
     case "capsuleMap":
       image(backgroundCapsuleMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      drawNPCEngineTwo('npcFinn');
       drawPlayerEngineTwo();
       drawInventory();
       drawQuestMenu();

@@ -176,7 +176,8 @@ function canTalkToNpc(actualNPC) {
       if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
-        actualQuestName = ''
+        actualQuestName = 'repareCapsulesMap';
+        quests.repareCapsulesMap.questRepareCapsulesMapIsStarted = true;
       }
       if (actualNPC.name === 'npcJulliette' && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.canTakeSeedBag && actualQuestName === "seedsBagQuest") {
         actualDialog = actualNPC.dialog[6];
@@ -202,6 +203,23 @@ function canTalkToNpc(actualNPC) {
         removeFromInventory("seedsBagBotanicMap")
         actualQuestName = "questCloneMap"
         quests.questCloneMap.questCloneMapIsStarted = true;
+      }
+
+      if (actualNPC.name === "npcFinn") {
+        actualDialog = actualNPC.dialog[0];
+        actualPlayersOrder = actualNPC.dialog[1];
+      }
+      if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.questRepareCapsulesMapIsStarted && actualQuestName === "repareCapsulesMap") {
+        actualDialog = actualNPC.dialog[2];
+        actualPlayersOrder = actualNPC.dialog[3];
+      }
+      if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked && actualQuestName === "repareCapsulesMap") {
+        actualDialog = actualNPC.dialog[4];
+        actualPlayersOrder = actualNPC.dialog[5];
+      }
+      if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wallIsRepare && actualQuestName === "repareCapsulesMap") {
+        actualDialog = actualNPC.dialog[6];
+        actualPlayersOrder = actualNPC.dialog[7];
       }
       return;
     }
