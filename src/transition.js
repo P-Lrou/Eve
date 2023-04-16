@@ -11,9 +11,9 @@ function transitionEnter() {
                 fade = fade + fadeSpeed;
             }, 500);
         } else {
-            setTimeout(() => {
-                transitionStatus = 'Out'
-            }, 1000);
+            actualDialog = moreInteractionJSON.transitionDialogs[0];
+            actualPlayersOrder = moreInteractionJSON.transitionDialogs[1];
+            canInteract = true;
         }
     } else {
         if (fade < 255) {

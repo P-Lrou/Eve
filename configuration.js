@@ -3,9 +3,16 @@
 let debugMode = false;
 
 let redValue = 120;
+let eIsPressed = false;
+
+function keyPressed(){
+    if (keyCode === 69) {
+        eIsPressed = true
+    }
+}
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = true;
+let gameIsStarting = false;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;
@@ -272,7 +279,7 @@ function writeText(actualDialog) {
         noFill();
         if (bool) {
             if (speak) {
-                if (key && keyIsDown(69)) {
+                if (key && eIsPressed) {
                     if (index < actualDialog.length - 1) {
                         canMovePlayer = false;
                         index++;
@@ -322,6 +329,13 @@ function writeText(actualDialog) {
                         }
                         if (quests.repareCapsulesMap.hadTalkToFinn) {
                             quests.repareCapsulesMap.canRepareWall = true;
+                        }
+                        if (animationActeTwoStart){
+                            actualQuestName = "goToCloneMapAfterSleep"
+                            quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted = true;
+                            leftDoorsAreClosed = true;
+                            rigthDoorsAreClosed = true;
+                            transitionStatus = 'Out'
                         }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;

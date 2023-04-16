@@ -29,5 +29,9 @@
     [0],
     ["J'ai trouvé la clé ! Je devrais l'apporter à Finn."],
     [0] 
+  ],
+  "transitionDialogs":[
+    ["ahhhhhhhhh !", "..."],
+    [-1]
   ]
 }

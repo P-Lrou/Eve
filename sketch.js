@@ -56,4 +56,9 @@ function draw() {
             transitionOut()
         }
     }
+    if (canInteract && !canMovePlayer && animationActeTwoStart) {
+        writeText(actualDialog);
+        noFill();
+    }
+    eIsPressed = false;
 }

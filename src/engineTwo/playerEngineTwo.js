@@ -162,14 +162,10 @@ function canGoSleep() {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
       canDoTransition = true;
-      acteTwoIsStarting = true;
       animationActeTwoStart = true;
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO;
-      actualQuestName = "goToCloneMapAfterSleep"
-      quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted = true;
-      leftDoorsAreClosed = true;
-      rigthDoorsAreClosed = true;
+      acteTwoIsStarting = true;
     }
   }
 }
