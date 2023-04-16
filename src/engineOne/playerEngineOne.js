@@ -87,37 +87,49 @@ function drawPlayer() {
 
 //^ This function draw the player if he dont move
 function drawIdlePlayer() {
-  if (acteTwoIsStarting) {
+  if (acteTwoIsStarting && !quests.goToCloneMapAfterSleep.haveGun) {
     image(mainCaracterDark.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
-  } else {
+  } else if (!quests.goToCloneMapAfterSleep.haveGun) {
     image(mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+  }
+  if (quests.goToCloneMapAfterSleep.haveGun) {
+    image(mainCaracterDarkWeapon.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
   }
 }
 
 //^ This function draw the player if he move
 function drawMovePlayer() {
   let animationMoovePlayer = undefined
-  if (acteTwoIsStarting) {
+  if (acteTwoIsStarting && !quests.goToCloneMapAfterSleep.haveGun) {
     animationMoovePlayer = mainCaracterDark.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
-  } else {
+  } else if (!quests.goToCloneMapAfterSleep.haveGun) {
     animationMoovePlayer = mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+  }
+  if (quests.goToCloneMapAfterSleep.haveGun) {
+    animationMoovePlayer = mainCaracterDarkWeapon.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
   }
 
   switch (Direction[1]) {
     case 0:
       break;
     case 1:
-      if (acteTwoIsStarting) {
+      if (acteTwoIsStarting && !quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
-      } else {
+      } else if (!quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        animationMoovePlayer = mainCaracterDarkWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
       }
       break;
     case -1:
-      if (acteTwoIsStarting) {
+      if (acteTwoIsStarting && !quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
-      } else {
+      } else if (!quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        animationMoovePlayer = mainCaracterDarkWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
       }
       break;
   }
@@ -126,17 +138,23 @@ function drawMovePlayer() {
     case 0:
       break;
     case 1:
-      if (acteTwoIsStarting) {
+      if (acteTwoIsStarting && !quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
-      } else {
+      } else if (!quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        animationMoovePlayer = mainCaracterDarkWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
       }
       break;
     case -1:
-      if (acteTwoIsStarting) {
+      if (acteTwoIsStarting && !quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
-      } else {
+      } else if (!quests.goToCloneMapAfterSleep.haveGun) {
         animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        animationMoovePlayer = mainCaracterDarkWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
       }
       break;
   }

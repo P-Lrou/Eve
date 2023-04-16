@@ -13,6 +13,7 @@ function loadAssets() {
   homePageBackgroundImage = loadImage("assets/menu/homePageBackgroundImage.png");
   homePagePlayButton = loadImage("assets/menu/homePagePlayButton.png");
   homePagePlayButtonHover = loadImage("assets/menu/homePagePlayButtonHover.png");
+  clickImage = loadImage("assets/menu/clickImage.png");
 
   card = loadImage("assets/objects/card.png");
   note0 = loadImage("assets/objects/note0.png");
@@ -23,6 +24,7 @@ function loadAssets() {
   mainCaracter = loadImage("assets/caracters/mainCaracter.png");
   mainCaracterWeapon = loadImage("assets/caracters/mainCaracterWeapon.png");
   mainCaracterDark = loadImage("assets/caracters/mainCaracterDark.png");
+  mainCaracterDarkWeapon = loadImage("assets/caracters/mainCaracterDarkWeapon.png");
   npcRose = loadImage("assets/caracters/npcRose.png");
   npcJulliette = loadImage("assets/caracters/npcJulliette.png");
   npcFinn = loadImage("assets/caracters/npcFinn.png");
@@ -62,16 +64,20 @@ function loadAssets() {
   cardCommandMap = loadImage("assets/commandMap/cardCommandMap.png")
 
   backgroundCapsuleMap = loadImage("assets/capsuleMap/backgroundCapsuleMap.png")
-  backgroundCapsuleMapBreak = loadImage("assets/capsuleMap/backgroundCapsuleMapBreak.png")
+  normalPipe = loadImage("assets/capsuleMap/normalPipe.png")
+  gazPipe = loadImage("assets/capsuleMap/gazPipe.png")
   redLigthsCapsuleMap = loadImage("assets/capsuleMap/redLigthsCapsuleMap.png")
   redLigthsAnimation = loadImage("assets/capsuleMap/redLigthsAnimationCapsuleMap.png")
   wrenchCapsulesMap = loadImage("assets/capsuleMap/wrenchCapsulesMap.png")
+  pipeFront = loadImage("assets/capsuleMap/pipeFront.png")
+  ligthsCapsuleMap = loadImage("assets/capsuleMap/ligthsCapsuleMap.png")
 
   backgroundDormsMap = loadImage("assets/dormsMap/backgroundDormsMap.png")
   screenOneAnimationDormsMap = loadImage("assets/dormsMap/screenOneAnimationDormsMap.png")
   screenTwoAnimationDormsMap = loadImage("assets/dormsMap/screenTwoAnimationDormsMap.png")
   ligthsDormsMap = loadImage("assets/dormsMap/ligthsDormsMap.png")
-  // mainMenuBackgroundSound = loadSound("assets/sounds/mainMenuBackgroundSound.mp3")
+  
+  mainMenuBackgroundSound = createAudio("assets/sounds/mainMenuBackgroundSound.mp3")
 }
 
 //^ This function recover all assets
@@ -2009,6 +2015,8 @@ function findActualObject(objectName) {
       return seedsBagBotanicMap;
     case "wrenchCapsulesMap":
       return wrenchCapsulesMap;
+    case "card":
+      return card;
     default:
       throw new Error("Can't find the asset named : " + objectName);
   }

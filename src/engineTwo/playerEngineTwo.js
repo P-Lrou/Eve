@@ -80,13 +80,28 @@ function drawPlayerEngineTwo() {
 function drawIdlePlayerEngineTwo() {
   switch (Direction) {
     case "left":
-      image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      if (!quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracterWeapon.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
       break;
     case "right":
-      image(mainCaracter.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      if (!quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracter.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracterWeapon.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
       break;
     default:
-      image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      if (!quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracterWeapon.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
   }
 }
 
@@ -94,13 +109,28 @@ function drawIdlePlayerEngineTwo() {
 function drawMovePlayerEngineTwo() {
   switch (Direction) {
     case "left":
-      image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      if (!quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
       break;
     case "right":
-      image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      if (!quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
       break;
     default:
-      image(mainCaracter.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      if (!quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracter.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.goToCloneMapAfterSleep.haveGun) {
+        image(mainCaracterWeapon.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
   }
 }
 
@@ -148,7 +178,7 @@ function canDoInteractionCloneQuest() {
 }
 
 function canDointeractionCapsuleMapQuest() {
-  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 10 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 11 && quests.repareCapsulesMap.canRepareWall && canMovePlayer) {
+  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 11 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 12 && quests.repareCapsulesMap.canRepareWall && canMovePlayer) {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
       removeFromInventory("wrenchCapsulesMap")
@@ -166,6 +196,28 @@ function canGoSleep() {
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO;
       acteTwoIsStarting = true;
+    }
+  }
+}
+
+function takeGunAndCard() {
+  if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleep.haveGun) {
+    if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer) {
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+        quests.goToCloneMapAfterSleep.haveGun = true;
+        quests.goToCloneMapAfterSleep.haveCard = true;
+        canMovePlayer = false;
+        canDrawMenus = true;
+        canShowInventoryAnimation = true;
+        newObjectToAdd = "card";
+        setTimeout(() => {
+          canMovePlayer = true;
+        }, 3500);
+        setTimeout(() => {
+          objectAsBeenAdToInventoryWithAnimation = false;
+        }, 20000);
+      }
     }
   }
 }

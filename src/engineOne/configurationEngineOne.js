@@ -32,3 +32,27 @@ let rigthDoorsAreClosed = false;
 let canReadNote = false;
 let actualNote = undefined;
 let canShowNotes = false;
+
+let canDownRed = false;
+let canUpRed = true;
+let redValue = 0;
+
+setInterval(() => {
+    if (canUpRed) {
+      if (redValue < 140) {
+        redValue = redValue + 5;
+      } else {
+        canDownRed = true;
+        canUpRed = false;
+      }
+    }
+    if (canDownRed) {
+      if (redValue > 0) {
+        redValue = redValue - 5;
+      } else {
+        redValue = 0
+        canDownRed = false;
+        canUpRed = true;
+      }
+    }
+  }, 100);

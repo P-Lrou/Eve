@@ -20,6 +20,7 @@ function transitionEnter() {
             fade = fade + fadeSpeed;
         } else {
             transitionStatus = 'Out'
+            canShowClickImage = false;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 let debugMode = false;
 
-let redValue = 120;
+
 let eIsPressed = false;
 
 function keyPressed(){
@@ -28,6 +28,7 @@ let animationActeTwoStart = false;
 let actualChestStatusForWrench = undefined;
 let canOpenChest = false;
 
+let canShowClickImage = true;
 
 let newObjectSize = 128;
 let newObjectOldX = 0;
@@ -210,6 +211,16 @@ setInterval(() => {
     }
 }, 110);
 
+//+ Set animation for Gaz pipe animation
+let indexOfAnimation10 = 0;
+setInterval(() => {
+    if (indexOfAnimation10 < 4) {
+        indexOfAnimation10 += 1;
+    } else {
+        indexOfAnimation10 = 0;
+    }
+}, 110);
+
 //+ Set animation for main caracter movement
 let indexOfAnimation = 0;
 setInterval(() => {
@@ -298,6 +309,7 @@ function writeText(actualDialog) {
                         startingIsDialogsFinish = true;
                         canMoveAllNPC = true;
                         canOpenChest = false;
+                        actualHead = [-1];
                         if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory) {
                             canMovePlayer = true;
                             canDrawMenus = true;
