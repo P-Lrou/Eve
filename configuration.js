@@ -5,7 +5,7 @@ let debugMode = false;
 let redValue = 120;
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = false;
+let gameIsStarting = true;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;
