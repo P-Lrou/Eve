@@ -11,9 +11,11 @@ function transitionEnter() {
                 fade = fade + fadeSpeed;
             }, 500);
         } else {
-            actualDialog = moreInteractionJSON.transitionDialogs[0];
-            actualPlayersOrder = moreInteractionJSON.transitionDialogs[1];
-            canInteract = true;
+            setTimeout(() => {
+                actualDialog = moreInteractionJSON.transitionDialogs[0];
+                actualPlayersOrder = moreInteractionJSON.transitionDialogs[1];
+                canInteract = true;
+            }, 2000);
         }
     } else {
         if (fade < 255) {

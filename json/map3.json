@@ -809,8 +809,8 @@
       "isChest": false
     },
     {
-      "positionCollision": [28, 11.1],
-      "sizeCollision": [3, 0.55],
+      "positionCollision": [27.5, 11.1],
+      "sizeCollision": [4, 0.55],
       "isChest": false
     }
   ]

@@ -779,23 +779,23 @@
       "isChest": false
     },
     {
-      "positionCollision": [14, 7.3],
-      "sizeCollision": [3, 0.55],
+      "positionCollision": [13.5, 7.3],
+      "sizeCollision": [4, 0.55],
       "isChest": false
     },
     {
-      "positionCollision": [14, 11.1],
-      "sizeCollision": [3, 0.55],
+      "positionCollision": [13.5, 11.1],
+      "sizeCollision": [4, 0.55],
       "isChest": false
     },
     {
-      "positionCollision": [28, 7.3],
-      "sizeCollision": [3, 0.55],
+      "positionCollision": [27.5, 7.3],
+      "sizeCollision": [4, 0.55],
       "isChest": false
     },
     {
-      "positionCollision": [28, 11.1],
-      "sizeCollision": [3, 0.55],
+      "positionCollision": [27.5, 11.1],
+      "sizeCollision": [4, 0.55],
       "isChest": false
     }
   ]

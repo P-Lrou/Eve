@@ -12,7 +12,7 @@ function keyPressed(){
 }
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = false;
+let gameIsStarting = true;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;

@@ -26,8 +26,8 @@ let mapHeight = undefined;
 let tileSize = undefined;
 
 let drawMapFirstValue = 4;
-let leftDoorsAreClosed = false;
-let rigthDoorsAreClosed = false;
+let leftDoorsAreClosed = true;
+let rigthDoorsAreClosed = true;
 
 let canReadNote = false;
 let actualNote = undefined;
@@ -40,7 +40,7 @@ let redValue = 0;
 setInterval(() => {
     if (canUpRed) {
       if (redValue < 140) {
-        redValue = redValue + 5;
+        redValue = redValue + 10;
       } else {
         canDownRed = true;
         canUpRed = false;
@@ -48,7 +48,7 @@ setInterval(() => {
     }
     if (canDownRed) {
       if (redValue > 0) {
-        redValue = redValue - 5;
+        redValue = redValue - 10;
       } else {
         redValue = 0
         canDownRed = false;
