@@ -26,6 +26,24 @@ function draw() {
         default:
             throw new Error(`Engine named : ${currentEngine} not found !`);
     }
+    if (canShowInventoryAnimation) {
+        addToInventory(newObjectToAdd)
+        setTimeout(() => {
+            if (!objectAsBeenAdToInventoryWithAnimation) {
+                canShowInventoryAnimation = false;
+                inventoryTab[inventoryTabNumber] = newObjectToAdd;
+                inventoryTabNumber++;
+                objectAsBeenAdToInventoryWithAnimation = true;
+                canChangeObjectInventory = false;
+                canShowObjectInAnimation = true;
+                newObjectSize = 128;
+                newObjectOldX = 0;
+                newObjectOldY = 0;
+                canUpObjectSize = true;
+                return;
+            }
+        }, 8000);
+    }
     if (canDoTransition) {
         noStroke();
         fill(0, 0, 0, fade)
@@ -37,8 +55,5 @@ function draw() {
             currentEngine = newEngineSelected
             transitionOut()
         }
-    }
-    if (canShowInventoryAnimation) {
-        addToInventory(newObjectToAdd)
     }
 }

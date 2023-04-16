@@ -41,7 +41,7 @@ function drawQuestMenu() {
                 actualQuestTextMenu = "D'après Finn, la clé à molette devrait ce trouver dans les couloirs du vaisseaux. Essayons de la trouver."
             }
             if (quests.repareCapsulesMap.wrenchIsTaked) {
-                actualQuestTextMenu = "Retourne voir Finn pour lui montrer ta trouvaille."
+                actualQuestTextMenu = "Retourne voir Finn pour lui montrer la clé."
             }
             if (quests.repareCapsulesMap.canRepareWall) {
                 actualQuestTextMenu = "Va réparer la capsules."
@@ -50,9 +50,18 @@ function drawQuestMenu() {
                 actualQuestTextMenu = "Va voir Finn pour lui dire que le mur est réparé."
             }
         }
+        if (actualQuestName === 'sleepQuest') {
+            headNumber = 0
+            actualQuestTextMenu = "Il se fait tard, je ferai bien d'aller me coucher."
+        }
+        if (actualQuestName === 'goToCloneMapAfterSleep') {
+            headNumber = 0;
+            actualQuestTextMenu = "J'ai entendu un cris dans la salles des clones. Je ferai bien d'aller chercher de quoi me protéger dans la salles des commandes."
+        }
         textSize(9);
         text(actualQuestTextMenu, 25, 110, 180, 120);
         noTint();
+        noFill();
         image(dialogsHeads.get(16 * headNumber, 0, 16, 16), 110, 5, 96, 96);
     }
 }

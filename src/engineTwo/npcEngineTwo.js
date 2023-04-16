@@ -92,6 +92,7 @@ function drawNPCEngineTwo(NPC) {
     fill(0, 255, 0, 60)
     noStroke();
     rect(actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize)
+    noFill();
   }
   image(animationMoovePlayer, actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize);
 }
@@ -158,7 +159,7 @@ function canTalkToNpc(actualNPC) {
   if (actualNPC.canTalk && canMovePlayer && canTalkGlobalNPC) {
     canTalkingToNPC = true;
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
-    if (keyIsDown(69) && canMoveEngineTwo) {
+    if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
       canInteract = true;
       canMovePlayer = false;
       canTalkGlobalNPC = false;
@@ -212,14 +213,18 @@ function canTalkToNpc(actualNPC) {
       if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.questRepareCapsulesMapIsStarted && actualQuestName === "repareCapsulesMap") {
         actualDialog = actualNPC.dialog[2];
         actualPlayersOrder = actualNPC.dialog[3];
+        quests.repareCapsulesMap.canTakeWrench = true;
       }
       if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked && actualQuestName === "repareCapsulesMap") {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
+        quests.repareCapsulesMap.canRepareWall = true;
       }
       if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wallIsRepare && actualQuestName === "repareCapsulesMap") {
         actualDialog = actualNPC.dialog[6];
         actualPlayersOrder = actualNPC.dialog[7];
+        actualQuestName = "sleepQuest"
+        quests.repareCapsulesMap.questRepareCapsulesMapIsOver = true;
       }
       return;
     }

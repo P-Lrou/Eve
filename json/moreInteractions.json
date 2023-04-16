@@ -21,5 +21,13 @@
       "Dans ce cas, pas de temps à perdre, remettons nous au travail Lowen, rejoins moi dans la salle botanique dès que possible, j'aurai besoin de ton aide."
     ],
     [1, 1, 3, 2, 2, 0, 3]
+  ],
+  "chestInteractions":[
+    ["Ce coffre est vérouillé..."],
+    [0],
+    ["Ce coffre est vide..."],
+    [0],
+    ["J'ai trouvé la clé ! Je devrais l'apporter à Finn."],
+    [0] 
   ]
 }

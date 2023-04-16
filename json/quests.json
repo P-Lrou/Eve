@@ -17,9 +17,15 @@
   "repareCapsulesMap": {
     "questRepareCapsulesMapIsStarted": false,
     "canTakeWrench": false,
+    "canAddWrenchToInventory": false,
     "wrenchIsTaked": false,
-    "canRepareWall":false,
+    "canRepareWall": false,
     "wallIsRepare": false,
     "questRepareCapsulesMapIsOver": false
+  },
+  "goToCloneMapAfterSleep": {
+    "goToCloneMapAfterSleepIsStarted": false,
+    "haveGun": false,
+    "haveCard": false
   }
 }

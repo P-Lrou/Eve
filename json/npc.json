@@ -78,20 +78,21 @@
         [1],
         [
           "Oh salut Lowen, tu tombe bien, j'aurais besoin de ton aide.",
-          "Oui, je te cherchai, dit moi.",
-          "J'ai un petit soucis avec la capsule, pourrais-tu regarder pour le réparer ?",
-          "Pour cela tu aura besoin d'une clé à molette, tu devrais en trouver une dans les couloirs de la base.",
+          "Oui, dit moi.",
+          "Il y a un problème dans la salle des capsule, pourrais-tu regarder pour le réparer ?",
+          "Pour cela tu aura besoin d'une clé à molette, tu devrais en trouver une dans un des coffres de la base.",
+          "Je vais te les dévérouiller à distance... Voilà tu peu maintenant les ouvrirs.",
           "D'accord, je vais regarder."
         ],
-        [1, 0, 1, 1, 0],
+        [1, 0, 1, 1, 1, 0],
         [
           "C'est bon Finn, j'ai trouvé la clé à molette.",
-          "Merci beaucoup, utilise là pour réparer la capsule et reviens me voir quand tu aura fini."
+          "Merci beaucoup, utilise là pour réparer la fuite et reviens me voir quand tu aura fini."
         ],
         [0, 1],
         [
           "J'ai réussi à réparer la capsule Finn",
-          "C'est parfais, maintenant nous avons de quoi survivre si il y à un soucis.",
+          "C'est parfais, merci de ton aide.",
           "Tu ferai bien d'aller te coucher maintenant, il se fait tard."
         ],
         [0, 1, 1]

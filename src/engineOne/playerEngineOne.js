@@ -87,21 +87,38 @@ function drawPlayer() {
 
 //^ This function draw the player if he dont move
 function drawIdlePlayer() {
-  image(mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+  if (acteTwoIsStarting) {
+    image(mainCaracterDark.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+  } else {
+    image(mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+  }
 }
 
 //^ This function draw the player if he move
 function drawMovePlayer() {
-  let animationMoovePlayer = mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+  let animationMoovePlayer = undefined
+  if (acteTwoIsStarting) {
+    animationMoovePlayer = mainCaracterDark.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+  } else {
+    animationMoovePlayer = mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+  }
 
   switch (Direction[1]) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+      if (acteTwoIsStarting) {
+        animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+      } else {
+        animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+      }
       break;
     case -1:
-      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
+      if (acteTwoIsStarting) {
+        animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
+      } else {
+        animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
+      }
       break;
   }
 
@@ -109,10 +126,18 @@ function drawMovePlayer() {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+      if (acteTwoIsStarting) {
+        animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+      } else {
+        animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+      }
       break;
     case -1:
-      animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+      if (acteTwoIsStarting) {
+        animationMoovePlayer = mainCaracterDark.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+      } else {
+        animationMoovePlayer = mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+      }
       break;
   }
 
@@ -182,6 +207,9 @@ function checkIfIsCollisionWall(actualTile) {
     case 996:
       changeMap("capsule");
       return false;
+    case 995:
+      changeMap("dorms");
+      return false;
 
     default:
       return false;
@@ -207,6 +235,14 @@ function getTileName(point) {
 //- Take in param the player position point
 function getTileNameForObject(point) {
   return map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
+}
+
+function getTileNameForObject2(point) {
+  return map.layers[2][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
+}
+
+function getTileNameForObject3(point) {
+  return map.layers[3][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
 }
 
 //^ This function made the collision for the player
@@ -260,13 +296,58 @@ function madeCollision() {
       mapX -= playerSpeed;
     }
   }
+
+  if (getTileNameForObject2(BottomCornerRight) === 142 || getTileNameForObject2(BottomCornerLeft) === 142 || getTileNameForObject2(TopCornerRight) === 142 || getTileNameForObject2(TopCornerLeft) === 142
+    || getTileNameForObject2(BottomCornerRight) === 143 || getTileNameForObject2(BottomCornerLeft) === 143 || getTileNameForObject2(TopCornerRight) === 143 || getTileNameForObject2(TopCornerLeft) === 143) {
+    if (canMovePlayer) {
+      actualChestStatusForWrench = true;
+      canOpenChest = true;
+    }
+  }
+
+  if (getTileNameForObject2(BottomCornerRight) === 154 || getTileNameForObject2(BottomCornerLeft) === 154 || getTileNameForObject2(TopCornerRight) === 154 || getTileNameForObject2(TopCornerLeft) === 154
+    || getTileNameForObject2(BottomCornerRight) === 155 || getTileNameForObject2(BottomCornerLeft) === 155 || getTileNameForObject2(TopCornerRight) === 155 || getTileNameForObject2(TopCornerLeft) === 155) {
+    if (canMovePlayer) {
+      actualChestStatusForWrench = false;
+      canOpenChest = true;
+    }
+  }
+
+  if (getTileNameForObject2(BottomCornerRight) === 180 || getTileNameForObject2(BottomCornerLeft) === 180 || getTileNameForObject2(TopCornerRight) === 180 || getTileNameForObject2(TopCornerLeft) === 180) {
+    if (canMovePlayer) {
+      actualChestStatusForWrench = false;
+      canOpenChest = true;
+    }
+  }
+
+  if (getTileNameForObject3(BottomCornerRight) === 192 || getTileNameForObject3(BottomCornerLeft) === 192 || getTileNameForObject3(TopCornerRight) === 192 || getTileNameForObject3(TopCornerLeft) === 192
+    || getTileNameForObject3(BottomCornerRight) === 186 || getTileNameForObject3(BottomCornerLeft) === 186 || getTileNameForObject3(TopCornerRight) === 186 || getTileNameForObject3(TopCornerLeft) === 186) {
+    if (canMovePlayer) {
+      canReadNote = true;
+      actualNote = 0;
+    }
+  }
+
+  if (getTileNameForObject3(BottomCornerRight) === 179 || getTileNameForObject3(BottomCornerLeft) === 179 || getTileNameForObject3(TopCornerRight) === 179 || getTileNameForObject3(TopCornerLeft) === 179) {
+    if (canMovePlayer) {
+      canReadNote = true;
+      actualNote = 1;
+    }
+  }
+
+  if (getTileNameForObject3(BottomCornerRight) === 173 || getTileNameForObject3(BottomCornerLeft) === 173 || getTileNameForObject3(TopCornerRight) === 173 || getTileNameForObject3(TopCornerLeft) === 173) {
+    if (canMovePlayer) {
+      canReadNote = true;
+      actualNote = 2;
+    }
+  }
 }
 
 //^ This function is used to take an object and set him in the inventory
 //- Take in param the player position point
 function takeObject(point) {
   image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
-  if (keyIsDown(69)) {
+  if (keyIsDown(69) && canMovePlayer) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
     map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)] = 0;
@@ -279,7 +360,7 @@ function changeMap(map) {
   if (map === "clone") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69)) {
+      if (keyIsDown(69) && canMovePlayer) {
         actualMapEngineTwo = "cloneMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
@@ -292,7 +373,7 @@ function changeMap(map) {
   if (map === "botanic") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69)) {
+      if (keyIsDown(69) && canMovePlayer) {
         actualMapEngineTwo = "botanicMap";
         actualDirectionEngineTwo = "rigth";
         EngineTwoMapX = 0;
@@ -305,7 +386,7 @@ function changeMap(map) {
   if (map === "command") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69)) {
+      if (keyIsDown(69) && canMovePlayer) {
         actualMapEngineTwo = "commandMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
@@ -318,7 +399,7 @@ function changeMap(map) {
   if (map === "capsule") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69)) {
+      if (keyIsDown(69) && canMovePlayer) {
         actualMapEngineTwo = "capsuleMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
@@ -328,4 +409,104 @@ function changeMap(map) {
       }
     }, 500);
   }
+  if (map === "dorms") {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (keyIsDown(69) && canMovePlayer) {
+        actualMapEngineTwo = "dormsMap";
+        actualDirectionEngineTwo = "left";
+        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+        canDoTransition = true;
+        canMovePlayer = false;
+        newEngineSelected = ENGINE_TWO
+      }
+    }, 500);
+  }
+}
+
+
+function openChest() {
+  if (canOpenChest) {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (keyIsDown(69) && canMovePlayer) {
+        if (quests.repareCapsulesMap.canTakeWrench) {
+          if (actualChestStatusForWrench) {
+            actualDialog = moreInteractionJSON.chestInteractions[4];
+            actualPlayersOrder = moreInteractionJSON.chestInteractions[5];
+            canInteract = true;
+            canMovePlayer = false;
+            canTalkGlobalNPC = false;
+            canMoveAllNPC = false;
+            canDrawMenus = false;
+            quests.repareCapsulesMap.canAddWrenchToInventory = true
+            quests.repareCapsulesMap.wrenchIsTaked = true;
+          } else {
+            actualDialog = moreInteractionJSON.chestInteractions[2];
+            actualPlayersOrder = moreInteractionJSON.chestInteractions[3];
+            canInteract = true;
+            canMovePlayer = false;
+            canTalkGlobalNPC = false;
+            canMoveAllNPC = false;
+            canDrawMenus = false;
+          }
+        } else if (quests.repareCapsulesMap.wrenchIsTaked) {
+          actualDialog = moreInteractionJSON.chestInteractions[2];
+          actualPlayersOrder = moreInteractionJSON.chestInteractions[3];
+          canInteract = true;
+          canMovePlayer = false;
+          canTalkGlobalNPC = false;
+          canMoveAllNPC = false;
+          canDrawMenus = false;
+        } else {
+          actualDialog = moreInteractionJSON.chestInteractions[0];
+          actualPlayersOrder = moreInteractionJSON.chestInteractions[1];
+          canInteract = true;
+          canMovePlayer = false;
+          canTalkGlobalNPC = false;
+          canMoveAllNPC = false;
+          canDrawMenus = false;
+        }
+      }
+    }, 500);
+  }
+  canOpenChest = false;
+}
+
+
+function showNotes() {
+  if (canReadNote) {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+        canShowNotes = true;
+      }
+    }, 500);
+  }
+  if (canShowNotes) {
+    if (actualNote === 0) {
+      image(note0, screenWidth / 2 - 300, 18, 600, 882);
+    }
+    if (actualNote === 1) {
+      image(note1, screenWidth / 2 - 300, 18, 600, 882);
+    }
+    if (actualNote === 2) {
+      image(note2, screenWidth / 2 - 300, 18, 600, 882);
+    }
+    setTimeout(() => {
+      if (keyIsDown(69)) {
+        canReadNote = false;
+        canMovePlayer = true;
+        canTalkGlobalNPC = true;
+        canMoveAllNPC = true;
+        canDrawMenus = true;
+        canShowNotes = false;
+      }
+    }, 500);
+  }
+  canReadNote = false;
 }

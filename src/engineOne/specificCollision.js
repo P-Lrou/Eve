@@ -14,7 +14,7 @@ const checkSpecificCollision = (worldPosition) => {
         return collision.positionCollision[0] * tileSize < worldPosition[0]
             && collision.positionCollision[1] * tileSize < worldPosition[1]
             && (collision.positionCollision[0] + collision.sizeCollision[0]) * tileSize > worldPosition[0]
-            && (collision.positionCollision[1] + collision.sizeCollision[1]) * tileSize > worldPosition[1]
+            && (collision.positionCollision[1] + collision.sizeCollision[1]) * tileSize > worldPosition[1];
     })
     return collided.length > 0
 }
@@ -29,16 +29,20 @@ const showSpecificCollisionDebug = () => {
         noFill();
     }
     for (let i = 0; i < map.otherCollisions.length; i++) {
+        if (map.otherCollisions[i].isChest) {
+            fill(0, 0, 255, 100);
+        } else {
+            fill(0, 255, 0, 100)
+        }
+        if (!debugMode) {
+            noFill();
+        }
         showDebugRect(
             map.otherCollisions[i].positionCollision[0] * tileSize - mapX,
             map.otherCollisions[i].positionCollision[1] * tileSize - mapY,
             map.otherCollisions[i].sizeCollision[0] * tileSize,
             map.otherCollisions[i].sizeCollision[1] * tileSize
         )
-    }
-    fill(255, 255, 255, 255)
-    if (!debugMode) {
-        noFill();
     }
 }
 

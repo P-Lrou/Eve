@@ -4,23 +4,50 @@ let fadeSpeed = 5;
 let canDoTransition = false;
 let transitionStatus = 'Enter';
 
-
 function transitionEnter() {
-    if (fade < 255) {
-        fade = fade + fadeSpeed;
+    if (animationActeTwoStart) {
+        if (fade < 255) {
+            setTimeout(() => {
+                fade = fade + fadeSpeed;
+            }, 500);
+        } else {
+            setTimeout(() => {
+                transitionStatus = 'Out'
+            }, 1000);
+        }
     } else {
-        transitionStatus = 'Out'
+        if (fade < 255) {
+            fade = fade + fadeSpeed;
+        } else {
+            transitionStatus = 'Out'
+        }
     }
 }
 
 function transitionOut() {
-    if (fade > 0) {
-        fade = fade - fadeSpeed;
+    if (animationActeTwoStart) {
+        if (fade > 0) {
+            setTimeout(() => {
+                fade = fade - fadeSpeed;
+            }, 500);
+        } else {
+            fade = 0
+            transitionStatus = 'Enter'
+            canDoTransition = false;
+            canMovePlayer = true;
+            animationActeTwoStart = false;
+            cursor('default');
+        }
     } else {
-        fade = 0
-        transitionStatus = 'Enter'
-        canDoTransition = false;
-        canMovePlayer = true;
-        cursor('default');
+        if (fade > 0) {
+            fade = fade - fadeSpeed;
+        } else {
+            fade = 0
+            transitionStatus = 'Enter'
+            canDoTransition = false;
+            canMovePlayer = true;
+            cursor('default');
+        }
     }
+
 }

@@ -2,8 +2,10 @@
 
 let debugMode = false;
 
+let redValue = 120;
+
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = true;
+let gameIsStarting = false;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;
@@ -13,7 +15,17 @@ let canShowObjectInAnimation = true;
 let newObjectToAdd = undefined;
 let canShowInventoryAnimation = false;
 let objectAsBeenAdToInventoryWithAnimation = false;
+let acteTwoIsStarting = false;
+let animationActeTwoStart = false;
 
+let actualChestStatusForWrench = undefined;
+let canOpenChest = false;
+
+
+let newObjectSize = 128;
+let newObjectOldX = 0;
+let newObjectOldY = 0;
+let canUpObjectSize = true;
 
 //+ This set screen settings
 let screenWidth = 1632;
@@ -161,6 +173,36 @@ setInterval(() => {
     }
 }, 110);
 
+//+ Set animation for Dorms Map Screen1 animation
+let indexOfAnimation7 = 0;
+setInterval(() => {
+    if (indexOfAnimation7 < 7) {
+        indexOfAnimation7 += 1;
+    } else {
+        indexOfAnimation7 = 0;
+    }
+}, 110);
+
+//+ Set animation for Dorms Map Screen2 animation
+let indexOfAnimation8 = 0;
+setInterval(() => {
+    if (indexOfAnimation8 < 38) {
+        indexOfAnimation8 += 1;
+    } else {
+        indexOfAnimation8 = 0;
+    }
+}, 110);
+
+//+ Set animation for Dorms Red Ligths animation
+let indexOfAnimation9 = 0;
+setInterval(() => {
+    if (indexOfAnimation9 < 24) {
+        indexOfAnimation9 += 1;
+    } else {
+        indexOfAnimation9 = 0;
+    }
+}, 110);
+
 //+ Set animation for main caracter movement
 let indexOfAnimation = 0;
 setInterval(() => {
@@ -186,25 +228,31 @@ function changeEngine() {
                     spritePlayerSize = screenHeight / 2.58;
 
                     playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
-                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    playerPosY = screenHeight - spritePlayerSize - 61;
                     break;
                 case "botanicMap":
                     spritePlayerSize = screenHeight / 2.58;
 
                     playerPosX = screenWidth / 3 - spritePlayerSize / 2;
-                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    playerPosY = screenHeight - spritePlayerSize - 61;
                     break;
                 case "commandMap":
                     spritePlayerSize = screenHeight / 2.58;
 
                     playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
-                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    playerPosY = screenHeight - spritePlayerSize - 61;
                     break;
                 case "capsuleMap":
                     spritePlayerSize = screenHeight / 2.58;
 
+                    playerPosX = screenWidth / 1.3 - spritePlayerSize / 2;
+                    playerPosY = screenHeight - spritePlayerSize - 61;
+                    break;
+                case "dormsMap":
+                    spritePlayerSize = screenHeight / 2.58;
+
                     playerPosX = screenWidth / 1.5 - spritePlayerSize / 2;
-                    playerPosY = screenHeight - spritePlayerSize - 58;
+                    playerPosY = screenHeight - spritePlayerSize - 47;
                     break;
             }
         }
@@ -214,17 +262,16 @@ function changeEngine() {
 
 //^ This function is used to show the text of dialogue feature
 function writeText(actualDialog) {
-    if (canInteract) {
+    if (canInteract && !canMovePlayer) {
         image(interactionButton, screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 64);
         textLeading(28);
         fill("rgba(31, 31, 31, 1)");
         strokeWeight(4);
         stroke("rgba(213, 213, 213, 0.24)");
         rect((screenWidth - 900) / 2, screenHeight - 200, 900, 170, 10);
-        fill("rgb(255,255,255)");
         if (bool) {
             if (speak) {
-                if (key && keyIsDown(69)) {
+                if (key && keyIsDown(69) && !canMovePlayer) {
                     if (index < actualDialog.length - 1) {
                         canMovePlayer = false;
                         index++;
@@ -242,7 +289,8 @@ function writeText(actualDialog) {
                         canInteract = false;
                         startingIsDialogsFinish = true;
                         canMoveAllNPC = true;
-                        if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag) {
+                        canOpenChest = false;
+                        if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory) {
                             canMovePlayer = true;
                             canDrawMenus = true;
                         }
@@ -251,12 +299,25 @@ function writeText(actualDialog) {
                             canShowInventoryAnimation = true;
                             newObjectToAdd = "seedsBagBotanicMap";
                             setTimeout(() => {
-                                objectAsBeenAdToInventoryWithAnimation = false;
-                            }, 10000);
-                            setTimeout(() => {
                                 canMovePlayer = true;
                                 quests.seedsBagQuest.canAddToInventorySeedBag = false;
                             }, 3500);
+                            setTimeout(() => {
+                                objectAsBeenAdToInventoryWithAnimation = false;
+                            }, 20000);
+                        }
+                        if (quests.repareCapsulesMap.canAddWrenchToInventory) {
+                            canDrawMenus = true;
+                            canShowInventoryAnimation = true;
+                            newObjectToAdd = "wrenchCapsulesMap";
+                            setTimeout(() => {
+                                canMovePlayer = true;
+                                quests.repareCapsulesMap.canAddWrenchToInventory = false;
+                                quests.repareCapsulesMap.canTakeWrench = false;
+                            }, 3500);
+                            setTimeout(() => {
+                                objectAsBeenAdToInventoryWithAnimation = false;
+                            }, 20000);
                         }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
@@ -288,18 +349,12 @@ function writeText(actualDialog) {
         }
         noStroke();
         textSize(14);
+        fill("rgb(255,255,255)");
         text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 120);
+        noFill();
         image(
             dialogsHeads.get(16 * actualHead, 0, 16, 16),
             (screenWidth) / 2 + 100, screenHeight - 345, 384, 384
         );
     }
 }
-
-
-
-
-let newObjectSize = 128;
-let newObjectOldX = 0;
-let newObjectOldY = 0;
-let canUpObjectSize = true;
