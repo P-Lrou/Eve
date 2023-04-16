@@ -21,7 +21,8 @@
     "wrenchIsTaked": false,
     "canRepareWall": false,
     "wallIsRepare": false,
-    "questRepareCapsulesMapIsOver": false
+    "questRepareCapsulesMapIsOver": false,
+    "hadTalkToFinn": false
   },
   "goToCloneMapAfterSleep": {
     "goToCloneMapAfterSleepIsStarted": false,

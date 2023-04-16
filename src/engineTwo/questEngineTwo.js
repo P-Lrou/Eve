@@ -9,9 +9,9 @@ function drawnQuestCloneMap() {
   }
   noStroke();
   if (quests.questCloneMap.isGoodForColor) {
-    fill('#00e4af')
+    fill('#00e4af77')
   } else {
-    fill('#e66a6a')
+    fill('#e66a6a75')
   }
   rect(950, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
   noFill();

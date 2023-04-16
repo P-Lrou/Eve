@@ -430,7 +430,7 @@ function openChest() {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
       if (keyIsDown(69) && canMovePlayer) {
-        if (quests.repareCapsulesMap.canTakeWrench) {
+        if (quests.repareCapsulesMap.canTakeWrench && actualQuestName === "repareCapsulesMap") {
           if (actualChestStatusForWrench) {
             actualDialog = moreInteractionJSON.chestInteractions[4];
             actualPlayersOrder = moreInteractionJSON.chestInteractions[5];

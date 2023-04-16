@@ -196,7 +196,7 @@ setInterval(() => {
 //+ Set animation for Dorms Red Ligths animation
 let indexOfAnimation9 = 0;
 setInterval(() => {
-    if (indexOfAnimation9 < 24) {
+    if (indexOfAnimation9 < 12) {
         indexOfAnimation9 += 1;
     } else {
         indexOfAnimation9 = 0;
@@ -262,24 +262,25 @@ function changeEngine() {
 
 //^ This function is used to show the text of dialogue feature
 function writeText(actualDialog) {
-    if (canInteract && !canMovePlayer) {
+    if (canInteract) {
         image(interactionButton, screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 64);
         textLeading(28);
         fill("rgba(31, 31, 31, 1)");
         strokeWeight(4);
         stroke("rgba(213, 213, 213, 0.24)");
         rect((screenWidth - 900) / 2, screenHeight - 200, 900, 170, 10);
+        noFill();
         if (bool) {
             if (speak) {
-                if (key && keyIsDown(69) && !canMovePlayer) {
+                if (key && keyIsDown(69)) {
                     if (index < actualDialog.length - 1) {
                         canMovePlayer = false;
                         index++;
                         i = 0;
                         tempText = "";
                         key = false
-                    } else {
-                        clearInterval(intervalId);
+                    } else if (!canMovePlayer) {
+                        clearInterval(idInterval);
                         i = 0;
                         tempText = "";
                         speak = false;
@@ -319,23 +320,30 @@ function writeText(actualDialog) {
                                 objectAsBeenAdToInventoryWithAnimation = false;
                             }, 20000);
                         }
+                        if (quests.repareCapsulesMap.hadTalkToFinn) {
+                            quests.repareCapsulesMap.canRepareWall = true;
+                        }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
                         }, 1000);
-                        setTimeout(() => {
-                            gameIsStarting = false;
-                            canMovePlayer = true;
-                            canShowArrows = true;
-                            canDrawMenus = true;
-                        }, 8000);
+                        if (gameIsStarting) {
+                            setTimeout(() => {
+                                gameIsStarting = false;
+                                canMovePlayer = true;
+                                canShowArrows = true;
+                                canDrawMenus = true;
+                            }, 8000);
+                        }
                     }
                 }
             } else {
                 speak = true
-                intervalId = setInterval(() => {
+                idInterval = setInterval(() => {
                     if (i == actualDialog[index].length) {
                         key = true
-                        return;
+                        canMovePlayer = false;
+                        canInteract = true;
+                        speak = true
                     } else {
                         tempText = tempText + actualDialog[index][i];
                         actualHead = actualPlayersOrder[index]
@@ -344,17 +352,18 @@ function writeText(actualDialog) {
                 }, 30);
             }
         } else {
-
             bool = true
         }
-        noStroke();
-        textSize(14);
-        fill("rgb(255,255,255)");
-        text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 120);
-        noFill();
-        image(
-            dialogsHeads.get(16 * actualHead, 0, 16, 16),
-            (screenWidth) / 2 + 100, screenHeight - 345, 384, 384
-        );
+        if (!canMovePlayer) {
+            noStroke();
+            textSize(14);
+            fill("rgb(255,255,255)");
+            text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 120);
+            noFill();
+            image(
+                dialogsHeads.get(16 * actualHead, 0, 16, 16),
+                (screenWidth) / 2 + 100, screenHeight - 345, 384, 384
+            );
+        }
     }
 }

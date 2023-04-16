@@ -218,7 +218,7 @@ function canTalkToNpc(actualNPC) {
       if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked && actualQuestName === "repareCapsulesMap") {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
-        quests.repareCapsulesMap.canRepareWall = true;
+        quests.repareCapsulesMap.hadTalkToFinn = true;
       }
       if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wallIsRepare && actualQuestName === "repareCapsulesMap") {
         actualDialog = actualNPC.dialog[6];
