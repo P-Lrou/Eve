@@ -146,7 +146,7 @@ function changeMapEngineTwo() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 && canMovePlayer && !canTalkingToNPC) {
       image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
-        if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+        if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
           canDoTransition = true;
           canMovePlayer = false;
           newEngineSelected = ENGINE_ONE;
@@ -158,7 +158,7 @@ function changeMapEngineTwo() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && !canTalkingToNPC) {
       image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       setTimeout(() => {
-        if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+        if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
           canDoTransition = true;
           canMovePlayer = false;
           newEngineSelected = ENGINE_ONE;
@@ -173,7 +173,7 @@ function canDoInteractionCloneQuest() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 && canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest && !canTalkingToNPC) {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     setTimeout(() => {
-      if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+      if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.questCloneMap.canDrawEngineCloneMapQuest = true;
         canMoveEngineTwo = false;
         canMoveAllNPC = false;
@@ -186,7 +186,7 @@ function canDoInteractionCloneQuest() {
 function canDointeractionCapsuleMapQuest() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 11 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 12 && quests.repareCapsulesMap.canRepareWall && canMovePlayer) {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
-    if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+    if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       removeFromInventory("wrenchCapsulesMap")
       quests.repareCapsulesMap.wallIsRepare = true;
     }
@@ -197,7 +197,7 @@ function canGoSleep() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && actualQuestName === 'sleepQuest') {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     setTimeout(() => {
-      if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+      if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         canDoTransition = true;
         animationActeTwoStart = true;
         canMovePlayer = false;
@@ -212,7 +212,7 @@ function takeGunAndCard() {
   if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleep.haveGun) {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer) {
       image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
-      if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+      if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.goToCloneMapAfterSleep.haveGun = true;
         quests.goToCloneMapAfterSleep.haveCard = true;
         canMovePlayer = false;
@@ -227,5 +227,18 @@ function takeGunAndCard() {
         }, 20000);
       }
     }
+  }
+}
+
+function showDialogsAfterWeakingUp() {
+  if (quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp) {
+    canMovePlayer = false;
+    canTalkGlobalNPC = false;
+    canMoveAllNPC = false;
+    canDrawMenus = false;
+    actualDialog = moreInteractionJSON.transitionDialogs[2];;
+    actualPlayersOrder = moreInteractionJSON.transitionDialogs[3];
+    canActiveDoorBool = false;
+    canInteract = true;
   }
 }

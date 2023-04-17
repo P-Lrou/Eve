@@ -8,6 +8,7 @@
     ["C'est plante doit rester sous verre...", "Je ne voudrais pas perdre mon doigt."],
     ["Eve...", "Le premier être humain que nous avons réussi à Cloner", "C'est notre dernier espoir."],
     ["Ceci est...", "une expérience ?"],
+    ["C'est le lit de Finn, le mien est plus loin."],
     [0, 0, 0]
   ],
   "dialogStartingAnimation": [
@@ -33,12 +34,13 @@
   "transitionDialogs":[
     ["AAAaaAAAAaaaAAAaaHHH !", "..."],
     [-1],
-    ["J'ai entendu des cris...", "Ca semblait venir de la salles des clones, quelque choses ne va pas..."]
+    ["J'ai entendu des cris...", "Ca semblait venir de la salles des clones, quelque choses ne va pas..."],
+    [0, 0]
   ],
   "doors":[
     ["Les cris provenait de la salle des clones..."],
     [0],
     ["L'alarme est activée...", "Les portes ne s'ouvriront plus sans une carte d'accès. ", "Il y en a une en salle des commandes, j'en profiterais pour récupérer une arme."],
-    [0]
+    [0, 0, 0]
   ]
 }

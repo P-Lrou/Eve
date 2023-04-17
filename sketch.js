@@ -51,7 +51,7 @@ function draw() {
     if (transitionStatus === "Enter") {
       transitionEnter();
     }
-    if (transitionStatus === "Out") {
+    if (transitionStatus === "Out" && !animationActeTwoStart) {
       currentEngine = newEngineSelected;
       transitionOut();
     }
@@ -60,6 +60,4 @@ function draw() {
     writeText(actualDialog);
     noFill();
   }
-  eIsPressed = false;
-  escapeIsPressed = false;
 }

@@ -57,7 +57,7 @@ function drawQuestMenu() {
         if (actualQuestName === 'goToCloneMapAfterSleep') {
             headNumber = 0;
             actualQuestTextMenu = "Que se passe-t-il ?"
-            if (quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert){
+            if (quests.goToCloneMapAfterSleep.haveShowMoreInformationAboutAlert){
                 actualQuestTextMenu = "Je dois aller chercher la carte d'accès et une arme."
             }
             if (quests.goToCloneMapAfterSleep.haveGun && quests.goToCloneMapAfterSleep.haveCard){

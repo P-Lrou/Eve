@@ -26,8 +26,11 @@
   },
   "goToCloneMapAfterSleep": {
     "goToCloneMapAfterSleepIsStarted": false,
+    "canShowDialogsAfterWeakingUp": false,
+    "haveShowAfterWeakingUp": false,
     "haveGun": false,
     "haveCard": false,
-    "canShowMoreInformationAboutAlert":false
+    "canShowMoreInformationAboutAlert": false,
+    "haveShowMoreInformationAboutAlert": false
   }
 }

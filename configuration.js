@@ -9,12 +9,18 @@ let haveStartTheGame = false;
 let eIsPressed = false;
 let escapeIsPressed = false;
 
-function keyPressed(){
+function keyReleased() {
     if (keyCode === 69) {
         eIsPressed = true
+        setTimeout(() => {
+            eIsPressed = false;
+        }, 50);
     }
-    if (keyCode === 27){
+    if (keyCode === 27) {
         escapeIsPressed = true;
+        setTimeout(() => {
+            escapeIsPressed = false;
+        }, 50);
     }
 }
 
@@ -315,9 +321,11 @@ function writeText(actualDialog) {
                         canMoveAllNPC = true;
                         canOpenChest = false;
                         actualHead = [-1];
-                        if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory) {
-                            canMovePlayer = true;
+                        if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory && !animationActeTwoStart) {
                             canDrawMenus = true;
+                            setTimeout(() => {
+                                canMovePlayer = true;
+                            }, 200);
                         }
                         if (quests.seedsBagQuest.canAddToInventorySeedBag) {
                             canDrawMenus = true;
@@ -347,17 +355,29 @@ function writeText(actualDialog) {
                         if (quests.repareCapsulesMap.hadTalkToFinn) {
                             quests.repareCapsulesMap.canRepareWall = true;
                         }
-                        if (animationActeTwoStart){
+                        if (quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert) {
+                            quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = false;
+                            quests.goToCloneMapAfterSleep.haveShowMoreInformationAboutAlert = true;
+                        }
+                        if (quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp) {
+                            quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = false;
+                            quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = true;
+                            quests.goToCloneMapAfterSleephaveShowAfterWeakingUp = true;
+                        }
+                        if (animationActeTwoStart) {
+                            canInteract = false;
                             actualQuestName = "goToCloneMapAfterSleep"
                             quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted = true;
                             leftDoorsAreClosed = true;
                             rigthDoorsAreClosed = true;
-                            transitionStatus = 'Out'
+                            animationActeTwoStart = false;
                         }
-                        setTimeout(() => {
-                            canTalkGlobalNPC = true;
-                            canActiveDoorBool = false;
-                        }, 1000);
+                        if (!animationActeTwoStart) {
+                            setTimeout(() => {
+                                canTalkGlobalNPC = true;
+                                canActiveDoorBool = false;
+                            }, 1000);
+                        }
                         if (gameIsStarting) {
                             setTimeout(() => {
                                 gameIsStarting = false;

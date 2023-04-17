@@ -77,6 +77,7 @@ function loadAssets() {
   screenOneAnimationDormsMap = loadImage("assets/dormsMap/screenOneAnimationDormsMap.png")
   screenTwoAnimationDormsMap = loadImage("assets/dormsMap/screenTwoAnimationDormsMap.png")
   ligthsDormsMap = loadImage("assets/dormsMap/ligthsDormsMap.png")
+  frontOfDormsMap = loadImage("assets/dormsMap/frontOfDormsMap.png")
   
   mainMenuBackgroundSound = createAudio("assets/sounds/mainMenuBackgroundSound.mp3")
 }

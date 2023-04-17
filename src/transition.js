@@ -11,6 +11,7 @@ function transitionEnter() {
                 fade = fade + fadeSpeed;
             }, 500);
         } else {
+            transitionStatus = 'Out'
             setTimeout(() => {
                 actualDialog = moreInteractionJSON.transitionDialogs[0];
                 actualPlayersOrder = moreInteractionJSON.transitionDialogs[1];
@@ -38,30 +39,16 @@ function transitionEnter() {
 }
 
 function transitionOut() {
-    if (animationActeTwoStart) {
-        if (fade > 0) {
-            setTimeout(() => {
-                fade = fade - fadeSpeed;
-            }, 500);
-        } else {
-            fade = 0
-            transitionStatus = 'Enter'
-            canDoTransition = false;
-            canMovePlayer = true;
-            animationActeTwoStart = false;
-            canInteract = false;
-            cursor('default');
-        }
-    } else if (!animationActeTwoStart) {
-        if (fade > 0) {
-            fade = fade - fadeSpeed;
-        } else {
-            fade = 0
-            transitionStatus = 'Enter'
-            canDoTransition = false;
-            canMovePlayer = true;
-            canInteract = false;
-            cursor('default');
+    if (fade > 0) {
+        fade = fade - fadeSpeed;
+    } else {
+        fade = 0
+        transitionStatus = 'Enter'
+        canDoTransition = false;
+        canMovePlayer = true;
+        cursor('default');
+        if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleephaveShowAfterWeakingUp) {
+            quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = true
         }
     }
 

@@ -3,6 +3,7 @@
 //^ This function actually start and managed the Engine One
 function engineTwoStart() {
   erase();
+  cursor('default');
   playerInputsEngineTwo();
   switch (actualMapEngineTwo) {
     case "cloneMap":
@@ -109,19 +110,21 @@ function engineTwoStart() {
       break;
     case "dormsMap":
       image(backgroundDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(screenOneAnimationDormsMap.get(324 * indexOfAnimation7, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(screenTwoAnimationDormsMap.get(324 * indexOfAnimation8, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      // image(screenOneAnimationDormsMap.get(324 * indexOfAnimation7, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      // image(screenTwoAnimationDormsMap.get(324 * indexOfAnimation8, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(ligthsDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawPlayerEngineTwo();
+      image(frontOfDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawInventory();
       drawQuestMenu();
+      showDialogsAfterWeakingUp();
       if (actualQuestName === 'sleepQuest') {
         canGoSleep();
       }
       break;
   }
   changeMapEngineTwo();
-  if (canInteract && !canMovePlayer) {
+  if (canInteract && !canMovePlayer  && !animationActeTwoStart) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)
     tint(0, 0, 0)

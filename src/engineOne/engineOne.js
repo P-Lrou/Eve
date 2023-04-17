@@ -2,6 +2,7 @@
 
 //^ This function actually start and managed the Engine One
 function engineOneStart() {
+  cursor('default');
   if (rigthDoorsAreClosed || leftDoorsAreClosed) {
     map = map2
   }
@@ -31,7 +32,9 @@ function engineOneStart() {
   openChest();
   showNotes();
   canActiveDoor();
-  if (canInteract && !canMovePlayer) {
+  showDoorMessage();
+  showMoreInformationsAboutAlert();
+  if (canInteract && !canMovePlayer && !animationActeTwoStart) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)
     tint(0, 0, 0)

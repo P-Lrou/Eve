@@ -7,34 +7,34 @@ function playerInputs() {
   Direction = [0, 0];
   playerState = "idle";
 
-  if (keyIsDown(UP_ARROW) || keyIsDown(90) && canMovePlayer) {
+  if (keyIsDown(UP_ARROW) && canMovePlayer || keyIsDown(90) && canMovePlayer) {
     mapY -= playerSpeed;
     Direction[1] -= 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(DOWN_ARROW) || keyIsDown(83) && canMovePlayer) {
+  if (keyIsDown(DOWN_ARROW) && canMovePlayer || keyIsDown(83) && canMovePlayer) {
     mapY += playerSpeed;
     Direction[1] += 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(81) && canMovePlayer) {
+  if (keyIsDown(LEFT_ARROW) && canMovePlayer || keyIsDown(81) && canMovePlayer) {
     mapX -= playerSpeed;
     Direction[0] -= 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68) && canMovePlayer) {
+  if (keyIsDown(RIGHT_ARROW) && canMovePlayer || keyIsDown(68) && canMovePlayer) {
     mapX += playerSpeed;
     Direction[0] += 1;
     playerState = "mooving";
   }
 
-  if (keyIsDown(49)) actualInventoryChoose = 1; // Keyboard 1 --> Set inventory slot selected to 1
-  if (keyIsDown(50)) actualInventoryChoose = 2; // Keyboard 2 --> Set inventory slot selected to 2
-  if (keyIsDown(51)) actualInventoryChoose = 3; // Keyboard 3 --> Set inventory slot selected to 3
-  if (keyIsDown(52)) actualInventoryChoose = 4; // Keyboard 4 --> Set inventory slot selected to 4
+  if (keyIsDown(49) && canMovePlayer) actualInventoryChoose = 1; // Keyboard 1 --> Set inventory slot selected to 1
+  if (keyIsDown(50) && canMovePlayer) actualInventoryChoose = 2; // Keyboard 2 --> Set inventory slot selected to 2
+  if (keyIsDown(51) && canMovePlayer) actualInventoryChoose = 3; // Keyboard 3 --> Set inventory slot selected to 3
+  if (keyIsDown(52) && canMovePlayer) actualInventoryChoose = 4; // Keyboard 4 --> Set inventory slot selected to 4
 
 
   madeCollision();
@@ -83,8 +83,15 @@ function drawPlayer() {
   if (checkIfIsObject(getTileNameForObject(BottomCornerRight))) {
     takeObject(BottomCornerRight);
   }
+
   if (getTileNameForObject(BottomCornerRight) === 198 || getTileNameForObject(BottomCornerLeft) === 198 || getTileNameForObject(TopCornerRight) === 198 || getTileNameForObject(TopCornerLeft) === 198) {
     canActiveDoorBool = true;
+  }
+
+  if (getTileNameForObject4(BottomCornerRight) === 259 || getTileNameForObject4(BottomCornerLeft) === 259 || getTileNameForObject4(TopCornerRight) === 259 || getTileNameForObject4(TopCornerLeft) === 259 ||
+    getTileNameForObject4(BottomCornerRight) === 260 || getTileNameForObject4(BottomCornerLeft) === 260 || getTileNameForObject4(TopCornerRight) === 260 || getTileNameForObject4(TopCornerLeft) === 260 ||
+    getTileNameForObject4(BottomCornerRight) === 261 || getTileNameForObject4(BottomCornerLeft) === 261 || getTileNameForObject4(TopCornerRight) === 261 || getTileNameForObject4(TopCornerLeft) === 261) {
+    canShowDoorMessage = true;
   }
 }
 
@@ -266,6 +273,10 @@ function getTileNameForObject3(point) {
   return map.layers[3][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
 }
 
+function getTileNameForObject4(point) {
+  return map.layers[4][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
+}
+
 //^ This function made the collision for the player
 function madeCollision() {
   let TopCornerLeft = getTopCornerLeft([playerPosX + 28, playerPosY + 110, spritePlayerSize, spritePlayerSize,]);
@@ -365,7 +376,7 @@ function madeCollision() {
 //- Take in param the player position point
 function takeObject(point) {
   image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
-  if (keyIsDown(69) && canMovePlayer) {
+  if (eIsPressed && canMovePlayer) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
     map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)] = 0;
@@ -378,7 +389,7 @@ function changeMap(map) {
   if (map === "clone") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69) && canMovePlayer) {
+      if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "cloneMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
@@ -391,7 +402,7 @@ function changeMap(map) {
   if (map === "botanic") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69) && canMovePlayer) {
+      if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "botanicMap";
         actualDirectionEngineTwo = "rigth";
         EngineTwoMapX = 0;
@@ -404,7 +415,7 @@ function changeMap(map) {
   if (map === "command") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69) && canMovePlayer) {
+      if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "commandMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
@@ -417,7 +428,7 @@ function changeMap(map) {
   if (map === "capsule") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69) && canMovePlayer) {
+      if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "capsuleMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
@@ -430,7 +441,7 @@ function changeMap(map) {
   if (map === "dorms") {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69) && canMovePlayer) {
+      if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "dormsMap";
         actualDirectionEngineTwo = "left";
         EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
@@ -447,7 +458,7 @@ function openChest() {
   if (canOpenChest) {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69) && canMovePlayer) {
+      if (eIsPressed && canMovePlayer) {
         if (quests.repareCapsulesMap.canTakeWrench && actualQuestName === "repareCapsulesMap") {
           if (actualChestStatusForWrench) {
             actualDialog = moreInteractionJSON.chestInteractions[4];
@@ -496,7 +507,7 @@ function showNotes() {
   if (canReadNote) {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
-      if (keyIsDown(69)) {
+      if (eIsPressed && canMovePlayer) {
         canMovePlayer = false;
         canTalkGlobalNPC = false;
         canMoveAllNPC = false;
@@ -516,7 +527,7 @@ function showNotes() {
       image(note2, screenWidth / 2 - 300, 18, 600, 882);
     }
     setTimeout(() => {
-      if (keyIsDown(69)) {
+      if (eIsPressed && !canMovePlayer) {
         canReadNote = false;
         canMovePlayer = true;
         canTalkGlobalNPC = true;
@@ -535,7 +546,7 @@ function canActiveDoor() {
     if (mapX > 2500) {
       image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
       setTimeout(() => {
-        if (keyIsDown(69)) {
+        if (eIsPressed && canMovePlayer) {
           canMovePlayer = false;
           canTalkGlobalNPC = false;
           canMoveAllNPC = false;
@@ -549,13 +560,63 @@ function canActiveDoor() {
     } else {
       image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
       setTimeout(() => {
-        if (keyIsDown(69)) {
+        if (eIsPressed && canMovePlayer) {
           removeFromInventory("card")
           leftDoorsAreClosed = false;
           canActiveDoorBool = false;
+          quests.goToCloneMapAfterSleep.haveCard = false;
         }
       }, 500)
     }
   }
   canActiveDoorBool = false;
+}
+
+
+function showMoreInformationsAboutAlert() {
+  if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert && canMovePlayer) {
+    if (mapX > 630) {
+      canMovePlayer = false;
+      canTalkGlobalNPC = false;
+      canMoveAllNPC = false;
+      canDrawMenus = false;
+      actualDialog = moreInteractionJSON.doors[2];;
+      actualPlayersOrder = moreInteractionJSON.doors[3];
+      canActiveDoorBool = false;
+      canInteract = true;
+    }
+  }
+}
+
+function showDoorMessage() {
+  if (canShowDoorMessage && leftDoorsAreClosed && !quests.goToCloneMapAfterSleep.haveCard) {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (eIsPressed && canMovePlayer) {
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+        actualDialog = moreInteractionJSON.doors[2];;
+        actualPlayersOrder = moreInteractionJSON.doors[3];
+        canActiveDoorBool = false;
+        canInteract = true;
+      }
+    }, 500)
+  } else if (canShowDoorMessage && rigthDoorsAreClosed) {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (eIsPressed && canMovePlayer) {
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+        actualDialog = moreInteractionJSON.doors[0];;
+        actualPlayersOrder = moreInteractionJSON.doors[1];
+        canActiveDoorBool = false;
+        canInteract = true;
+      }
+    }, 500)
+  }
+  canShowDoorMessage = false;
 }

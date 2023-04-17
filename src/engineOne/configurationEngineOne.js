@@ -38,6 +38,7 @@ let canUpRed = true;
 let redValue = 0;
 
 let canActiveDoorBool = false;
+let canShowDoorMessage = false;
 
 setInterval(() => {
     if (canUpRed) {

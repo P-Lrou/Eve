@@ -159,7 +159,7 @@ function canTalkToNpc(actualNPC) {
   if (actualNPC.canTalk && canMovePlayer && canTalkGlobalNPC) {
     canTalkingToNPC = true;
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
-    if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+    if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       canInteract = true;
       canMovePlayer = false;
       canTalkGlobalNPC = false;
