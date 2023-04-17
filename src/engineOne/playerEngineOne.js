@@ -285,7 +285,7 @@ function madeCollision() {
   if (quests.goToCloneMapAfterSleep.haveGun) {
     TopCornerLeft = getTopCornerLeft([playerPosX, playerPosY + 110, spritePlayerSize, spritePlayerSize,]);
     TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 110, spritePlayerSize, spritePlayerSize,]);
-    BottomCornerLeft = getBottomCornerLeft([playerPosX , playerPosY, spritePlayerSize - 40, spritePlayerSize + 8,]);
+    BottomCornerLeft = getBottomCornerLeft([playerPosX, playerPosY, spritePlayerSize - 40, spritePlayerSize + 8,]);
     BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize, spritePlayerSize + 8,]);
   }
   if (debugMode) {
@@ -602,8 +602,8 @@ function showDoorMessage() {
         canTalkGlobalNPC = false;
         canMoveAllNPC = false;
         canDrawMenus = false;
-        actualDialog = moreInteractionJSON.doors[2];;
-        actualPlayersOrder = moreInteractionJSON.doors[3];
+        actualDialog = moreInteractionJSON.doors[4];
+        actualPlayersOrder = moreInteractionJSON.doors[5];
         canActiveDoorBool = false;
         canInteract = true;
       }
