@@ -26,7 +26,7 @@ function drawQuestMenu() {
         }
         if (actualQuestName === 'questCloneMap') {
             headNumber = 2
-            actualQuestTextMenu = "Allie m'a demander de retourner la voir."
+            actualQuestTextMenu = "Allie m'a demandé de retourner la voir."
             if (quests.questCloneMap.canDrawInteractionClonMapQuest) {
                 actualQuestTextMenu = "Je dois utiliser l'interface de contrôle."
             }
@@ -36,7 +36,7 @@ function drawQuestMenu() {
         }
         if (actualQuestName === 'repareCapsulesMap') {
             headNumber = 1
-            actualQuestTextMenu = "Cela fait un moment que je n'est pas vu Finn, je devrais peut-être allez voir ce qu'il fait."
+            actualQuestTextMenu = "Cela fait un moment que je n'est pas vu Finn, je devrais peut-être aller voir ce qu'il fait."
             if (quests.repareCapsulesMap.canTakeWrench) {
                 actualQuestTextMenu = "D'après Finn, la clé à molette devrait se trouver dans un des coffres. Essayons de la trouver."
             }

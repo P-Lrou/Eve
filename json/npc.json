@@ -17,7 +17,7 @@
         ["Eve continue d'évoluer, elle me surprends de jour en jour."],
         [2],
         [
-          "Ah, te revoilà. Les capteures dans la cuve de Eve indique que un surplus d'oxygène...",
+          "Ah, te revoilà. Les capteurs dans la cuve de Ève indique un surplus d'oxygène...",
           "Cela m'inquiète, pourrais-tu tenter de réguler les niveaux en utilisant l'interface de contrôle ?",
           "Je vais voir ce que je peux faire."
         ],
@@ -51,8 +51,8 @@
         ["Ma dernière expérience à réussie, les plantes ne fanent plus sous une chaleur extrème."],
         [3],
         [
-          "J'aurais besoin de ton aide.",
-          "J'ai donnée des graines à Allie pour qu'elle les analyses, elle à dû oublier de me les rendre.",
+          "Lowen te voilà, j'aurais besoin de ton aide.",
+          "J'ai donné des graines à Allie pour qu'elle les analyse, elle a dû oublier de me les rendre.",
           "Peux-tu aller les récupérer pour moi ? Je dois rester surveiller mon expérience.",
           "Allie doit se trouver dans la salle des clones.",
           "D'accord, j'y vais tout de suite."
@@ -85,7 +85,7 @@
           "Salut Lowen, tu tombe bien, j'aurais besoin de ton aide.",
           "Que se passe-t-il ?",
           "Comme tu peux le voir, du gaz s'échappe des tuyaux du sas. Il faut régler ce problème de toute urgence.",
-          "D'après mes souvenirs, une clé à mollette ce trouve dans l'un des coffres de la station. Pourrais-tu aller la chercher ?",
+          "D'après mes souvenirs, une clé à mollette se trouve dans l'un des coffres de la station. Pourrais-tu aller la chercher ?",
           "Je crois que les coffres sont vérouillés.",
           "Tu as raison, je te les ai dévérouillés à distance.",
           "Merci, j'y vais tout de suite."
