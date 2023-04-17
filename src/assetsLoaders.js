@@ -14,6 +14,7 @@ function loadAssets() {
   homePagePlayButton = loadImage("assets/menu/homePagePlayButton.png");
   homePagePlayButtonHover = loadImage("assets/menu/homePagePlayButtonHover.png");
   clickImage = loadImage("assets/menu/clickImage.png");
+  settingsImage = loadImage("assets/menu/settingsImage.png")
 
   card = loadImage("assets/objects/card.png");
   note0 = loadImage("assets/objects/note0.png");

@@ -1,14 +1,14 @@
 {
   "moreInteractions": [
-    ["C'est la planête Terre.", "Elle me manque un peu parfois..."],
+    ["Notre planête Terre souffre...", "Je n'aurai sûrement jamais l'occasion d'y retourner."],
     [
-      "Cette plante est énorme !",
-      "J'èspère qu'elle n'envahira pas le vaisseau..."
+      "Cette plante est impressionnante !",
+      "J'èspère qu'elle n'envahira pas la station..."
     ],
-    ["Quelle belle plante.", "Veillons à ne pas l'abimer."],
-    ["C'est Eve...", "Le premier être humain que nous avons réussi a Cloner"],
+    ["C'est plante doit rester sous verre...", "Je ne voudrais pas perdre mon doigt."],
+    ["Eve...", "Le premier être humain que nous avons réussi à Cloner", "C'est notre dernier espoir."],
     ["Ceci est...", "une expérience ?"],
-    [0, 0]
+    [0, 0, 0]
   ],
   "dialogStartingAnimation": [
     [
@@ -27,15 +27,18 @@
     [0],
     ["Ce coffre est vide..."],
     [0],
-    ["J'ai trouvé la clé ! Je devrais l'apporter à Finn."],
+    ["J'ai trouvé la clé à molette ! Je devrais l'apporter à Finn."],
     [0] 
   ],
   "transitionDialogs":[
-    ["ahhhhhhhhh !", "..."],
-    [-1]
+    ["AAAaaAAAAaaaAAAaaHHH !", "..."],
+    [-1],
+    ["J'ai entendu des cris...", "Ca semblait venir de la salles des clones, quelque choses ne va pas..."]
   ],
   "doors":[
     ["Les cris provenait de la salle des clones..."],
+    [0],
+    ["L'alarme est activée...", "Les portes ne s'ouvriront plus sans une carte d'accès. ", "Il y en a une en salle des commandes, j'en profiterais pour récupérer une arme."],
     [0]
   ]
 }

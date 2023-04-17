@@ -3,13 +3,18 @@
 let debugMode = false;
 let gameIsStarting = true;
 let acteTwoIsStarting = false;
+let haveStartTheGame = false;
 
 
 let eIsPressed = false;
+let escapeIsPressed = false;
 
 function keyPressed(){
     if (keyCode === 69) {
         eIsPressed = true
+    }
+    if (keyCode === 27){
+        escapeIsPressed = true;
     }
 }
 

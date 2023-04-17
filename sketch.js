@@ -61,4 +61,5 @@ function draw() {
     noFill();
   }
   eIsPressed = false;
+  escapeIsPressed = false;
 }

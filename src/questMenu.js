@@ -16,47 +16,53 @@ function drawQuestMenu() {
         text("Quêtes :", 25, 60, 180, 120);
         if (actualQuestName === 'seedsBagQuest') {
             headNumber = 3
-            actualQuestTextMenu = "Retrouve Rose dans la salle botanique."
+            actualQuestTextMenu = "Je dois retrouver Octavia en salle Botanique."
             if (quests.seedsBagQuest.canTakeSeedBag) {
-                actualQuestTextMenu = "Va voir Juillette dans la salle des clones pour récupérer les graines."
+                actualQuestTextMenu = "Allie est en salle des clones, c'est elle qui à les graines."
             }
             if (quests.seedsBagQuest.seedBagHasBeenTaked) {
-                actualQuestTextMenu = "Retourne voir Rose pour lui apporter les graines."
+                actualQuestTextMenu = "Je dois rendre les graines à Octavia."
             }
         }
         if (actualQuestName === 'questCloneMap') {
             headNumber = 2
-            actualQuestTextMenu = "Retourne voir Juliette en salle des clones."
+            actualQuestTextMenu = "Allie m'a demander de retourner la voir."
             if (quests.questCloneMap.canDrawInteractionClonMapQuest) {
-                actualQuestTextMenu = "Cherche un moyen de réguler les niveau d'oxygène."
+                actualQuestTextMenu = "Je dois utiliser l'interface de contrôle."
             }
             if (quests.questCloneMap.questCloneMapIsOver) {
-                actualQuestTextMenu = "Va voir Juliette afin de l'informée que les niveaux sont à jour."
+                actualQuestTextMenu = "J'ai résolu le problème d'Allie, je dois lui dire."
             }
         }
         if (actualQuestName === 'repareCapsulesMap') {
             headNumber = 1
             actualQuestTextMenu = "Cela fait un moment que je n'est pas vu Finn, je devrais peut-être allez voir ce qu'il fait."
             if (quests.repareCapsulesMap.canTakeWrench) {
-                actualQuestTextMenu = "D'après Finn, la clé à molette devrait ce trouver dans les couloirs du vaisseaux. Essayons de la trouver."
+                actualQuestTextMenu = "D'après Finn, la clé à molette devrait se trouver dans un des coffres. Essayons de la trouver."
             }
             if (quests.repareCapsulesMap.wrenchIsTaked) {
-                actualQuestTextMenu = "Retourne voir Finn pour lui montrer la clé."
+                actualQuestTextMenu = "Je devrais rejoindre Finn."
             }
             if (quests.repareCapsulesMap.canRepareWall) {
-                actualQuestTextMenu = "Va réparer la capsules."
+                actualQuestTextMenu = "Allons vite réparer cette fuite !"
             }
             if (quests.repareCapsulesMap.wallIsRepare) {
-                actualQuestTextMenu = "Va voir Finn pour lui dire que le mur est réparé."
+                actualQuestTextMenu = "C'est réparé. Allons voir Finn."
             }
         }
         if (actualQuestName === 'sleepQuest') {
             headNumber = 0
-            actualQuestTextMenu = "Il se fait tard, je ferai bien d'aller me coucher."
+            actualQuestTextMenu = "Finn à raison, je devrais aller me reposer."
         }
         if (actualQuestName === 'goToCloneMapAfterSleep') {
             headNumber = 0;
-            actualQuestTextMenu = "J'ai entendu un cris dans la salles des clones. Je ferai bien d'aller chercher de quoi me protéger dans la salles des commandes."
+            actualQuestTextMenu = "Que se passe-t-il ?"
+            if (quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert){
+                actualQuestTextMenu = "Je dois aller chercher la carte d'accès et une arme."
+            }
+            if (quests.goToCloneMapAfterSleep.haveGun && quests.goToCloneMapAfterSleep.haveCard){
+                actualQuestTextMenu = "Il est temps d'aller voir ce qu'il se passe en salle des clones."
+            }
         }
         textSize(9);
         text(actualQuestTextMenu, 25, 110, 180, 120);

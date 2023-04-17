@@ -14,24 +14,26 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Salut"],
+        ["Eve continue d'évoluer, elle me surprends de jour en jour."],
         [2],
         [
-          "Ah, te revoilà. J'ai besoin de ton aide pour régler un soucis avec Eve",
-          "Un soucis ?",
-          "Oui, les niveaux d'oxygène dans la cuve sont déreglés. Pourrais-tu t'en occuper ?",
-          "Oui, je vais m'en occuper, compte sur moi."
+          "Ah, te revoilà. Les capteures dans la cuve de Eve indique que un surplus d'oxygène...",
+          "Cela m'inquiète, pourrais-tu tenter de réguler les niveaux en utilisant l'interface de contrôle ?",
+          "Je vais voir ce que je peux faire."
         ],
-        [2, 0, 2, 0],
-        ["Problème régler !", "Parfais, merci beaucoup de ton aide."],
-        [0, 2],
+        [2, 2, 0],
+        ["Problème réglé ! Tout est en ordre.",
+        "C'est étrange, cela n'était jamais arrivé. Il faudra rester vigilent.", 
+        "Parfait, merci pour ton aide."],
+        [0, 0, 2],
         [
-          "Juliette, je crois que tu as quelque chose pour Rose.",
+          "Allie, je crois que tu as quelque chose pour Octavia.",
           "Oh, les graines, j'avais complétement oublié, tiens, les voilà.",
+          "Les resultats de l'analyse ne devraient pas tarder.",
           "Merci. Je lui rapporte.",
-          "Lowen, quand tu aura fini avec Rose, reviens me voir, j'aurai quelque chose à te demander."
+          "Lowen, quand tu aura fini avec Octavia, reviens me voir, j'aurai besoin de ton aide."
         ],
-        [0, 2, 0, 2]
+        [0, 2, 2, 0, 2]
       ]
     },
     {
@@ -46,20 +48,22 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Salut"],
+        ["Ma dernière expérience à réussie, les plantes ne fanent plus sous une chaleur extrème."],
         [3],
         [
           "J'aurais besoin de ton aide.",
-          "Peux-tu aller récupérer un sac de graine à Juliette ?",
-          "Elle doit se trouver dans la salle des clones.",
+          "J'ai donnée des graines à Allie pour qu'elle les analyses, elle à dû oublier de me les rendre.",
+          "Peux-tu aller les récupérer pour moi ? Je dois rester surveiller mon expérience.",
+          "Allie doit se trouver dans la salle des clones.",
           "D'accord, j'y vais tout de suite."
         ],
-        [3, 3, 3, 0],
+        [3, 3, 3, 3, 0],
         [
           "Tien voici le sac de graines.",
-          "Merci beaucoup. Je vais povoir faire pousser des plantes."
+          "Allie devrait bientôt t'envoyer les résultats.",
+          "Merci beaucoup. Ces graines sont sensées faire pousser un nouveau type de plantes, capables de résister aux conditions terrestres."
         ],
-        [0, 3]
+        [0, 0, 3]
       ]
     },
     {
@@ -74,26 +78,28 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Salut"],
+        ["Je prépare notre prochaine sortie extra-véhiculaire. La station aurait besoin d'un peu d'entretien..."],
         [1],
         [
-          "Oh salut Lowen, tu tombe bien, j'aurais besoin de ton aide.",
-          "Oui, dit moi.",
-          "Il y a un problème dans la salle des capsule, pourrais-tu regarder pour le réparer ?",
-          "Pour cela tu aura besoin d'une clé à molette, tu devrais en trouver une dans un des coffres de la base.",
-          "Je vais te les dévérouiller à distance... Voilà tu peu maintenant les ouvrirs.",
-          "D'accord, je vais regarder."
+          "Finn, te voilà !",
+          "Salut Lowen, tu tombe bien, j'aurais besoin de ton aide.",
+          "Que se passe-t-il ?",
+          "Comme tu peux le voir, du gaz s'échappe des tuyaux du sas. Il faut régler ce problème de toute urgence.",
+          "D'après mes souvenirs, une clé à mollette ce trouve dans l'un des coffres de la station. Pourrais-tu aller la chercher ?",
+          "Je crois que les coffres sont vérouillés.",
+          "Tu as raison, je te les ai dévérouillés à distance.",
+          "Merci, j'y vais tout de suite."
         ],
-        [1, 0, 1, 1, 1, 0],
+        [0, 1, 0, 1, 1, 0, 1, 0],
         [
-          "C'est bon Finn, j'ai trouvé la clé à molette.",
-          "Merci beaucoup, utilise là pour réparer la fuite et reviens me voir quand tu aura fini."
+          "J'ai trouvé la clé à molette.",
+          "Merci, utilise la pour réparer la fuite et reviens me voir."
         ],
         [0, 1],
         [
-          "J'ai réussi à réparer la capsule Finn",
-          "C'est parfais, merci de ton aide.",
-          "Tu ferai bien d'aller te coucher maintenant, il se fait tard."
+          "Le tuyau ne fuit plus, Hope II commence à se faire vielle.",
+          "C'est parfait, merci de ton aide.",
+          "Tu a l'air fatigué. Tu devrais aller te reposer un peu au dortoir."
         ],
         [0, 1, 1]
       ]

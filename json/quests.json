@@ -27,6 +27,7 @@
   "goToCloneMapAfterSleep": {
     "goToCloneMapAfterSleepIsStarted": false,
     "haveGun": false,
-    "haveCard": false
+    "haveCard": false,
+    "canShowMoreInformationAboutAlert":false
   }
 }

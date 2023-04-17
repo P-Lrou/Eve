@@ -17,11 +17,21 @@ function transitionEnter() {
                 canInteract = true;
             }, 2000);
         }
-    } else {
+    } else if (!animationActeTwoStart) {
         if (fade < 255) {
             fade = fade + fadeSpeed;
         } else {
             transitionStatus = 'Out'
+            if (!canShowClickImage) {
+                if (canShowSettingsMenu === true) {
+                    canShowSettingsMenu = false;
+                    return;
+                }
+                if (canShowSettingsMenu === false) {
+                    canShowSettingsMenu = true;
+                    return;
+                }
+            }
             canShowClickImage = false;
         }
     }
@@ -42,7 +52,7 @@ function transitionOut() {
             canInteract = false;
             cursor('default');
         }
-    } else {
+    } else if (!animationActeTwoStart) {
         if (fade > 0) {
             fade = fade - fadeSpeed;
         } else {
