@@ -98,12 +98,12 @@ function drawPlayer() {
 //^ This function draw the player if he dont move
 function drawIdlePlayer() {
   if (acteTwoIsStarting && !quests.goToCloneMapAfterSleep.haveGun) {
-    image(mainCaracterDark.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+    image(mainCaracterDark.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
   } else if (!quests.goToCloneMapAfterSleep.haveGun) {
-    image(mainCaracter.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+    image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
   }
   if (quests.goToCloneMapAfterSleep.haveGun) {
-    image(mainCaracterDarkWeapon.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+    image(mainCaracterDarkWeapon.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
   }
 }
 
