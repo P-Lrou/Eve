@@ -184,7 +184,7 @@ function canDoInteractionCloneQuest() {
 }
 
 function canDointeractionCapsuleMapQuest() {
-  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 11 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 12 && quests.repareCapsulesMap.canRepareWall && canMovePlayer) {
+  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 11 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 12 && quests.repareCapsulesMap.canRepareWall && canMovePlayer && actualQuestName === 'repareCapsulesMap') {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       removeFromInventory("wrenchCapsulesMap")
