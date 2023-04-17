@@ -30,6 +30,7 @@ function engineOneStart() {
   playerInputs();
   openChest();
   showNotes();
+  canActiveDoor();
   if (canInteract && !canMovePlayer) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)

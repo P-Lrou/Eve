@@ -46,10 +46,10 @@ function playerInputs() {
 
 //^ This function call the function to draw the player using the direction
 function drawPlayer() {
-  let TopCornerLeft = getTopCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize, spritePlayerSize,]);
-  let TopCornerRight = getTopCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize,]);
-  let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize - 2,]);
-  let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize - 2,]);
+  let TopCornerLeft = getTopCornerLeft([playerPosX + 28, playerPosY + 45, spritePlayerSize, spritePlayerSize,]);
+  let TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 45, spritePlayerSize - 28, spritePlayerSize,]);
+  let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize + 8,]);
+  let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize + 8,]);
 
   // fill("red")
   // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
@@ -82,6 +82,9 @@ function drawPlayer() {
   }
   if (checkIfIsObject(getTileNameForObject(BottomCornerRight))) {
     takeObject(BottomCornerRight);
+  }
+  if (getTileNameForObject(BottomCornerRight) === 198 || getTileNameForObject(BottomCornerLeft) === 198 || getTileNameForObject(TopCornerRight) === 198 || getTileNameForObject(TopCornerLeft) === 198) {
+    canActiveDoorBool = true;
   }
 }
 
@@ -282,10 +285,7 @@ function madeCollision() {
   // ellipse(BottomCornerLeft[0], BottomCornerLeft[1], 15)
   // fill("yellow")
   // ellipse(BottomCornerRight[0], BottomCornerRight[1], 15)
-  // console.log("topleft")
-  // console.log(getTileName(TopCornerLeft))
-  // console.log("topright")
-  // console.log(getTileName(TopCornerRight))
+
   if (checkIfIsCollisionWall(getTileName(TopCornerLeft)) || checkIfIsCollisionWall(getTileNameForObject(TopCornerLeft))) {
     if (Direction[0] === -1) {
       mapX += playerSpeed;
@@ -527,4 +527,35 @@ function showNotes() {
     }, 500);
   }
   canReadNote = false;
+}
+
+
+function canActiveDoor() {
+  if (acteTwoIsStarting && quests.goToCloneMapAfterSleep.haveCard && canActiveDoorBool && canMovePlayer) {
+    if (mapX > 2500) {
+      image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+      setTimeout(() => {
+        if (keyIsDown(69)) {
+          canMovePlayer = false;
+          canTalkGlobalNPC = false;
+          canMoveAllNPC = false;
+          canDrawMenus = false;
+          actualDialog = moreInteractionJSON.doors[0];;
+          actualPlayersOrder = moreInteractionJSON.doors[1];
+          canActiveDoorBool = false;
+          canInteract = true;
+        }
+      }, 500);
+    } else {
+      image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+      setTimeout(() => {
+        if (keyIsDown(69)) {
+          removeFromInventory("card")
+          leftDoorsAreClosed = false;
+          canActiveDoorBool = false;
+        }
+      }, 500)
+    }
+  }
+  canActiveDoorBool = false;
 }

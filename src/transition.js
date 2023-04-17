@@ -39,6 +39,7 @@ function transitionOut() {
             canDoTransition = false;
             canMovePlayer = true;
             animationActeTwoStart = false;
+            canInteract = false;
             cursor('default');
         }
     } else {
@@ -49,6 +50,7 @@ function transitionOut() {
             transitionStatus = 'Enter'
             canDoTransition = false;
             canMovePlayer = true;
+            canInteract = false;
             cursor('default');
         }
     }

@@ -1,6 +1,8 @@
 //& This file setup all variables for the global game
 
 let debugMode = false;
+let gameIsStarting = true;
+let acteTwoIsStarting = false;
 
 
 let eIsPressed = false;
@@ -12,7 +14,6 @@ function keyPressed(){
 }
 
 let actualQuestName = "seedsBagQuest"
-let gameIsStarting = true;
 let startingIsDialogsFinish = false;
 let canShowArrows = false;
 let alphaArrows = 0;
@@ -22,7 +23,6 @@ let canShowObjectInAnimation = true;
 let newObjectToAdd = undefined;
 let canShowInventoryAnimation = false;
 let objectAsBeenAdToInventoryWithAnimation = false;
-let acteTwoIsStarting = false;
 let animationActeTwoStart = false;
 
 let actualChestStatusForWrench = undefined;
@@ -351,6 +351,7 @@ function writeText(actualDialog) {
                         }
                         setTimeout(() => {
                             canTalkGlobalNPC = true;
+                            canActiveDoorBool = false;
                         }, 1000);
                         if (gameIsStarting) {
                             setTimeout(() => {

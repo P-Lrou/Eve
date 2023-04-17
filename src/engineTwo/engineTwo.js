@@ -19,7 +19,9 @@ function engineTwoStart() {
       } else {
         image(lightCloneMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
-      drawNPCEngineTwo("npcJulliette");
+      if (!acteTwoIsStarting) {
+        drawNPCEngineTwo("npcJulliette");
+      }
       canDoInteractionCloneQuest();
       drawPlayerEngineTwo();
       if (acteTwoIsStarting) {
@@ -39,7 +41,9 @@ function engineTwoStart() {
       image(backgroundBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(planteAnimationBotanicMap.get(324 * indexOfAnimation3, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(lightBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      drawNPCEngineTwo("npcRose");
+      if (!acteTwoIsStarting) {
+        drawNPCEngineTwo("npcRose");
+      }
       drawPlayerEngineTwo();
       drawInventory();
       drawQuestMenu();
@@ -88,14 +92,15 @@ function engineTwoStart() {
       if (quests.repareCapsulesMap.wallIsRepare || !quests.repareCapsulesMap.questRepareCapsulesMapIsStarted) {
         image(normalPipe, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       } else {
-        image(normalPipe, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
         image(gazPipe.get(324 * indexOfAnimation10, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       image(ligthsCapsuleMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       if (acteTwoIsStarting) {
         image(redLigthsAnimation.get(324 * indexOfAnimation9, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
-      drawNPCEngineTwo('npcFinn');
+      if (!acteTwoIsStarting) {
+        drawNPCEngineTwo('npcFinn');
+      }
       drawPlayerEngineTwo();
       image(pipeFront, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawInventory();

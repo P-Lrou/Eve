@@ -37,6 +37,8 @@ let canDownRed = false;
 let canUpRed = true;
 let redValue = 0;
 
+let canActiveDoorBool = false;
+
 setInterval(() => {
     if (canUpRed) {
       if (redValue < 140) {

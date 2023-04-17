@@ -58,9 +58,9 @@ function expandRect(rect, expandSize) {
 let mainMenuBackgroundSoundIsActivated = true;
 let canStartMainMenuSong = true;
 function playMainMenuMusic() {
-    console.log('mainMenuBackgroundSound Started')
     canStartMainMenuSong = false;
     if (mainMenuBackgroundSoundIsActivated) {
+        console.log('mainMenuBackgroundSound Started')
         mainMenuBackgroundSound.loop()
         mainMenuBackgroundSound.volume(0.15);
     }

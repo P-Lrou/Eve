@@ -33,5 +33,9 @@
   "transitionDialogs":[
     ["ahhhhhhhhh !", "..."],
     [-1]
+  ],
+  "doors":[
+    ["Les cris provenait de la salle des clones..."],
+    [0]
   ]
 }
