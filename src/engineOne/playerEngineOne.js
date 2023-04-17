@@ -89,8 +89,7 @@ function drawPlayer() {
   }
 
   if (getTileNameForObject4(BottomCornerRight) === 259 || getTileNameForObject4(BottomCornerLeft) === 259 || getTileNameForObject4(TopCornerRight) === 259 || getTileNameForObject4(TopCornerLeft) === 259 ||
-    getTileNameForObject4(BottomCornerRight) === 260 || getTileNameForObject4(BottomCornerLeft) === 260 || getTileNameForObject4(TopCornerRight) === 260 || getTileNameForObject4(TopCornerLeft) === 260 ||
-    getTileNameForObject4(BottomCornerRight) === 261 || getTileNameForObject4(BottomCornerLeft) === 261 || getTileNameForObject4(TopCornerRight) === 261 || getTileNameForObject4(TopCornerLeft) === 261) {
+    getTileNameForObject4(BottomCornerRight) === 260 || getTileNameForObject4(BottomCornerLeft) === 260 || getTileNameForObject4(TopCornerRight) === 260 || getTileNameForObject4(TopCornerLeft) === 260) {
     canShowDoorMessage = true;
   }
 }
