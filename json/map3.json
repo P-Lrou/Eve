@@ -779,33 +779,33 @@
       "isChest": false
     },
     {
-      "positionCollision": [14, 7.3],
-      "sizeCollision": [0.6, 0.55],
+      "positionCollision": [13.6, 7.3],
+      "sizeCollision": [1, 0.55],
       "isChest": false
     },
     {
       "positionCollision": [16.4, 7.3],
-      "sizeCollision": [0.6, 0.55],
+      "sizeCollision": [1, 0.55],
       "isChest": false
     },
     {
-      "positionCollision": [14, 11.1],
-      "sizeCollision": [0.6, 0.55],
+      "positionCollision": [13.6, 11.1],
+      "sizeCollision": [1, 0.55],
       "isChest": false
     },
     {
       "positionCollision": [16.4, 11.1],
-      "sizeCollision": [0.6, 0.55],
+      "sizeCollision": [1, 0.55],
       "isChest": false
     },
     {
-      "positionCollision": [28, 7.3],
-      "sizeCollision": [0.6, 0.55],
+      "positionCollision": [27.4, 7.3],
+      "sizeCollision": [1, 0.55],
       "isChest": false
     },
     {
       "positionCollision": [30.4, 7.3],
-      "sizeCollision": [0.6, 0.55],
+      "sizeCollision": [1, 0.55],
       "isChest": false
     },
     {
