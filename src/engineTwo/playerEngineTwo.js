@@ -188,6 +188,7 @@ function canDointeractionCapsuleMapQuest() {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       removeFromInventory("wrenchCapsulesMap")
+      quests.repareCapsulesMap.canRepareWall = false;
       quests.repareCapsulesMap.wallIsRepare = true;
     }
   }
