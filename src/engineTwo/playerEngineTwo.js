@@ -188,15 +188,17 @@ function canDointeractionCapsuleMapQuest() {
 }
 
 function canGoSleep() {
-  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer) {
+  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && actualQuestName === 'sleepQuest') {
     image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
-    if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
-      canDoTransition = true;
-      animationActeTwoStart = true;
-      canMovePlayer = false;
-      newEngineSelected = ENGINE_TWO;
-      acteTwoIsStarting = true;
-    }
+    setTimeout(() => {
+      if (keyIsDown(69) && canMoveEngineTwo && canMovePlayer) {
+        canDoTransition = true;
+        animationActeTwoStart = true;
+        canMovePlayer = false;
+        newEngineSelected = ENGINE_TWO;
+        acteTwoIsStarting = true;
+      }
+    }, 500);
   }
 }
 
