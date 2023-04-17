@@ -25,7 +25,7 @@
     "hadTalkToFinn": false
   },
   "goToCloneMapAfterSleep": {
-    "goToCloneMapAfterSleepIsStarted": true,
+    "goToCloneMapAfterSleepIsStarted": false,
     "haveGun": false,
     "haveCard": false
   }

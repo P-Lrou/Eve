@@ -26,8 +26,8 @@ let mapHeight = undefined;
 let tileSize = undefined;
 
 let drawMapFirstValue = 4;
-let leftDoorsAreClosed = true;
-let rigthDoorsAreClosed = true;
+let leftDoorsAreClosed = false;
+let rigthDoorsAreClosed = false;
 
 let canReadNote = false;
 let actualNote = undefined;
