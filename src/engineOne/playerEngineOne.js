@@ -283,10 +283,10 @@ function madeCollision() {
   let BottomCornerLeft = getBottomCornerLeft([playerPosX + 28, playerPosY, spritePlayerSize - 40, spritePlayerSize + 8,]);
   let BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 28, spritePlayerSize + 8,]);
   if (quests.goToCloneMapAfterSleep.haveGun) {
-    TopCornerLeft = getTopCornerLeft([playerPosX, playerPosY + 110, spritePlayerSize, spritePlayerSize,]);
-    TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 110, spritePlayerSize, spritePlayerSize,]);
-    BottomCornerLeft = getBottomCornerLeft([playerPosX, playerPosY, spritePlayerSize - 40, spritePlayerSize + 8,]);
-    BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize, spritePlayerSize + 8,]);
+    TopCornerLeft = getTopCornerLeft([playerPosX + 5, playerPosY + 110, spritePlayerSize, spritePlayerSize,]);
+    TopCornerRight = getTopCornerRight([playerPosX, playerPosY + 110, spritePlayerSize - 5, spritePlayerSize,]);
+    BottomCornerLeft = getBottomCornerLeft([playerPosX + 5, playerPosY, spritePlayerSize - 40, spritePlayerSize + 8,]);
+    BottomCornerRight = getBottomCornerRight([playerPosX, playerPosY, spritePlayerSize - 5, spritePlayerSize + 8,]);
   }
   if (debugMode) {
     fill(255, 0, 0, 60)
