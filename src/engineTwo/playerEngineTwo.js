@@ -55,11 +55,11 @@ function playerInputsEngineTwo() {
     actualInventoryChoose = 4;
   }
 
-  if (escapeIsPressed) {
-    canMovePlayer = false;
-    canShowSettingsMenu = true;
-    currentEngine = MENU;
-  }
+  // if (escapeIsPressed) {
+  //   canMovePlayer = false;
+  //   canShowSettingsMenu = true;
+  //   currentEngine = MENU;
+  // }
 }
 
 //^ This function call the function to draw the player using the direction
