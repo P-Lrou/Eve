@@ -26,8 +26,8 @@ function loadAssets() {
   mainCaracterWeapon = loadImage("assets/caracters/mainCaracterWeapon.png");
   mainCaracterDark = loadImage("assets/caracters/mainCaracterDark.png");
   mainCaracterDarkWeapon = loadImage("assets/caracters/mainCaracterDarkWeapon.png");
-  npcRose = loadImage("assets/caracters/npcRose.png");
-  npcJulliette = loadImage("assets/caracters/npcJulliette.png");
+  npcOctavia = loadImage("assets/caracters/npcOctavia.png");
+  npcAllie = loadImage("assets/caracters/npcAllie.png");
   npcFinn = loadImage("assets/caracters/npcFinn.png");
   dialogsHeads = loadImage("assets/caracters/dialogsHeads.png");
   assets = loadImage("assets/assets.png");
@@ -2028,10 +2028,10 @@ function findActualObject(objectName) {
 //- Take in param the npc name as a string
 function findActualNpc(npcName) {
   switch (npcName) {
-    case "npcRose":
-      return npcRose;
-    case "npcJulliette":
-      return npcJulliette;
+    case "npcAllie":
+      return npcAllie;
+    case "npcOctavia":
+      return npcOctavia;
     case "npcFinn":
       return npcFinn;
     default:

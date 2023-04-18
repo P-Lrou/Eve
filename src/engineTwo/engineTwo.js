@@ -21,7 +21,7 @@ function engineTwoStart() {
         image(lightCloneMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       if (!acteTwoIsStarting) {
-        drawNPCEngineTwo("npcJulliette");
+        drawNPCEngineTwo("npcAllie");
       }
       canDoInteractionCloneQuest();
       drawPlayerEngineTwo();
@@ -43,7 +43,7 @@ function engineTwoStart() {
       image(planteAnimationBotanicMap.get(324 * indexOfAnimation3, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(lightBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       if (!acteTwoIsStarting) {
-        drawNPCEngineTwo("npcRose");
+        drawNPCEngineTwo("npcOctavia");
       }
       drawPlayerEngineTwo();
       drawInventory();
@@ -76,8 +76,8 @@ function engineTwoStart() {
       drawQuestMenu();
       if (gameIsStarting) {
         canMovePlayer = false;
-        drawNPCEngineTwo('npcJulliette');
-        drawNPCEngineTwo('npcRose');
+        drawNPCEngineTwo('npcAllie');
+        drawNPCEngineTwo('npcOctavia');
         drawNPCEngineTwo('npcFinn');
         actualDialog = moreInteractionJSON.dialogStartingAnimation[0];
         actualPlayersOrder = moreInteractionJSON.dialogStartingAnimation[1];

@@ -3,7 +3,7 @@
 
   "npcEngineTwo": [
     {
-      "name": "npcJulliette",
+      "name": "npcAllie",
       "startx": 200,
       "xdist": 3500,
       "ydist": 1000,
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "name": "npcRose",
+      "name": "npcOctavia",
       "startx": 200,
       "xdist": 3500,
       "ydist": 1000,
@@ -108,7 +108,7 @@
 
   "npcStartingAnimation": [
     {
-      "name": "npcJulliette",
+      "name": "npcAllie",
       "startx": 200,
       "xdist": 1400,
       "ydist": 1000,
@@ -120,7 +120,7 @@
       "canTalk": false
     },
     {
-      "name": "npcRose",
+      "name": "npcOctavia",
       "startx": 200,
       "xdist": 2600,
       "ydist": 1000,

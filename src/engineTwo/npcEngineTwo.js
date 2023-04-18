@@ -21,12 +21,12 @@ function drawNPCEngineTwo(NPC) {
   actualNPC.startx = actualNPC.xdist + EngineTwoMapX;
 
 
-  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcRose") {
+  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcOctavia") {
     setTimeout(() => {
       actualNPC.canMove = true
     }, 1500);
   }
-  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcJulliette") {
+  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcAllie") {
     actualNPC.canMove = true
   }
   if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcFinn") {
@@ -70,10 +70,10 @@ function drawNPCEngineTwo(NPC) {
       collisionNPCEngineTwo(actualNPC);
       break;
   }
-  if (actualNPC.name === "npcRose" && gameIsStarting) {
+  if (actualNPC.name === "npcOctavia" && gameIsStarting) {
     actualNPCCollision = 'left'
   }
-  if (actualNPC.name === "npcJulliette" && gameIsStarting) {
+  if (actualNPC.name === "npcAllie" && gameIsStarting) {
     actualNPCCollision = 'rigth'
   }
   if (actualNPC.name === "npcFinn" && gameIsStarting) {
@@ -165,22 +165,22 @@ function canTalkToNpc(actualNPC) {
       canTalkGlobalNPC = false;
       canDrawMenus = false;
 
-      if (actualNPC.name === "npcJulliette") {
+      if (actualNPC.name === "npcAllie") {
         actualDialog = actualNPC.dialog[0];
         actualPlayersOrder = actualNPC.dialog[1];
       }
-      if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
+      if (actualNPC.name === 'npcAllie' && quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
         actualDialog = actualNPC.dialog[2];
         actualPlayersOrder = actualNPC.dialog[3];
         quests.questCloneMap.canDrawInteractionClonMapQuest = true;
       }
-      if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
+      if (actualNPC.name === 'npcAllie' && quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
         actualQuestName = 'repareCapsulesMap';
         quests.repareCapsulesMap.questRepareCapsulesMapIsStarted = true;
       }
-      if (actualNPC.name === 'npcJulliette' && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.canTakeSeedBag && actualQuestName === "seedsBagQuest") {
+      if (actualNPC.name === 'npcAllie' && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.canTakeSeedBag && actualQuestName === "seedsBagQuest") {
         actualDialog = actualNPC.dialog[6];
         actualPlayersOrder = actualNPC.dialog[7];
         quests.seedsBagQuest.seedBagHasBeenTaked = true;
@@ -188,16 +188,16 @@ function canTalkToNpc(actualNPC) {
         quests.seedsBagQuest.canAddToInventorySeedBag = true;
       }
 
-      if (actualNPC.name === "npcRose") {
+      if (actualNPC.name === "npcOctavia") {
         actualDialog = actualNPC.dialog[0];
         actualPlayersOrder = actualNPC.dialog[1];
       }
-      if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && actualQuestName === "seedsBagQuest") {
+      if (actualNPC.name === "npcOctavia" && quests.seedsBagQuest.questSeedBagQuestIsStarted && actualQuestName === "seedsBagQuest") {
         actualDialog = actualNPC.dialog[2];
         actualPlayersOrder = actualNPC.dialog[3];
         quests.seedsBagQuest.canTakeSeedBag = true;
       }
-      if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.seedBagHasBeenTaked && actualQuestName === "seedsBagQuest") {
+      if (actualNPC.name === "npcOctavia" && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.seedBagHasBeenTaked && actualQuestName === "seedsBagQuest") {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
         quests.seedsBagQuest.seedBagQuestIsOver = true;
