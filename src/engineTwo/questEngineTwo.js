@@ -47,12 +47,14 @@ function checkIfCloneMapQuestIsOver() {
     quests.questCloneMap.isGoodForColor = true;
     quests.questCloneMap.canMoveQuestCloneMap = false;
     setTimeout(() => {
-      quests.questCloneMap.questCloneMapIsOver = true;
-      quests.questCloneMap.canDrawEngineCloneMapQuest = false;
-      canMoveAllNPC = true;
-      canMoveEngineTwo = true;
-      canMovePlayer = true;
-      quests.questCloneMap.canDrawInteractionClonMapQuest = false;
+      if (!quests.questCloneMap.questCloneMapIsOver){
+        quests.questCloneMap.questCloneMapIsOver = true;
+        quests.questCloneMap.canDrawEngineCloneMapQuest = false;
+        quests.questCloneMap.canDrawInteractionClonMapQuest = false;
+        canMoveAllNPC = true;
+        canMoveEngineTwo = true;
+        canMovePlayer = true;
+      }
     }, 3000);
   }
 }
