@@ -27,3 +27,6 @@ let canMoveEngineTwo = true;
 //+ actually useless -> Just set the map position variable
 let EngineTwoMapX = (-engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth) + 2000;
 let EngineTwoMapY = 0;
+
+
+let indexForAnimationCameraFightStart = 0

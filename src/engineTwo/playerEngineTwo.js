@@ -243,3 +243,41 @@ function showDialogsAfterWeakingUp() {
     canInteract = true;
   }
 }
+
+
+function cameraMoveActTwoAnimationFigth() {
+  if (EngineTwoMapX > -2070 && quests.fight.animationFightCanStart && acteTwoIsStarting && actualMapEngineTwo === "cloneMap") {
+    canMovePlayer = false;
+    canTalkGlobalNPC = false;
+    canMoveAllNPC = false;
+    canDrawMenus = false;
+    if (indexForAnimationCameraFightStart > 50) {
+      if (EngineTwoMapX < -540) {
+        EngineTwoMapX += playerSpeedEngineTwo;
+        playerPosX += playerSpeedEngineTwo;
+      } else {
+        EngineTwoMapX = -540
+        setTimeout(() => {
+          if (quests.fight.animationFightCanStart) {
+            quests.fight.haveFinishAnimationFirstPart = true;
+            quests.fight.dialogsFitghtIsStart = true;
+            actualDialog = moreInteractionJSON.figth[0];;
+            actualPlayersOrder = moreInteractionJSON.figth[1];
+            canInteract = true;
+          }
+        }, 2000);
+      }
+    }
+    if (indexForAnimationCameraFightStart < 55) {
+      indexForAnimationCameraFightStart++
+    }
+  }
+  if (!quests.fight.animationFightCanStart && quests.fight.dialogsFightIsOver && !quests.fight.canStartFigth) {
+    if (EngineTwoMapX > -980) {
+      EngineTwoMapX -= playerSpeedEngineTwo;
+      playerPosX -= playerSpeedEngineTwo;
+    } else {
+      EngineTwoMapX = -980
+    }
+  }
+}

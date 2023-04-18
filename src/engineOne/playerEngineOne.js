@@ -564,6 +564,7 @@ function canActiveDoor() {
           leftDoorsAreClosed = false;
           canActiveDoorBool = false;
           quests.goToCloneMapAfterSleep.haveCard = false;
+          quests.fight.animationFightCanStart = true;
         }
       }, 500)
     }
@@ -596,13 +597,29 @@ function showDoorMessage() {
         canTalkGlobalNPC = false;
         canMoveAllNPC = false;
         canDrawMenus = false;
+        actualDialog = moreInteractionJSON.doors[6];
+        actualPlayersOrder = moreInteractionJSON.doors[7];
+        canActiveDoorBool = false;
+        canInteract = true;
+      }
+    }, 500)
+  }
+  if (canShowDoorMessage && leftDoorsAreClosed && quests.goToCloneMapAfterSleep.haveCard) {
+    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    setTimeout(() => {
+      if (eIsPressed && canMovePlayer) {
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
         actualDialog = moreInteractionJSON.doors[4];
         actualPlayersOrder = moreInteractionJSON.doors[5];
         canActiveDoorBool = false;
         canInteract = true;
       }
     }, 500)
-  } else if (canShowDoorMessage && rigthDoorsAreClosed) {
+  }
+  if (canShowDoorMessage && rigthDoorsAreClosed && !leftDoorsAreClosed && !quests.goToCloneMapAfterSleep.haveCard) {
     image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {

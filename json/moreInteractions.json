@@ -42,7 +42,13 @@
     [0],
     ["L'alarme est activée...", "Les portes ne s'ouvriront plus sans une carte d'accès.", "Il y en a une en salle des commandes, j'en profiterai pour récupérer une arme."],
     [0, 0, 0],
-    ["Je dois utiliser le lecteurs de cartes sur la droite."],
+    ["Je dois utiliser le lecteur de cartes sur la droite."],
+    [0],
+    ["Les portes ne s'ouvriront plus sans une carte d'accès."],
     [0]
+  ],
+  "figth":[
+    ["Ah te voilà", "Ceci est du debug donc on s'en fou"],
+    [4,4]
   ]
 }

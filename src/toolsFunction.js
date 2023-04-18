@@ -55,8 +55,6 @@ function expandRect(rect, expandSize) {
 //     return [rect[0] + skrinkSize, rect[1] + skrinkSize, rect[2] - skrinkSize, rect[3] - skrinkSize]
 // }
 
-let mainMenuBackgroundSoundIsActivated = true;
-let canStartMainMenuSong = true;
 function playMainMenuMusic() {
     canStartMainMenuSong = false;
     if (mainMenuBackgroundSoundIsActivated) {
@@ -64,7 +62,11 @@ function playMainMenuMusic() {
         mainMenuBackgroundSound.loop()
         mainMenuBackgroundSound.volume(0.15);
     }
-    if (!mainMenuBackgroundSoundIsActivated){
+    if (!mainMenuBackgroundSoundIsActivated) {
         mainMenuBackgroundSound.stop()
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

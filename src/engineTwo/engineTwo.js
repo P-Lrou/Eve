@@ -14,6 +14,9 @@ function engineTwoStart() {
       }
       if (!acteTwoIsStarting) {
         image(jarAnimationCloneMap.get(324 * indexOfAnimation2, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+        if (quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.isGoodForColor) {
+          image(screenAnimationCloneMap.get(324 * indexOfAnimation11, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+        }
       }
       if (acteTwoIsStarting) {
         image(lightCloneMapActeTwo, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
@@ -37,6 +40,10 @@ function engineTwoStart() {
       if (quests.questCloneMap.canDrawEngineCloneMapQuest && !quests.questCloneMap.questCloneMapIsOver) {
         drawnQuestCloneMap();
       }
+      cameraMoveActTwoAnimationFigth();
+      if (acteTwoIsStarting) {
+        drawNPCEngineTwo("eve");
+      }
       break;
     case "botanicMap":
       image(backgroundBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
@@ -46,6 +53,7 @@ function engineTwoStart() {
         drawNPCEngineTwo("npcOctavia");
       }
       drawPlayerEngineTwo();
+      image(frontOfBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawInventory();
       drawQuestMenu();
       break;
@@ -124,7 +132,7 @@ function engineTwoStart() {
       break;
   }
   changeMapEngineTwo();
-  if (canInteract && !canMovePlayer  && !animationActeTwoStart) {
+  if (canInteract && !canMovePlayer && !animationActeTwoStart) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)
     tint(0, 0, 0)

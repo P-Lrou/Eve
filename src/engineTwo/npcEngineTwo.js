@@ -44,30 +44,22 @@ function drawNPCEngineTwo(NPC) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 0, spriteCutSize, spriteCutSize);
-      if (actualNPC.canMove && canMoveAllNPC) {
-        actualNPC.xdist += npcSpeed;
+      if (actualNPC.name !== "eve") {
+        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+        if (actualNPC.canMove && canMoveAllNPC) {
+          actualNPC.xdist += npcSpeed;
+        }
+        collisionNPCEngineTwo(actualNPC);
       }
-      collisionNPCEngineTwo(actualNPC);
       break;
     case -1:
-      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 1, spriteCutSize, spriteCutSize);
-      if (actualNPC.canMove && canMoveAllNPC) {
-        actualNPC.xdist -= npcSpeed;
+      if (actualNPC.name !== "eve") {
+        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+        if (actualNPC.canMove && canMoveAllNPC) {
+          actualNPC.xdist -= npcSpeed;
+        }
+        collisionNPCEngineTwo(actualNPC);
       }
-      collisionNPCEngineTwo(actualNPC);
-      break;
-  }
-  switch (actualNPC.npcDirection[1]) {
-    case 0:
-      break;
-    case 1:
-      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 3, spriteCutSize, spriteCutSize);
-      collisionNPCEngineTwo(actualNPC);
-      break;
-    case -1:
-      animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 2, spriteCutSize, spriteCutSize);
-      collisionNPCEngineTwo(actualNPC);
       break;
   }
   if (actualNPC.name === "npcOctavia" && gameIsStarting) {
@@ -79,7 +71,7 @@ function drawNPCEngineTwo(NPC) {
   if (actualNPC.name === "npcFinn" && gameIsStarting) {
     actualNPCCollision = 'rigth'
   }
-  if (!actualNPC.canMove || !canMoveAllNPC) {
+  if (!actualNPC.canMove || !canMoveAllNPC && actualNPC.name !== "eve") {
     if (actualNPCCollision === 'left') {
       animationMoovePlayer = npcTile.get(0, spriteCutSize, spriteCutSize, spriteCutSize);
     }
@@ -94,7 +86,13 @@ function drawNPCEngineTwo(NPC) {
     rect(actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize)
     noFill();
   }
-  image(animationMoovePlayer, actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize);
+  if (actualNPC.name !== "eve") {
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize);
+  }
+  else {
+    animationMoovePlayer = npcTile.get(22 * indexOfEveIdleAnim, 0, 22, 39);
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
+  }
 }
 
 //^ This function do the collision for the NPC with the same function as the main player

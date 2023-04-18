@@ -29,6 +29,7 @@ function loadAssets() {
   npcOctavia = loadImage("assets/caracters/npcOctavia.png");
   npcAllie = loadImage("assets/caracters/npcAllie.png");
   npcFinn = loadImage("assets/caracters/npcFinn.png");
+  eve = loadImage("assets/caracters/eve.png");
   dialogsHeads = loadImage("assets/caracters/dialogsHeads.png");
   assets = loadImage("assets/assets.png");
   darksAssets = loadImage("assets/darksAssets.png");
@@ -44,6 +45,7 @@ function loadAssets() {
   upArrowCloneMapQuest = loadImage("assets/cloneMap/upArrowCloneMapQuest.png");
   downArrowCloneMapQuest = loadImage("assets/cloneMap/downArrowCloneMapQuest.png");
   endScreenQuestCloneMap = loadImage("assets/cloneMap/endScreenQuestCloneMap.png");
+  screenAnimationCloneMap = loadImage("assets/cloneMap/screenAnimationCloneMap.png");
 
   backgroundCloneMapActeTwo = loadImage("assets/cloneMap/backgroundCloneMapActeTwo.png");
   lightCloneMapActeTwo = loadImage("assets/cloneMap/lightCloneMapActeTwo.png");
@@ -54,6 +56,7 @@ function loadAssets() {
   planteAnimationBotanicMap = loadImage("assets/botanicMap/planteAnimationBotanicMap.png")
   lightBotanicMap = loadImage("assets/botanicMap/lightBotanicMap.png")
   seedsBagBotanicMap = loadImage("assets/botanicMap/seedsBagBotanicMap.png")
+  frontOfBotanicMap = loadImage("assets/botanicMap/frontOfBotanicMap.png")
 
   backgroundCommandMap = loadImage("assets/commandMap/backgroundCommandMap.png")
   lightCommandMap = loadImage("assets/commandMap/lightCommandMap.png")
@@ -78,7 +81,7 @@ function loadAssets() {
   screenTwoAnimationDormsMap = loadImage("assets/dormsMap/screenTwoAnimationDormsMap.png")
   ligthsDormsMap = loadImage("assets/dormsMap/ligthsDormsMap.png")
   frontOfDormsMap = loadImage("assets/dormsMap/frontOfDormsMap.png")
-  
+
   mainMenuBackgroundSound = createAudio("assets/sounds/mainMenuBackgroundSound.mp3")
 }
 
@@ -2034,6 +2037,8 @@ function findActualNpc(npcName) {
       return npcOctavia;
     case "npcFinn":
       return npcFinn;
+    case "eve":
+      return eve;
     default:
       throw new Error("Can't find the asset named : " + npcName);
   }

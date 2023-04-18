@@ -41,15 +41,15 @@ function transitionEnter() {
 function transitionOut() {
     if (fade > 0) {
         fade = fade - fadeSpeed;
+        if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleephaveShowAfterWeakingUp) {
+            quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = true
+        }
     } else {
         fade = 0
         transitionStatus = 'Enter'
         canDoTransition = false;
         canMovePlayer = true;
         cursor('default');
-        if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleephaveShowAfterWeakingUp) {
-            quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = true
-        }
     }
 
 }

@@ -32,5 +32,13 @@
     "haveCard": false,
     "canShowMoreInformationAboutAlert": false,
     "haveShowMoreInformationAboutAlert": false
+  },
+  "fight": {
+    "animationFightCanStart": false,
+    "dialogsFitghtIsStart": false,
+    "playerCanMoveToStartFight": false,
+    "dialogsFightIsOver": false,
+    "canStartFigth": false,
+    "haveFinishAnimationFirstPart": false
   }
 }

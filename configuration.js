@@ -232,6 +232,16 @@ setInterval(() => {
     }
 }, 110);
 
+//+ Set animation for Screen clone map animation
+let indexOfAnimation11= 0;
+setInterval(() => {
+    if (indexOfAnimation11 < 7) {
+        indexOfAnimation11 += 1;
+    } else {
+        indexOfAnimation11 = 0;
+    }
+}, 110);
+
 //+ Set animation for main caracter movement
 let indexOfAnimation = 0;
 setInterval(() => {
@@ -239,6 +249,16 @@ setInterval(() => {
         indexOfAnimation += 1;
     } else {
         indexOfAnimation = 1;
+    }
+}, 110);
+
+//+ Set animation for eve idle movement
+let indexOfEveIdleAnim = 0;
+setInterval(() => {
+    if (indexOfEveIdleAnim < 13) {
+        indexOfEveIdleAnim += 1;
+    } else {
+        indexOfEveIdleAnim = 0;
     }
 }, 110);
 
@@ -321,70 +341,76 @@ function writeText(actualDialog) {
                         canMoveAllNPC = true;
                         canOpenChest = false;
                         actualHead = [-1];
-                        if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory && !animationActeTwoStart) {
-                            canDrawMenus = true;
-                            setTimeout(() => {
-                                canMovePlayer = true;
-                            }, 200);
+                        if (quests.fight.animationFightCanStart && quests.fight.haveFinishAnimationFirstPart) {
+                            quests.fight.animationFightCanStart = false;
+                            quests.fight.dialogsFightIsOver = true;
                         }
-                        if (quests.seedsBagQuest.canAddToInventorySeedBag) {
-                            canDrawMenus = true;
-                            canShowInventoryAnimation = true;
-                            newObjectToAdd = "seedsBagBotanicMap";
-                            setTimeout(() => {
-                                canMovePlayer = true;
-                                quests.seedsBagQuest.canAddToInventorySeedBag = false;
-                            }, 3500);
-                            setTimeout(() => {
-                                objectAsBeenAdToInventoryWithAnimation = false;
-                            }, 20000);
-                        }
-                        if (quests.repareCapsulesMap.canAddWrenchToInventory) {
-                            canDrawMenus = true;
-                            canShowInventoryAnimation = true;
-                            newObjectToAdd = "wrenchCapsulesMap";
-                            setTimeout(() => {
-                                canMovePlayer = true;
-                                quests.repareCapsulesMap.canAddWrenchToInventory = false;
-                                quests.repareCapsulesMap.canTakeWrench = false;
-                            }, 3500);
-                            setTimeout(() => {
-                                objectAsBeenAdToInventoryWithAnimation = false;
-                            }, 20000);
-                        }
-                        if (quests.repareCapsulesMap.hadTalkToFinn) {
-                            quests.repareCapsulesMap.canRepareWall = true;
-                        }
-                        if (quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert) {
-                            quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = false;
-                            quests.goToCloneMapAfterSleep.haveShowMoreInformationAboutAlert = true;
-                        }
-                        if (quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp) {
-                            quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = false;
-                            quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = true;
-                            quests.goToCloneMapAfterSleephaveShowAfterWeakingUp = true;
-                        }
-                        if (animationActeTwoStart) {
-                            canInteract = false;
-                            actualQuestName = "goToCloneMapAfterSleep"
-                            quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted = true;
-                            leftDoorsAreClosed = true;
-                            rigthDoorsAreClosed = true;
-                            animationActeTwoStart = false;
-                        }
-                        if (!animationActeTwoStart) {
-                            setTimeout(() => {
-                                canTalkGlobalNPC = true;
-                                canActiveDoorBool = false;
-                            }, 1000);
-                        }
-                        if (gameIsStarting) {
-                            setTimeout(() => {
-                                gameIsStarting = false;
-                                canMovePlayer = true;
-                                canShowArrows = true;
+                        if (!quests.fight.dialogsFitghtIsStart) {
+                            if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory && !animationActeTwoStart) {
                                 canDrawMenus = true;
-                            }, 8000);
+                                setTimeout(() => {
+                                    canMovePlayer = true;
+                                }, 200);
+                            }
+                            if (quests.seedsBagQuest.canAddToInventorySeedBag) {
+                                canDrawMenus = true;
+                                canShowInventoryAnimation = true;
+                                newObjectToAdd = "seedsBagBotanicMap";
+                                setTimeout(() => {
+                                    canMovePlayer = true;
+                                    quests.seedsBagQuest.canAddToInventorySeedBag = false;
+                                }, 3500);
+                                setTimeout(() => {
+                                    objectAsBeenAdToInventoryWithAnimation = false;
+                                }, 20000);
+                            }
+                            if (quests.repareCapsulesMap.canAddWrenchToInventory) {
+                                canDrawMenus = true;
+                                canShowInventoryAnimation = true;
+                                newObjectToAdd = "wrenchCapsulesMap";
+                                setTimeout(() => {
+                                    canMovePlayer = true;
+                                    quests.repareCapsulesMap.canAddWrenchToInventory = false;
+                                    quests.repareCapsulesMap.canTakeWrench = false;
+                                }, 3500);
+                                setTimeout(() => {
+                                    objectAsBeenAdToInventoryWithAnimation = false;
+                                }, 20000);
+                            }
+                            if (quests.repareCapsulesMap.hadTalkToFinn) {
+                                quests.repareCapsulesMap.canRepareWall = true;
+                            }
+                            if (quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert) {
+                                quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = false;
+                                quests.goToCloneMapAfterSleep.haveShowMoreInformationAboutAlert = true;
+                            }
+                            if (quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp) {
+                                quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = false;
+                                quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = true;
+                                quests.goToCloneMapAfterSleephaveShowAfterWeakingUp = true;
+                            }
+                            if (animationActeTwoStart) {
+                                canInteract = false;
+                                actualQuestName = "goToCloneMapAfterSleep"
+                                quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted = true;
+                                leftDoorsAreClosed = true;
+                                rigthDoorsAreClosed = true;
+                                animationActeTwoStart = false;
+                            }
+                            if (!animationActeTwoStart) {
+                                setTimeout(() => {
+                                    canTalkGlobalNPC = true;
+                                    canActiveDoorBool = false;
+                                }, 1000);
+                            }
+                            if (gameIsStarting) {
+                                setTimeout(() => {
+                                    gameIsStarting = false;
+                                    canMovePlayer = true;
+                                    canShowArrows = true;
+                                    canDrawMenus = true;
+                                }, 8000);
+                            }
                         }
                     }
                 }
