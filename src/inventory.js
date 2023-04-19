@@ -60,30 +60,101 @@ function addToInventory(object) {
     let newObjectY = screenHeight / 2 - newObjectSize / 2 + newObjectOldY
 
 
-    if (newObjectSize < 512 && canUpObjectSize) {
-      newObjectSize = newObjectSize + 8
+    if (newObjectSize < 500 && canUpObjectSize) {
+      newObjectSize = newObjectSize + 10
     } else if (canUpObjectSize) {
-      newObjectSize = 512
+      newObjectSize = 500
       canUpObjectSize = false
       canChangeObjectInventory = true;
     }
-    if (canChangeObjectInventory) {
-      if (newObjectX < inventoryWidthStart + inventorySquareSize - newObjectSize - 5) {
-        newObjectOldX += 4
+    if (canChangeObjectInventory && inventoryTabNumber === 0) {
+      if (newObjectX + 100 < inventoryWidthStart + inventorySquareSize - newObjectSize - 1) {
+        newObjectOldX += 5.8
+      } else if (newObjectX < inventoryWidthStart + inventorySquareSize - newObjectSize - 1) {
+        newObjectOldX += 3.2
       } else if (inventoryWidthStart + inventorySquareSize === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize) {
         newObjectX = inventoryWidthStart + inventorySquareSize - newObjectSize;
       }
-      if (newObjectY > inventoryHeigthStart + 5) {
-        newObjectOldY -= 4
+      if (newObjectY - 100 > inventoryHeigthStart + 5) {
+        newObjectOldY -= 5.8
+      } else if (newObjectY > inventoryHeigthStart + 5) {
+        newObjectOldY -= 3.2
       } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
         newObjectY = inventoryHeigthStart
       }
       if (inventorySquareSize < newObjectSize) {
-        newObjectSize -= 8
+        newObjectSize -= 5
       } else if (newObjectSize > inventorySquareSize) {
         newObjectSize = inventorySquareSize
       }
     }
+
+    if (canChangeObjectInventory && inventoryTabNumber === 1) {
+      if (newObjectX + 100 < inventoryWidthStart + inventorySquareSize * 2 + 10 - newObjectSize - 1) {
+        newObjectOldX += 5.8
+      } else if (newObjectX < inventoryWidthStart + inventorySquareSize * 2 + 10 - newObjectSize - 1) {
+        newObjectOldX += 3.2
+      } else if (inventoryWidthStart + inventorySquareSize * 2 + 10 === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize * 2 + 10) {
+        newObjectX = inventoryWidthStart + inventorySquareSize * 2 + 10 - newObjectSize;
+      }
+      if (newObjectY - 100 > inventoryHeigthStart + 5) {
+        newObjectOldY -= 5.8
+      } else if (newObjectY > inventoryHeigthStart + 5) {
+        newObjectOldY -= 3.2
+      } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
+        newObjectY = inventoryHeigthStart
+      }
+      if (inventorySquareSize < newObjectSize) {
+        newObjectSize -= 5
+      } else if (newObjectSize > inventorySquareSize) {
+        newObjectSize = inventorySquareSize
+      }
+    }
+
+    if (canChangeObjectInventory && inventoryTabNumber === 2) {
+      if (newObjectX + 100 < inventoryWidthStart + inventorySquareSize * 3 + 10 - newObjectSize - 1) {
+        newObjectOldX += 5.8
+      } else if (newObjectX < inventoryWidthStart + inventorySquareSize * 3 + 10 - newObjectSize - 1) {
+        newObjectOldX += 3.2
+      } else if (inventoryWidthStart + inventorySquareSize * 3 + 10 === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize * 3 + 10) {
+        newObjectX = inventoryWidthStart + inventorySquareSize * 3 + 10 - newObjectSize;
+      }
+      if (newObjectY - 100 > inventoryHeigthStart + 5) {
+        newObjectOldY -= 5.8
+      } else if (newObjectY > inventoryHeigthStart + 5) {
+        newObjectOldY -= 3.2
+      } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
+        newObjectY = inventoryHeigthStart
+      }
+      if (inventorySquareSize < newObjectSize) {
+        newObjectSize -= 5
+      } else if (newObjectSize > inventorySquareSize) {
+        newObjectSize = inventorySquareSize
+      }
+    }
+
+    if (canChangeObjectInventory && inventoryTabNumber === 3) {
+      if (newObjectX + 100 < inventoryWidthStart + inventorySquareSize * 4 + 10 - newObjectSize - 1) {
+        newObjectOldX += 5.8
+      } else if (newObjectX < inventoryWidthStart + inventorySquareSize * 4 + 10 - newObjectSize - 1) {
+        newObjectOldX += 3.2
+      } else if (inventoryWidthStart + inventorySquareSize * 4 + 10 === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize * 4 + 10) {
+        newObjectX = inventoryWidthStart + inventorySquareSize * 4 + 10 - newObjectSize;
+      }
+      if (newObjectY - 100 > inventoryHeigthStart + 5) {
+        newObjectOldY -= 5.8
+      } else if (newObjectY > inventoryHeigthStart + 5) {
+        newObjectOldY -= 3.2
+      } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
+        newObjectY = inventoryHeigthStart
+      }
+      if (inventorySquareSize < newObjectSize) {
+        newObjectSize -= 5
+      } else if (newObjectSize > inventorySquareSize) {
+        newObjectSize = inventorySquareSize
+      }
+    }
+
     if (canShowObjectInAnimation && !canInteract) {
       image(actualObject, newObjectX, newObjectY, newObjectSize, newObjectSize);
     }
