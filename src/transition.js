@@ -50,6 +50,7 @@ function transitionOut() {
         canDoTransition = false;
         canMovePlayer = true;
         cursor('default');
+        console.log(`%c<----${newEngineSelected} Successfully Loaded---->`, 'color:rgb(0, 255, 0)')
     }
 
 }

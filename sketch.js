@@ -8,6 +8,8 @@ function setup() {
   noSmooth();
   noStroke();
   runMap("map1");
+  console.clear()
+  console.log('%c<----Game Successfully Started---->', 'color:rgb(255, 0, 0)')
 }
 
 function draw() {

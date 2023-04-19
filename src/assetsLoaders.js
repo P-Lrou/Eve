@@ -17,6 +17,7 @@ function loadAssets() {
   settingsImage = loadImage("assets/menu/settingsImage.png")
 
   card = loadImage("assets/objects/card.png");
+  files = loadImage("assets/objects/files.png")
   note0 = loadImage("assets/objects/note0.png");
   note1 = loadImage("assets/objects/note1.png");
   note2 = loadImage("assets/objects/note2.png");
@@ -2022,6 +2023,8 @@ function findActualObject(objectName) {
       return wrenchCapsulesMap;
     case "card":
       return card;
+    case "files":
+      return files;
     default:
       throw new Error("Can't find the asset named : " + objectName);
   }

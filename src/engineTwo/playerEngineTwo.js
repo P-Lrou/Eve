@@ -210,12 +210,14 @@ function canGoSleep() {
 }
 
 function takeGunAndCard() {
-  if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleep.haveGun) {
+  if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleep.haveGun && !quests.goToCloneMapAfterSleep.gunTaked) {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer) {
       image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.goToCloneMapAfterSleep.haveGun = true;
         quests.goToCloneMapAfterSleep.haveCard = true;
+        quests.goToCloneMapAfterSleep.gunTaked = true;
+        quests.goToCloneMapAfterSleep.cardTaked = true;
         canMovePlayer = false;
         canDrawMenus = true;
         canShowInventoryAnimation = true;
@@ -246,7 +248,7 @@ function showDialogsAfterWeakingUp() {
 
 
 function cameraMoveActTwoAnimationFigth() {
-  if (EngineTwoMapX > -2070 && quests.fight.animationFightCanStart && acteTwoIsStarting && actualMapEngineTwo === "cloneMap") {
+  if (EngineTwoMapX > -2070 && quests.fight.animationFightCanStart && acteTwoIsStarting && actualMapEngineTwo === "cloneMap" && !quests.fight.canShowDialogsAfterFight) {
     canMovePlayer = false;
     canTalkGlobalNPC = false;
     canMoveAllNPC = false;
@@ -272,12 +274,80 @@ function cameraMoveActTwoAnimationFigth() {
       indexForAnimationCameraFightStart++
     }
   }
-  if (!quests.fight.animationFightCanStart && quests.fight.dialogsFightIsOver && !quests.fight.canStartFigth) {
+  if (!quests.fight.animationFightCanStart && quests.fight.dialogsFightIsOver && !quests.fight.canStartFigth && !quests.fight.fightIsFinished && !quests.fight.canShowDialogsAfterFight) {
     if (EngineTwoMapX > -980) {
       EngineTwoMapX -= playerSpeedEngineTwo;
       playerPosX -= playerSpeedEngineTwo;
     } else {
       EngineTwoMapX = -980
+      setTimeout(() => {
+        if (!quests.fight.canShowDialogsAfterFight) {
+          quests.fight.canShowDialogsAfterFight = true;
+        }
+      }, 500);
+    }
+  }
+}
+
+function startTheAfterFightPart() {
+  if (quests.fight.canShowDialogsAfterFight) {
+    if (EngineTwoMapX > -1500) {
+      EngineTwoMapX -= playerSpeedEngineTwo;
+      playerPosX -= playerSpeedEngineTwo;
+    } else {
+      EngineTwoMapX = -1500
+      quests.fight.dialogsFitghtIsStart = false;
+      quests.fight.fightIsFinished = true;
+      quests.lastQuest.lastQuestIsStarting = true;
+      actualQuestName = 'lastQuest';
+      actualDialog = moreInteractionJSON.figth[2];;
+      actualPlayersOrder = moreInteractionJSON.figth[3];
+      canInteract = true;
+      quests.fight.canShowDialogsAfterFight = false;
+    }
+  }
+}
+
+function takeObjectForLastQuest() {
+  if (quests.lastQuest.lastQuestIsStarting) {
+    if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer && !quests.lastQuest.haveFiles) {
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+        quests.lastQuest.haveFiles = true;
+        canMovePlayer = false;
+        canDrawMenus = true;
+        canShowInventoryAnimation = true;
+        newObjectToAdd = "files";
+        setTimeout(() => {
+          canMovePlayer = true;
+        }, 3500);
+        setTimeout(() => {
+          objectAsBeenAdToInventoryWithAnimation = false;
+        }, 20000);
+      }
+    }
+    if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 6 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 7.5 && canMovePlayer && quests.lastQuest.haveFiles && !quests.lastQuest.haveStartDestruction) {
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+        quests.lastQuest.haveStartDestruction = true;
+        actualDialog = moreInteractionJSON.endGame[0];
+        actualPlayersOrder = moreInteractionJSON.endGame[1];
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+        canInteract = true;
+      }
+    }
+  }
+}
+
+function openCapsuleAndStartLastDialogs() {
+  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 5.5 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 6.5 && canMovePlayer && quests.lastQuest.haveStartDestruction && !quests.lastQuest.havePressOnButtonToOpenCapsule) {
+    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+    if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+      quests.lastQuest.havePressOnButtonToOpenCapsule = true
+      console.log('ENDDDDDDDDDDDDDDDDDDDDDDD')
     }
   }
 }

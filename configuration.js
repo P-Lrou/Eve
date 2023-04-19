@@ -344,12 +344,16 @@ function writeText(actualDialog) {
                         if (quests.fight.animationFightCanStart && quests.fight.haveFinishAnimationFirstPart) {
                             quests.fight.animationFightCanStart = false;
                             quests.fight.dialogsFightIsOver = true;
+                            quests.goToCloneMapAfterSleep.haveGun = false;
+                            console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
+                            console.log('%c<----Fight Have End With Success---->', 'color:rgb(255, 0, 0)')
                         }
                         if (!quests.fight.dialogsFitghtIsStart) {
                             if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory && !animationActeTwoStart) {
                                 canDrawMenus = true;
                                 setTimeout(() => {
                                     canMovePlayer = true;
+                                    console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
                                 }, 200);
                             }
                             if (quests.seedsBagQuest.canAddToInventorySeedBag) {
@@ -359,6 +363,7 @@ function writeText(actualDialog) {
                                 setTimeout(() => {
                                     canMovePlayer = true;
                                     quests.seedsBagQuest.canAddToInventorySeedBag = false;
+                                    console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
                                 }, 3500);
                                 setTimeout(() => {
                                     objectAsBeenAdToInventoryWithAnimation = false;
@@ -372,9 +377,11 @@ function writeText(actualDialog) {
                                     canMovePlayer = true;
                                     quests.repareCapsulesMap.canAddWrenchToInventory = false;
                                     quests.repareCapsulesMap.canTakeWrench = false;
+                                    console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
                                 }, 3500);
                                 setTimeout(() => {
                                     objectAsBeenAdToInventoryWithAnimation = false;
+                                    console.log('%c<----Object Have Been Add To Inventory With Success---->', 'color:rgb(0, 140, 255)')
                                 }, 20000);
                             }
                             if (quests.repareCapsulesMap.hadTalkToFinn) {
@@ -396,6 +403,9 @@ function writeText(actualDialog) {
                                 leftDoorsAreClosed = true;
                                 rigthDoorsAreClosed = true;
                                 animationActeTwoStart = false;
+                                console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
+                                console.log('%c<----Act Two Introduction Have End With Success---->', 'color:rgb(0, 140, 255)')
+                                console.log('%c<----Act Two Successfully Started---->', 'color:rgb(255, 0, 0)')
                             }
                             if (!animationActeTwoStart) {
                                 setTimeout(() => {
@@ -409,6 +419,8 @@ function writeText(actualDialog) {
                                     canMovePlayer = true;
                                     canShowArrows = true;
                                     canDrawMenus = true;
+                                    console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
+                                    console.log('%c<----Introduction Have End With Success---->', 'color:rgb(0, 140, 255)')
                                 }, 8000);
                             }
                         }

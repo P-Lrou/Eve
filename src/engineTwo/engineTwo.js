@@ -27,6 +27,9 @@ function engineTwoStart() {
         drawNPCEngineTwo("npcAllie");
       }
       canDoInteractionCloneQuest();
+      if (acteTwoIsStarting) {
+        drawNPCEngineTwo("eve");
+      }
       drawPlayerEngineTwo();
       if (acteTwoIsStarting) {
         image(frontOfCloneMapActeTwo, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
@@ -41,9 +44,7 @@ function engineTwoStart() {
         drawnQuestCloneMap();
       }
       cameraMoveActTwoAnimationFigth();
-      if (acteTwoIsStarting) {
-        drawNPCEngineTwo("eve");
-      }
+      startTheAfterFightPart();
       break;
     case "botanicMap":
       image(backgroundBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
@@ -64,10 +65,10 @@ function engineTwoStart() {
       image(earthAnimationCommandMap.get(324 * indexOfAnimation6, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(seatsCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(lightCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      if (!quests.goToCloneMapAfterSleep.haveGun) {
+      if (!quests.goToCloneMapAfterSleep.gunTaked) {
         image(gunCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
-      if (!quests.goToCloneMapAfterSleep.haveCard) {
+      if (!quests.goToCloneMapAfterSleep.cardTaked) {
         image(cardCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       drawPlayerEngineTwo();
@@ -82,6 +83,7 @@ function engineTwoStart() {
       takeGunAndCard();
       drawInventory();
       drawQuestMenu();
+      takeObjectForLastQuest();
       if (gameIsStarting) {
         canMovePlayer = false;
         drawNPCEngineTwo('npcAllie');
@@ -115,6 +117,7 @@ function engineTwoStart() {
       drawInventory();
       drawQuestMenu();
       canDointeractionCapsuleMapQuest();
+      openCapsuleAndStartLastDialogs();
       break;
     case "dormsMap":
       image(backgroundDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);

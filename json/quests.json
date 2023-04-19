@@ -28,6 +28,8 @@
     "goToCloneMapAfterSleepIsStarted": false,
     "canShowDialogsAfterWeakingUp": false,
     "haveShowAfterWeakingUp": false,
+    "gunTaked": false,
+    "cardTaked": false,
     "haveGun": false,
     "haveCard": false,
     "canShowMoreInformationAboutAlert": false,
@@ -39,6 +41,14 @@
     "playerCanMoveToStartFight": false,
     "dialogsFightIsOver": false,
     "canStartFigth": false,
-    "haveFinishAnimationFirstPart": false
+    "haveFinishAnimationFirstPart": false,
+    "fightIsFinished": false,
+    "canShowDialogsAfterFight": false
+  },
+  "lastQuest": {
+    "lastQuestIsStarting": false,
+    "haveFiles": false,
+    "haveStartDestruction": false,
+    "havePressOnButtonToOpenCapsule": false
   }
 }

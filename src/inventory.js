@@ -84,7 +84,7 @@ function addToInventory(object) {
         newObjectSize = inventorySquareSize
       }
     }
-    if (canShowObjectInAnimation) {
+    if (canShowObjectInAnimation && !canInteract) {
       image(actualObject, newObjectX, newObjectY, newObjectSize, newObjectSize);
     }
   }

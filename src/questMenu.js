@@ -64,6 +64,16 @@ function drawQuestMenu() {
                 actualQuestTextMenu = "Il est temps d'aller voir ce qu'il se passe en salle des clones."
             }
         }
+        if (actualQuestName === 'lastQuest'){
+            headNumber = 4
+            actualQuestTextMenu = "Avant de quitté la station je doit me rendre en salle des commandes pour aller récupérer les contrendus de mission.";
+            if (quests.lastQuest.haveFiles){
+                actualQuestTextMenu = "Maintenant que j'ai récupérer les contrendus il est temps de lancé la destruiction de la station. C'est la seule solution...";
+            }
+            if (quests.lastQuest.haveStartDestruction){
+                actualQuestTextMenu = "Je doit me dêpecher de rejoindre la capsule, la station va bientôt exploser et tout emporter avec elle."
+            }
+        }
         textSize(9);
         text(actualQuestTextMenu, 25, 110, 180, 120);
         noTint();

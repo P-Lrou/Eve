@@ -9,12 +9,12 @@ function moreInteractionEnineTwo() {
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canInteract = true;
                             canMovePlayer = false;
                             canTalkGlobalNPC = false;
                             canMoveAllNPC = false;
                             canDrawMenus = false;
                             actualDialog = moreInteractionJSON.moreInteractions[3];
+                            canInteract = true;
                         }
                     }, 500);
                 }
@@ -23,12 +23,12 @@ function moreInteractionEnineTwo() {
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canInteract = true;
                             canMovePlayer = false;
                             canTalkGlobalNPC = false;
                             canMoveAllNPC = false;
                             canDrawMenus = false;
                             actualDialog = moreInteractionJSON.moreInteractions[4];
+                            canInteract = true;
                         }
                     }, 500);
                 }
@@ -39,12 +39,12 @@ function moreInteractionEnineTwo() {
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canInteract = true;
                             canMovePlayer = false;
                             canTalkGlobalNPC = false;
                             canMoveAllNPC = false;
                             canDrawMenus = false;
                             actualDialog = moreInteractionJSON.moreInteractions[1];
+                            canInteract = true;
                         }
                     }, 500);
                 }
@@ -53,12 +53,12 @@ function moreInteractionEnineTwo() {
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canInteract = true;
                             canMovePlayer = false;
                             canTalkGlobalNPC = false;
                             canMoveAllNPC = false;
                             canDrawMenus = false;
                             actualDialog = moreInteractionJSON.moreInteractions[2];
+                            canInteract = true;
                         }
                     }, 500);
                 }
@@ -69,12 +69,12 @@ function moreInteractionEnineTwo() {
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canInteract = true;
                             canMovePlayer = false;
                             canTalkGlobalNPC = false;
                             canMoveAllNPC = false;
                             canDrawMenus = false;
                             actualDialog = moreInteractionJSON.moreInteractions[0];
+                            canInteract = true;
                         }
                     }, 500);
                 }
@@ -85,12 +85,12 @@ function moreInteractionEnineTwo() {
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canInteract = true;
                             canMovePlayer = false;
                             canTalkGlobalNPC = false;
                             canMoveAllNPC = false;
                             canDrawMenus = false;
                             actualDialog = moreInteractionJSON.moreInteractions[5];
+                            canInteract = true;
                         }
                     }, 500);
                 }
