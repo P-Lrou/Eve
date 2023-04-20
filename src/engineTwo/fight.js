@@ -190,6 +190,7 @@ function playerShoot() {
     // Verifie si il a assez de munition et si il peut tirer
     if (canShoot) {
         if (spaceIsPressed) {
+            spaceIsPressed = false;
             // Verifie si une balle est tirer -> shoot = true
             if (!shoot && countAmmo > 0) {
                 shoot = true;
@@ -242,6 +243,7 @@ function spam() {
 
         if (playerAlienAnimationAction != "escape") {
             if (spaceIsPressed) {
+                spaceIsPressed = false;
                 if (canPress) {
                     keyCount++;
                     if (playerAlienAnimationAction !== "die") {

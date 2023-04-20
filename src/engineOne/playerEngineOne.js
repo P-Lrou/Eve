@@ -379,6 +379,7 @@ function takeObject(point) {
     image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
   }
   if (eIsPressed && canMovePlayer) {
+    eIsPressed = false;
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
     map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)] = 0;
@@ -394,16 +395,15 @@ function changeMap(map) {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        actualMapEngineTwo = "cloneMap";
-        actualDirectionEngineTwo = "left";
-        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
-        canDoTransition = true;
-        canMovePlayer = false;
-        newEngineSelected = ENGINE_TWO
-      }
-    }, 500);
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      actualMapEngineTwo = "cloneMap";
+      actualDirectionEngineTwo = "left";
+      EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+      canDoTransition = true;
+      canMovePlayer = false;
+      newEngineSelected = ENGINE_TWO
+    }
   }
   if (map === "botanic") {
     if (keyIsDown(69)) {
@@ -411,16 +411,15 @@ function changeMap(map) {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        actualMapEngineTwo = "botanicMap";
-        actualDirectionEngineTwo = "rigth";
-        EngineTwoMapX = 0;
-        canDoTransition = true;
-        canMovePlayer = false;
-        newEngineSelected = ENGINE_TWO
-      }
-    }, 500);
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      actualMapEngineTwo = "botanicMap";
+      actualDirectionEngineTwo = "rigth";
+      EngineTwoMapX = 0;
+      canDoTransition = true;
+      canMovePlayer = false;
+      newEngineSelected = ENGINE_TWO
+    }
   }
   if (map === "command") {
     if (keyIsDown(69)) {
@@ -428,16 +427,15 @@ function changeMap(map) {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        actualMapEngineTwo = "commandMap";
-        actualDirectionEngineTwo = "left";
-        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
-        canDoTransition = true;
-        canMovePlayer = false;
-        newEngineSelected = ENGINE_TWO
-      }
-    }, 500);
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      actualMapEngineTwo = "commandMap";
+      actualDirectionEngineTwo = "left";
+      EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+      canDoTransition = true;
+      canMovePlayer = false;
+      newEngineSelected = ENGINE_TWO
+    }
   }
   if (map === "capsule") {
     if (keyIsDown(69)) {
@@ -445,16 +443,15 @@ function changeMap(map) {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        actualMapEngineTwo = "capsuleMap";
-        actualDirectionEngineTwo = "left";
-        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
-        canDoTransition = true;
-        canMovePlayer = false;
-        newEngineSelected = ENGINE_TWO
-      }
-    }, 500);
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      actualMapEngineTwo = "capsuleMap";
+      actualDirectionEngineTwo = "left";
+      EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+      canDoTransition = true;
+      canMovePlayer = false;
+      newEngineSelected = ENGINE_TWO
+    }
   }
   if (map === "dorms") {
     if (keyIsDown(69)) {
@@ -462,16 +459,15 @@ function changeMap(map) {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        actualMapEngineTwo = "dormsMap";
-        actualDirectionEngineTwo = "left";
-        EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
-        canDoTransition = true;
-        canMovePlayer = false;
-        newEngineSelected = ENGINE_TWO
-      }
-    }, 500);
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      actualMapEngineTwo = "dormsMap";
+      actualDirectionEngineTwo = "left";
+      EngineTwoMapX = -engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth;
+      canDoTransition = true;
+      canMovePlayer = false;
+      newEngineSelected = ENGINE_TWO
+    }
   }
 }
 
@@ -483,29 +479,20 @@ function openChest() {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        if (quests.repareCapsulesMap.canTakeWrench && actualQuestName === "repareCapsulesMap") {
-          if (actualChestStatusForWrench) {
-            actualDialog = moreInteractionJSON.chestInteractions[4];
-            actualPlayersOrder = moreInteractionJSON.chestInteractions[5];
-            canInteract = true;
-            canMovePlayer = false;
-            canTalkGlobalNPC = false;
-            canMoveAllNPC = false;
-            canDrawMenus = false;
-            quests.repareCapsulesMap.canAddWrenchToInventory = true
-            quests.repareCapsulesMap.wrenchIsTaked = true;
-          } else {
-            actualDialog = moreInteractionJSON.chestInteractions[2];
-            actualPlayersOrder = moreInteractionJSON.chestInteractions[3];
-            canInteract = true;
-            canMovePlayer = false;
-            canTalkGlobalNPC = false;
-            canMoveAllNPC = false;
-            canDrawMenus = false;
-          }
-        } else if (quests.repareCapsulesMap.wrenchIsTaked) {
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      if (quests.repareCapsulesMap.canTakeWrench && actualQuestName === "repareCapsulesMap") {
+        if (actualChestStatusForWrench) {
+          actualDialog = moreInteractionJSON.chestInteractions[4];
+          actualPlayersOrder = moreInteractionJSON.chestInteractions[5];
+          canInteract = true;
+          canMovePlayer = false;
+          canTalkGlobalNPC = false;
+          canMoveAllNPC = false;
+          canDrawMenus = false;
+          quests.repareCapsulesMap.canAddWrenchToInventory = true
+          quests.repareCapsulesMap.wrenchIsTaked = true;
+        } else {
           actualDialog = moreInteractionJSON.chestInteractions[2];
           actualPlayersOrder = moreInteractionJSON.chestInteractions[3];
           canInteract = true;
@@ -513,17 +500,25 @@ function openChest() {
           canTalkGlobalNPC = false;
           canMoveAllNPC = false;
           canDrawMenus = false;
-        } else {
-          actualDialog = moreInteractionJSON.chestInteractions[0];
-          actualPlayersOrder = moreInteractionJSON.chestInteractions[1];
-          canInteract = true;
-          canMovePlayer = false;
-          canTalkGlobalNPC = false;
-          canMoveAllNPC = false;
-          canDrawMenus = false;
         }
+      } else if (quests.repareCapsulesMap.wrenchIsTaked) {
+        actualDialog = moreInteractionJSON.chestInteractions[2];
+        actualPlayersOrder = moreInteractionJSON.chestInteractions[3];
+        canInteract = true;
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+      } else {
+        actualDialog = moreInteractionJSON.chestInteractions[0];
+        actualPlayersOrder = moreInteractionJSON.chestInteractions[1];
+        canInteract = true;
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
       }
-    }, 500);
+    }
   }
   canOpenChest = false;
 }
@@ -536,15 +531,14 @@ function showNotes() {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        canMovePlayer = false;
-        canTalkGlobalNPC = false;
-        canMoveAllNPC = false;
-        canDrawMenus = false;
-        canShowNotes = true;
-      }
-    }, 500);
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      canMovePlayer = false;
+      canTalkGlobalNPC = false;
+      canMoveAllNPC = false;
+      canDrawMenus = false;
+      canShowNotes = true;
+    }
   }
   if (canShowNotes) {
     if (actualNote === 0) {
@@ -556,16 +550,15 @@ function showNotes() {
     if (actualNote === 2) {
       image(note2, screenWidth / 2 - 300, 18, 600, 882);
     }
-    setTimeout(() => {
-      if (eIsPressed && !canMovePlayer) {
-        canReadNote = false;
-        canMovePlayer = true;
-        canTalkGlobalNPC = true;
-        canMoveAllNPC = true;
-        canDrawMenus = true;
-        canShowNotes = false;
-      }
-    }, 500);
+    if (eIsPressed && !canMovePlayer) {
+      eIsPressed = false;
+      canReadNote = false;
+      canMovePlayer = true;
+      canTalkGlobalNPC = true;
+      canMoveAllNPC = true;
+      canDrawMenus = true;
+      canShowNotes = false;
+    }
   }
   canReadNote = false;
 }
@@ -579,33 +572,31 @@ function canActiveDoor() {
       } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
       }
-      setTimeout(() => {
-        if (eIsPressed && canMovePlayer) {
-          canMovePlayer = false;
-          canTalkGlobalNPC = false;
-          canMoveAllNPC = false;
-          canDrawMenus = false;
-          actualDialog = moreInteractionJSON.doors[0];;
-          actualPlayersOrder = moreInteractionJSON.doors[1];
-          canActiveDoorBool = false;
-          canInteract = true;
-        }
-      }, 500);
+      if (eIsPressed && canMovePlayer) {
+        eIsPressed = false;
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+        actualDialog = moreInteractionJSON.doors[0];;
+        actualPlayersOrder = moreInteractionJSON.doors[1];
+        canActiveDoorBool = false;
+        canInteract = true;
+      }
     } else {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
       } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
       }
-      setTimeout(() => {
-        if (eIsPressed && canMovePlayer) {
-          removeFromInventory("card")
-          leftDoorsAreClosed = false;
-          canActiveDoorBool = false;
-          quests.goToCloneMapAfterSleep.haveCard = false;
-          quests.fight.animationFightCanStart = true;
-        }
-      }, 500)
+      if (eIsPressed && canMovePlayer) {
+        eIsPressed = false;
+        removeFromInventory("card")
+        leftDoorsAreClosed = false;
+        canActiveDoorBool = false;
+        quests.goToCloneMapAfterSleep.haveCard = false;
+        quests.fight.animationFightCanStart = true;
+      }
     }
   }
   canActiveDoorBool = false;
@@ -634,18 +625,17 @@ function showDoorMessage() {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        canMovePlayer = false;
-        canTalkGlobalNPC = false;
-        canMoveAllNPC = false;
-        canDrawMenus = false;
-        actualDialog = moreInteractionJSON.doors[6];
-        actualPlayersOrder = moreInteractionJSON.doors[7];
-        canActiveDoorBool = false;
-        canInteract = true;
-      }
-    }, 500)
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      canMovePlayer = false;
+      canTalkGlobalNPC = false;
+      canMoveAllNPC = false;
+      canDrawMenus = false;
+      actualDialog = moreInteractionJSON.doors[6];
+      actualPlayersOrder = moreInteractionJSON.doors[7];
+      canActiveDoorBool = false;
+      canInteract = true;
+    }
   }
   if (canShowDoorMessage && leftDoorsAreClosed && quests.goToCloneMapAfterSleep.haveCard) {
     if (keyIsDown(69)) {
@@ -653,18 +643,17 @@ function showDoorMessage() {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        canMovePlayer = false;
-        canTalkGlobalNPC = false;
-        canMoveAllNPC = false;
-        canDrawMenus = false;
-        actualDialog = moreInteractionJSON.doors[4];
-        actualPlayersOrder = moreInteractionJSON.doors[5];
-        canActiveDoorBool = false;
-        canInteract = true;
-      }
-    }, 500)
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      canMovePlayer = false;
+      canTalkGlobalNPC = false;
+      canMoveAllNPC = false;
+      canDrawMenus = false;
+      actualDialog = moreInteractionJSON.doors[4];
+      actualPlayersOrder = moreInteractionJSON.doors[5];
+      canActiveDoorBool = false;
+      canInteract = true;
+    }
   }
   if (canShowDoorMessage && rigthDoorsAreClosed && !leftDoorsAreClosed && !quests.goToCloneMapAfterSleep.haveCard) {
     if (keyIsDown(69)) {
@@ -672,18 +661,17 @@ function showDoorMessage() {
     } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
-    setTimeout(() => {
-      if (eIsPressed && canMovePlayer) {
-        canMovePlayer = false;
-        canTalkGlobalNPC = false;
-        canMoveAllNPC = false;
-        canDrawMenus = false;
-        actualDialog = moreInteractionJSON.doors[0];;
-        actualPlayersOrder = moreInteractionJSON.doors[1];
-        canActiveDoorBool = false;
-        canInteract = true;
-      }
-    }, 500)
+    if (eIsPressed && canMovePlayer) {
+      eIsPressed = false;
+      canMovePlayer = false;
+      canTalkGlobalNPC = false;
+      canMoveAllNPC = false;
+      canDrawMenus = false;
+      actualDialog = moreInteractionJSON.doors[0];;
+      actualPlayersOrder = moreInteractionJSON.doors[1];
+      canActiveDoorBool = false;
+      canInteract = true;
+    }
   }
   canShowDoorMessage = false;
 }

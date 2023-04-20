@@ -13,7 +13,9 @@ function keyReleased() {
     if (keyCode === 69) {
         eIsPressed = true
         setTimeout(() => {
-            eIsPressed = false;
+            if (!canInteract) {
+                eIsPressed = false;
+            }
         }, 50);
     }
     if (keyCode === 27) {
@@ -346,14 +348,15 @@ function changeEngine() {
         tempCurrentEngine = currentEngine;
     }
 }
+let textEnter = false;
 
 //^ This function is used to show the text of dialogue feature
 function writeText(actualDialog) {
     if (canInteract) {
         if (keyIsDown(69)) {
-            image(interactionButton.get(14, 0, 14, 15),  screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 68);
+            image(interactionButton.get(14, 0, 14, 15), screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 68);
         } else {
-            image(interactionButton.get(0, 0, 14, 15),  screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 68);
+            image(interactionButton.get(0, 0, 14, 15), screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 68);
         }
         textLeading(28);
         fill("rgba(31, 31, 31, 1)");
@@ -362,15 +365,37 @@ function writeText(actualDialog) {
         rect((screenWidth - 900) / 2, screenHeight - 200, 900, 170, 10);
         noFill();
         if (bool) {
+            if (i === actualDialog[index].length && !textEnter) {
+                key = true
+                canMovePlayer = false;
+                canInteract = true;
+                speak = true
+                textEnter = true;
+            }
+            if (eIsPressed && !textEnter && !key) {
+                eIsPressed = false;
+                tempText = actualDialog[index]
+                textEnter = true;
+                setTimeout(() => {
+                    key = true
+                    canMovePlayer = false;
+                    canInteract = true;
+                    speak = true
+                }, 500);
+            }
             if (speak) {
                 if (key && eIsPressed) {
                     if (index < actualDialog.length - 1) {
+                        eIsPressed = false;
                         canMovePlayer = false;
-                        index++;
                         i = 0;
                         tempText = "";
-                        key = false
+                        textEnter = false;
+                        index += 1;
+                        key = false;
                     } else if (!canMovePlayer) {
+                        eIsPressed = false;
+                        textEnter = false;
                         clearInterval(idInterval);
                         i = 0;
                         tempText = "";
@@ -478,12 +503,7 @@ function writeText(actualDialog) {
             } else {
                 speak = true
                 idInterval = setInterval(() => {
-                    if (i == actualDialog[index].length) {
-                        key = true
-                        canMovePlayer = false;
-                        canInteract = true;
-                        speak = true
-                    } else {
+                    if (i < actualDialog[index].length && !textEnter) {
                         tempText = tempText + actualDialog[index][i];
                         actualHead = actualPlayersOrder[index]
                         i++;

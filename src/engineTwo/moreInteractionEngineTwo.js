@@ -10,17 +10,16 @@ function moreInteractionEnineTwo() {
                     } else {
                         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
                     }
-                    setTimeout(() => {
-                        if (eIsPressed && canMovePlayer) {
-                            actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canMovePlayer = false;
-                            canTalkGlobalNPC = false;
-                            canMoveAllNPC = false;
-                            canDrawMenus = false;
-                            actualDialog = moreInteractionJSON.moreInteractions[3];
-                            canInteract = true;
-                        }
-                    }, 500);
+                    if (eIsPressed && canMovePlayer) {
+                        eIsPressed = false;
+                        actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
+                        canMovePlayer = false;
+                        canTalkGlobalNPC = false;
+                        canMoveAllNPC = false;
+                        canDrawMenus = false;
+                        actualDialog = moreInteractionJSON.moreInteractions[3];
+                        canInteract = true;
+                    }
                 }
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 12 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 13 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {
                     if (keyIsDown(69)) {
@@ -28,17 +27,16 @@ function moreInteractionEnineTwo() {
                     } else {
                         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
                     }
-                    setTimeout(() => {
-                        if (eIsPressed && canMovePlayer) {
-                            actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canMovePlayer = false;
-                            canTalkGlobalNPC = false;
-                            canMoveAllNPC = false;
-                            canDrawMenus = false;
-                            actualDialog = moreInteractionJSON.moreInteractions[4];
-                            canInteract = true;
-                        }
-                    }, 500);
+                    if (eIsPressed && canMovePlayer) {
+                        eIsPressed = false;
+                        actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
+                        canMovePlayer = false;
+                        canTalkGlobalNPC = false;
+                        canMoveAllNPC = false;
+                        canDrawMenus = false;
+                        actualDialog = moreInteractionJSON.moreInteractions[4];
+                        canInteract = true;
+                    }
                 }
                 break;
             case "botanicMap":
@@ -48,17 +46,16 @@ function moreInteractionEnineTwo() {
                     } else {
                         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
                     }
-                    setTimeout(() => {
-                        if (eIsPressed && canMovePlayer) {
-                            actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canMovePlayer = false;
-                            canTalkGlobalNPC = false;
-                            canMoveAllNPC = false;
-                            canDrawMenus = false;
-                            actualDialog = moreInteractionJSON.moreInteractions[1];
-                            canInteract = true;
-                        }
-                    }, 500);
+                    if (eIsPressed && canMovePlayer) {
+                        eIsPressed = false;
+                        actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
+                        canMovePlayer = false;
+                        canTalkGlobalNPC = false;
+                        canMoveAllNPC = false;
+                        canDrawMenus = false;
+                        actualDialog = moreInteractionJSON.moreInteractions[1];
+                        canInteract = true;
+                    }
                 }
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 18 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 19 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {
                     if (keyIsDown(69)) {
@@ -66,17 +63,16 @@ function moreInteractionEnineTwo() {
                     } else {
                         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
                     }
-                    setTimeout(() => {
-                        if (eIsPressed && canMovePlayer) {
-                            actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canMovePlayer = false;
-                            canTalkGlobalNPC = false;
-                            canMoveAllNPC = false;
-                            canDrawMenus = false;
-                            actualDialog = moreInteractionJSON.moreInteractions[2];
-                            canInteract = true;
-                        }
-                    }, 500);
+                    if (eIsPressed && canMovePlayer) {
+                        eIsPressed = false;
+                        actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
+                        canMovePlayer = false;
+                        canTalkGlobalNPC = false;
+                        canMoveAllNPC = false;
+                        canDrawMenus = false;
+                        actualDialog = moreInteractionJSON.moreInteractions[2];
+                        canInteract = true;
+                    }
                 }
                 break;
             case "commandMap":
@@ -86,17 +82,16 @@ function moreInteractionEnineTwo() {
                     } else {
                         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
                     }
-                    setTimeout(() => {
-                        if (eIsPressed && canMovePlayer) {
-                            actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canMovePlayer = false;
-                            canTalkGlobalNPC = false;
-                            canMoveAllNPC = false;
-                            canDrawMenus = false;
-                            actualDialog = moreInteractionJSON.moreInteractions[0];
-                            canInteract = true;
-                        }
-                    }, 500);
+                    if (eIsPressed && canMovePlayer) {
+                        eIsPressed = false;
+                        actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
+                        canMovePlayer = false;
+                        canTalkGlobalNPC = false;
+                        canMoveAllNPC = false;
+                        canDrawMenus = false;
+                        actualDialog = moreInteractionJSON.moreInteractions[0];
+                        canInteract = true;
+                    }
                 }
                 break;
             case "dormsMap":
@@ -106,17 +101,16 @@ function moreInteractionEnineTwo() {
                     } else {
                         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
                     }
-                    setTimeout(() => {
-                        if (eIsPressed && canMovePlayer) {
-                            actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
-                            canMovePlayer = false;
-                            canTalkGlobalNPC = false;
-                            canMoveAllNPC = false;
-                            canDrawMenus = false;
-                            actualDialog = moreInteractionJSON.moreInteractions[5];
-                            canInteract = true;
-                        }
-                    }, 500);
+                    if (eIsPressed && canMovePlayer) {
+                        eIsPressed = false;
+                        actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
+                        canMovePlayer = false;
+                        canTalkGlobalNPC = false;
+                        canMoveAllNPC = false;
+                        canDrawMenus = false;
+                        actualDialog = moreInteractionJSON.moreInteractions[5];
+                        canInteract = true;
+                    }
                 }
                 break;
         }
