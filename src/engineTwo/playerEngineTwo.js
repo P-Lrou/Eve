@@ -505,6 +505,9 @@ function lastCameraAnimation() {
         EngineTwoMapX = -13
         Direction = "right";
         playerState = "idle";
+        setTimeout(() => {
+          quests.lastQuest.canDrawEve = true;
+        }, 1500);
       }
     }
   }

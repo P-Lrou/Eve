@@ -279,7 +279,7 @@ setInterval(() => {
     } else {
         indexOfEveIdleAnim = 0;
     }
-}, 110);
+}, 180);
 
 //+ Set animation for eve end fight movement
 let indexPlayerAlienSpriteEndFight = 0;
@@ -290,6 +290,16 @@ setInterval(() => {
         indexPlayerAlienSpriteEndFight = 28;
     }
 }, 100);
+
+//+ Set animation for eve end Game movement
+let indexEveMoveEndGame = 0;
+setInterval(() => {
+    if (indexEveMoveEndGame < 5) {
+        indexEveMoveEndGame += 1;
+    } else {
+        indexEveMoveEndGame = 0;
+    }
+}, 150);
 
 
 
@@ -394,109 +404,115 @@ function writeText(actualDialog) {
                         index += 1;
                         key = false;
                     } else if (!canMovePlayer) {
-                        eIsPressed = false;
-                        textEnter = false;
-                        clearInterval(idInterval);
-                        i = 0;
-                        tempText = "";
-                        speak = false;
-                        bool = false;
-                        key = false;
-                        index = 0;
-                        canInteract = false;
-                        startingIsDialogsFinish = true;
-                        canMoveAllNPC = true;
-                        canOpenChest = false;
-                        actualHead = [-1];
-                        if (quests.fight.haveShotTwoAmmo && !quests.fight.fightIsFinished) {
-                            alienStatus = "move";
-                            alienCanMove = true;
-                            indexAlienSprite = 0;
-                            canShoot = true;
-                        }
-                        if (quests.fight.animationFightCanStart && quests.fight.haveFinishAnimationFirstPart) {
-                            quests.fight.animationFightCanStart = false;
-                            quests.fight.dialogsFightIsOver = true;
-                            quests.fight.canStartFigth = false;
-                            fightIsReset = false;
-                            console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
-                            console.log('%c<----Fight Dialog Have End With Success---->', 'color:rgb(255, 0, 0)')
-                        }
-                        if (!quests.fight.dialogsFitghtIsStart && !quests.fight.haveShotTwoAmmo) {
-                            if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory && !animationActeTwoStart) {
-                                canDrawMenus = true;
-                                setTimeout(() => {
-                                    canMovePlayer = true;
-                                    console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
-                                }, 200);
+                        if (!quests.lastQuest.canDrawEve) {
+                            eIsPressed = false;
+                            textEnter = false;
+                            clearInterval(idInterval);
+                            i = 0;
+                            tempText = "";
+                            speak = false;
+                            bool = false;
+                            key = false;
+                            index = 0;
+                            canInteract = false;
+                            startingIsDialogsFinish = true;
+                            canMoveAllNPC = true;
+                            canOpenChest = false;
+                            actualHead = [-1];
+                            if (quests.fight.haveShotTwoAmmo && !quests.fight.fightIsFinished) {
+                                alienStatus = "move";
+                                alienCanMove = true;
+                                indexAlienSprite = 0;
+                                canShoot = true;
                             }
-                            if (quests.seedsBagQuest.canAddToInventorySeedBag) {
-                                canDrawMenus = true;
-                                canShowInventoryAnimation = true;
-                                newObjectToAdd = "seedsBagBotanicMap";
-                                setTimeout(() => {
-                                    canMovePlayer = true;
-                                    quests.seedsBagQuest.canAddToInventorySeedBag = false;
-                                    console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
-                                }, 3500);
-                                setTimeout(() => {
-                                    objectAsBeenAdToInventoryWithAnimation = false;
-                                }, 20000);
-                            }
-                            if (quests.repareCapsulesMap.canAddWrenchToInventory) {
-                                canDrawMenus = true;
-                                canShowInventoryAnimation = true;
-                                newObjectToAdd = "wrenchCapsulesMap";
-                                setTimeout(() => {
-                                    canMovePlayer = true;
-                                    quests.repareCapsulesMap.canAddWrenchToInventory = false;
-                                    quests.repareCapsulesMap.canTakeWrench = false;
-                                    console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
-                                }, 3500);
-                                setTimeout(() => {
-                                    objectAsBeenAdToInventoryWithAnimation = false;
-                                    console.log('%c<----Object Have Been Add To Inventory With Success---->', 'color:rgb(0, 140, 255)')
-                                }, 20000);
-                            }
-                            if (quests.repareCapsulesMap.hadTalkToFinn) {
-                                quests.repareCapsulesMap.canRepareWall = true;
-                            }
-                            if (quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert) {
-                                quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = false;
-                                quests.goToCloneMapAfterSleep.haveShowMoreInformationAboutAlert = true;
-                            }
-                            if (quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp) {
-                                quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = false;
-                                quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = true;
-                                quests.goToCloneMapAfterSleephaveShowAfterWeakingUp = true;
-                            }
-                            if (animationActeTwoStart) {
-                                canInteract = false;
-                                actualQuestName = "goToCloneMapAfterSleep"
-                                quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted = true;
-                                leftDoorsAreClosed = true;
-                                rigthDoorsAreClosed = true;
-                                animationActeTwoStart = false;
+                            if (quests.fight.animationFightCanStart && quests.fight.haveFinishAnimationFirstPart) {
+                                quests.fight.animationFightCanStart = false;
+                                quests.fight.dialogsFightIsOver = true;
+                                quests.fight.canStartFigth = false;
+                                fightIsReset = false;
                                 console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
-                                console.log('%c<----Act Two Introduction Have End With Success---->', 'color:rgb(0, 140, 255)')
-                                console.log('%c<----Act Two Successfully Started---->', 'color:rgb(255, 0, 0)')
+                                console.log('%c<----Fight Dialog Have End With Success---->', 'color:rgb(255, 0, 0)')
                             }
-                            if (!animationActeTwoStart) {
-                                setTimeout(() => {
-                                    canTalkGlobalNPC = true;
-                                    canActiveDoorBool = false;
-                                }, 1000);
-                            }
-                            if (gameIsStarting) {
-                                setTimeout(() => {
-                                    gameIsStarting = false;
-                                    canMovePlayer = true;
-                                    canShowArrows = true;
+                            if (!quests.fight.dialogsFitghtIsStart && !quests.fight.haveShotTwoAmmo) {
+                                if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory && !animationActeTwoStart) {
                                     canDrawMenus = true;
+                                    setTimeout(() => {
+                                        canMovePlayer = true;
+                                        console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
+                                    }, 200);
+                                }
+                                if (quests.seedsBagQuest.canAddToInventorySeedBag) {
+                                    canDrawMenus = true;
+                                    canShowInventoryAnimation = true;
+                                    newObjectToAdd = "seedsBagBotanicMap";
+                                    setTimeout(() => {
+                                        canMovePlayer = true;
+                                        quests.seedsBagQuest.canAddToInventorySeedBag = false;
+                                        console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
+                                    }, 3500);
+                                    setTimeout(() => {
+                                        objectAsBeenAdToInventoryWithAnimation = false;
+                                    }, 20000);
+                                }
+                                if (quests.repareCapsulesMap.canAddWrenchToInventory) {
+                                    canDrawMenus = true;
+                                    canShowInventoryAnimation = true;
+                                    newObjectToAdd = "wrenchCapsulesMap";
+                                    setTimeout(() => {
+                                        canMovePlayer = true;
+                                        quests.repareCapsulesMap.canAddWrenchToInventory = false;
+                                        quests.repareCapsulesMap.canTakeWrench = false;
+                                        console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
+                                    }, 3500);
+                                    setTimeout(() => {
+                                        objectAsBeenAdToInventoryWithAnimation = false;
+                                        console.log('%c<----Object Have Been Add To Inventory With Success---->', 'color:rgb(0, 140, 255)')
+                                    }, 20000);
+                                }
+                                if (quests.repareCapsulesMap.hadTalkToFinn) {
+                                    quests.repareCapsulesMap.canRepareWall = true;
+                                }
+                                if (quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert) {
+                                    quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = false;
+                                    quests.goToCloneMapAfterSleep.haveShowMoreInformationAboutAlert = true;
+                                }
+                                if (quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp) {
+                                    quests.goToCloneMapAfterSleep.canShowDialogsAfterWeakingUp = false;
+                                    quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert = true;
+                                    quests.goToCloneMapAfterSleephaveShowAfterWeakingUp = true;
+                                }
+                                if (animationActeTwoStart) {
+                                    canInteract = false;
+                                    actualQuestName = "goToCloneMapAfterSleep"
+                                    quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted = true;
+                                    leftDoorsAreClosed = true;
+                                    rigthDoorsAreClosed = true;
+                                    animationActeTwoStart = false;
                                     console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
-                                    console.log('%c<----Introduction Have End With Success---->', 'color:rgb(0, 140, 255)')
-                                }, 8000);
+                                    console.log('%c<----Act Two Introduction Have End With Success---->', 'color:rgb(0, 140, 255)')
+                                    console.log('%c<----Act Two Successfully Started---->', 'color:rgb(255, 0, 0)')
+                                }
+                                if (!animationActeTwoStart) {
+                                    setTimeout(() => {
+                                        canTalkGlobalNPC = true;
+                                        canActiveDoorBool = false;
+                                    }, 1000);
+                                }
+                                if (gameIsStarting) {
+                                    setTimeout(() => {
+                                        gameIsStarting = false;
+                                        canMovePlayer = true;
+                                        canShowArrows = true;
+                                        canDrawMenus = true;
+                                        console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
+                                        console.log('%c<----Introduction Have End With Success---->', 'color:rgb(0, 140, 255)')
+                                    }, 8000);
+                                }
                             }
+                        } else {
+                            quests.lastQuest.canShowEnd = true;
+                            canDoTransition = true;
+                            newEngineSelected = MENU;
                         }
                     }
                 }

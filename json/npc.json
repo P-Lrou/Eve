@@ -115,6 +115,18 @@
       "minX": 15,
       "canMove": false,
       "canTalk": false
+    },
+    {
+      "name": "eveEndGame",
+      "startx": 200,
+      "xdist": 1600,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [-1, 0],
+      "maxX": 4,
+      "minX": 4,
+      "canMove": true,
+      "canTalk": false
     }
   ],
 

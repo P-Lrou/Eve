@@ -45,7 +45,7 @@
     "fightIsFinished": false,
     "canShowDialogsAfterFight": false,
     "canShowEveAfterFight": false,
-    "canShowEve": true,
+    "canShowEve": false,
     "haveShotTwoAmmo": false,
     "haveShowThatHaveShottwoAmmo": false
   },
@@ -56,6 +56,8 @@
     "haveTakeSuit": false,
     "canOpenDoorAnimation": false,
     "havePressOnButtonToOpenCapsule": false,
-    "stopAnimation": false
+    "stopAnimation": false,
+    "canDrawEve": false,
+    "canShowEnd": false
   }
 }

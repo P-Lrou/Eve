@@ -32,6 +32,7 @@ function loadAssets() {
   npcAllie = loadImage("assets/caracters/npcAllie.png");
   npcFinn = loadImage("assets/caracters/npcFinn.png");
   eve = loadImage("assets/caracters/eve.png");
+  eveEndGame = loadImage("assets/caracters/eveEndGame.png");
   dialogsHeads = loadImage("assets/caracters/dialogsHeads.png");
   assets = loadImage("assets/assets.png");
   darksAssets = loadImage("assets/darksAssets.png");
@@ -2059,6 +2060,8 @@ function findActualNpc(npcName) {
       return npcFinn;
     case "eve":
       return eve;
+    case "eveEndGame":
+      return eveEndGame;
     default:
       throw new Error("Can't find the asset named : " + npcName);
   }

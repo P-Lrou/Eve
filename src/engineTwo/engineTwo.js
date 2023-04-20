@@ -135,6 +135,9 @@ function engineTwoStart() {
       if (!acteTwoIsStarting) {
         drawNPCEngineTwo('npcFinn');
       }
+      if (quests.lastQuest.canDrawEve) {
+        drawNPCEngineTwo('eveEndGame');
+      }
       drawPlayerEngineTwo();
       image(pipeFront, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawInventory();

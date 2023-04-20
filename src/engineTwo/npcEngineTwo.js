@@ -96,10 +96,10 @@ function drawNPCEngineTwo(NPC) {
     rect(actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize)
     noFill();
   }
-  if (actualNPC.name !== "eve") {
+  if (actualNPC.name !== "eve" && actualNPC.name !== "eveEndGame") {
     image(animationMoovePlayer, actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize);
   }
-  else if (!quests.fight.canShowEveAfterFight) {
+  else if (!quests.fight.canShowEveAfterFight && !quests.lastQuest.canDrawEve) {
     animationMoovePlayer = npcTile.get(22 * indexOfEveIdleAnim, 0, 22, 39);
     image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
   }
@@ -110,6 +110,20 @@ function drawNPCEngineTwo(NPC) {
       522 - fightCutSizeH * fightRatio / 2,
       fightCutSizeW * fightRatio,
       fightCutSizeH * fightRatio);
+  }
+  if (actualNPC.name === "eveEndGame" && quests.lastQuest.canDrawEve && canMoveAllNPC) {
+    animationMoovePlayer = npcTile.get(22 * indexEveMoveEndGame, 39, 22, 39);
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
+    if (actualNPC.startx < 982) {
+      actualNPC.startx = 982;
+      canMoveAllNPC = false;
+      actualDialog = moreInteractionJSON.endGame[4];
+      actualPlayersOrder = moreInteractionJSON.endGame[5];
+      canInteract = true;
+    }
+  } else if (actualNPC.name === "eveEndGame" && quests.lastQuest.canDrawEve && !canMoveAllNPC) {
+    animationMoovePlayer = npcTile.get(22 * indexOfEveIdleAnim, 0, 22, 39);
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
   }
 }
 
