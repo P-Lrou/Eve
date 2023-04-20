@@ -1,7 +1,7 @@
 //& This file setup all variables for the global game
 
 let debugMode = false;
-let gameIsStarting = false;
+let gameIsStarting = true;
 let acteTwoIsStarting = false;
 
 let fightIsReset = false;
@@ -84,7 +84,7 @@ let inventoryHeigthStart = 8;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
 let actualInventoryChoose = 1;
-inventoryTab.length = 4;
+inventoryTab.length = 3;
 let inventoryWidthStart = screenWidth - (inventoryTab.length * inventorySquareSize) - 10 * inventoryTab.length - 10;
 
 

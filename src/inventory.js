@@ -35,16 +35,6 @@ function drawInventory() {
     if (inventoryTab[2] != undefined) {
       image(findActualObject(inventoryTab[2]), inventoryWidthStart + inventorySquareSize * 2 + 20, inventoryHeigthStart, inventorySquareSize, inventorySquareSize);
     }
-    fill("rgba(31, 31, 31, 0.68)");
-    stroke("rgba(213, 213, 213, 0.24)");
-    if (actualInventoryChoose === 4) {
-      fill("rgba(116, 168, 151,0.68)");
-      stroke("rgba(213, 213, 213, 0.24)");
-    }
-    rect(inventoryWidthStart + inventorySquareSize * 3 + 30, inventoryHeigthStart, inventorySquareSize, inventorySquareSize, 20);
-    if (inventoryTab[3] != undefined) {
-      image(findActualObject(inventoryTab[3]), inventoryWidthStart + inventorySquareSize * 3 + 30, inventoryHeigthStart, inventorySquareSize, inventorySquareSize);
-    }
   }
   noFill();
   noTint();
@@ -133,28 +123,6 @@ function addToInventory(object) {
       }
     }
 
-    if (canChangeObjectInventory && inventoryTabNumber === 3) {
-      if (newObjectX + 100 < inventoryWidthStart + inventorySquareSize * 4 + 10 - newObjectSize - 1) {
-        newObjectOldX += 5.8
-      } else if (newObjectX < inventoryWidthStart + inventorySquareSize * 4 + 10 - newObjectSize - 1) {
-        newObjectOldX += 3.2
-      } else if (inventoryWidthStart + inventorySquareSize * 4 + 10 === newObjectSize && newObjectX > inventoryWidthStart + inventorySquareSize * 4 + 10) {
-        newObjectX = inventoryWidthStart + inventorySquareSize * 4 + 10 - newObjectSize;
-      }
-      if (newObjectY - 100 > inventoryHeigthStart + 5) {
-        newObjectOldY -= 5.8
-      } else if (newObjectY > inventoryHeigthStart + 5) {
-        newObjectOldY -= 3.2
-      } else if (inventorySquareSize === newObjectSize && newObjectY > inventoryHeigthStart) {
-        newObjectY = inventoryHeigthStart
-      }
-      if (inventorySquareSize < newObjectSize) {
-        newObjectSize -= 5
-      } else if (newObjectSize > inventorySquareSize) {
-        newObjectSize = inventorySquareSize
-      }
-    }
-
     if (canShowObjectInAnimation && !canInteract) {
       image(actualObject, newObjectX, newObjectY, newObjectSize, newObjectSize);
     }
@@ -172,7 +140,7 @@ function removeFromInventory(object) {
     }
   });
   inventoryTab = []
-  inventoryTab.length = 4
+  inventoryTab.length = 3
   inventoryTabNumber = 0
   for (let v = 0; v < tempArray.length; v++) {
     inventoryTab[inventoryTabNumber] = tempArray[v]

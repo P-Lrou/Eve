@@ -53,10 +53,6 @@ function playerInputsEngineTwo() {
     actualInventoryChoose = 3;
   }
 
-  if (keyIsDown(52) && canMoveEngineTwo && canMovePlayer) {
-    actualInventoryChoose = 4;
-  }
-
   // if (escapeIsPressed) {
   //   canMovePlayer = false;
   //   canShowSettingsMenu = true;

@@ -34,7 +34,6 @@ function playerInputs() {
   if (keyIsDown(49) && canMovePlayer) actualInventoryChoose = 1; // Keyboard 1 --> Set inventory slot selected to 1
   if (keyIsDown(50) && canMovePlayer) actualInventoryChoose = 2; // Keyboard 2 --> Set inventory slot selected to 2
   if (keyIsDown(51) && canMovePlayer) actualInventoryChoose = 3; // Keyboard 3 --> Set inventory slot selected to 3
-  if (keyIsDown(52) && canMovePlayer) actualInventoryChoose = 4; // Keyboard 4 --> Set inventory slot selected to 4
 
 
   madeCollision();
