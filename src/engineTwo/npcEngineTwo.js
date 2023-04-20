@@ -164,7 +164,11 @@ function isCollisionWithPlayer(point) {
 function canTalkToNpc(actualNPC) {
   if (actualNPC.canTalk && canMovePlayer && canTalkGlobalNPC) {
     canTalkingToNPC = true;
-    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       canInteract = true;
       canMovePlayer = false;

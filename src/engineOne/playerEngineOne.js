@@ -374,7 +374,11 @@ function madeCollision() {
 //^ This function is used to take an object and set him in the inventory
 //- Take in param the player position point
 function takeObject(point) {
-  image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+  if (keyIsDown(69)) {
+    image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+  } else {
+    image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+  }
   if (eIsPressed && canMovePlayer) {
     inventoryTab[inventoryTabNumber] = getTileNameForObject(point);
     inventoryTabNumber++;
@@ -386,7 +390,11 @@ function takeObject(point) {
 //- Take in param tha map wanted
 function changeMap(map) {
   if (map === "clone") {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "cloneMap";
@@ -399,7 +407,11 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "botanic") {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "botanicMap";
@@ -412,7 +424,11 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "command") {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "commandMap";
@@ -425,7 +441,11 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "capsule") {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "capsuleMap";
@@ -438,7 +458,11 @@ function changeMap(map) {
     }, 500);
   }
   if (map === "dorms") {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         actualMapEngineTwo = "dormsMap";
@@ -455,7 +479,11 @@ function changeMap(map) {
 
 function openChest() {
   if (canOpenChest) {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         if (quests.repareCapsulesMap.canTakeWrench && actualQuestName === "repareCapsulesMap") {
@@ -504,7 +532,11 @@ function openChest() {
 
 function showNotes() {
   if (canReadNote) {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         canMovePlayer = false;
@@ -543,7 +575,11 @@ function showNotes() {
 function canActiveDoor() {
   if (acteTwoIsStarting && quests.goToCloneMapAfterSleep.haveCard && canActiveDoorBool && canMovePlayer) {
     if (mapX > 2500) {
-      image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+      } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+      }
       setTimeout(() => {
         if (eIsPressed && canMovePlayer) {
           canMovePlayer = false;
@@ -557,7 +593,11 @@ function canActiveDoor() {
         }
       }, 500);
     } else {
-      image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+      } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+      }
       setTimeout(() => {
         if (eIsPressed && canMovePlayer) {
           removeFromInventory("card")
@@ -590,7 +630,11 @@ function showMoreInformationsAboutAlert() {
 
 function showDoorMessage() {
   if (canShowDoorMessage && leftDoorsAreClosed && !quests.goToCloneMapAfterSleep.haveCard) {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         canMovePlayer = false;
@@ -605,7 +649,11 @@ function showDoorMessage() {
     }, 500)
   }
   if (canShowDoorMessage && leftDoorsAreClosed && quests.goToCloneMapAfterSleep.haveCard) {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         canMovePlayer = false;
@@ -620,7 +668,11 @@ function showDoorMessage() {
     }, 500)
   }
   if (canShowDoorMessage && rigthDoorsAreClosed && !leftDoorsAreClosed && !quests.goToCloneMapAfterSleep.haveCard) {
-    image(interactionButton, playerPosX + 45, playerPosY - 50, 40, 40);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
+    }
     setTimeout(() => {
       if (eIsPressed && canMovePlayer) {
         canMovePlayer = false;

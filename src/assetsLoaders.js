@@ -27,6 +27,7 @@ function loadAssets() {
   mainCaracterWeapon = loadImage("assets/caracters/mainCaracterWeapon.png");
   mainCaracterDark = loadImage("assets/caracters/mainCaracterDark.png");
   mainCaracterDarkWeapon = loadImage("assets/caracters/mainCaracterDarkWeapon.png");
+  mainCaracterWithSuit = loadImage("assets/caracters/mainCaracterWithSuit.png");
   npcOctavia = loadImage("assets/caracters/npcOctavia.png");
   npcAllie = loadImage("assets/caracters/npcAllie.png");
   npcFinn = loadImage("assets/caracters/npcFinn.png");
@@ -68,7 +69,6 @@ function loadAssets() {
   gunCommandMap = loadImage("assets/commandMap/gunCommandMap.png")
   cardCommandMap = loadImage("assets/commandMap/cardCommandMap.png")
 
-  backgroundCapsuleMap = loadImage("assets/capsuleMap/backgroundCapsuleMap.png")
   normalPipe = loadImage("assets/capsuleMap/normalPipe.png")
   gazPipe = loadImage("assets/capsuleMap/gazPipe.png")
   redLigthsCapsuleMap = loadImage("assets/capsuleMap/redLigthsCapsuleMap.png")
@@ -76,6 +76,15 @@ function loadAssets() {
   wrenchCapsulesMap = loadImage("assets/capsuleMap/wrenchCapsulesMap.png")
   pipeFront = loadImage("assets/capsuleMap/pipeFront.png")
   ligthsCapsuleMap = loadImage("assets/capsuleMap/ligthsCapsuleMap.png")
+
+  backgroundCapsuleMapWithoutSuit = loadImage("assets/capsuleMap/backgroundCapsuleMapWithoutSuit.png")
+  caspule = loadImage("assets/capsuleMap/caspule.png")
+  buttonOff = loadImage("assets/capsuleMap/buttonOff.png")
+  buttonOn = loadImage("assets/capsuleMap/buttonOn.png")
+  doorOpenAnimation = loadImage("assets/capsuleMap/doorOpenAnimation.png")
+  suit = loadImage("assets/capsuleMap/suit.png")
+  lightAlone = loadImage("assets/capsuleMap/lightAlone.png")
+  lightAloneOff = loadImage("assets/capsuleMap/lightAloneOff.png")
 
   backgroundDormsMap = loadImage("assets/dormsMap/backgroundDormsMap.png")
   screenOneAnimationDormsMap = loadImage("assets/dormsMap/screenOneAnimationDormsMap.png")

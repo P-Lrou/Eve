@@ -53,6 +53,9 @@
     "lastQuestIsStarting": false,
     "haveFiles": false,
     "haveStartDestruction": false,
-    "havePressOnButtonToOpenCapsule": false
+    "haveTakeSuit": false,
+    "canOpenDoorAnimation": false,
+    "havePressOnButtonToOpenCapsule": false,
+    "stopAnimation": false
   }
 }

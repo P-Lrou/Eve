@@ -239,9 +239,6 @@ function spam() {
                 playerAlienAnimationAction = "die";
             }, 5000);
         }
-        if (keyCount < 20) {
-            drawGauge()
-        }
 
         if (playerAlienAnimationAction != "escape") {
             if (spaceIsPressed) {
@@ -255,6 +252,10 @@ function spam() {
             } else {
                 canPress = true;
             }
+        }
+
+        if (keyCount < 20) {
+            drawGauge()
         }
 
         if (keyCount === 20 && playerAlienAnimationAction !== "die" || keyCount > 20 && playerAlienAnimationAction !== "die") {
@@ -279,6 +280,11 @@ function drawGauge() {
     fill('red')
     rect(playerPosX - 70, playerPosY - 225, gaugeCount, 35)
     noFill();
+    stroke("#e0e0e0")
+    strokeWeight(8)
+    noFill();
+    rect(playerPosX - 70, playerPosY - 225, 400, 35);
+    noStroke();
 }
 
 /*Animation interval*/

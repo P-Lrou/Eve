@@ -5,7 +5,11 @@ function moreInteractionEnineTwo() {
         switch (actualMapEngineTwo) {
             case "cloneMap":
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 4 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 5 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {
-                    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+                    if (keyIsDown(69)) {
+                        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    } else {
+                        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    }
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
@@ -19,7 +23,11 @@ function moreInteractionEnineTwo() {
                     }, 500);
                 }
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 12 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 13 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {
-                    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+                    if (keyIsDown(69)) {
+                        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    } else {
+                        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    }
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
@@ -35,7 +43,11 @@ function moreInteractionEnineTwo() {
                 break;
             case "botanicMap":
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 6 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {
-                    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+                    if (keyIsDown(69)) {
+                        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    } else {
+                        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    }
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
@@ -49,7 +61,11 @@ function moreInteractionEnineTwo() {
                     }, 500);
                 }
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 18 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 19 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {
-                    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+                    if (keyIsDown(69)) {
+                        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    } else {
+                        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    }
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
@@ -65,7 +81,11 @@ function moreInteractionEnineTwo() {
                 break;
             case "commandMap":
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 9.5 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 13 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {
-                    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+                    if (keyIsDown(69)) {
+                        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    } else {
+                        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    }
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]
@@ -81,7 +101,11 @@ function moreInteractionEnineTwo() {
                 break;
             case "dormsMap":
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 12 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 14 && canMovePlayer && !canTalkingToNPC && !gameIsStarting && actualQuestName === "sleepQuest") {
-                    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+                    if (keyIsDown(69)) {
+                        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    } else {
+                        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+                    }
                     setTimeout(() => {
                         if (eIsPressed && canMovePlayer) {
                             actualPlayersOrder = moreInteractionJSON.moreInteractions[6]

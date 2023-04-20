@@ -3,7 +3,6 @@
 let debugMode = false;
 let gameIsStarting = true;
 let acteTwoIsStarting = false;
-let haveStartTheGame = false;
 
 let fightIsReset = false;
 
@@ -249,6 +248,17 @@ setInterval(() => {
     }
 }, 110);
 
+//+ Set animation for Door Open animation
+let indexOfAnimation12 = 0;
+setInterval(() => {
+    if (indexOfAnimation12 < 21) {
+        indexOfAnimation12 += 1;
+    } else {
+        indexOfAnimation12 = 22;
+    }
+}, 110);
+
+
 //+ Set animation for main caracter movement
 let indexOfAnimation = 0;
 setInterval(() => {
@@ -340,7 +350,11 @@ function changeEngine() {
 //^ This function is used to show the text of dialogue feature
 function writeText(actualDialog) {
     if (canInteract) {
-        image(interactionButton, screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 64);
+        if (keyIsDown(69)) {
+            image(interactionButton.get(14, 0, 14, 15),  screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 68);
+        } else {
+            image(interactionButton.get(0, 0, 14, 15),  screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 68);
+        }
         textLeading(28);
         fill("rgba(31, 31, 31, 1)");
         strokeWeight(4);

@@ -2,7 +2,9 @@
 
 //^ This function managed player input
 function playerInputsEngineTwo() {
-  playerState = "idle";
+  if (!quests.lastQuest.havePressOnButtonToOpenCapsule) {
+    playerState = "idle";
+  }
   if (keyIsDown(LEFT_ARROW) && canMoveEngineTwo && canMovePlayer || (keyIsDown(81) && canMoveEngineTwo && canMovePlayer)) {
     canShowArrows = false;
     playerState = "mooving";
@@ -86,27 +88,36 @@ function drawPlayerEngineTwo() {
 function drawIdlePlayerEngineTwo() {
   switch (Direction) {
     case "left":
-      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracterWeapon.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.lastQuest.haveTakeSuit) {
+        image(mainCaracterWithSuit.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     case "right":
-      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracter.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracterWeapon.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.lastQuest.haveTakeSuit) {
+        image(mainCaracterWithSuit.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     default:
-      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracterWeapon.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.lastQuest.haveTakeSuit) {
+        image(mainCaracterWithSuit.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
   }
 }
@@ -115,27 +126,36 @@ function drawIdlePlayerEngineTwo() {
 function drawMovePlayerEngineTwo() {
   switch (Direction) {
     case "left":
-      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.lastQuest.haveTakeSuit) {
+        image(mainCaracterWithSuit.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     case "right":
-      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.lastQuest.haveTakeSuit) {
+        image(mainCaracterWithSuit.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     default:
-      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracter.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
         image(mainCaracterWeapon.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+      }
+      if (quests.lastQuest.haveTakeSuit) {
+        image(mainCaracterWithSuit.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
   }
 }
@@ -144,7 +164,11 @@ function drawMovePlayerEngineTwo() {
 function changeMapEngineTwo() {
   if (actualDirectionEngineTwo == "left") {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 && canMovePlayer && !canTalkingToNPC) {
-      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
       setTimeout(() => {
         if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
           canDoTransition = true;
@@ -156,7 +180,11 @@ function changeMapEngineTwo() {
   }
   if (actualDirectionEngineTwo == "rigth") {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && !canTalkingToNPC) {
-      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
       setTimeout(() => {
         if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
           canDoTransition = true;
@@ -171,7 +199,11 @@ function changeMapEngineTwo() {
 //^ This function is used to set the clone quest interaction
 function canDoInteractionCloneQuest() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 && canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest && !canTalkingToNPC) {
-    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  }
     setTimeout(() => {
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.questCloneMap.canDrawEngineCloneMapQuest = true;
@@ -185,7 +217,11 @@ function canDoInteractionCloneQuest() {
 
 function canDointeractionCapsuleMapQuest() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 11 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 12 && quests.repareCapsulesMap.canRepareWall && canMovePlayer && actualQuestName === 'repareCapsulesMap') {
-    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  }
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       removeFromInventory("wrenchCapsulesMap")
       quests.repareCapsulesMap.canRepareWall = false;
@@ -196,7 +232,11 @@ function canDointeractionCapsuleMapQuest() {
 
 function canGoSleep() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && actualQuestName === 'sleepQuest') {
-    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  }
     setTimeout(() => {
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         canDoTransition = true;
@@ -213,7 +253,11 @@ function canGoSleep() {
 function takeGunAndCard() {
   if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && !quests.goToCloneMapAfterSleep.haveGun && !quests.goToCloneMapAfterSleep.gunTaked) {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer) {
-      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.goToCloneMapAfterSleep.haveGun = true;
         quests.goToCloneMapAfterSleep.haveCard = true;
@@ -307,7 +351,11 @@ function startTheAfterFightPart() {
 function interactionsAfterFight() {
   if (quests.fight.fightIsFinished && canMovePlayer) {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 3 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 6 && canMovePlayer) {
-      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         actualDialog = moreInteractionJSON.figth[6];
         actualPlayersOrder = moreInteractionJSON.figth[7];
@@ -319,7 +367,11 @@ function interactionsAfterFight() {
       }
     }
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 8 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 && canMovePlayer) {
-      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         actualDialog = moreInteractionJSON.figth[8];
         actualPlayersOrder = moreInteractionJSON.figth[9];
@@ -336,7 +388,11 @@ function interactionsAfterFight() {
 function takeObjectForLastQuest() {
   if (quests.lastQuest.lastQuestIsStarting) {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer && !quests.lastQuest.haveFiles) {
-      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.lastQuest.haveFiles = true;
         canMovePlayer = false;
@@ -352,7 +408,11 @@ function takeObjectForLastQuest() {
       }
     }
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 6 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 7.5 && canMovePlayer && quests.lastQuest.haveFiles && !quests.lastQuest.haveStartDestruction) {
-      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.lastQuest.haveStartDestruction = true;
         actualDialog = moreInteractionJSON.endGame[0];
@@ -367,12 +427,64 @@ function takeObjectForLastQuest() {
   }
 }
 
+function takeSuit() {
+  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 7.5 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 8.5 && canMovePlayer && quests.lastQuest.haveStartDestruction && !quests.lastQuest.havePressOnButtonToOpenCapsule && !quests.lastQuest.haveTakeSuit) {
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  }
+    if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+      quests.lastQuest.haveTakeSuit = true
+    }
+  }
+}
+
 function openCapsuleAndStartLastDialogs() {
-  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 5.5 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 6.5 && canMovePlayer && quests.lastQuest.haveStartDestruction && !quests.lastQuest.havePressOnButtonToOpenCapsule) {
-    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+  if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 5.5 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 6.5 && canMovePlayer && quests.lastQuest.haveStartDestruction && !quests.lastQuest.havePressOnButtonToOpenCapsule && quests.lastQuest.haveTakeSuit) {
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+  }
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       quests.lastQuest.havePressOnButtonToOpenCapsule = true
-      console.log('ENDDDDDDDDDDDDDDDDDDDDDDD')
+    }
+  }
+}
+
+function lastCameraAnimation() {
+  if (quests.lastQuest.havePressOnButtonToOpenCapsule) {
+    if (EngineTwoMapX < -13 || playerPosX > 205) {
+      canShowArrows = false;
+      playerState = "mooving";
+      playerPosX -= playerSpeedEngineTwo;
+      canMovePlayer = false;
+      canDrawMenus = false;
+      if (-EngineTwoMapX > 13) {
+        EngineTwoMapX += playerSpeedEngineTwo;
+        playerPosX += playerSpeedEngineTwo;
+      } else if (-EngineTwoMapX < 13) {
+        EngineTwoMapX = -13
+      }
+      Direction = "left";
+    } else {
+      if (!quests.lastQuest.stopAnimation) {
+        EngineTwoMapX = -13
+        Direction = "right";
+        playerState = "idle";
+        indexOfAnimation12 = 0;
+        canMovePlayer = false;
+        canDrawMenus = false;
+        quests.lastQuest.canOpenDoorAnimation = true;
+        quests.lastQuest.stopAnimation = true;
+      } else {
+        canMovePlayer = false;
+        canDrawMenus = false;
+        EngineTwoMapX = -13
+        Direction = "right";
+        playerState = "idle";
+      }
     }
   }
 }
