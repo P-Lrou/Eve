@@ -158,7 +158,7 @@ function drawMovePlayerEngineTwo() {
 
 //^ This function is used to change map from the second engine to the first
 function changeMapEngineTwo() {
-  if (actualDirectionEngineTwo == "left") {
+  if (actualDirectionEngineTwo === "left" && !quests.lastQuest.haveTakeSuit) {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 && canMovePlayer && !canTalkingToNPC) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
@@ -174,7 +174,7 @@ function changeMapEngineTwo() {
       }, 500);
     }
   }
-  if (actualDirectionEngineTwo == "rigth") {
+  if (actualDirectionEngineTwo === "rigth" && !quests.lastQuest.haveTakeSuit) {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && !canTalkingToNPC) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
@@ -186,6 +186,26 @@ function changeMapEngineTwo() {
           canDoTransition = true;
           canMovePlayer = false;
           newEngineSelected = ENGINE_ONE;
+        }
+      }, 500);
+    }
+  }
+  if (quests.lastQuest.haveTakeSuit) {
+    if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 && canMovePlayer && !canTalkingToNPC) {
+      if (keyIsDown(69)) {
+        image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+      } else {
+        image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+      }
+      setTimeout(() => {
+        if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+          actualDialog = moreInteractionJSON.endGame[2];
+          actualPlayersOrder = moreInteractionJSON.endGame[3];
+          canMovePlayer = false;
+          canTalkGlobalNPC = false;
+          canMoveAllNPC = false;
+          canDrawMenus = false;
+          canInteract = true;
         }
       }, 500);
     }
