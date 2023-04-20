@@ -27,7 +27,7 @@ function engineTwoStart() {
         drawNPCEngineTwo("npcAllie");
       }
       canDoInteractionCloneQuest();
-      if (acteTwoIsStarting) {
+      if (acteTwoIsStarting && quests.fight.canShowEve) {
         drawNPCEngineTwo("eve");
       }
       drawPlayerEngineTwo();
@@ -45,6 +45,10 @@ function engineTwoStart() {
       }
       cameraMoveActTwoAnimationFigth();
       startTheAfterFightPart();
+      interactionsAfterFight();
+      if (quests.fight.canStartFigth) {
+        fight();
+      }
       break;
     case "botanicMap":
       image(backgroundBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);

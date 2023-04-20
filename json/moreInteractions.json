@@ -51,7 +51,13 @@
     ["Ah te voilà", "Ceci est du debug..."],
     [4,4],
     ["Ève est assomée...", "Je ne suis plus en sécurité ici. Je devrais rejoindre la capsule pour m'échapper.", "Avant je ferai bien d'aller récupérer les contrendus de mission et lancer l'auto desctruction de la station.", "C'est la seule sollution..."],
-    [0, 0, 0, 0]
+    [0, 0, 0, 0],
+    ["Mon arme c'est enrayée, je vais devoir attendre qu'Eve vienne sur moi pour la battre au corps à corps."],
+    [0],
+    ["Mes collègues, ils sont...", "Cela n'aurait pas du arrivé."],
+    [0, 0],
+    ["Ève est assomée...", "Je ne suis plus en sécurité ici. Je devrais rejoindre la capsule pour m'échapper."],
+    [0, 0]
   ],
   "endGame":[
     ["C'est bon, j'ai lancé la destruction. Toute ces années de recherche sont foutu............"],

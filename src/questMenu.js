@@ -63,6 +63,9 @@ function drawQuestMenu() {
             if (quests.goToCloneMapAfterSleep.haveGun && quests.goToCloneMapAfterSleep.haveCard){
                 actualQuestTextMenu = "Il est temps d'aller voir ce qu'il se passe en salle des clones."
             }
+            if (quests.goToCloneMapAfterSleep.haveGun && !quests.goToCloneMapAfterSleep.haveCard && quests.fight.animationFightCanStart){
+                actualQuestTextMenu = "Il est temps d'aller voir ce qu'il se passe en salle des clones."
+            }
         }
         if (actualQuestName === 'lastQuest'){
             headNumber = 4

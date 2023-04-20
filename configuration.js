@@ -5,6 +5,7 @@ let gameIsStarting = true;
 let acteTwoIsStarting = false;
 let haveStartTheGame = false;
 
+let fightIsReset = false;
 
 let eIsPressed = false;
 let escapeIsPressed = false;
@@ -20,6 +21,12 @@ function keyReleased() {
         escapeIsPressed = true;
         setTimeout(() => {
             escapeIsPressed = false;
+        }, 50);
+    }
+    if (keyCode === 32) {
+        spaceIsPressed = true;
+        setTimeout(() => {
+            spaceIsPressed = false;
         }, 50);
     }
 }
@@ -233,7 +240,7 @@ setInterval(() => {
 }, 110);
 
 //+ Set animation for Screen clone map animation
-let indexOfAnimation11= 0;
+let indexOfAnimation11 = 0;
 setInterval(() => {
     if (indexOfAnimation11 < 7) {
         indexOfAnimation11 += 1;
@@ -262,6 +269,27 @@ setInterval(() => {
     }
 }, 110);
 
+//+ Set animation for eve end fight movement
+let indexPlayerAlienSpriteEndFight = 0;
+setInterval(() => {
+    if (indexPlayerAlienSpriteEndFight < 37) {
+        indexPlayerAlienSpriteEndFight += 1;
+    } else {
+        indexPlayerAlienSpriteEndFight = 28;
+    }
+}, 100);
+
+
+
+//+ Set animation for eve end fight movement
+let indexOfSpaceAnimation = 0;
+setInterval(() => {
+    if (indexOfSpaceAnimation < 1) {
+        indexOfSpaceAnimation += 1;
+    } else {
+        indexOfSpaceAnimation = 0;
+    }
+}, 200);
 
 //^ This function is used to detect engines changes
 function changeEngine() {
@@ -341,14 +369,21 @@ function writeText(actualDialog) {
                         canMoveAllNPC = true;
                         canOpenChest = false;
                         actualHead = [-1];
+                        if (quests.fight.haveShotTwoAmmo && !quests.fight.fightIsFinished) {
+                            alienStatus = "move";
+                            alienCanMove = true;
+                            indexAlienSprite = 0;
+                            canShoot = true;
+                        }
                         if (quests.fight.animationFightCanStart && quests.fight.haveFinishAnimationFirstPart) {
                             quests.fight.animationFightCanStart = false;
                             quests.fight.dialogsFightIsOver = true;
-                            quests.goToCloneMapAfterSleep.haveGun = false;
+                            quests.fight.canStartFigth = false;
+                            fightIsReset = false;
                             console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
-                            console.log('%c<----Fight Have End With Success---->', 'color:rgb(255, 0, 0)')
+                            console.log('%c<----Fight Dialog Have End With Success---->', 'color:rgb(255, 0, 0)')
                         }
-                        if (!quests.fight.dialogsFitghtIsStart) {
+                        if (!quests.fight.dialogsFitghtIsStart && !quests.fight.haveShotTwoAmmo) {
                             if (!gameIsStarting && !quests.seedsBagQuest.canAddToInventorySeedBag && !quests.repareCapsulesMap.canAddWrenchToInventory && !animationActeTwoStart) {
                                 canDrawMenus = true;
                                 setTimeout(() => {

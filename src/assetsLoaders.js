@@ -83,6 +83,14 @@ function loadAssets() {
   ligthsDormsMap = loadImage("assets/dormsMap/ligthsDormsMap.png")
   frontOfDormsMap = loadImage("assets/dormsMap/frontOfDormsMap.png")
 
+  alienImg = loadImage("assets/caracters/eve.png");
+  playerWeapon = loadImage("assets/caracters/mainCaracterWeapon.png");
+  playerAlienImg = loadImage("assets/fight/AnimFightSpam.png");
+  alienHit = loadImage("assets/fight/AnimHit.png");
+  playerDie = loadImage("assets/fight/AnimMort.png");
+  ammo = loadImage("assets/fight/Ammo.png")
+  spaceSpam = loadImage("assets/fight/spaceSpam.png")
+
   mainMenuBackgroundSound = createAudio("assets/sounds/mainMenuBackgroundSound.mp3")
 }
 

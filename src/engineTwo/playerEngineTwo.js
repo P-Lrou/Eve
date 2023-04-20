@@ -86,26 +86,26 @@ function drawPlayerEngineTwo() {
 function drawIdlePlayerEngineTwo() {
   switch (Direction) {
     case "left":
-      if (!quests.goToCloneMapAfterSleep.haveGun) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracterWeapon.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     case "right":
-      if (!quests.goToCloneMapAfterSleep.haveGun) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracter.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracterWeapon.get(0, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     default:
-      if (!quests.goToCloneMapAfterSleep.haveGun) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracter.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracterWeapon.get(0, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
   }
@@ -115,26 +115,26 @@ function drawIdlePlayerEngineTwo() {
 function drawMovePlayerEngineTwo() {
   switch (Direction) {
     case "left":
-      if (!quests.goToCloneMapAfterSleep.haveGun) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     case "right":
-      if (!quests.goToCloneMapAfterSleep.haveGun) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     default:
-      if (!quests.goToCloneMapAfterSleep.haveGun) {
+      if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracter.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
-      if (quests.goToCloneMapAfterSleep.haveGun) {
+      if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth) {
         image(mainCaracterWeapon.get(spriteCutSize, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
   }
@@ -204,6 +204,7 @@ function canGoSleep() {
         canMovePlayer = false;
         newEngineSelected = ENGINE_TWO;
         acteTwoIsStarting = true;
+        quests.fight.canShowEve = true;
       }
     }, 500);
   }
@@ -281,29 +282,53 @@ function cameraMoveActTwoAnimationFigth() {
     } else {
       EngineTwoMapX = -980
       setTimeout(() => {
-        if (!quests.fight.canShowDialogsAfterFight) {
-          quests.fight.canShowDialogsAfterFight = true;
+        if (!quests.fight.canShowDialogsAfterFight && !quests.fight.canStartFigth) {
+          quests.fight.canStartFigth = true;
+          quests.fight.canShowEve = false;
         }
-      }, 500);
+      }, 2000);
     }
   }
 }
 
 function startTheAfterFightPart() {
   if (quests.fight.canShowDialogsAfterFight) {
-    if (EngineTwoMapX > -1500) {
-      EngineTwoMapX -= playerSpeedEngineTwo;
-      playerPosX -= playerSpeedEngineTwo;
-    } else {
-      EngineTwoMapX = -1500
-      quests.fight.dialogsFitghtIsStart = false;
-      quests.fight.fightIsFinished = true;
-      quests.lastQuest.lastQuestIsStarting = true;
-      actualQuestName = 'lastQuest';
-      actualDialog = moreInteractionJSON.figth[2];;
-      actualPlayersOrder = moreInteractionJSON.figth[3];
-      canInteract = true;
-      quests.fight.canShowDialogsAfterFight = false;
+    quests.fight.dialogsFitghtIsStart = false;
+    quests.fight.fightIsFinished = true;
+    quests.lastQuest.lastQuestIsStarting = true;
+    actualQuestName = 'lastQuest';
+    actualDialog = moreInteractionJSON.figth[2];;
+    actualPlayersOrder = moreInteractionJSON.figth[3];
+    canInteract = true;
+    quests.fight.canShowDialogsAfterFight = false;
+  }
+}
+
+function interactionsAfterFight() {
+  if (quests.fight.fightIsFinished && canMovePlayer) {
+    if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 3 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 6 && canMovePlayer) {
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+        actualDialog = moreInteractionJSON.figth[6];
+        actualPlayersOrder = moreInteractionJSON.figth[7];
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+        canInteract = true;
+      }
+    }
+    if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 8 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 && canMovePlayer) {
+      image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
+      if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+        actualDialog = moreInteractionJSON.figth[8];
+        actualPlayersOrder = moreInteractionJSON.figth[9];
+        canMovePlayer = false;
+        canTalkGlobalNPC = false;
+        canMoveAllNPC = false;
+        canDrawMenus = false;
+        canInteract = true;
+      }
     }
   }
 }

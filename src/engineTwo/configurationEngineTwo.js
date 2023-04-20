@@ -30,3 +30,5 @@ let EngineTwoMapY = 0;
 
 
 let indexForAnimationCameraFightStart = 0
+
+let evePositionStartAfterFight = 2242

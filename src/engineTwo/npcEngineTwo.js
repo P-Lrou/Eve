@@ -89,9 +89,17 @@ function drawNPCEngineTwo(NPC) {
   if (actualNPC.name !== "eve") {
     image(animationMoovePlayer, actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize);
   }
-  else {
+  else if (!quests.fight.canShowEveAfterFight) {
     animationMoovePlayer = npcTile.get(22 * indexOfEveIdleAnim, 0, 22, 39);
     image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
+  }
+  if (quests.fight.canShowEveAfterFight) {
+    let evePositionXAfterFight = evePositionStartAfterFight + EngineTwoMapX
+    image(playerAlienImg.get(fightCutSizeW * indexPlayerAlienSpriteEndFight, 0, 49, 39),
+      evePositionXAfterFight - fightCutSizeW * fightRatio / 2.8,
+      522 - fightCutSizeH * fightRatio / 2,
+      fightCutSizeW * fightRatio,
+      fightCutSizeH * fightRatio);
   }
 }
 
