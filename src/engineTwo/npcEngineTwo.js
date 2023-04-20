@@ -40,6 +40,10 @@ function drawNPCEngineTwo(NPC) {
   if (actualNPC.xdist < Math.abs(engineTwoDividePartW * actualNPC.maxX)) {
     actualNPC.npcDirection = [1, 0];
   }
+  if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked) {
+    actualNPCCollision = 'rigth'
+  }
+
   switch (actualNPC.npcDirection[0]) {
     case 0:
       break;
@@ -71,7 +75,13 @@ function drawNPCEngineTwo(NPC) {
   if (actualNPC.name === "npcFinn" && gameIsStarting) {
     actualNPCCollision = 'rigth'
   }
-  if (!actualNPC.canMove || !canMoveAllNPC && actualNPC.name !== "eve") {
+
+  if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked) {
+    actualNPC.canMove = false;
+    actualNPC.xdist = 3510
+  }
+
+  if (!actualNPC.canMove && actualNPC.name !== "eve" || !canMoveAllNPC && actualNPC.name !== "eve") {
     if (actualNPCCollision === 'left') {
       animationMoovePlayer = npcTile.get(0, spriteCutSize, spriteCutSize, spriteCutSize);
     }

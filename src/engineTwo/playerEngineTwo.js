@@ -166,9 +166,9 @@ function changeMapEngineTwo() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 16 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 18 && canMovePlayer && !canTalkingToNPC) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    } else {
+      } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    }
+      }
       setTimeout(() => {
         if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
           canDoTransition = true;
@@ -182,9 +182,9 @@ function changeMapEngineTwo() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && !canTalkingToNPC) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    } else {
+      } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    }
+      }
       setTimeout(() => {
         if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
           canDoTransition = true;
@@ -201,9 +201,9 @@ function canDoInteractionCloneQuest() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 7 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 && canMovePlayer && !quests.questCloneMap.questCloneMapIsOver && quests.questCloneMap.canDrawInteractionClonMapQuest && !canTalkingToNPC) {
     if (keyIsDown(69)) {
       image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  } else {
+    } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  }
+    }
     setTimeout(() => {
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.questCloneMap.canDrawEngineCloneMapQuest = true;
@@ -219,13 +219,14 @@ function canDointeractionCapsuleMapQuest() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 11 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 12 && quests.repareCapsulesMap.canRepareWall && canMovePlayer && actualQuestName === 'repareCapsulesMap') {
     if (keyIsDown(69)) {
       image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  } else {
+    } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  }
+    }
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       removeFromInventory("wrenchCapsulesMap")
       quests.repareCapsulesMap.canRepareWall = false;
       quests.repareCapsulesMap.wallIsRepare = true;
+      quests.repareCapsulesMap.wrenchIsTaked = false;
     }
   }
 }
@@ -234,9 +235,9 @@ function canGoSleep() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 1 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 3 && canMovePlayer && actualQuestName === 'sleepQuest') {
     if (keyIsDown(69)) {
       image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  } else {
+    } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  }
+    }
     setTimeout(() => {
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         canDoTransition = true;
@@ -255,9 +256,9 @@ function takeGunAndCard() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    } else {
+      } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    }
+      }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.goToCloneMapAfterSleep.haveGun = true;
         quests.goToCloneMapAfterSleep.haveCard = true;
@@ -353,9 +354,9 @@ function interactionsAfterFight() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 3 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 6 && canMovePlayer) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    } else {
+      } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    }
+      }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         actualDialog = moreInteractionJSON.figth[6];
         actualPlayersOrder = moreInteractionJSON.figth[7];
@@ -369,9 +370,9 @@ function interactionsAfterFight() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 8 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 9 && canMovePlayer) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    } else {
+      } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    }
+      }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         actualDialog = moreInteractionJSON.figth[8];
         actualPlayersOrder = moreInteractionJSON.figth[9];
@@ -390,9 +391,9 @@ function takeObjectForLastQuest() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 0 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 1 && canMovePlayer && !quests.lastQuest.haveFiles) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    } else {
+      } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    }
+      }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.lastQuest.haveFiles = true;
         canMovePlayer = false;
@@ -410,9 +411,9 @@ function takeObjectForLastQuest() {
     if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 6 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 7.5 && canMovePlayer && quests.lastQuest.haveFiles && !quests.lastQuest.haveStartDestruction) {
       if (keyIsDown(69)) {
         image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    } else {
+      } else {
         image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-    }
+      }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         quests.lastQuest.haveStartDestruction = true;
         actualDialog = moreInteractionJSON.endGame[0];
@@ -431,9 +432,9 @@ function takeSuit() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 7.5 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 8.5 && canMovePlayer && quests.lastQuest.haveStartDestruction && !quests.lastQuest.havePressOnButtonToOpenCapsule && !quests.lastQuest.haveTakeSuit) {
     if (keyIsDown(69)) {
       image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  } else {
+    } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  }
+    }
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       quests.lastQuest.haveTakeSuit = true
     }
@@ -444,9 +445,9 @@ function openCapsuleAndStartLastDialogs() {
   if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 5.5 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 6.5 && canMovePlayer && quests.lastQuest.haveStartDestruction && !quests.lastQuest.havePressOnButtonToOpenCapsule && quests.lastQuest.haveTakeSuit) {
     if (keyIsDown(69)) {
       image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  } else {
+    } else {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
-  }
+    }
     if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
       quests.lastQuest.havePressOnButtonToOpenCapsule = true
     }

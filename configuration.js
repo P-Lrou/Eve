@@ -1,7 +1,7 @@
 //& This file setup all variables for the global game
 
 let debugMode = false;
-let gameIsStarting = true;
+let gameIsStarting = false;
 let acteTwoIsStarting = false;
 
 let fightIsReset = false;
