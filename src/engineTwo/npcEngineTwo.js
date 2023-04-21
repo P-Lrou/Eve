@@ -49,7 +49,7 @@ function drawNPCEngineTwo(NPC) {
       break;
     case 1:
       if (actualNPC.name !== "eve") {
-        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
         if (actualNPC.canMove && canMoveAllNPC) {
           actualNPC.xdist += npcSpeed;
         }
@@ -58,7 +58,7 @@ function drawNPCEngineTwo(NPC) {
       break;
     case -1:
       if (actualNPC.name !== "eve") {
-        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnim, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
         if (actualNPC.canMove && canMoveAllNPC) {
           actualNPC.xdist -= npcSpeed;
         }

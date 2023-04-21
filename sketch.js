@@ -15,6 +15,7 @@ function setup() {
 function draw() {
   textFont(mainFont);
   changeEngine();
+  animations()
   switch (currentEngine) {
     case ENGINE_ONE:
       engineOneStart();

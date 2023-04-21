@@ -278,7 +278,7 @@ function spam() {
 }
 
 function drawGauge() {
-    image(spaceSpam.get(49 * indexOfSpaceAnimation, 0, 49, 15), playerPosX - 70 + 200 - 147, playerPosY - 335, 294, 90);
+    image(spaceSpam.get(49 * indexOfSpaceTouchAnimation, 0, 49, 15), playerPosX - 70 + 200 - 147, playerPosY - 335, 294, 90);
     fill('red')
     rect(playerPosX - 70, playerPosY - 225, gaugeCount, 35)
     noFill();

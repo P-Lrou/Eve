@@ -27,14 +27,14 @@ function drawPNJEngineOne(PNJ) {
         case 0:
             break;
         case 1:
-            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfPnjAnim, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
             if (actualPNJ.canMove) {
                 actualPNJ.xdist += pnjSpeed
             }
             collisionPNJEngineOne(actualPNJ)
             break;
         case -1:
-            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfPnjAnim, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
             if (actualPNJ.canMove) {
                 actualPNJ.xdist -= pnjSpeed
             }
@@ -45,11 +45,11 @@ function drawPNJEngineOne(PNJ) {
         case 0:
             break;
         case 1:
-            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfPnjAnim, spriteCutSize * 3, spriteCutSize, spriteCutSize);
+            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 3, spriteCutSize, spriteCutSize);
             collisionPNJEngineOne(actualPNJ)
             break;
         case -1:
-            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfPnjAnim, spriteCutSize * 2, spriteCutSize, spriteCutSize);
+            animationMoovePlayer = pnjTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 2, spriteCutSize, spriteCutSize);
             collisionPNJEngineOne(actualPNJ)
             break;
     }

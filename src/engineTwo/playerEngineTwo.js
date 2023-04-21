@@ -124,24 +124,24 @@ function drawMovePlayerEngineTwo() {
   switch (Direction) {
     case "left":
       if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
-        image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        image(mainCaracter.get(spriteCutSize * indexOfPlayerAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
-        image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        image(mainCaracterWeapon.get(spriteCutSize * indexOfPlayerAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       if (quests.lastQuest.haveTakeSuit) {
-        image(mainCaracterWithSuit.get(spriteCutSize * indexOfAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        image(mainCaracterWithSuit.get(spriteCutSize * indexOfPlayerAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     case "right":
       if (!quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
-        image(mainCaracter.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        image(mainCaracter.get(spriteCutSize * indexOfPlayerAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       if (quests.goToCloneMapAfterSleep.haveGun && !quests.fight.canStartFigth && !quests.lastQuest.haveTakeSuit) {
-        image(mainCaracterWeapon.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        image(mainCaracterWeapon.get(spriteCutSize * indexOfPlayerAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       if (quests.lastQuest.haveTakeSuit) {
-        image(mainCaracterWithSuit.get(spriteCutSize * indexOfAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
+        image(mainCaracterWithSuit.get(spriteCutSize * indexOfPlayerAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize), playerPosX, playerPosY, spritePlayerSize, spritePlayerSize);
       }
       break;
     default:

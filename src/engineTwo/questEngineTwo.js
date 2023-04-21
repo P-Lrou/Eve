@@ -3,7 +3,7 @@
 //^ This function is used to draw the clone map quest
 function drawnQuestCloneMap() {
   if (!quests.questCloneMap.isGoodForColor) {
-    image(questAnimationCloneMap.get(1100 * indexOfAnimationQuestClone, 0, 1100, 800), 266, 59, 1100, 800);
+    image(questAnimationCloneMap.get(1100 * indexOfAnimationQuestCloneMap, 0, 1100, 800), 266, 59, 1100, 800);
   } else {
     image(endScreenQuestCloneMap, 266, 59, 1100, 800);
   }

@@ -13,9 +13,9 @@ function engineTwoStart() {
         image(backgroundCloneMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       if (!acteTwoIsStarting) {
-        image(jarAnimationCloneMap.get(324 * indexOfAnimation2, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+        image(jarAnimationCloneMap.get(324 * indexOfCuveAnimationCloneMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
         if (quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.isGoodForColor) {
-          image(screenAnimationCloneMap.get(324 * indexOfAnimation11, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+          image(screenAnimationCloneMap.get(324 * indexOfScreenAnimationCloneMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
         }
       }
       if (acteTwoIsStarting) {
@@ -54,7 +54,7 @@ function engineTwoStart() {
       break;
     case "botanicMap":
       image(backgroundBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(planteAnimationBotanicMap.get(324 * indexOfAnimation3, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(planteAnimationBotanicMap.get(324 * indexOfPlanteAnimationBotanicMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(lightBotanicMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       if (!acteTwoIsStarting) {
         drawNPCEngineTwo("npcOctavia");
@@ -66,9 +66,9 @@ function engineTwoStart() {
       break;
     case "commandMap":
       image(backgroundCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(animationScreenCommandMap.get(324 * indexOfAnimation4, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(controlPanelAnimationCommandMap.get(324 * indexOfAnimation5, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(earthAnimationCommandMap.get(324 * indexOfAnimation6, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(animationScreenCommandMap.get(324 * indexOfScreenAnimationCommandMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(controlPanelAnimationCommandMap.get(324 * indexOfControlPanelAnimationCommandMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(earthAnimationCommandMap.get(324 * indexOfEarthAnimationCommandMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(seatsCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(lightCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       if (!quests.goToCloneMapAfterSleep.gunTaked) {
@@ -110,7 +110,7 @@ function engineTwoStart() {
         image(suit, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       if (quests.lastQuest.canOpenDoorAnimation) {
-        image(doorOpenAnimation.get(324 * indexOfAnimation12, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+        image(doorOpenAnimation.get(324 * indexOfDoorOpenAnimationCapsuleMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       if (!quests.lastQuest.havePressOnButtonToOpenCapsule) {
         image(buttonOff, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
@@ -127,10 +127,10 @@ function engineTwoStart() {
       if (quests.repareCapsulesMap.wallIsRepare || !quests.repareCapsulesMap.questRepareCapsulesMapIsStarted) {
         image(normalPipe, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       } else {
-        image(gazPipe.get(324 * indexOfAnimation10, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+        image(gazPipe.get(324 * indexOfGazPipeAnimationCapsuleMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       if (acteTwoIsStarting) {
-        image(redLigthsAnimation.get(324 * indexOfAnimation9, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+        image(redLigthsAnimation.get(324 * indexOfRedLigthsAnimationCapsuleMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       if (!acteTwoIsStarting) {
         drawNPCEngineTwo('npcFinn');
@@ -149,8 +149,8 @@ function engineTwoStart() {
       break;
     case "dormsMap":
       image(backgroundDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(screenOneAnimationDormsMap.get(324 * indexOfAnimation7, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
-      image(screenTwoAnimationDormsMap.get(324 * indexOfAnimation8, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(screenOneAnimationDormsMap.get(324 * indexOfScreenOneAnimationDormsMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      image(screenTwoAnimationDormsMap.get(324 * indexOfScreenTwoAnimationDormsMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       image(ligthsDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       drawPlayerEngineTwo();
       image(frontOfDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
