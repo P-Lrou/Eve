@@ -37,6 +37,7 @@ function loadAssets() {
   assets = loadImage("assets/assets.png");
   darksAssets = loadImage("assets/darksAssets.png");
   interactionButton = loadImage("assets/interactionButton.png");
+  skipButton = loadImage("assets/skipButton.png")
   arrowsButton = loadImage("assets/arrowsButton.png")
 
   backgroundCloneMap = loadImage("assets/cloneMap/backgroundCloneMap.png");

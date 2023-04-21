@@ -70,7 +70,7 @@ function drawQuestMenu() {
                 actualQuestTextMenu = "Je doit me dêpecher de rejoindre la capsule, la station va bientôt exploser et tout emporter avec elle."
             }
         }
-        textLeading(22);
+        textLeading(20);
         textSize(25);
         text(actualQuestTextMenu, 130, 45, 250, 120);
         noFill();
