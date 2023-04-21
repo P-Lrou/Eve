@@ -1,7 +1,10 @@
 //& This file manage more interaction for the second Engine
 
+//^ This function is used to detect and show more interaction for the Engine Two
 function moreInteractionEnineTwo() {
     if (!acteTwoIsStarting) {
+
+        //- This switch show interaction using the actual map
         switch (actualMapEngineTwo) {
             case "cloneMap":
                 if (EngineTwoMapX - playerPosX < engineTwoDividePartW * 4 && EngineTwoMapX - playerPosX > engineTwoDividePartW * 5 && canMovePlayer && !canTalkingToNPC && !gameIsStarting) {

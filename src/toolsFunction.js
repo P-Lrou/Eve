@@ -55,17 +55,6 @@ function expandRect(rect, expandSize) {
 //     return [rect[0] + skrinkSize, rect[1] + skrinkSize, rect[2] - skrinkSize, rect[3] - skrinkSize]
 // }
 
-function playMainMenuMusic() {
-    canStartMainMenuSong = false;
-    if (mainMenuBackgroundSoundIsActivated) {
-        mainMenuBackgroundSound.loop()
-        mainMenuBackgroundSound.volume(0.15);
-    }
-    if (!mainMenuBackgroundSoundIsActivated) {
-        mainMenuBackgroundSound.stop()
-    }
-}
-
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 }

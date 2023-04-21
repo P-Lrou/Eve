@@ -5,6 +5,8 @@ function engineTwoStart() {
   erase();
   cursor('default');
   playerInputsEngineTwo();
+
+  //- This switch is used to setup all different map in the Engine Two
   switch (actualMapEngineTwo) {
     case "cloneMap":
       if (acteTwoIsStarting) {
@@ -163,6 +165,8 @@ function engineTwoStart() {
       break;
   }
   changeMapEngineTwo();
+
+  //- This condition is used to show dialogs part in front of all during the Engine Two
   if (canInteract && !canMovePlayer && !animationActeTwoStart) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)

@@ -306,7 +306,6 @@ function showDialogsAfterWeakingUp() {
   }
 }
 
-
 function cameraMoveActTwoAnimationFigth() {
   if (EngineTwoMapX > -2070 && quests.fight.animationFightCanStart && acteTwoIsStarting && actualMapEngineTwo === "cloneMap" && !quests.fight.canShowDialogsAfterFight) {
     canMovePlayer = false;

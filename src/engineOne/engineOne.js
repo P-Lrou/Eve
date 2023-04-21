@@ -3,12 +3,15 @@
 //^ This function actually start and managed the Engine One
 function engineOneStart() {
   cursor('default');
+  //- Here change map if doors are closed
   if (rigthDoorsAreClosed || leftDoorsAreClosed) {
     map = map2
   }
   if (rigthDoorsAreClosed && !leftDoorsAreClosed) {
     map = map3
   }
+
+  //- Used to draw doors in front of or back the player
   drawMapFirstValue = 4
   if (mapX < 3500) {
     if (mapY > 815 || mapY < 600 && mapY > 400) {
@@ -16,8 +19,12 @@ function engineOneStart() {
     }
   }
   background("black");
+
+  //- Draw the map and the player
   drawMap();
   drawPlayer();
+
+  //- Used to draw doors in front of or back the player
   if (mapX < 3500) {
     if (mapY < 815 && mapY > 600 || mapY < 400 || mapY > 970) {
       drawMap2();
@@ -25,6 +32,8 @@ function engineOneStart() {
   } else {
     drawMap2();
   }
+
+  //- All this functions are used to set interactions or map modifications
   showSpecificCollisionDebug();
   drawInventory();
   drawQuestMenu();
@@ -34,6 +43,8 @@ function engineOneStart() {
   canActiveDoor();
   showDoorMessage();
   showMoreInformationsAboutAlert();
+
+  //- This condition is used to show dialogs part in front of all during the Engine One
   if (canInteract && !canMovePlayer && !animationActeTwoStart) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)
@@ -42,6 +53,8 @@ function engineOneStart() {
     writeText(actualDialog);
     noFill();
   }
+
+  //- This part is used to show red alarms effect during engine One
   if (acteTwoIsStarting) {
     fill(`rgba(${redValue}, 0, 0, 0.2)`)
     rect(0, 0, screenWidth, screenHeight)

@@ -28,7 +28,6 @@ let canMoveEngineTwo = true;
 let EngineTwoMapX = (-engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH) + screenWidth) + 2000;
 let EngineTwoMapY = 0;
 
-
+//+ This values are used during the fight and just set camera and NPC position
 let indexForAnimationCameraFightStart = 0
-
 let evePositionStartAfterFight = 2242

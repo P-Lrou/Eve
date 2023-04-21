@@ -1,4 +1,5 @@
-
+//& This file is used to set special collision for the top down map
+//& This part has been do by Ethan Carollo
 
 /**
  * @param {array[int]} worldPosition [x, y] the world position we need to check 

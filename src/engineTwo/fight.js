@@ -1,3 +1,5 @@
+//& This file managed all the fight process
+
 /*Sprite Alien value*/
 let alienCutSizeW = 22;
 let alienCutSizeH = 39;
@@ -129,6 +131,7 @@ function alienDraw() {
             break;
     }
 }
+
 function playerDraw() {
     if (keyIsDown(32) && !canInteract) {
         image(spaceSpam.get(49, 0, 49, 15), playerPosX + 355 / 2 - 98, playerPosY - 80, 196, 60);

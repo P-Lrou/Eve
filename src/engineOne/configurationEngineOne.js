@@ -25,20 +25,24 @@ let mapWidth = undefined;
 let mapHeight = undefined;
 let tileSize = undefined;
 
+//+ Set values to draw map on different plan
 let drawMapFirstValue = 4;
 let leftDoorsAreClosed = false;
 let rigthDoorsAreClosed = false;
 
+//+ Set variables for notes interactions
 let canReadNote = false;
 let actualNote = undefined;
 let canShowNotes = false;
 
+//+ Set values for door status in act Two
+let canActiveDoorBool = false;
+let canShowDoorMessage = false;
+
+//+ This part is used for the red lights animation in Act Two During the top down map
 let canDownRed = false;
 let canUpRed = true;
 let redValue = 0;
-
-let canActiveDoorBool = false;
-let canShowDoorMessage = false;
 
 setInterval(() => {
     if (canUpRed) {

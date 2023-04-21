@@ -257,7 +257,7 @@ function getTileName(point) {
   return map.layers[0][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
 }
 
-//^ This function is used to get the actual tile name for objects tiles
+//^ This functions are used to get the actual tile name for objects tiles in differents layers
 //- Take in param the player position point
 function getTileNameForObject(point) {
   return map.layers[1][Math.trunc((point[1] + mapY) / tileSize)][Math.trunc((point[0] + mapX) / tileSize)];
@@ -471,7 +471,7 @@ function changeMap(map) {
   }
 }
 
-
+//^ This function set the chest open condition and the action to open them
 function openChest() {
   if (canOpenChest) {
     if (keyIsDown(69)) {
@@ -523,7 +523,7 @@ function openChest() {
   canOpenChest = false;
 }
 
-
+//^ This function set the notes open condition and the action to open them
 function showNotes() {
   if (canReadNote) {
     if (keyIsDown(69)) {
@@ -563,7 +563,7 @@ function showNotes() {
   canReadNote = false;
 }
 
-
+//^ This function set the doors open condition and the action to open them
 function canActiveDoor() {
   if (acteTwoIsStarting && quests.goToCloneMapAfterSleep.haveCard && canActiveDoorBool && canMovePlayer) {
     if (mapX > 2500) {
@@ -602,7 +602,7 @@ function canActiveDoor() {
   canActiveDoorBool = false;
 }
 
-
+//^ This function detect if the player is after a point and show more information in the top down map during the alert
 function showMoreInformationsAboutAlert() {
   if (quests.goToCloneMapAfterSleep.goToCloneMapAfterSleepIsStarted && quests.goToCloneMapAfterSleep.canShowMoreInformationAboutAlert && canMovePlayer) {
     if (mapX > 630) {
@@ -618,6 +618,7 @@ function showMoreInformationsAboutAlert() {
   }
 }
 
+//^This function is used to show doors message in different story moment
 function showDoorMessage() {
   if (canShowDoorMessage && leftDoorsAreClosed && !quests.goToCloneMapAfterSleep.haveCard) {
     if (keyIsDown(69)) {
