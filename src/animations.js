@@ -183,7 +183,7 @@ function animations() {
 
 
     //+ Set animation for eve end fight movement
-    if (animationCount % 10.9 === 0) {
+    if (animationCount % 15 === 0) {
         if (indexOfSpaceTouchAnimation < 1) {
             indexOfSpaceTouchAnimation += 1;
         } else {
