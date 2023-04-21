@@ -55,6 +55,8 @@ function menuStart() {
                         newEngineSelected = ENGINE_TWO;
                         mainMenuBackgroundSoundIsActivated = false;
                         playMainMenuBackgroundSound()
+                        commmandMapBackgroundSoundIsActivated = true;
+                        playCommmandMapBackgroundSound();
                     }
                 }
                 // } else if (pointIsInRect([mouseX, mouseY], [screenWidth - 116, 20, 96, 96])) {

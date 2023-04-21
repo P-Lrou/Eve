@@ -168,13 +168,20 @@ function changeMapEngineTwo() {
       }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         eIsPressed = false;
+        doorSound.play()
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_ONE;
+        topDownMapBackgroundSoundIsActivated = true;
+        playTopDownMapBackgroundSound();
         capsuleMapBackgroundSoundIsActivated = false;
         playCapsuleMapBackgroundSound();
         cloneMapBackgroundSoundIsActivated = false;
         playCloneMapBackgroundSound();
+        dormsMapBackgroundSoundIsActivated = false;
+        playDormsMapBackgroundSound();
+        commmandMapBackgroundSoundIsActivated = false;
+        playCommmandMapBackgroundSound();
       }
     }
   }
@@ -187,9 +194,12 @@ function changeMapEngineTwo() {
       }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         eIsPressed = false;
+        doorSound.play()
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_ONE;
+        topDownMapBackgroundSoundIsActivated = true;
+        playTopDownMapBackgroundSound();
         botanicMapBackgroundSoundIsActivated = false;
         playBotanicMapBackgroundSound();
       }

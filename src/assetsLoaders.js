@@ -105,6 +105,11 @@ function loadAssets() {
   botanicMapBackgroundSound = createAudio("assets/sounds/botanicMapBackgroundSound.mp3")
   capsuleMapBackgroundSound = createAudio("assets/sounds/capsuleMapBackgroundSound.mp3")
   cloneMapBackgroundSound = createAudio("assets/sounds/cloneMapBackgroundSound.mp3")
+  topDownMapBackgroundSound = createAudio("assets/sounds/topDownMapBackgroundSound.mp3")
+  dormsMapBackgroundSound = createAudio("assets/sounds/dormsMapBackgroundSound.mp3")
+  commmandMapBackgroundSound = createAudio("assets/sounds/commmandMapBackgroundSound.mp3")
+
+  doorSound = createAudio("assets/sounds/doorSound.mp3")
 }
 
 //^ This function recover all assets
