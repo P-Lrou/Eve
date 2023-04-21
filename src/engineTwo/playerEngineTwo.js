@@ -171,6 +171,10 @@ function changeMapEngineTwo() {
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_ONE;
+        capsuleMapBackgroundSoundIsActivated = false;
+        playCapsuleMapBackgroundSound();
+        cloneMapBackgroundSoundIsActivated = false;
+        playCloneMapBackgroundSound();
       }
     }
   }
@@ -186,6 +190,8 @@ function changeMapEngineTwo() {
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_ONE;
+        botanicMapBackgroundSoundIsActivated = false;
+        playBotanicMapBackgroundSound();
       }
     }
   }

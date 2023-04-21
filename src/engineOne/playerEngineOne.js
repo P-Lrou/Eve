@@ -403,6 +403,8 @@ function changeMap(map) {
       canDoTransition = true;
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO
+      cloneMapBackgroundSoundIsActivated = true;
+      playCloneMapBackgroundSound();
     }
   }
   if (map === "botanic") {
@@ -419,6 +421,8 @@ function changeMap(map) {
       canDoTransition = true;
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO
+      botanicMapBackgroundSoundIsActivated = true;
+      playBotanicMapBackgroundSound();
     }
   }
   if (map === "command") {
@@ -451,6 +455,8 @@ function changeMap(map) {
       canDoTransition = true;
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO
+      capsuleMapBackgroundSoundIsActivated = true;
+      playCapsuleMapBackgroundSound();
     }
   }
   if (map === "dorms") {

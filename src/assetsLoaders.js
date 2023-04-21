@@ -102,6 +102,9 @@ function loadAssets() {
   spaceSpam = loadImage("assets/fight/spaceSpam.png")
 
   mainMenuBackgroundSound = createAudio("assets/sounds/mainMenuBackgroundSound.mp3")
+  botanicMapBackgroundSound = createAudio("assets/sounds/botanicMapBackgroundSound.mp3")
+  capsuleMapBackgroundSound = createAudio("assets/sounds/capsuleMapBackgroundSound.mp3")
+  cloneMapBackgroundSound = createAudio("assets/sounds/cloneMapBackgroundSound.mp3")
 }
 
 //^ This function recover all assets

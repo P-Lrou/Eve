@@ -7,6 +7,8 @@ function menuStart() {
                 if (mouseButton == LEFT) {
                     canDoTransition = true;
                     newEngineSelected = MENU;
+                    mainMenuBackgroundSoundIsActivated = true;
+                    playMainMenuBackgroundSound()
                 }
             }
         } else if (canShowSettingsMenu) {
@@ -52,7 +54,7 @@ function menuStart() {
                         canDoTransition = true;
                         newEngineSelected = ENGINE_TWO;
                         mainMenuBackgroundSoundIsActivated = false;
-                        playMainMenuMusic()
+                        playMainMenuBackgroundSound()
                     }
                 }
                 // } else if (pointIsInRect([mouseX, mouseY], [screenWidth - 116, 20, 96, 96])) {
