@@ -464,7 +464,9 @@ function changeMap(map) {
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO
       topDownMapBackgroundSoundIsActivated = false;
+      playTopDownMapBackgroundSound();
       capsuleMapBackgroundSoundIsActivated = true;
+      playCapsuleMapBackgroundSound();
     }
   }
   if (map === "dorms") {
@@ -482,7 +484,9 @@ function changeMap(map) {
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO
       topDownMapBackgroundSoundIsActivated = false;
+      playTopDownMapBackgroundSound();
       dormsMapBackgroundSoundIsActivated = true;
+      playDormsMapBackgroundSound()
     }
   }
 }
