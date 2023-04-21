@@ -396,7 +396,6 @@ function changeMap(map) {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
     if (eIsPressed && canMovePlayer) {
-      doorSound.play()
       eIsPressed = false;
       actualMapEngineTwo = "cloneMap";
       actualDirectionEngineTwo = "left";
@@ -417,7 +416,6 @@ function changeMap(map) {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
     if (eIsPressed && canMovePlayer) {
-      doorSound.play()
       eIsPressed = false;
       actualMapEngineTwo = "botanicMap";
       actualDirectionEngineTwo = "rigth";
@@ -438,7 +436,6 @@ function changeMap(map) {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
     if (eIsPressed && canMovePlayer) {
-      doorSound.play()
       eIsPressed = false;
       actualMapEngineTwo = "commandMap";
       actualDirectionEngineTwo = "left";
@@ -459,7 +456,6 @@ function changeMap(map) {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
     if (eIsPressed && canMovePlayer) {
-      doorSound.play()
       eIsPressed = false;
       actualMapEngineTwo = "capsuleMap";
       actualDirectionEngineTwo = "left";
@@ -468,9 +464,7 @@ function changeMap(map) {
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO
       topDownMapBackgroundSoundIsActivated = false;
-      playTopDownMapBackgroundSound();
       capsuleMapBackgroundSoundIsActivated = true;
-      playCapsuleMapBackgroundSound();
     }
   }
   if (map === "dorms") {
@@ -480,7 +474,6 @@ function changeMap(map) {
       image(interactionButton.get(0, 0, 14, 15), playerPosX + 45, playerPosY - 50, 42, 45);
     }
     if (eIsPressed && canMovePlayer) {
-      doorSound.play()
       eIsPressed = false;
       actualMapEngineTwo = "dormsMap";
       actualDirectionEngineTwo = "left";
@@ -489,9 +482,7 @@ function changeMap(map) {
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO
       topDownMapBackgroundSoundIsActivated = false;
-      playTopDownMapBackgroundSound();
       dormsMapBackgroundSoundIsActivated = true;
-      playDormsMapBackgroundSound();
     }
   }
 }

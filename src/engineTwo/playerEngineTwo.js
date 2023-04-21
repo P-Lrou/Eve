@@ -168,7 +168,6 @@ function changeMapEngineTwo() {
       }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         eIsPressed = false;
-        doorSound.play()
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_ONE;
@@ -194,7 +193,6 @@ function changeMapEngineTwo() {
       }
       if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
         eIsPressed = false;
-        doorSound.play()
         canDoTransition = true;
         canMovePlayer = false;
         newEngineSelected = ENGINE_ONE;

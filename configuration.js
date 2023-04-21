@@ -81,7 +81,7 @@ let canMovePlayer = true;
 let npcSpeed = 5;
 
 //+ Set inventory Params
-let inventorySquareSize = 100;
+let inventorySquareSize = 96;
 let inventoryHeigthStart = 8;
 let inventoryTab = [];
 let inventoryTabNumber = 0;
@@ -186,10 +186,7 @@ function writeText(actualDialog) {
             image(interactionButton.get(0, 0, 14, 15), screenWidth / 3.7, (screenHeight / 1.5) + 35, 64, 68);
         }
         textLeading(28);
-        fill("rgba(31, 31, 31, 1)");
-        strokeWeight(4);
-        stroke("rgba(213, 213, 213, 0.24)");
-        rect((screenWidth - 900) / 2, screenHeight - 200, 900, 170, 10);
+        image(dialogsBackground, (screenWidth - 900) / 2, screenHeight - 200, 896, 176)
         noFill();
         if (bool) {
             if (i === actualDialog[index].length && !textEnter) {
@@ -348,13 +345,13 @@ function writeText(actualDialog) {
         }
         if (!canMovePlayer) {
             noStroke();
-            textSize(14);
+            textSize(35);
             fill("rgb(255,255,255)");
             text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 120);
             noFill();
             image(
                 dialogsHeads.get(16 * actualHead, 0, 16, 16),
-                (screenWidth) / 2 + 100, screenHeight - 345, 384, 384
+                (screenWidth) / 2 + 100, screenHeight - 344, 384, 384
             );
         }
     }

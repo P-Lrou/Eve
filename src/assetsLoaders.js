@@ -101,6 +101,11 @@ function loadAssets() {
   ammo = loadImage("assets/fight/Ammo.png")
   spaceSpam = loadImage("assets/fight/spaceSpam.png")
 
+  inventoryBackground = loadImage("assets/menu/inventoryBackground.png")
+  inventorySelectedBackground = loadImage("assets/menu/inventorySelectedBackground.png")
+  questMenuBackground = loadImage("assets/menu/questMenuBackground.png")
+  dialogsBackground = loadImage("assets/menu/dialogsBackground.png")
+
   mainMenuBackgroundSound = createAudio("assets/sounds/mainMenuBackgroundSound.mp3")
   botanicMapBackgroundSound = createAudio("assets/sounds/botanicMapBackgroundSound.mp3")
   capsuleMapBackgroundSound = createAudio("assets/sounds/capsuleMapBackgroundSound.mp3")
