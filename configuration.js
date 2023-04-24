@@ -191,9 +191,9 @@ let textEnter = false;
 function writeText(actualDialog) {
     if (canInteract) {
         if (keyIsDown(69)) {
-            image(skipButton.get(20, 0, 20, 15), screenWidth / 3.7, (screenHeight / 1.5) + 35, 91, 68);
+            image(skipButton.get(41, 0, 41, 15), screenWidth / 3.7, (screenHeight / 1.5) + 35, 181, 68);
         } else {
-            image(skipButton.get(0, 0, 20, 15), screenWidth / 3.7, (screenHeight / 1.5) + 35, 91, 68);
+            image(skipButton.get(0, 0, 41, 15), screenWidth / 3.7, (screenHeight / 1.5) + 35, 181, 68);
         }
         textLeading(28);
         image(dialogsBackground, (screenWidth - 900) / 2, screenHeight - 200, 896, 176)
