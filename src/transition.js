@@ -31,16 +31,6 @@ function transitionEnter() {
                 fade = fade + fadeSpeed;
             } else {
                 transitionStatus = 'Out'
-                if (!canShowClickImage) {
-                    if (canShowSettingsMenu === true) {
-                        canShowSettingsMenu = false;
-                        return;
-                    }
-                    if (canShowSettingsMenu === false) {
-                        canShowSettingsMenu = true;
-                        return;
-                    }
-                }
                 canShowClickImage = false;
             }
         }

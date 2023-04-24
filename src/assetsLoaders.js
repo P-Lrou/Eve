@@ -115,7 +115,18 @@ function loadAssets() {
   dormsMapBackgroundSound = createAudio("assets/sounds/dormsMapBackgroundSound.mp3")
   commmandMapBackgroundSound = createAudio("assets/sounds/commmandMapBackgroundSound.mp3")
 
-  doorSound = createAudio("assets/sounds/doorSound.mp3")
+  menuBackground = loadImage("assets/menu/menuBackground.png")
+  soundOn = loadImage("assets/menu/soundOn.png")
+  restart = loadImage("assets/menu/restart.png")
+  resume = loadImage("assets/menu/resume.png")
+  soundOff = loadImage("assets/menu/soundOff.png")
+  credits = loadImage("assets/menu/credits.png")
+
+  resumeHover = loadImage("assets/menu/resumeHover.png")
+  soundOnHover = loadImage("assets/menu/soundOnHover.png")
+  soundOffHover = loadImage("assets/menu/soundOffHover.png")
+  creditsHover = loadImage("assets/menu/creditsHover.png")
+  restartHover = loadImage("assets/menu/restartHover.png")
 }
 
 //^ This function recover all assets

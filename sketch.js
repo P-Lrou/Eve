@@ -13,7 +13,6 @@ function setup() {
 }
 
 function draw() {
-  doorSound.volume(0.2)
   textFont(mainFont);
   changeEngine();
   animations()

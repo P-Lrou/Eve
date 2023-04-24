@@ -9,7 +9,7 @@ let commmandMapBackgroundSoundIsActivated = false;
 let topDownMapBackgroundSoundIsActivated = false;
 
 function playMainMenuBackgroundSound() {
-    if (mainMenuBackgroundSoundIsActivated) {
+    if (mainMenuBackgroundSoundIsActivated && songIsOn) {
         mainMenuBackgroundSound.volume(0.15);
         mainMenuBackgroundSound.loop()
     }
@@ -21,7 +21,7 @@ function playMainMenuBackgroundSound() {
 }
 
 function playBotanicMapBackgroundSound() {
-    if (botanicMapBackgroundSoundIsActivated) {
+    if (botanicMapBackgroundSoundIsActivated && songIsOn) {
         botanicMapBackgroundSound.volume(0.15);
         botanicMapBackgroundSound.loop()
     }
@@ -32,7 +32,7 @@ function playBotanicMapBackgroundSound() {
 }
 
 function playCapsuleMapBackgroundSound() {
-    if (capsuleMapBackgroundSoundIsActivated) {
+    if (capsuleMapBackgroundSoundIsActivated && songIsOn) {
         capsuleMapBackgroundSound.volume(0.15);
         capsuleMapBackgroundSound.loop()
     }
@@ -43,7 +43,7 @@ function playCapsuleMapBackgroundSound() {
 }
 
 function playCloneMapBackgroundSound() {
-    if (cloneMapBackgroundSoundIsActivated) {
+    if (cloneMapBackgroundSoundIsActivated && songIsOn) {
         cloneMapBackgroundSound.volume(0.15);
         cloneMapBackgroundSound.loop()
     }
@@ -54,7 +54,7 @@ function playCloneMapBackgroundSound() {
 }
 
 function playDormsMapBackgroundSound() {
-    if (dormsMapBackgroundSoundIsActivated) {
+    if (dormsMapBackgroundSoundIsActivated && songIsOn) {
         dormsMapBackgroundSound.volume(0.15);
         dormsMapBackgroundSound.loop()
     }
@@ -65,7 +65,7 @@ function playDormsMapBackgroundSound() {
 }
 
 function playCommmandMapBackgroundSound() {
-    if (commmandMapBackgroundSoundIsActivated) {
+    if (commmandMapBackgroundSoundIsActivated && songIsOn) {
         commmandMapBackgroundSound.volume(0.15);
         commmandMapBackgroundSound.loop()
     }
@@ -76,7 +76,7 @@ function playCommmandMapBackgroundSound() {
 }
 
 function playTopDownMapBackgroundSound() {
-    if (topDownMapBackgroundSoundIsActivated) {
+    if (topDownMapBackgroundSoundIsActivated && songIsOn) {
         topDownMapBackgroundSound.volume(0.15);
         topDownMapBackgroundSound.loop()
     }

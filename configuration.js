@@ -8,6 +8,7 @@ let fightIsReset = false;
 
 let eIsPressed = false;
 let escapeIsPressed = false;
+let leftButtonIsPressed = false;
 
 function keyReleased() {
     if (keyCode === 69) {
@@ -28,6 +29,15 @@ function keyReleased() {
         spaceIsPressed = true;
         setTimeout(() => {
             spaceIsPressed = false;
+        }, 50);
+    }
+}
+
+function mouseReleased(event) {
+    if (event.button === 0) {
+        leftButtonIsPressed = true;
+        setTimeout(() => {
+            leftButtonIsPressed = false;
         }, 50);
     }
 }

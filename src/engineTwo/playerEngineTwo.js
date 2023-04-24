@@ -53,12 +53,13 @@ function playerInputsEngineTwo() {
     actualInventoryChoose = 3;
   }
 
-  // if (escapeIsPressed) {
-  // escapeIsPressed = false;
-  //   canMovePlayer = false;
-  //   canShowSettingsMenu = true;
-  //   currentEngine = MENU;
-  // }
+  if (escapeIsPressed && canMovePlayer) {
+    escapeIsPressed = false;
+    canMovePlayer = false;
+    canShowSettingsMenu = true;
+    lastPostionAfterMenu = "engineTwo"
+    currentEngine = MENU;
+  }
 }
 
 //^ This function call the function to draw the player using the direction
@@ -507,7 +508,7 @@ function lastCameraAnimation() {
         EngineTwoMapX = -13
         Direction = "right";
         playerState = "idle";
-        indexOfAnimation12 = 0;
+        indexOfDoorOpenAnimationCapsuleMap = 0;
         canMovePlayer = false;
         canDrawMenus = false;
         quests.lastQuest.canOpenDoorAnimation = true;
