@@ -59,12 +59,51 @@ function menuStart() {
                 if (leftButtonIsPressed) {
                     leftButtonIsPressed = false;
                     songIsOn = false;
+                    mainMenuBackgroundSoundIsActivated = false;
+                    playMainMenuBackgroundSound()
+                    botanicMapBackgroundSoundIsActivated = false;
+                    playBotanicMapBackgroundSound();
+                    capsuleMapBackgroundSoundIsActivated = false;
+                    playCapsuleMapBackgroundSound();
+                    cloneMapBackgroundSoundIsActivated = false;
+                    playCloneMapBackgroundSound();
+                    dormsMapBackgroundSoundIsActivated = false;
+                    playDormsMapBackgroundSound();
+                    commmandMapBackgroundSoundIsActivated = false;
+                    playCommmandMapBackgroundSound();
+                    topDownMapBackgroundSoundIsActivated = false;
+                    playTopDownMapBackgroundSound();
                 }
             }
             if (pointIsInRect([mouseX, mouseY], [147, 527, 277, 93]) && !songIsOn) {
                 if (leftButtonIsPressed) {
                     leftButtonIsPressed = false;
                     songIsOn = true;
+                    if (lastPostionAfterMenu === "engineOne") {
+                        topDownMapBackgroundSoundIsActivated = true;
+                        playTopDownMapBackgroundSound();
+                    } else if (lastPostionAfterMenu === "engineTwo") {
+                        if (actualMapEngineTwo === "commandMap") {
+                            commmandMapBackgroundSoundIsActivated = true;
+                            playCommmandMapBackgroundSound();
+                        }
+                        if (actualMapEngineTwo === "cloneMap") {
+                            cloneMapBackgroundSoundIsActivated = true;
+                            playCloneMapBackgroundSound();
+                        }
+                        if (actualMapEngineTwo === "botanicMap") {
+                            botanicMapBackgroundSoundIsActivated = true;
+                            playBotanicMapBackgroundSound();
+                        }
+                        if (actualMapEngineTwo === "capsuleMap") {
+                            capsuleMapBackgroundSoundIsActivated = true;
+                            playCapsuleMapBackgroundSound();
+                        }
+                        if (actualMapEngineTwo === "dormsMap") {
+                            dormsMapBackgroundSoundIsActivated = true;
+                            playDormsMapBackgroundSound();
+                        }
+                    }
                 }
             }
             if (pointIsInRect([mouseX, mouseY], [147, 661, 521, 92])) {
