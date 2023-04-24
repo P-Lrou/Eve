@@ -104,8 +104,7 @@ function menuStart() {
             }
         }
     } else {
-        fill('red');
-        rect(0, 0, screenWidth, screenHeight);
-        noFill();
+        image(endIllustration, 0, 0, screenWidth, screenHeight);
+        endIllustration.play();
     }
 }

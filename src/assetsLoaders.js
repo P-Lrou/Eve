@@ -127,6 +127,9 @@ function loadAssets() {
   soundOffHover = loadImage("assets/menu/soundOffHover.png")
   creditsHover = loadImage("assets/menu/creditsHover.png")
   restartHover = loadImage("assets/menu/restartHover.png")
+
+  endIllustration = createVideo("assets/endIllustration.mp4")
+  endIllustration.hide()
 }
 
 //^ This function recover all assets
