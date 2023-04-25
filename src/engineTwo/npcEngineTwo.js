@@ -17,21 +17,16 @@ function drawNPCEngineTwo(NPC) {
     });
   }
   let npcTile = findActualNpc(actualNPC.name);
-  let animationMoovePlayer = npcTile.get(
-    0,
-    spriteCutSize * 3,
-    spriteCutSize,
-    spriteCutSize
-  );
+  let animationMoovePlayer = npcTile.get(0, spriteCutSize * 3, spriteCutSize, spriteCutSize);
   actualNPC.startx = actualNPC.xdist + EngineTwoMapX;
 
 
-  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcRose") {
+  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcOctavia") {
     setTimeout(() => {
       actualNPC.canMove = true
     }, 1500);
   }
-  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcJulliette") {
+  if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcAllie") {
     actualNPC.canMove = true
   }
   if (startingIsDialogsFinish && gameIsStarting && actualNPC.name === "npcFinn") {
@@ -45,120 +40,100 @@ function drawNPCEngineTwo(NPC) {
   if (actualNPC.xdist < Math.abs(engineTwoDividePartW * actualNPC.maxX)) {
     actualNPC.npcDirection = [1, 0];
   }
+  if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked) {
+    actualNPCCollision = 'rigth'
+  }
+
   switch (actualNPC.npcDirection[0]) {
     case 0:
       break;
     case 1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 0,
-        spriteCutSize,
-        spriteCutSize
-      );
-      if (actualNPC.canMove && canMoveAllNPC) {
-        actualNPC.xdist += npcSpeed;
+      if (actualNPC.name !== "eve") {
+        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 0, spriteCutSize, spriteCutSize);
+        if (actualNPC.canMove && canMoveAllNPC) {
+          actualNPC.xdist += npcSpeed;
+        }
+        collisionNPCEngineTwo(actualNPC);
       }
-      collisionNPCEngineTwo(actualNPC);
       break;
     case -1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 1,
-        spriteCutSize,
-        spriteCutSize
-      );
-      if (actualNPC.canMove && canMoveAllNPC) {
-        actualNPC.xdist -= npcSpeed;
+      if (actualNPC.name !== "eve") {
+        animationMoovePlayer = npcTile.get(spriteCutSize * indexOfNpcAnimation, spriteCutSize * 1, spriteCutSize, spriteCutSize);
+        if (actualNPC.canMove && canMoveAllNPC) {
+          actualNPC.xdist -= npcSpeed;
+        }
+        collisionNPCEngineTwo(actualNPC);
       }
-      collisionNPCEngineTwo(actualNPC);
       break;
   }
-  switch (actualNPC.npcDirection[1]) {
-    case 0:
-      break;
-    case 1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 3,
-        spriteCutSize,
-        spriteCutSize
-      );
-      collisionNPCEngineTwo(actualNPC);
-      break;
-    case -1:
-      animationMoovePlayer = npcTile.get(
-        spriteCutSize * indexOfNpcAnim,
-        spriteCutSize * 2,
-        spriteCutSize,
-        spriteCutSize
-      );
-      collisionNPCEngineTwo(actualNPC);
-      break;
-  }
-  if (actualNPC.name === "npcRose" && gameIsStarting) {
+  if (actualNPC.name === "npcOctavia" && gameIsStarting) {
     actualNPCCollision = 'left'
   }
-  if (actualNPC.name === "npcJulliette" && gameIsStarting) {
+  if (actualNPC.name === "npcAllie" && gameIsStarting) {
     actualNPCCollision = 'rigth'
   }
   if (actualNPC.name === "npcFinn" && gameIsStarting) {
     actualNPCCollision = 'rigth'
   }
-  if (!actualNPC.canMove || !canMoveAllNPC) {
+
+  if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked) {
+    actualNPC.canMove = false;
+    actualNPC.xdist = 3510
+  }
+
+  if (!actualNPC.canMove && actualNPC.name !== "eve" || !canMoveAllNPC && actualNPC.name !== "eve") {
     if (actualNPCCollision === 'left') {
-      animationMoovePlayer = npcTile.get(
-        0,
-        spriteCutSize,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(0, spriteCutSize, spriteCutSize, spriteCutSize);
     }
     if (actualNPCCollision === 'rigth') {
-      animationMoovePlayer = npcTile.get(
-        0,
-        0,
-        spriteCutSize,
-        spriteCutSize
-      );
+      animationMoovePlayer = npcTile.get(0, 0, spriteCutSize, spriteCutSize);
     }
   }
 
-  image(
-    animationMoovePlayer,
-    actualNPC.startx,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize,
-    spritePlayerSize
-  );
+  if (debugMode) {
+    fill(0, 255, 0, 60)
+    noStroke();
+    rect(actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize)
+    noFill();
+  }
+  if (actualNPC.name !== "eve" && actualNPC.name !== "eveEndGame") {
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize);
+  }
+  else if (!quests.fight.canShowEveAfterFight && !quests.lastQuest.canDrawEve) {
+    animationMoovePlayer = npcTile.get(22 * indexOfEveIdleAnim, 0, 22, 39);
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
+  }
+  if (quests.fight.canShowEveAfterFight) {
+    let evePositionXAfterFight = evePositionStartAfterFight + EngineTwoMapX
+    image(playerAlienImg.get(fightCutSizeW * indexPlayerAlienSpriteEndFight, 0, 49, 39),
+      evePositionXAfterFight - fightCutSizeW * fightRatio / 2.8,
+      522 - fightCutSizeH * fightRatio / 2,
+      fightCutSizeW * fightRatio,
+      fightCutSizeH * fightRatio);
+  }
+  if (actualNPC.name === "eveEndGame" && quests.lastQuest.canDrawEve && canMoveAllNPC) {
+    animationMoovePlayer = npcTile.get(22 * indexEveMoveEndGame, 39, 22, 39);
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
+    if (actualNPC.startx < 982) {
+      actualNPC.startx = 982;
+      canMoveAllNPC = false;
+      actualDialog = moreInteractionJSON.endGame[4];
+      actualPlayersOrder = moreInteractionJSON.endGame[5];
+      canInteract = true;
+    }
+  } else if (actualNPC.name === "eveEndGame" && quests.lastQuest.canDrawEve && !canMoveAllNPC) {
+    animationMoovePlayer = npcTile.get(22 * indexOfEveIdleAnim, 0, 22, 39);
+    image(animationMoovePlayer, actualNPC.startx, screenHeight - 620 - 59, 350, 620);
+  }
 }
 
 //^ This function do the collision for the NPC with the same function as the main player
 //- Take in params the actualNPC
 function collisionNPCEngineTwo(actualNPC) {
-  let TopCornerLeft = getTopCornerLeft([
-    actualNPC.startx + 30,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize,
-    spritePlayerSize,
-  ]);
-  let TopCornerRight = getTopCornerRight([
-    actualNPC.startx,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize - 25,
-    spritePlayerSize,
-  ]);
-  let BottomCornerLeft = getBottomCornerLeft([
-    actualNPC.startx + 30,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize,
-    spritePlayerSize,
-  ]);
-  let BottomCornerRight = getBottomCornerRight([
-    actualNPC.startx,
-    screenHeight - spritePlayerSize - 59,
-    spritePlayerSize - 25,
-    spritePlayerSize,
-  ]);
+  let TopCornerLeft = getTopCornerLeft([actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize,]);
+  let TopCornerRight = getTopCornerRight([actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize - 25, spritePlayerSize,]);
+  let BottomCornerLeft = getBottomCornerLeft([actualNPC.startx + 30, screenHeight - spritePlayerSize - 59, spritePlayerSize, spritePlayerSize,]);
+  let BottomCornerRight = getBottomCornerRight([actualNPC.startx, screenHeight - spritePlayerSize - 59, spritePlayerSize - 25, spritePlayerSize,]);
   // fill("red")
   // ellipse(TopCornerLeft[0], TopCornerLeft[1], 15)
   // fill("blue")
@@ -201,12 +176,7 @@ function collisionNPCEngineTwo(actualNPC) {
 //^ This function is actually to check if the npc position is on a collision 
 //- Take in params the acutal player position
 function isCollisionWithPlayer(point) {
-  let cornerMyPlayer = [
-    playerPosX,
-    playerPosY,
-    spritePlayerSize,
-    spritePlayerSize,
-  ];
+  let cornerMyPlayer = [playerPosX, playerPosY, spritePlayerSize, spritePlayerSize,];
   if (pointIsInRect(point, cornerMyPlayer)) {
     return true;
   }
@@ -218,52 +188,78 @@ function isCollisionWithPlayer(point) {
 function canTalkToNpc(actualNPC) {
   if (actualNPC.canTalk && canMovePlayer && canTalkGlobalNPC) {
     canTalkingToNPC = true;
-    image(interactionButton, playerPosX + 160, playerPosY - 90, 64, 64);
-    if (keyIsDown(69) && canMoveEngineTwo) {
+    if (keyIsDown(69)) {
+      image(interactionButton.get(14, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    } else {
+      image(interactionButton.get(0, 0, 14, 15), playerPosX + 160, playerPosY - 90, 64, 68);
+    }
+    if (eIsPressed && canMoveEngineTwo && canMovePlayer) {
+      eIsPressed = false;
       canInteract = true;
       canMovePlayer = false;
       canTalkGlobalNPC = false;
-      canDrawnInventory = false;
+      canDrawMenus = false;
 
-      if (actualNPC.name === "npcJulliette") {
+      if (actualNPC.name === "npcAllie") {
         actualDialog = actualNPC.dialog[0];
         actualPlayersOrder = actualNPC.dialog[1];
       }
-      if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
+      if (actualNPC.name === 'npcAllie' && quests.questCloneMap.questCloneMapIsStarted && !quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
         actualDialog = actualNPC.dialog[2];
         actualPlayersOrder = actualNPC.dialog[3];
         quests.questCloneMap.canDrawInteractionClonMapQuest = true;
       }
-      if (actualNPC.name === 'npcJulliette' && quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
+      if (actualNPC.name === 'npcAllie' && quests.questCloneMap.questCloneMapIsOver && actualQuestName === "questCloneMap") {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
-        actualQuestName = ''
+        actualQuestName = 'repareCapsulesMap';
+        quests.repareCapsulesMap.questRepareCapsulesMapIsStarted = true;
       }
-      if (actualNPC.name === 'npcJulliette' && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.canTakeSeedBag && actualQuestName === "seedsBagQuest") {
+      if (actualNPC.name === 'npcAllie' && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.canTakeSeedBag && actualQuestName === "seedsBagQuest") {
         actualDialog = actualNPC.dialog[6];
         actualPlayersOrder = actualNPC.dialog[7];
         quests.seedsBagQuest.seedBagHasBeenTaked = true;
         quests.seedsBagQuest.canTakeSeedBag = false;
-        inventoryTab[inventoryTabNumber] = "seedsBagBotanicMap";
-        inventoryTabNumber++;
+        quests.seedsBagQuest.canAddToInventorySeedBag = true;
       }
 
-      if (actualNPC.name === "npcRose") {
+      if (actualNPC.name === "npcOctavia") {
         actualDialog = actualNPC.dialog[0];
         actualPlayersOrder = actualNPC.dialog[1];
       }
-      if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && actualQuestName === "seedsBagQuest") {
+      if (actualNPC.name === "npcOctavia" && quests.seedsBagQuest.questSeedBagQuestIsStarted && actualQuestName === "seedsBagQuest") {
         actualDialog = actualNPC.dialog[2];
         actualPlayersOrder = actualNPC.dialog[3];
         quests.seedsBagQuest.canTakeSeedBag = true;
       }
-      if (actualNPC.name === "npcRose" && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.seedBagHasBeenTaked && actualQuestName === "seedsBagQuest") {
+      if (actualNPC.name === "npcOctavia" && quests.seedsBagQuest.questSeedBagQuestIsStarted && quests.seedsBagQuest.seedBagHasBeenTaked && actualQuestName === "seedsBagQuest") {
         actualDialog = actualNPC.dialog[4];
         actualPlayersOrder = actualNPC.dialog[5];
         quests.seedsBagQuest.seedBagQuestIsOver = true;
         removeFromInventory("seedsBagBotanicMap")
         actualQuestName = "questCloneMap"
         quests.questCloneMap.questCloneMapIsStarted = true;
+      }
+
+      if (actualNPC.name === "npcFinn") {
+        actualDialog = actualNPC.dialog[0];
+        actualPlayersOrder = actualNPC.dialog[1];
+      }
+      if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.questRepareCapsulesMapIsStarted && actualQuestName === "repareCapsulesMap") {
+        actualDialog = actualNPC.dialog[2];
+        actualPlayersOrder = actualNPC.dialog[3];
+        quests.repareCapsulesMap.canTakeWrench = true;
+      }
+      if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wrenchIsTaked && actualQuestName === "repareCapsulesMap") {
+        actualDialog = actualNPC.dialog[4];
+        actualPlayersOrder = actualNPC.dialog[5];
+        quests.repareCapsulesMap.hadTalkToFinn = true;
+      }
+      if (actualNPC.name === "npcFinn" && quests.repareCapsulesMap.wallIsRepare && actualQuestName === "repareCapsulesMap") {
+        actualDialog = actualNPC.dialog[6];
+        actualPlayersOrder = actualNPC.dialog[7];
+        actualQuestName = "sleepQuest"
+        quests.repareCapsulesMap.questRepareCapsulesMapIsOver = true;
       }
       return;
     }

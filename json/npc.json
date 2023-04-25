@@ -3,39 +3,41 @@
 
   "npcEngineTwo": [
     {
-      "name": "npcJulliette",
+      "name": "npcAllie",
       "startx": 200,
-      "xdist": 3500,
+      "xdist": 500,
       "ydist": 1000,
       "starty": 510,
       "npcDirection": [1, 0],
-      "maxX": 9,
-      "minX": 15,
+      "maxX": 2,
+      "minX": 6,
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Salut"],
+        ["Eve continue d'évoluer, elle me surprend de jour en jour."],
         [2],
         [
-          "Ah, te revoilà. J'ai besoin de ton aide pour régler un soucis avec Eve",
-          "Un soucis ?",
-          "Oui, les niveau d'oxygène dans la cuve sont déreglés. Pourrais-tu t'en occuper ?",
-          "Oui, je vais m'en occuper, compte sur moi."
+          "Ah, te revoilà. Les capteurs dans la cuve de Ève indiquent un taux d'oxygène anormal ...",
+          "Cela m'inquiète, pourrais-tu tenter de réguler les niveaux en utilisant l'interface de contrôle ?",
+          "Je vais voir ce que je peux faire."
         ],
-        [2, 0, 2, 0],
-        ["Problème régler !", "Parfais, merci beaucoup de ton aide."],
-        [0, 2],
+        [2, 2, 0],
+        ["Problème réglé ! Tout est en ordre.",
+        "C'est étrange, cela n'était jamais arrivé. Il faudra rester vigilant.", 
+        "Parfait, merci pour ton aide."],
+        [0, 0, 2],
         [
-          "Juliette, je crois que tu as quelque chose pour Rose.",
-          "Oh, les graines, j'avais complétement oublié, tiens, les voilà.",
+          "Allie, je crois que tu as quelque chose pour Octavia.",
+          "Oh, les graines, j'avais complètement oublié, tiens, les voilà.",
+          "Les résultats de l'analyse ne devraient pas tarder.",
           "Merci. Je lui rapporte.",
-          "Lowen, quand tu aura fini avec Rose, reviens me voir, j'aurai quelque chose à te demander."
+          "Lowen, quand tu auras fini avec Octavia, reviens me voir, quelque chose me perturbe."
         ],
-        [0, 2, 0, 2]
+        [0, 2, 2, 0, 2]
       ]
     },
     {
-      "name": "npcRose",
+      "name": "npcOctavia",
       "startx": 200,
       "xdist": 3500,
       "ydist": 1000,
@@ -46,27 +48,92 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Salut"],
+        ["Mon expérience la plus récente s'est soldée par un succès, les plantes ne fanent plus sous une chaleur extrème."],
         [3],
         [
-          "J'aurais besoin de ton aide.",
-          "Peux-tu aller récupérer un sac de graine à Juliette ?",
-          "Elle doit se trouver dans la salle des clones.",
+          "Lowen te voilà, j'aurais besoin de ton aide.",
+          "J'ai donné des graines à Allie pour qu'elle les analyse, elle a dû oublier de me les rendre.",
+          "Peux-tu aller les récupérer pour moi ? Je dois rester surveiller mon expérience.",
+          "Allie doit se trouver dans la salle des clones.",
           "D'accord, j'y vais tout de suite."
         ],
-        [3, 3, 3, 0],
+        [3, 3, 3, 3, 0],
         [
-          "Tien voici le sac de graines.",
-          "Merci beaucoup. Je vais povoir faire pousser des plantes."
+          "Tiens, voici le sac de graines.",
+          "Allie devrait bientôt t'envoyer les résultats.",
+          "Merci Lowen. Ces graines devraient faire pousser des plantes capables de résister aux conditions climatiques terrestre actuelles.",
+          "Hâte de voir ça."
         ],
-        [0, 3]
+        [0, 0, 3, 0]
       ]
+    },
+    {
+      "name": "npcFinn",
+      "startx": 200,
+      "xdist": 3500,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": true,
+      "canTalk": true,
+      "dialog": [
+        ["Je prépare notre prochaine sortie extravéhiculaire. La station aurait besoin d'un peu d'entretien..."],
+        [1],
+        [
+          "Finn, te voilà !",
+          "Salut Lowen, tu tombe bien, j'aurais besoin de ton aide.",
+          "Que se passe-t-il ?",
+          "Comme tu peux le voir, du gaz s'échappe des tuyaux du sas. C'est mauvais signe ...",
+          "D'après mes souvenirs, une clé à molette se trouve dans l'un des coffres de la station. Pourrais-tu aller la chercher ?",
+          "Je crois que les coffres sont verrouillés.",
+          "Tu as raison, je te les déverrouille à distance : voilà qui est fait.",
+          "Merci, j'y vais tout de suite."
+        ],
+        [0, 1, 0, 1, 1, 0, 1, 0],
+        [
+          "J'ai trouvé la clé à molette.",
+          "Merci, utilise la pour réparer la fuite et reviens me voir."
+        ],
+        [0, 1],
+        [
+          "Le tuyau ne fuit plus, mais ce n'est qu'une question de temps avant que la station tombe en ruine ...",
+          "C'est parfait, merci de ton aide.",
+          "Tu as l'air fatigué. Tu devrais aller te reposer un peu au dortoir."
+        ],
+        [0, 1, 1]
+      ]
+    },
+    {
+      "name": "eve",
+      "startx": 200,
+      "xdist": 1050,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [1, 0],
+      "maxX": 9,
+      "minX": 15,
+      "canMove": false,
+      "canTalk": false
+    },
+    {
+      "name": "eveEndGame",
+      "startx": 200,
+      "xdist": 1600,
+      "ydist": 1000,
+      "starty": 510,
+      "npcDirection": [-1, 0],
+      "maxX": 4,
+      "minX": 4,
+      "canMove": true,
+      "canTalk": false
     }
   ],
 
   "npcStartingAnimation": [
     {
-      "name": "npcJulliette",
+      "name": "npcAllie",
       "startx": 200,
       "xdist": 1400,
       "ydist": 1000,
@@ -78,7 +145,7 @@
       "canTalk": false
     },
     {
-      "name": "npcRose",
+      "name": "npcOctavia",
       "startx": 200,
       "xdist": 2600,
       "ydist": 1000,

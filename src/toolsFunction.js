@@ -54,3 +54,7 @@ function expandRect(rect, expandSize) {
 // function shrinkRect(rect, skrinkSize) {
 //     return [rect[0] + skrinkSize, rect[1] + skrinkSize, rect[2] - skrinkSize, rect[3] - skrinkSize]
 // }
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+}

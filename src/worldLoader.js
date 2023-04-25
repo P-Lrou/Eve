@@ -5,6 +5,12 @@ function runMap(mapName) {
         case "map1":
             map = map1;
             break;
+        case "map2":
+            map = map2;
+            break;
+        case "map3":
+            map = map3;
+            break;
         default:
             throw new Error(`Map named : ${mapName} not found !`);
     }

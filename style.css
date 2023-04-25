@@ -8,6 +8,15 @@ body {
   overflow: hidden;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  background-color: black;
+}
+
 canvas {
   display: block;
 }

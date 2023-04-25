@@ -11,6 +11,53 @@
     "questSeedBagQuestIsStarted": true,
     "canTakeSeedBag": false,
     "seedBagHasBeenTaked": false,
-    "seedBagQuestIsOver": false
+    "seedBagQuestIsOver": false,
+    "canAddToInventorySeedBag": false
+  },
+  "repareCapsulesMap": {
+    "questRepareCapsulesMapIsStarted": false,
+    "canTakeWrench": false,
+    "canAddWrenchToInventory": false,
+    "wrenchIsTaked": false,
+    "canRepareWall": false,
+    "wallIsRepare": false,
+    "questRepareCapsulesMapIsOver": false,
+    "hadTalkToFinn": false
+  },
+  "goToCloneMapAfterSleep": {
+    "goToCloneMapAfterSleepIsStarted": false,
+    "canShowDialogsAfterWeakingUp": false,
+    "haveShowAfterWeakingUp": false,
+    "gunTaked": false,
+    "cardTaked": false,
+    "haveGun": false,
+    "haveCard": false,
+    "canShowMoreInformationAboutAlert": false,
+    "haveShowMoreInformationAboutAlert": false
+  },
+  "fight": {
+    "animationFightCanStart": false,
+    "dialogsFitghtIsStart": false,
+    "playerCanMoveToStartFight": false,
+    "dialogsFightIsOver": false,
+    "canStartFigth": false,
+    "haveFinishAnimationFirstPart": false,
+    "fightIsFinished": false,
+    "canShowDialogsAfterFight": false,
+    "canShowEveAfterFight": false,
+    "canShowEve": false,
+    "haveShotTwoAmmo": false,
+    "haveShowThatHaveShottwoAmmo": false
+  },
+  "lastQuest": {
+    "lastQuestIsStarting": false,
+    "haveFiles": false,
+    "haveStartDestruction": false,
+    "haveTakeSuit": false,
+    "canOpenDoorAnimation": false,
+    "havePressOnButtonToOpenCapsule": false,
+    "stopAnimation": false,
+    "canDrawEve": false,
+    "canShowEnd": false
   }
 }

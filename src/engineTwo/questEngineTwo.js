@@ -2,61 +2,59 @@
 
 //^ This function is used to draw the clone map quest
 function drawnQuestCloneMap() {
-  image(
-    questAnimationCloneMap.get(
-      1100 * indexOfAnimationQuestClone,
-      0,
-      1100,
-      800
-    ),
-    400,
-    50,
-    screenWidth / 1.74,
-    screenHeight / 1.16
-  );
+  if (!quests.questCloneMap.isGoodForColor) {
+    image(questAnimationCloneMap.get(1100 * indexOfAnimationQuestCloneMap, 0, 1100, 800), 266, 59, 1100, 800);
+  } else {
+    image(endScreenQuestCloneMap, 266, 59, 1100, 800);
+  }
   noStroke();
   if (quests.questCloneMap.isGoodForColor) {
-    fill('#00E4B0')
+    fill('#00e4af')
   } else {
-    fill('#cc2e1d')
+    fill('#e66a6a')
   }
-  rect(1086.5, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
-  image(
-    questCloneMap1,
-    400,
-    50,
-    screenWidth / 1.74,
-    screenHeight / 1.16
-  );
-
-
+  rect(950, yRectMapEngineTwoCloneMap, 117, heigthRectMapEngineTwoCloneMap)
+  noFill();
+  image(questCloneMap1, 266, 59, 1100, 800);
 
   if (keyIsPressed) {
     if (keyIsDown(UP_ARROW) && quests.questCloneMap.canMoveQuestCloneMap) {
       yRectMapEngineTwoCloneMap -= 2
       heigthRectMapEngineTwoCloneMap += 2
+      image(upArrowCloneMapQuest, 266, 59, 1100, 800);
     }
     if (keyIsDown(DOWN_ARROW) && quests.questCloneMap.canMoveQuestCloneMap) {
       yRectMapEngineTwoCloneMap += 2
       heigthRectMapEngineTwoCloneMap -= 2
+      image(downArrowCloneMapQuest, 266, 59, 1100, 800);
     }
   } else {
     checkIfCloneMapQuestIsOver()
+  }
+  if (yRectMapEngineTwoCloneMap < 202 || heigthRectMapEngineTwoCloneMap > 583) {
+    yRectMapEngineTwoCloneMap = 202;
+    heigthRectMapEngineTwoCloneMap = 583;
+  }
+  if (yRectMapEngineTwoCloneMap > 782 || heigthRectMapEngineTwoCloneMap < 3) {
+    yRectMapEngineTwoCloneMap = 782;
+    heigthRectMapEngineTwoCloneMap = 3;
   }
 }
 
 //^ This function is used to draw the botanic map quest
 function checkIfCloneMapQuestIsOver() {
-  if (yRectMapEngineTwoCloneMap > 588 && yRectMapEngineTwoCloneMap < 595) {
+  if (yRectMapEngineTwoCloneMap > 591 && yRectMapEngineTwoCloneMap < 610) {
     quests.questCloneMap.isGoodForColor = true;
     quests.questCloneMap.canMoveQuestCloneMap = false;
     setTimeout(() => {
-      quests.questCloneMap.questCloneMapIsOver = true;
-      quests.questCloneMap.canDrawEngineCloneMapQuest = false;
-      canMoveAllNPC = true;
-      canMoveEngineTwo = true;
-      canMovePlayer = true;
-      quests.questCloneMap.canDrawInteractionClonMapQuest = false;
-    }, 2000);
+      if (!quests.questCloneMap.questCloneMapIsOver){
+        quests.questCloneMap.questCloneMapIsOver = true;
+        quests.questCloneMap.canDrawEngineCloneMapQuest = false;
+        quests.questCloneMap.canDrawInteractionClonMapQuest = false;
+        canMoveAllNPC = true;
+        canMoveEngineTwo = true;
+        canMovePlayer = true;
+      }
+    }, 3000);
   }
 }
