@@ -46,6 +46,7 @@ function menuStart() {
                     }
                     if (lastPostionAfterMenu === "engineOne") {
                         canShowSettingsMenu = false;
+                        canMovePlayer = true;
                         currentEngine = ENGINE_ONE;
                     }
                     if (lastPostionAfterMenu === "engineTwo") {
@@ -144,7 +145,35 @@ function menuStart() {
         }
     } else {
         image(endIllustration, 0, 0, screenWidth, screenHeight);
-        endIllustration.loop();
+        endIllustration.play();
+        setTimeout(() => {
+            if (!canShowCredits) {
+                canShowCredits = true;
+            }
+        }, 8500);
+        if (canShowCredits) {
+            endIllustration.stop();
+            if (canShowCreditsOne) {
+                image(credits1, 0, 0, screenWidth, screenHeight);
+                setTimeout(() => {
+                    canShowCreditsOne = false;
+                    canShowCreditsTwo = true;
+                }, 5000);
+            }
+            if (canShowCreditsTwo) {
+                image(credits2, 0, 0, screenWidth, screenHeight);
+                setTimeout(() => {
+                    canShowCreditsTwo = false;
+                    canShowCreditsThree = true;
+                }, 5000);
+            }
+            if (canShowCreditsThree) {
+                image(credits3, 0, 0, screenWidth, screenHeight);
+                setTimeout(() => {
+                    location.reload();
+                }, 8000);
+            }
+        }
     }
 }
 

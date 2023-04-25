@@ -132,6 +132,10 @@ function loadAssets() {
   endIllustration.hide()
   introductionIllustration = createVideo("assets/introductionIllustration.mp4")
   introductionIllustration.hide()
+
+  credits1 = loadImage("assets/menu/credits1.png")
+  credits2 = loadImage("assets/menu/credits2.png")
+  credits3 = loadImage("assets/menu/credits3.png")
 }
 
 //^ This function recover all assets

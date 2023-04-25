@@ -173,7 +173,7 @@ function animations() {
     }
 
     //+ Set animation for eve end Game movement
-    if (animationCount % 8.1 === 0) {
+    if (animationCount % 9 === 0) {
         if (indexEveMoveEndGame < 5) {
             indexEveMoveEndGame += 1;
         } else {
