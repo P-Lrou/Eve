@@ -80,7 +80,10 @@ function menuStart() {
                 if (leftButtonIsPressed) {
                     leftButtonIsPressed = false;
                     songIsOn = true;
-                    if (lastPostionAfterMenu === "engineOne") {
+                    if (lastPostionAfterMenu === "startMenu") {
+                        mainMenuBackgroundSoundIsActivated = true;
+                        playMainMenuBackgroundSound()
+                    } else if (lastPostionAfterMenu === "engineOne") {
                         topDownMapBackgroundSoundIsActivated = true;
                         playTopDownMapBackgroundSound();
                     } else if (lastPostionAfterMenu === "engineTwo") {
