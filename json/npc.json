@@ -5,33 +5,33 @@
     {
       "name": "npcAllie",
       "startx": 200,
-      "xdist": 500,
+      "xdist": 3500,
       "ydist": 1000,
       "starty": 510,
       "npcDirection": [1, 0],
-      "maxX": 2,
-      "minX": 8,
+      "maxX": 9,
+      "minX": 15,
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Eve continue d'évoluer, elle me surprends de jour en jour."],
+        ["Eve continue d'évoluer, elle me surprend de jour en jour."],
         [2],
         [
-          "Ah, te revoilà. Les capteurs dans la cuve de Ève indique un surplus d'oxygène...",
+          "Ah, te revoilà. Les capteurs dans la cuve de Ève indiquent un taux d'oxygène anormal ...",
           "Cela m'inquiète, pourrais-tu tenter de réguler les niveaux en utilisant l'interface de contrôle ?",
           "Je vais voir ce que je peux faire."
         ],
         [2, 2, 0],
         ["Problème réglé ! Tout est en ordre.",
-        "C'est étrange, cela n'était jamais arrivé. Il faudra rester vigilent.", 
+        "C'est étrange, cela n'était jamais arrivé. Il faudra rester vigilant.", 
         "Parfait, merci pour ton aide."],
         [0, 0, 2],
         [
           "Allie, je crois que tu as quelque chose pour Octavia.",
-          "Oh, les graines, j'avais complétement oublié, tiens, les voilà.",
-          "Les resultats de l'analyse ne devraient pas tarder.",
+          "Oh, les graines, j'avais complètement oublié, tiens, les voilà.",
+          "Les résultats de l'analyse ne devraient pas tarder.",
           "Merci. Je lui rapporte.",
-          "Lowen, quand tu aura fini avec Octavia, reviens me voir, j'aurai besoin de ton aide."
+          "Lowen, quand tu auras fini avec Octavia, reviens me voir, quelque chose me perturbe."
         ],
         [0, 2, 2, 0, 2]
       ]
@@ -48,7 +48,7 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Ma dernière expérience à réussie, les plantes ne fanent plus sous une chaleur extrème."],
+        ["Mon expérience la plus récente s'est soldée par un succès, les plantes ne fanent plus sous une chaleur extrème."],
         [3],
         [
           "Lowen te voilà, j'aurais besoin de ton aide.",
@@ -59,11 +59,12 @@
         ],
         [3, 3, 3, 3, 0],
         [
-          "Tien voici le sac de graines.",
+          "Tiens, voici le sac de graines.",
           "Allie devrait bientôt t'envoyer les résultats.",
-          "Merci beaucoup. Ces graines sont sensées faire pousser un nouveau type de plantes, capables de résister aux conditions terrestres."
+          "Merci Lowen. Ces graines devraient faire pousser des plantes capables de résister aux conditions climatiques terrestre actuelles.",
+          "Hâte de voir ça."
         ],
-        [0, 0, 3]
+        [0, 0, 3, 0]
       ]
     },
     {
@@ -78,16 +79,16 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Je prépare notre prochaine sortie extra-véhiculaire. La station aurait besoin d'un peu d'entretien..."],
+        ["Je prépare notre prochaine sortie extravéhiculaire. La station aurait besoin d'un peu d'entretien..."],
         [1],
         [
           "Finn, te voilà !",
           "Salut Lowen, tu tombe bien, j'aurais besoin de ton aide.",
           "Que se passe-t-il ?",
-          "Comme tu peux le voir, du gaz s'échappe des tuyaux du sas. Il faut régler ce problème de toute urgence.",
-          "D'après mes souvenirs, une clé à mollette se trouve dans l'un des coffres de la station. Pourrais-tu aller la chercher ?",
-          "Je crois que les coffres sont vérouillés.",
-          "Tu as raison, je te les ai dévérouillés à distance.",
+          "Comme tu peux le voir, du gaz s'échappe des tuyaux du sas. C'est mauvais signe ...",
+          "D'après mes souvenirs, une clé à molette se trouve dans l'un des coffres de la station. Pourrais-tu aller la chercher ?",
+          "Je crois que les coffres sont verrouillés.",
+          "Tu as raison, je te les déverrouille à distance : voilà qui est fait.",
           "Merci, j'y vais tout de suite."
         ],
         [0, 1, 0, 1, 1, 0, 1, 0],
@@ -97,9 +98,9 @@
         ],
         [0, 1],
         [
-          "Le tuyau ne fuit plus, Hope II commence à se faire vielle.",
+          "Le tuyau ne fuit plus, mais ce n'est qu'une question de temps avant que la station tombe en ruine ...",
           "C'est parfait, merci de ton aide.",
-          "Tu a l'air fatigué. Tu devrais aller te reposer un peu au dortoir."
+          "Tu as l'air fatigué. Tu devrais aller te reposer un peu au dortoir."
         ],
         [0, 1, 1]
       ]

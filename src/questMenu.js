@@ -24,20 +24,20 @@ function drawQuestMenu() {
                 actualQuestTextMenu = "Je dois utiliser l'interface de contrôle."
             }
             if (quests.questCloneMap.questCloneMapIsOver) {
-                actualQuestTextMenu = "J'ai résolu le problème d'Allie, je dois lui dire."
+                actualQuestTextMenu = "Le problème est résolu, je devrais le dire à Allie."
             }
         }
         if (actualQuestName === 'repareCapsulesMap') {
             headNumber = 1;
-            actualQuestTextMenu = "Cela fait un moment que je n'est pas vu Finn, je devrais peut-être aller voir ce qu'il fait."
+            actualQuestTextMenu = "Cela fait un moment que je n'ai pas vu Finn, je devrais peut-être aller voir ce qu'il fait."
             if (quests.repareCapsulesMap.canTakeWrench) {
-                actualQuestTextMenu = "D'après Finn, la clé à molette devrait se trouver dans un des coffres. Essayons de la trouver."
+                actualQuestTextMenu = "D'après Finn, la clé à molette devrait se trouver dans un des coffres ..."
             }
             if (quests.repareCapsulesMap.wrenchIsTaked) {
                 actualQuestTextMenu = "Je devrais rejoindre Finn."
             }
             if (quests.repareCapsulesMap.canRepareWall) {
-                actualQuestTextMenu = "Allons vite réparer cette fuite !"
+                actualQuestTextMenu = "Il faut réparer cette fuite avant que nous manquions d'oxygène ..."
             }
             if (quests.repareCapsulesMap.wallIsRepare) {
                 actualQuestTextMenu = "C'est réparé. Allons voir Finn."
@@ -51,7 +51,7 @@ function drawQuestMenu() {
             headNumber = 0;
             actualQuestTextMenu = "Que se passe-t-il ?"
             if (quests.goToCloneMapAfterSleep.haveShowMoreInformationAboutAlert) {
-                actualQuestTextMenu = "Je dois aller chercher la carte d'accès et une arme."
+                actualQuestTextMenu = "Je dois trouver la carte d'accès, et une arme ..."
             }
             if (quests.goToCloneMapAfterSleep.haveGun && quests.goToCloneMapAfterSleep.haveCard) {
                 actualQuestTextMenu = "Il est temps d'aller voir ce qu'il se passe en salle des clones."
@@ -62,12 +62,12 @@ function drawQuestMenu() {
         }
         if (actualQuestName === 'lastQuest') {
             headNumber = 4;
-            actualQuestTextMenu = "Avant de quitté la station je doit me rendre en salle des commandes pour aller récupérer les contrendus de mission.";
+            actualQuestTextMenu = "Toutes les recherches sont stockées dans la salle des commandes... Je dois les récupérer avant de quitter la station";
             if (quests.lastQuest.haveFiles) {
-                actualQuestTextMenu = "Maintenant que j'ai récupérer les contrendus il est temps de lancé la destruiction de la station. C'est la seule solution...";
+                actualQuestTextMenu = "Si je ne fais rien, Eve finira par me retrouver. Lancer l'autodestruction, c'est le seul moyen ... ";
             }
             if (quests.lastQuest.haveStartDestruction) {
-                actualQuestTextMenu = "Je doit me dêpecher de rejoindre la capsule, la station va bientôt exploser et tout emporter avec elle."
+                actualQuestTextMenu = "Je dois me dépêcher de rejoindre la capsule de survie, la station va bientôt exploser et tout emporter avec elle."
             }
         }
         textLeading(20);

@@ -1,27 +1,25 @@
 {
   "moreInteractions": [
-    ["Notre planête Terre souffre...", "Je n'aurai sûrement jamais l'occasion d'y retourner."],
-    [
-      "Cette plante est impressionnante !",
-      "J'èspère qu'elle n'envahira pas la station..."
-    ],
-    ["C'est plante doit rester sous verre...", "Je ne voudrais pas perdre mon doigt."],
-    ["Eve...", "Le premier être humain que nous avons réussi à Cloner", "C'est notre dernier espoir."],
-    ["Ceci est...", "une expérience ?"],
+    ["Notre planète Terre, nous avons fini par la consumer entièrement ...", "Je n'aurai sûrement jamais l'occasion d'y retourner."],
+    ["Cette plante envahira bientôt toute la station ..."],
+    ["Les expériences d'Octavia sur la flore ne cesseront jamais de m'émerveiller... ", "Et de me terrifier ..."],
+    ["Eve...", "Le premier prototype d'humain génétiquement modifié ...", "Le sort de l'humanité tout entière repose sur elle.","Sa génération devra repeupler la Terre, nous continuerons de vivre à travers elle."],
+    ["Ces expériences étaient nécessaires ...", "J'en fait encore des cauchemars ..."],
     ["C'est le lit de Finn, le mien est plus loin."],
-    [0, 0, 0]
+    [0, 0, 0, 0]
   ],
   "dialogStartingAnimation": [
     [
       "Cela fait 3 mois que nous n'avons pas établi de contact avec la centrale.",
-      "J'ai du mal à le concevoir mais il se pourrait qu'il ne reste plus que nous.",
-      "On a plus le choix maintenant, si nous ne menons pas à bien cette mission, l'humanité s'éteint avec nous.",
-      "Je sens qu'on touche au but. Eve nous sauvera. Bientôt elle sera assez développée pour nous remplacer et assurer notre survie.",
+      "J'ai du mal à le concevoir mais ...",
+      "Il se pourrait qu'il ne reste plus que nous.",
+      "Nous n'avons plus le choix maintenant, si nous ne menons pas à bien cette mission, l'humanité s'éteint avec nous.",
+      "Je sens qu'on touche au but. Eve nous sauvera. Bientôt, elle sera assez développée pour nous remplacer et assurer notre survie.",
       "J'ai confiance en nous et en elle.",
       "Espérons que tu dises juste, sans le soutien de la centrale, nous ne tiendrons pas longtemps dans cette station.",
-      "Dans ce cas, pas de temps à perdre, remettons nous au travail. Lowen, rejoins moi dans la salle botanique dès que possible, j'aurai besoin de ton aide."
+      "Pas de temps à perdre, remettons-nous au travail. Lowen, rejoins-moi dans la salle botanique dès que possible, j'aurai besoin de ton aide."
     ],
-    [1, 1, 3, 2, 2, 0, 3]
+    [1, 1, 1, 3, 2, 2, 0, 3]
   ],
   "chestInteractions":[
     ["Ce coffre est vérouillé..."],
@@ -34,13 +32,13 @@
   "transitionDialogs":[
     ["AAAaaAAAAaaaAAAaaHHH !", "..."],
     [-1],
-    ["J'ai entendu des cris...", "Ca semblait venir de la salle des clones, quelque chose ne va pas..."],
-    [0, 0]
+    ["C'étaient des cris ...", "Des cris d'horreur ...", "Ça provenait de la salle des clones, quelque chose ne va pas ..."],
+    [0, 0, 0]
   ],
   "doors":[
     ["Les cris provenaient de la salle des clones..."],
     [0],
-    ["L'alarme est activée...", "Les portes ne s'ouvriront plus sans une carte d'accès.", "Il y en a une en salle des commandes, j'en profiterai pour récupérer une arme."],
+    ["L'alarme est activée...", "Les portes ne pourront plus s'ouvrir sans carte d'accès.", "Il y en a une en salle des commandes, je devrais en profiter pour trouver une arme."],
     [0, 0, 0],
     ["Je dois utiliser le lecteur de cartes sur la droite."],
     [0],
@@ -48,23 +46,44 @@
     [0]
   ],
   "figth":[
-    ["Ah te voilà", "Ceci est du debug..."],
+    ["LoOWeeEn", "Eve ... SouuFfree ... Trop ..."],
     [4,4],
-    ["Ève est assomée...", "Je ne suis plus en sécurité ici. Je devrais rejoindre la capsule pour m'échapper.", "Avant je ferai bien d'aller récupérer les contrendus de mission et lancer l'auto desctruction de la station.", "C'est la seule sollution..."],
-    [0, 0, 0, 0],
-    ["Mon arme c'est enrayée, je vais devoir attendre qu'Eve vienne sur moi pour la battre au corps à corps."],
+    [
+      "Ève est sonnée ...",
+      "Je ne comprends pas ...", 
+      "Elle n'aurait jamais dût se retourner contre nous, nous avions modifié sa conscience.", 
+      "Finn, Allie, Octavia, je ...",
+      "Gloups ...",
+      "Les armes ne lui feront plus rien, elle s'adapte trop vite. Je n'ai pas le choix, je dois me tirer d'ici. Pas sans avoir récupéré les données de la mission"
+    ],
+    [0, 0, 0, 0, 0, 0],
+    ["Et merde, mon arme s'est enraillée ..."],
     [0],
-    ["Mes collègues, ils sont...", "Cela n'aurait pas du arrivé."],
+    ["Cela n'aurait jamais dû arriver, c'est horrible.", "Je remplirai notre mission, même s'il faut tout recommencer, je le ferai pour vous."],
     [0, 0],
-    ["Ève est assomée...", "Je ne suis plus en sécurité ici. Je devrais rejoindre la capsule pour m'échapper."],
+    ["Ève est sonnée ...", "Je ne suis plus en sécurité ici. Je devrais rejoindre la capsule pour m'échapper."],
     [0, 0]
   ],
   "endGame":[
-    ["C'est bon, j'ai lancé la destruction. Toute ces années de recherche sont foutu............"],
+    [
+      "Si je ne fou pas le feu à cette station Eve serait capable d'en prendre les commandes et de me retrouver jusqu'au fin fond de l'espace.",
+      "Elle en veut après moi, je l'ai vu dans ses yeux ...",
+      "Pas de retour possible, avec le dossier d'analyses j'ai encore une chance d'accomplir ma mission dans la capsule de survie.",
+      "Eve n'est pas digne de nous remplacer ..."
+    ],
+    [0, 0, 0, 0],
+    ["Je n'ai plus le temps !"],
     [0],
-    ["Il est temps de quitté la station, je n'ai plus le temps."],
-    [0],
-    ["Blablabla", ".....", "Jeu Fini"],
-    [0, 4, 0]
+    [
+      "Eve, je savais que tu viendrais me chercher, tu as gagné ...",
+      "Nous t'avons aimé comme notre enfant, tu portais en toi l'espoir de toute l'humanité. Comment à tu pu faire ça à nous, tes créateurs.",
+      "Humains ne provoquent que souffrance ...",
+      "Humains égoïstes, ont fait souffrir Eve, ont fait souffrir la Terre...",
+      "Veulent recommencer ...",
+      "Vous devoir assumer conséquences de vos actes, payer pour vos torts. Eve doit s'assurer qu'humanité s'éteint",
+      "Humain meurt, univers subsiste, Terre renaît",
+      "Adieu."
+    ],
+    [0, 0, 4, 4, 4, 4, 4, 4]
   ]
 }
