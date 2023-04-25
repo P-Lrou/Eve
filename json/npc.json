@@ -5,12 +5,12 @@
     {
       "name": "npcAllie",
       "startx": 200,
-      "xdist": 3500,
+      "xdist": 500,
       "ydist": 1000,
       "starty": 510,
       "npcDirection": [1, 0],
-      "maxX": 9,
-      "minX": 15,
+      "maxX": 2,
+      "minX": 6,
       "canMove": true,
       "canTalk": true,
       "dialog": [
