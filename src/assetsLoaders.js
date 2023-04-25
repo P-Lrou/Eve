@@ -130,6 +130,8 @@ function loadAssets() {
 
   endIllustration = createVideo("assets/endIllustration.mp4")
   endIllustration.hide()
+  introductionIllustration = createVideo("assets/introductionIllustration.mp4")
+  introductionIllustration.hide()
 }
 
 //^ This function recover all assets

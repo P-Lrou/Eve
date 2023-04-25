@@ -56,6 +56,8 @@ function draw() {
     }
     if (transitionStatus === "Out" && !animationActeTwoStart) {
       currentEngine = newEngineSelected;
+      introductionIllustration.stop()
+      canPlayIntroduction = false;
       transitionOut();
     }
   }

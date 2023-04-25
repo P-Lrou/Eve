@@ -112,7 +112,7 @@ function menuStart() {
                     location.reload()
                 }
             }
-        } else if (!canShowSettingsMenu && !canShowClickImage) {
+        } else if (!canShowSettingsMenu && !canShowClickImage && !canPlayIntroduction) {
             cursor('default');
             imageMode(CORNER);
             image(homePageBackgroundImage, 0, 0, screenWidth, screenHeight);
@@ -122,14 +122,8 @@ function menuStart() {
                 cursor('pointer');
                 image(homePagePlayButtonHover, screenWidth / 2 - 350 / 2 - 20, screenHeight / 1.2 - 125 / 2.5, 350, 125);
                 if (leftButtonIsPressed) {
+                    canPlayIntroduction = true;
                     leftButtonIsPressed = false
-                    haveStartTheGame = true;
-                    canDoTransition = true;
-                    newEngineSelected = ENGINE_TWO;
-                    mainMenuBackgroundSoundIsActivated = false;
-                    playMainMenuBackgroundSound()
-                    commmandMapBackgroundSoundIsActivated = true;
-                    playCommmandMapBackgroundSound();
                 }
             } else if (pointIsInRect([mouseX, mouseY], [screenWidth - 116, 20, 96, 96])) {
                 cursor('pointer');
@@ -141,9 +135,28 @@ function menuStart() {
             } else {
                 cursor('default');
             }
+        } else if (canPlayIntroduction) {
+            image(introductionIllustration, 0, 0, screenWidth, screenHeight);
+            introductionIllustration.play();
+            setTimeout(() => {
+                startGameAfterIntroduction();
+            }, 8500);
         }
     } else {
         image(endIllustration, 0, 0, screenWidth, screenHeight);
-        endIllustration.play();
+        endIllustration.loop();
+    }
+}
+
+function startGameAfterIntroduction() {
+    if (!haveStartGameAfterAnimation) {
+        haveStartTheGame = true;
+        canDoTransition = true;
+        newEngineSelected = ENGINE_TWO;
+        mainMenuBackgroundSoundIsActivated = false;
+        playMainMenuBackgroundSound()
+        commmandMapBackgroundSoundIsActivated = true;
+        playCommmandMapBackgroundSound();
+        haveStartGameAfterAnimation = true;
     }
 }
