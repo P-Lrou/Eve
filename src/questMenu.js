@@ -45,7 +45,7 @@ function drawQuestMenu() {
         }
         if (actualQuestName === 'sleepQuest') {
             headNumber = 0;
-            actualQuestTextMenu = "Finn à raison, je devrais aller me reposer."
+            actualQuestTextMenu = "Finn a raison, je devrais aller me reposer."
         }
         if (actualQuestName === 'goToCloneMapAfterSleep') {
             headNumber = 0;
