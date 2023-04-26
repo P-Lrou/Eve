@@ -70,6 +70,7 @@ function loadAssets() {
   seatsCommandMap = loadImage("assets/commandMap/seatsCommandMap.png")
   gunCommandMap = loadImage("assets/commandMap/gunCommandMap.png")
   cardCommandMap = loadImage("assets/commandMap/cardCommandMap.png")
+  redArrow = loadImage("assets/commandMap/redArrow.png")
 
   normalPipe = loadImage("assets/capsuleMap/normalPipe.png")
   gazPipe = loadImage("assets/capsuleMap/gazPipe.png")

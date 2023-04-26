@@ -79,6 +79,9 @@ function engineTwoStart() {
       if (!quests.goToCloneMapAfterSleep.cardTaked) {
         image(cardCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
+      if (quests.lastQuest.haveFiles && !quests.lastQuest.haveStartDestruction) {
+        image(redArrow.get(324 * 0, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      }
       drawPlayerEngineTwo();
       if (canShowArrows) {
         if (alphaArrows < 255) {

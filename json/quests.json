@@ -51,7 +51,7 @@
   },
   "lastQuest": {
     "lastQuestIsStarting": false,
-    "haveFiles": false,
+    "haveFiles": true,
     "haveStartDestruction": false,
     "haveTakeSuit": false,
     "canOpenDoorAnimation": false,

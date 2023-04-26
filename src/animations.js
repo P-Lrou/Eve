@@ -21,6 +21,7 @@ let indexOfEveIdleAnim = 0;
 let indexPlayerAlienSpriteEndFight = 0;
 let indexEveMoveEndGame = 0;
 let indexOfSpaceTouchAnimation = 0;
+let indexOfRedArrowAnimation = 0;
 
 
 function animations() {
@@ -188,6 +189,15 @@ function animations() {
             indexOfSpaceTouchAnimation += 1;
         } else {
             indexOfSpaceTouchAnimation = 0;
+        }
+    }
+
+    if (animationCount % 20 === 0) {
+        console.log(indexOfRedArrowAnimation)
+        if (indexOfRedArrowAnimation < 19) {
+            indexOfRedArrowAnimation += 1
+        } else {
+            indexOfRedArrowAnimation = 0
         }
     }
 }
