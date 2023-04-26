@@ -2,7 +2,7 @@
 
 //^ This function actually start and managed the Engine One
 function engineOneStart() {
-  cursor('default');
+  cursor('none');
   //- Here change map if doors are closed
   if (rigthDoorsAreClosed || leftDoorsAreClosed) {
     map = map2

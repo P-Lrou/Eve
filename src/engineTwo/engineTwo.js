@@ -3,7 +3,7 @@
 //^ This function actually start and managed the Engine One
 function engineTwoStart() {
   erase();
-  cursor('default');
+  cursor('none');
   playerInputsEngineTwo();
 
   //- This switch is used to setup all different map in the Engine Two
@@ -80,7 +80,7 @@ function engineTwoStart() {
         image(cardCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       if (quests.lastQuest.haveFiles && !quests.lastQuest.haveStartDestruction) {
-        image(redArrow.get(324 * 0, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+        image(redArrow.get(324 * indexOfRedArrowAnimation, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
       drawPlayerEngineTwo();
       if (canShowArrows) {

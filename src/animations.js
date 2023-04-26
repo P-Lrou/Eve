@@ -192,9 +192,8 @@ function animations() {
         }
     }
 
-    if (animationCount % 20 === 0) {
-        console.log(indexOfRedArrowAnimation)
-        if (indexOfRedArrowAnimation < 19) {
+    if (animationCount % 10 === 0) {
+        if (indexOfRedArrowAnimation < 16) {
             indexOfRedArrowAnimation += 1
         } else {
             indexOfRedArrowAnimation = 0
