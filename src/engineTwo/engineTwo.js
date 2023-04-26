@@ -169,6 +169,22 @@ function engineTwoStart() {
   }
   changeMapEngineTwo();
 
+  //- This part is used to show red alarms effect during engine One
+  if (acteTwoIsStarting) {
+    if (actualMapEngineTwo !== "cloneMap") {
+      fill('rgba(0,0,0,0.2)')
+      rect(0, 0, screenWidth, screenHeight)
+    }
+    if (actualMapEngineTwo === "cloneMap") {
+      fill(`rgba(${redValue}, 0, 0, 0.1)`)
+      rect(0, 0, screenWidth, screenHeight)
+    } else {
+      fill(`rgba(${redValue}, 0, 0, 0.3)`)
+      rect(0, 0, screenWidth, screenHeight)
+    }
+    noFill();
+  }
+
   //- This condition is used to show dialogs part in front of all during the Engine Two
   if (canInteract && !canMovePlayer && !animationActeTwoStart) {
     fill("rgba(31, 31, 31, 0.68)");

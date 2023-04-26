@@ -195,7 +195,7 @@ function writeText(actualDialog) {
         } else {
             image(skipButton.get(0, 0, 41, 15), (screenWidth - 890) / 2, (screenHeight / 1.5) + 25, 205, 75);
         }
-        textLeading(28);
+        textLeading(30);
         image(dialogsBackground, (screenWidth - 900) / 2, screenHeight - 200, 896, 176)
         noFill();
         if (bool) {
@@ -357,7 +357,7 @@ function writeText(actualDialog) {
             noStroke();
             textSize(35);
             fill("rgb(255,255,255)");
-            text(tempText, (screenWidth - 850) / 2, screenHeight - 150, 600, 120);
+            text(tempText, (screenWidth - 855) / 2, screenHeight - 150, 595, 120);
             noFill();
             image(
                 dialogsHeads.get(16 * actualHead, 0, 16, 16),
