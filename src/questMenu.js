@@ -4,7 +4,7 @@ function drawQuestMenu() {
     if (canDrawMenus) {
         let actualQuestTextMenu = ''
         let headNumber = -1;
-        image(questMenuBackground,10, 8, 384, 128)
+        image(questMenuBackground, 10, 8, 384, 128)
         fill("white")
         noStroke();
         if (actualQuestName === 'seedsBagQuest') {
@@ -68,6 +68,9 @@ function drawQuestMenu() {
             }
             if (quests.lastQuest.haveStartDestruction) {
                 actualQuestTextMenu = "Je dois me dépêcher de rejoindre la capsule de survie, la station va bientôt exploser et tout emporter avec elle."
+            }
+            if (quests.lastQuest.haveStartDestruction && actualMapEngineTwo === "capsuleMap") {
+                actualQuestTextMenu = "Avant de sortir je doit m'équipé d'une combinaison et ouvrir les portes."
             }
         }
         textLeading(20);

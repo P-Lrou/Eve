@@ -151,6 +151,9 @@ function engineTwoStart() {
       openCapsuleAndStartLastDialogs();
       lastCameraAnimation();
       takeSuit();
+      if (quests.lastQuest.canShowExplosion) {
+        image(explosionCapsuleMap.get(324 * indexOfExplosionCapsuleMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      }
       break;
     case "dormsMap":
       image(backgroundDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
@@ -186,7 +189,7 @@ function engineTwoStart() {
   }
 
   //- This condition is used to show dialogs part in front of all during the Engine Two
-  if (canInteract && !canMovePlayer && !animationActeTwoStart) {
+  if (canInteract && !canMovePlayer && !animationActeTwoStart && !quests.lastQuest.canShowExplosion) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)
     tint(0, 0, 0)

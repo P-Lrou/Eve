@@ -22,6 +22,7 @@ let indexPlayerAlienSpriteEndFight = 0;
 let indexEveMoveEndGame = 0;
 let indexOfSpaceTouchAnimation = 0;
 let indexOfRedArrowAnimation = 0;
+let indexOfExplosionCapsuleMap = 0;
 
 
 function animations() {
@@ -197,6 +198,14 @@ function animations() {
             indexOfRedArrowAnimation += 1
         } else {
             indexOfRedArrowAnimation = 0
+        }
+    }
+
+    if (animationCount % 6 === 0 && indexOfExplosionCapsuleMap < 10) {
+        if (indexOfExplosionCapsuleMap < 10) {
+            indexOfExplosionCapsuleMap += 1
+        } else {
+            indexOfExplosionCapsuleMap = 0
         }
     }
 }

@@ -273,8 +273,12 @@ function canGoSleep() {
       animationActeTwoStart = true;
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO;
-      acteTwoIsStarting = true;
       quests.fight.canShowEve = true;
+      setTimeout(() => {
+        if (!acteTwoIsStarting) {
+          acteTwoIsStarting = true;
+        }
+      }, 500);
     }
   }
 }

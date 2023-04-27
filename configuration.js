@@ -334,9 +334,17 @@ function writeText(actualDialog) {
                                 }
                             }
                         } else {
-                            quests.lastQuest.canShowEnd = true;
-                            canDoTransition = true;
-                            newEngineSelected = MENU;
+                            if (indexOfExplosionCapsuleMap === 10) {
+                                indexOfExplosionCapsuleMap = 0
+                            }
+                            quests.lastQuest.canShowExplosion = true;
+                            setTimeout(() => {
+                                if (!quests.lastQuest.canShowEnd) {
+                                    quests.lastQuest.canShowEnd = true;
+                                    canDoTransition = true;
+                                    newEngineSelected = MENU;
+                                }
+                            }, 800);
                         }
                     }
                 }

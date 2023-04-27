@@ -88,6 +88,7 @@ function loadAssets() {
   suit = loadImage("assets/capsuleMap/suit.png")
   lightAlone = loadImage("assets/capsuleMap/lightAlone.png")
   lightAloneOff = loadImage("assets/capsuleMap/lightAloneOff.png")
+  explosionCapsuleMap = loadImage("assets/capsuleMap/explosionCapsuleMap.png")
 
   backgroundDormsMap = loadImage("assets/dormsMap/backgroundDormsMap.png")
   screenOneAnimationDormsMap = loadImage("assets/dormsMap/screenOneAnimationDormsMap.png")
