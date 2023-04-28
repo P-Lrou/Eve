@@ -161,7 +161,6 @@ function menuStart() {
             endIllustration.stop();
             if (canShowCreditsOne) {
                 if (!haveTransitionEnd) {
-                    console.log('yey')
                     haveTransitionEnd = true;
                     canDoTransition = true;
                     newEngineSelected = MENU;
