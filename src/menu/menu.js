@@ -160,24 +160,45 @@ function menuStart() {
         if (canShowCredits) {
             endIllustration.stop();
             if (canShowCreditsOne) {
-                image(credits1, 0, 0, screenWidth, screenHeight);
+                if (!haveTransitionEnd) {
+                    console.log('yey')
+                    haveTransitionEnd = true;
+                    canDoTransition = true;
+                    newEngineSelected = MENU;
+                }
+                setTimeout(() => {
+                    if (canShowCreditsOne) {
+                        image(credits1, 0, 0, screenWidth, screenHeight);
+                    }
+                }, 200);
                 setTimeout(() => {
                     canShowCreditsOne = false;
                     canShowCreditsTwo = true;
-                }, 5000);
+                    haveTransitionEnd = false;
+                }, 6000);
             }
-            if (canShowCreditsTwo) {
-                image(credits2, 0, 0, screenWidth, screenHeight);
-                setTimeout(() => {
-                    canShowCreditsTwo = false;
-                    canShowCreditsThree = true;
-                }, 5000);
-            }
-            if (canShowCreditsThree) {
-                image(credits3, 0, 0, screenWidth, screenHeight);
-                setTimeout(() => {
-                    location.reload();
-                }, 8000);
+            if (canShowCredits) {
+                endIllustration.stop();
+                if (canShowCreditsOne) {
+                    image(credits1, 0, 0, screenWidth, screenHeight);
+                    setTimeout(() => {
+                        canShowCreditsOne = false;
+                        canShowCreditsTwo = true;
+                    }, 5000);
+                }
+                if (canShowCreditsTwo) {
+                    image(credits2, 0, 0, screenWidth, screenHeight);
+                    setTimeout(() => {
+                        canShowCreditsTwo = false;
+                        canShowCreditsThree = true;
+                    }, 5000);
+                }
+                if (canShowCreditsThree) {
+                    image(credits3, 0, 0, screenWidth, screenHeight);
+                    setTimeout(() => {
+                        location.reload();
+                    }, 8000);
+                }
             }
         }
     }
