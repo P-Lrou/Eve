@@ -147,7 +147,7 @@ function menuStart() {
             }, 8500);
         }
     } else {
-        ursor('none');
+        cursor('none');
         capsuleMapBackgroundSoundIsActivated = false;
         playCapsuleMapBackgroundSound();
         image(endIllustration, 0, 0, screenWidth, screenHeight);
