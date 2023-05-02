@@ -151,7 +151,9 @@ function menuStart() {
         capsuleMapBackgroundSoundIsActivated = false;
         playCapsuleMapBackgroundSound();
         image(endIllustration, 0, 0, screenWidth, screenHeight);
-        endIllustration.play();
+        if (!canShowCredits) {
+            endIllustration.play();
+        }
         setTimeout(() => {
             if (!canShowCredits) {
                 canShowCredits = true;
@@ -160,44 +162,24 @@ function menuStart() {
         if (canShowCredits) {
             endIllustration.stop();
             if (canShowCreditsOne) {
-                if (!haveTransitionEnd) {
-                    haveTransitionEnd = true;
-                    canDoTransition = true;
-                    newEngineSelected = MENU;
-                }
-                setTimeout(() => {
-                    if (canShowCreditsOne) {
-                        image(credits1, 0, 0, screenWidth, screenHeight);
-                    }
-                }, 200);
+                image(credits1, 0, 0, screenWidth, screenHeight);
                 setTimeout(() => {
                     canShowCreditsOne = false;
                     canShowCreditsTwo = true;
-                    haveTransitionEnd = false;
-                }, 6000);
+                }, 5000);
             }
-            if (canShowCredits) {
-                endIllustration.stop();
-                if (canShowCreditsOne) {
-                    image(credits1, 0, 0, screenWidth, screenHeight);
-                    setTimeout(() => {
-                        canShowCreditsOne = false;
-                        canShowCreditsTwo = true;
-                    }, 5000);
-                }
-                if (canShowCreditsTwo) {
-                    image(credits2, 0, 0, screenWidth, screenHeight);
-                    setTimeout(() => {
-                        canShowCreditsTwo = false;
-                        canShowCreditsThree = true;
-                    }, 5000);
-                }
-                if (canShowCreditsThree) {
-                    image(credits3, 0, 0, screenWidth, screenHeight);
-                    setTimeout(() => {
-                        location.reload();
-                    }, 8000);
-                }
+            if (canShowCreditsTwo) {
+                image(credits2, 0, 0, screenWidth, screenHeight);
+                setTimeout(() => {
+                    canShowCreditsTwo = false;
+                    canShowCreditsThree = true;
+                }, 5000);
+            }
+            if (canShowCreditsThree) {
+                image(credits3, 0, 0, screenWidth, screenHeight);
+                setTimeout(() => {
+                    location.reload();
+                }, 8000);
             }
         }
     }
