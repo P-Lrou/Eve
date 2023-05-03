@@ -64,7 +64,7 @@ function drawQuestMenu() {
             headNumber = 4;
             actualQuestTextMenu = "Toutes les recherches sont stockées dans la salle des commandes... Je dois les récupérer.";
             if (quests.lastQuest.haveFiles) {
-                actualQuestTextMenu = "Si je ne fais rien, Eve finira par me retrouver. Lancer l'autodestruction, c'est le seul moyen ... ";
+                actualQuestTextMenu = "Si je ne fais rien, Ève finira par me retrouver. Lancer l'autodestruction, c'est le seul moyen ... ";
             }
             if (quests.lastQuest.haveStartDestruction) {
                 actualQuestTextMenu = "Je dois me dépêcher de rejoindre la capsule de survie, la station va bientôt exploser et tout emporter."
