@@ -14,7 +14,7 @@
       "canMove": true,
       "canTalk": true,
       "dialog": [
-        ["Eve continue d'évoluer, elle me surprend de jour en jour."],
+        ["Ève continue d'évoluer, elle me surprend de jour en jour."],
         [2],
         [
           "Ah, te revoilà. Les capteurs dans la cuve de Ève indiquent un taux d'oxygène anormal ...",

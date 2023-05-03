@@ -3,7 +3,7 @@
     ["Notre planète Terre, nous avons fini par la consumer entièrement ...", "Je n'aurai sûrement jamais l'occasion d'y retourner."],
     ["Cette plante envahira bientôt toute la station ..."],
     ["Les expériences d'Octavia sur la flore ne cesseront jamais de m'émerveiller... ", "Et de me terrifier ..."],
-    ["Eve...", "Le premier prototype d'humain génétiquement modifié ...", "Le sort de l'humanité tout entière repose sur elle.","Sa génération devra repeupler la Terre, nous continuerons de vivre à travers elle."],
+    ["Ève...", "Le premier prototype d'humain génétiquement modifié ...", "Le sort de l'humanité tout entière repose sur elle.","Sa génération devra repeupler la Terre, nous continuerons de vivre à travers elle."],
     ["Ces expériences étaient nécessaires ...", "J'en fait encore des cauchemars ..."],
     ["C'est le lit de Finn, le mien est plus loin."],
     [0, 0, 0, 0]
@@ -46,7 +46,7 @@
     [0]
   ],
   "figth":[
-    ["LoOWeeEn", "Eve ... SouuFfree ... Trop ..."],
+    ["LoOWeeEn", "Ève ... SouuFfree ... Trop ..."],
     [4,4],
     [
       "Ève est sonnée ...",
@@ -66,21 +66,21 @@
   ],
   "endGame":[
     [
-      "Si je ne fou pas le feu à cette station Eve serait capable d'en prendre les commandes et de me retrouver jusqu'au fin fond de l'espace.",
+      "Si je ne fou pas le feu à cette station Ève serait capable d'en prendre les commandes et de me retrouver jusqu'au fin fond de l'espace.",
       "Elle en veut après moi, je l'ai vu dans ses yeux ...",
       "Pas de retour possible, avec le dossier d'analyses j'ai encore une chance d'accomplir ma mission dans la capsule de survie.",
-      "Eve n'est pas digne de nous remplacer ..."
+      "Ève n'est pas digne de nous remplacer ..."
     ],
     [0, 0, 0, 0],
     ["Je n'ai plus le temps !"],
     [0],
     [
-      "Eve, je savais que tu viendrais me chercher, tu as gagné ...",
+      "Ève, je savais que tu viendrais me chercher, tu as gagné ...",
       "Nous t'avons aimé comme notre enfant, tu portais en toi l'espoir de toute l'humanité. Comment à tu pu faire ça à nous, tes créateurs.",
       "Humains ne provoquent que souffrance ...",
-      "Humains égoïstes, ont fait souffrir Eve, ont fait souffrir la Terre...",
+      "Humains égoïstes, ont fait souffrir Ève, ont fait souffrir la Terre...",
       "Veulent recommencer ...",
-      "Vous devoir assumer conséquences de vos actes, payer pour vos torts. Eve doit s'assurer qu'humanité s'éteint.",
+      "Vous devoir assumer conséquences de vos actes, payer pour vos torts. Ève doit s'assurer qu'humanité s'éteint.",
       "Humain meurt, univers subsiste, Terre renaît.",
       "Adieu."
     ],
