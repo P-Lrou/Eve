@@ -147,10 +147,13 @@ function menuStart() {
             }, 8500);
         }
     } else {
+        cursor('none');
         capsuleMapBackgroundSoundIsActivated = false;
         playCapsuleMapBackgroundSound();
         image(endIllustration, 0, 0, screenWidth, screenHeight);
-        endIllustration.play();
+        if (!canShowCredits) {
+            endIllustration.play();
+        }
         setTimeout(() => {
             if (!canShowCredits) {
                 canShowCredits = true;
@@ -184,6 +187,7 @@ function menuStart() {
 
 function startGameAfterIntroduction() {
     if (!haveStartGameAfterAnimation) {
+        cursor('none');
         haveStartTheGame = true;
         canDoTransition = true;
         newEngineSelected = ENGINE_TWO;

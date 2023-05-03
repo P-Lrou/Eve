@@ -10,7 +10,7 @@ function playerInputsEngineTwo() {
     playerState = "mooving";
     playerPosX -= playerSpeedEngineTwo;
     if (playerPosX < 200) {
-      if (-EngineTwoMapX > 0) {
+      if (-EngineTwoMapX > 15) {
         EngineTwoMapX += playerSpeedEngineTwo;
         playerPosX += playerSpeedEngineTwo;
       } else {
@@ -273,8 +273,17 @@ function canGoSleep() {
       animationActeTwoStart = true;
       canMovePlayer = false;
       newEngineSelected = ENGINE_TWO;
-      acteTwoIsStarting = true;
       quests.fight.canShowEve = true;
+      setTimeout(() => {
+        if (!acteTwoIsStarting) {
+          acteTwoIsStarting = true;
+          setTimeout(() => {
+            if (!canShowRedAlert) {
+              canShowRedAlert = true;
+            }
+          }, 2000);
+        }
+      }, 500);
     }
   }
 }

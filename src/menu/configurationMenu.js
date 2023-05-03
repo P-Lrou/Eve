@@ -12,3 +12,5 @@ let canShowCredits = false;
 let canShowCreditsOne = true;
 let canShowCreditsTwo = false;
 let canShowCreditsThree = false;
+
+let haveTransitionEnd = false;

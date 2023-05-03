@@ -70,6 +70,7 @@ function loadAssets() {
   seatsCommandMap = loadImage("assets/commandMap/seatsCommandMap.png")
   gunCommandMap = loadImage("assets/commandMap/gunCommandMap.png")
   cardCommandMap = loadImage("assets/commandMap/cardCommandMap.png")
+  redArrow = loadImage("assets/commandMap/redArrow.png")
 
   normalPipe = loadImage("assets/capsuleMap/normalPipe.png")
   gazPipe = loadImage("assets/capsuleMap/gazPipe.png")
@@ -87,6 +88,7 @@ function loadAssets() {
   suit = loadImage("assets/capsuleMap/suit.png")
   lightAlone = loadImage("assets/capsuleMap/lightAlone.png")
   lightAloneOff = loadImage("assets/capsuleMap/lightAloneOff.png")
+  explosionCapsuleMap = loadImage("assets/capsuleMap/explosionCapsuleMap.png")
 
   backgroundDormsMap = loadImage("assets/dormsMap/backgroundDormsMap.png")
   screenOneAnimationDormsMap = loadImage("assets/dormsMap/screenOneAnimationDormsMap.png")

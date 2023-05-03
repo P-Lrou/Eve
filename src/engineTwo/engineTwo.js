@@ -3,7 +3,7 @@
 //^ This function actually start and managed the Engine One
 function engineTwoStart() {
   erase();
-  cursor('default');
+  cursor('none');
   playerInputsEngineTwo();
 
   //- This switch is used to setup all different map in the Engine Two
@@ -79,6 +79,9 @@ function engineTwoStart() {
       if (!quests.goToCloneMapAfterSleep.cardTaked) {
         image(cardCommandMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
       }
+      if (quests.lastQuest.haveFiles && !quests.lastQuest.haveStartDestruction) {
+        image(redArrow.get(324 * indexOfRedArrowAnimation, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      }
       drawPlayerEngineTwo();
       if (canShowArrows) {
         if (alphaArrows < 255) {
@@ -148,6 +151,9 @@ function engineTwoStart() {
       openCapsuleAndStartLastDialogs();
       lastCameraAnimation();
       takeSuit();
+      if (quests.lastQuest.canShowExplosion) {
+        image(explosionCapsuleMap.get(324 * indexOfExplosionCapsuleMap, 0, 324, 60), EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
+      }
       break;
     case "dormsMap":
       image(backgroundDormsMap, EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight);
@@ -166,8 +172,24 @@ function engineTwoStart() {
   }
   changeMapEngineTwo();
 
+  //- This part is used to show red alarms effect during engine One
+  if (acteTwoIsStarting && canShowRedAlert) {
+    if (actualMapEngineTwo !== "cloneMap") {
+      fill('rgba(0,0,0,0.2)')
+      rect(0, 0, screenWidth, screenHeight)
+    }
+    if (actualMapEngineTwo === "cloneMap") {
+      fill(`rgba(${redValue}, 0, 0, 0.1)`)
+      rect(0, 0, screenWidth, screenHeight)
+    } else {
+      fill(`rgba(${redValue}, 0, 0, 0.3)`)
+      rect(0, 0, screenWidth, screenHeight)
+    }
+    noFill();
+  }
+
   //- This condition is used to show dialogs part in front of all during the Engine Two
-  if (canInteract && !canMovePlayer && !animationActeTwoStart) {
+  if (canInteract && !canMovePlayer && !animationActeTwoStart && !quests.lastQuest.canShowExplosion) {
     fill("rgba(31, 31, 31, 0.68)");
     rect(EngineTwoMapX, EngineTwoMapY, engineTwoMapSizeW * (screenHeight / engineTwoMapSizeH), screenHeight)
     tint(0, 0, 0)

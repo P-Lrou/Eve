@@ -58,6 +58,7 @@
     "havePressOnButtonToOpenCapsule": false,
     "stopAnimation": false,
     "canDrawEve": false,
+    "canShowExplosion": false,
     "canShowEnd": false
   }
 }

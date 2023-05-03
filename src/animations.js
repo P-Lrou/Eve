@@ -21,6 +21,8 @@ let indexOfEveIdleAnim = 0;
 let indexPlayerAlienSpriteEndFight = 0;
 let indexEveMoveEndGame = 0;
 let indexOfSpaceTouchAnimation = 0;
+let indexOfRedArrowAnimation = 0;
+let indexOfExplosionCapsuleMap = 0;
 
 
 function animations() {
@@ -137,10 +139,10 @@ function animations() {
 
     //+ Set animation for Door Open animation
     if (animationCount % 6 === 0) {
-        if (indexOfDoorOpenAnimationCapsuleMap < 21) {
+        if (indexOfDoorOpenAnimationCapsuleMap < 29) {
             indexOfDoorOpenAnimationCapsuleMap += 1;
         } else {
-            indexOfDoorOpenAnimationCapsuleMap = 22;
+            indexOfDoorOpenAnimationCapsuleMap = 29;
         }
     }
 
@@ -188,6 +190,22 @@ function animations() {
             indexOfSpaceTouchAnimation += 1;
         } else {
             indexOfSpaceTouchAnimation = 0;
+        }
+    }
+
+    if (animationCount % 10 === 0) {
+        if (indexOfRedArrowAnimation < 16) {
+            indexOfRedArrowAnimation += 1
+        } else {
+            indexOfRedArrowAnimation = 0
+        }
+    }
+
+    if (animationCount % 6 === 0 && indexOfExplosionCapsuleMap < 10) {
+        if (indexOfExplosionCapsuleMap < 10) {
+            indexOfExplosionCapsuleMap += 1
+        } else {
+            indexOfExplosionCapsuleMap = 0
         }
     }
 }
