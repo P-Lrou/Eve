@@ -277,6 +277,11 @@ function canGoSleep() {
       setTimeout(() => {
         if (!acteTwoIsStarting) {
           acteTwoIsStarting = true;
+          setTimeout(() => {
+            if (!canShowRedAlert) {
+              canShowRedAlert = true;
+            }
+          }, 2000);
         }
       }, 500);
     }

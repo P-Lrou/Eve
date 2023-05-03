@@ -173,7 +173,7 @@ function engineTwoStart() {
   changeMapEngineTwo();
 
   //- This part is used to show red alarms effect during engine One
-  if (acteTwoIsStarting) {
+  if (acteTwoIsStarting && canShowRedAlert) {
     if (actualMapEngineTwo !== "cloneMap") {
       fill('rgba(0,0,0,0.2)')
       rect(0, 0, screenWidth, screenHeight)
