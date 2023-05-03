@@ -10,7 +10,7 @@ function playerInputsEngineTwo() {
     playerState = "mooving";
     playerPosX -= playerSpeedEngineTwo;
     if (playerPosX < 200) {
-      if (-EngineTwoMapX > 0) {
+      if (-EngineTwoMapX > 15) {
         EngineTwoMapX += playerSpeedEngineTwo;
         playerPosX += playerSpeedEngineTwo;
       } else {

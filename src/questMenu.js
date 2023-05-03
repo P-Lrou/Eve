@@ -62,15 +62,15 @@ function drawQuestMenu() {
         }
         if (actualQuestName === 'lastQuest') {
             headNumber = 4;
-            actualQuestTextMenu = "Toutes les recherches sont stockées dans la salle des commandes... Je dois les récupérer avant de quitter la station";
+            actualQuestTextMenu = "Toutes les recherches sont stockées dans la salle des commandes... Je dois les récupérer.";
             if (quests.lastQuest.haveFiles) {
                 actualQuestTextMenu = "Si je ne fais rien, Eve finira par me retrouver. Lancer l'autodestruction, c'est le seul moyen ... ";
             }
             if (quests.lastQuest.haveStartDestruction) {
-                actualQuestTextMenu = "Je dois me dépêcher de rejoindre la capsule de survie, la station va bientôt exploser et tout emporter avec elle."
+                actualQuestTextMenu = "Je dois me dépêcher de rejoindre la capsule de survie, la station va bientôt exploser et tout emporter."
             }
             if (quests.lastQuest.haveStartDestruction && actualMapEngineTwo === "capsuleMap") {
-                actualQuestTextMenu = "Avant de sortir je doit m'équipé d'une combinaison et ouvrir les portes."
+                actualQuestTextMenu = "Avant de sortir je dois m'équiper d'une combinaison et ouvrir les portes."
             }
         }
         textLeading(20);

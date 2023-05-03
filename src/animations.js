@@ -139,10 +139,10 @@ function animations() {
 
     //+ Set animation for Door Open animation
     if (animationCount % 6 === 0) {
-        if (indexOfDoorOpenAnimationCapsuleMap < 21) {
+        if (indexOfDoorOpenAnimationCapsuleMap < 29) {
             indexOfDoorOpenAnimationCapsuleMap += 1;
         } else {
-            indexOfDoorOpenAnimationCapsuleMap = 22;
+            indexOfDoorOpenAnimationCapsuleMap = 29;
         }
     }
 
