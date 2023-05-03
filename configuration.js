@@ -330,7 +330,7 @@ function writeText(actualDialog) {
                                         canDrawMenus = true;
                                         console.log('%c<----Dialog Have End With Success---->', 'color:rgb(0, 0, 255)')
                                         console.log('%c<----Introduction Have End With Success---->', 'color:rgb(0, 140, 255)')
-                                    }, 8000);
+                                    }, 7000);
                                 }
                             }
                         } else {
